@@ -1,6 +1,6 @@
 
 // Remember to console.log() to debug your code and check your solutions!
-
+testing
 
 // Declare a variable and assign it to a numeric value
 // Half that value and re-assign it to the previous variable 
