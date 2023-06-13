@@ -1,14 +1,12 @@
 
 // If x or y is equal to 42 log 'I see you've found the ultimate answer to life, the universe and everything.'
-
+/*
 let x = 2
 let y = 3
 
-if (console.log(Boolean(`$[x] === 42 || $[y] === 42`))){
+if(x === 42 || y === 42){
     console.log("I see you've found the ultimate answer to life, the universe and everything.")
 }
-
-
 
 // Save your name to a variable called name
 // If your name has less than 10 characters then log, 'you'll need more characters!' to the console.
