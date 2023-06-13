@@ -1,5 +1,5 @@
 
-// If x or y is equal to 42 log 'I see you've found the ultimate answer to life, the universe and everything.'
+// 1. If x or y is equal to 42 log 'I see you've found the ultimate answer to life, the universe and everything.'
 /*
 let x = 2
 let y = 3
@@ -21,15 +21,29 @@ if console.log(Boolean($[myName].indexOf(myName) < 10)){
 }
 */
 
-
-
-// Create the following if statement: 
+// 3. Create the following if statement: 
 // If this month (1-12) is after March and before December, log 'Winter is Coming!'
 
+//let month = 6 //June
 
-
-// Create two variables a & b initialized as numbers
+/*if(month > 3 && month < 12){
+    console.log("Winter is Coming!")
+}
+*/
+// 4. Create two variables a & b initialized as numbers
 // Write the following if statement
 // If a is greater than b, log 'a is greater than b'
 // If a is less than b, log 'a is less than b'
 // otherwise log 'a is equal to b'
+
+/*let a = 20
+let b = 20
+
+if(a > b){
+    console.log("a is greater than b")
+} else if(a < b){
+    console.log("a is less than b")
+} else if(a === b){
+    console.log("a is equal to b")
+}
+  */  
