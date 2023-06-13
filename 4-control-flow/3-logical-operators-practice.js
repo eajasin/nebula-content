@@ -7,19 +7,19 @@ let y = 3
 if(x === 42 || y === 42){
     console.log("I see you've found the ultimate answer to life, the universe and everything.")
 }
-
+*/
 // Save your name to a variable called name
 // If your name has less than 10 characters then log, 'you'll need more characters!' to the console.
 // Otherwise log, 'I see you've got enough characters!' to the console. 
 
-/*let myName = "Elizabeth"
+let myName = "Elizabeth"
+console.log(myName.length)
 
-if console.log(Boolean($[myName].indexOf(myName) < 10)){
+if((myName.length < 10)){
     console.log("You'll need more characters!")
-} else if (console.log($[myName].indexOf($[myName]) > 10)){
+} else if(myName.length >= 10){
     console.log("I see you've got enough characters!")
 }
-*/
 
 // 3. Create the following if statement: 
 // If this month (1-12) is after March and before December, log 'Winter is Coming!'
