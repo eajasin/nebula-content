@@ -77,7 +77,7 @@ console.log(string3.slice(0,3))
 // 9. Turn the following string into an array of words: 'This-is-a-sentence';
 
 const array = 'This-is-a-sentence'
-let stringArray = array.split('')
+let stringArray = array.split('-')
 console.log(stringArray)
 /*How do I find the indices of all characters in a string? 
 How do I remove the dashes?  Doing so should lead to an array of words rather
