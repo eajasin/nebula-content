@@ -7,7 +7,7 @@ console.log(multipliedElement)
 
 // Add an additional element to the prior array
 
-numArr.push(6)
+numArr.push(20)
 console.log(numArr)
 
 // In one line, remove the last element from the prior array and set that element to a variable called 'removedItem'
@@ -22,16 +22,20 @@ numArr.includes("1") ? console.log(true) : console.log(false)
 
 // Remove the first element from the prior array and set that element to a variable called 'removedFirstItem'
 
-//numArr.shift(numArr[0]) = "removedFirstItem"
+//numArr[numArr.shift()] = "removedFirstItem"
 //console.log(numArr)
+// I CAN DO IT THIS WAY: numArr[0] = "removedFirstItem", BUT HOW WOULD I USE SHIFT?
 
 // Add that item back
 
+numArr.unshift(1)
+console.log(numArr)
+
 
 // Given the following array, sort it using an array method
-//let sortThis = ["dairy", "banana", "cherry", "apple", "eel"];
-//let sorted = sortThis.sort(sortThis)
-//console.log(sorted)
+let sortThis = ["dairy", "banana", "cherry", "apple", "eel"];
+console.log(sortThis.sort())
+//   DEFAULT IS TO SORT IN ALPHABETICAL ORDER?
 
 // Now reverse the prior array
 
@@ -71,6 +75,4 @@ console.log(array1 + array2)
 
 // Create a multi-dimensional array
 
-const mdArray = [[1,2,3], [4,5,6], [7,8,9]]
-
-
+const mdArray = [["do","re"], ["mi", "fa"], ["sol", "la"], ["ti", "do"]]
