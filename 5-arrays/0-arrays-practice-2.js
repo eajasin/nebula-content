@@ -39,6 +39,8 @@ console.log(sortThis.sort())
 
 // Now reverse the prior array
 
+console.log(sortThis.length = 0)
+//NEED ASSISTANCE WITH THIS ONE
 
   
 // Write a string stating your favorite 3 foods. 
@@ -54,8 +56,9 @@ let foodArray = ["fruits", "vegetables", "junk food"]
 // Convert the output from the prior example back into a string, but with dashes between the words. 
 //  Ex: 'My-favorite-foods-are,-za,-pineapple,-hawaiian-pizza'
 
-//foodArray.split()
-//console.log(foodArray)
+let foodArrayAsString = foodArray.toString
+console.log(foodArrayAsString.replace(" ","-"))
+//NEED ASSISTANCE WITH THIS ONE
 
 // Given the following array: [1,2,3,4,5,7,8,9,10]
 // insert the number 6 into its logical location
@@ -63,8 +66,8 @@ let foodArray = ["fruits", "vegetables", "junk food"]
 const sampleArray = [1,2,3,4,5,7,8,9,10]
 sampleArray.splice(5, 0, 6)
 console.log(sampleArray)
-//HOW TO INSERT NEW ELEMENT INTO EXISTING
 //arr.splice(index, 0, item); will insert item into arr at the specified index (deleting 0 items first, that is, it's just an insert).
+
 
 // Create two arrays and, using JavaScript join them together
 
