@@ -79,3 +79,4 @@ console.log(array1 + array2)
 // Create a multi-dimensional array
 
 const mdArray = [["do","re"], ["mi", "fa"], ["sol", "la"], ["ti", "do"]]
+//HOW TO AMEND A GIT PUSH
