@@ -17,9 +17,9 @@ console.log(myName.length)
 
 if((myName.length < 10)){
     console.log("You'll need more characters!")
-} else if(myName.length >= 10){
+} else (myName.length >= 10)
     console.log("I see you've got enough characters!")
-}
+
 
 // 3. Create the following if statement: 
 // If this month (1-12) is after March and before December, log 'Winter is Coming!'
