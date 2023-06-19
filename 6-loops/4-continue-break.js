@@ -18,9 +18,18 @@ for(i = 0; i < string.length; i++){
 //      Stop immediately after finding that number
 //      ex: Input: ['a','b','c', 100,'e']
 //          Output: 'at index 3 there is the number 100'
-
+/*
 let foundNum = 34689869486948561
 
+for(i = 0; i < foundNum.length; i++){
+    let currentNumber = foundNum[0]
+    if(currentNumber === 9){
+        break;
+        let numIndex = indexof(9)
+        console.log(`at index ${numIndex} there is the number 9`)
+    }
+}
+*/
 
 
 
@@ -29,3 +38,15 @@ let foundNum = 34689869486948561
 //      If the current element is a number skip it
 //      Otherwise add the element to an array
 //      After finishing the loop log the new array to the console
+
+const newArray = ["dog", 3, 26, "cow", "chicken", 17]
+let arrayofStrings = []
+
+for(i = 0; i < newArray.length; i++){
+    let currentElement = newArray[i]
+    if(currentElement <=0 && currentElement > 0){ //can use "typeof" but how to make true/false?
+        continue;
+    } else
+        console.log(arrayofStrings.push(currentElement))
+    }
+console.log(arrayofStrings)
