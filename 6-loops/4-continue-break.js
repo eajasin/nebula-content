@@ -47,16 +47,17 @@
     const newArray = [3, "dog", 26, "cow", "chicken", 17]
     let arrayofStrings = []
 
-   for(i = 0; i < newArray.length; i++){
+   for(let i = 0; i < newArray.length; i++){
         let currentElement = newArray[i]
-               if(currentElement <=0 && currentElement > 0){ //can use "typeof" but how to make true/false?
-             continue;     
-             i++      
-        } else
-            arrayofStrings.push(currentElement)
+              if(typeOf currentElement = number){ //can use "typeof" but how to make true/false?
+             continue;    
+             i++  
+                }  if(typeOf currentElement = string){
+                    break;
+                    arrayofStrings.push(currentElement)
         
-        }       
+              }
+            }
      
-         
-                    
+                           
     console.log(arrayofStrings)
