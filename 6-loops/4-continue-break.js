@@ -2,15 +2,19 @@
 //      The loop should log the letter 'a' to the console
 //      STOP immediately after finding the letter 'a'
 
-const string = "I went to the zoo and saw two aardvarks."
+// const string = "I went to the zoo and observed two aardvarks."
 
-for(i = 0; i < string.length; i++){
-    let currentLetter = string[0]
-    if(currentLetter === "a"){
-        console.log("There's an a!")
-    break;
-    }
-}
+// for(let i = 0; i < string.length; i++){
+//     let currentLetter = string[i]
+//     if(currentLetter === "a"){
+//         console.log(currentLetter)
+//         console.log("There it is finally!")
+//     break;
+//     } else {
+//         i++
+//         console.log(currentLetter)
+//     console.log("That's not it")}
+// }
 
 
 // 2.   Write a for loop that looks for a number
@@ -19,16 +23,17 @@ for(i = 0; i < string.length; i++){
 //      ex: Input: ['a','b','c', 100,'e']
 //          Output: 'at index 3 there is the number 100'
 
-// let foundNum = 34689869486948561
+let num = 34689869486948561
+let foundNum = 3
 
-// for(i = 0; i < foundNum.length; i++){
-//     let currentNumber = foundNum[0]
-//     if(currentNumber === 9){
-//         break;
-//         let numIndex = indexof(9)
-//         console.log(`at index ${numIndex} there is the number 9`)
-//     }
-// }
+    for(let i = 0; i < num.length; i++){
+        let currentNum = num[i]
+        if(currentNum === foundNum){
+            console.log(`at index ${currentNum} there is the number ${foundNum}`)
+            break;
+        } 
+            }
+    
 
 
 
