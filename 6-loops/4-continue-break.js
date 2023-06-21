@@ -23,16 +23,16 @@
 //      ex: Input: ['a','b','c', 100,'e']
 //          Output: 'at index 3 there is the number 100'
 
-let num = 34689869486948561
-let foundNum = 3
+// let num = 34689869486948561
+// let foundNum = 3
 
-    for(let i = 0; i < num.length; i++){
-        let currentNum = num[i]
-        if(currentNum === foundNum){
-            console.log(`at index ${currentNum} there is the number ${foundNum}`)
-            break;
-        } 
-            }
+//     for(let i = 0; i < num.length; i++){
+//         let currentNum = num[i]
+//         if(currentNum === foundNum){
+//             console.log(`at index ${currentNum} there is the number ${foundNum}`)
+//             break;
+//         } 
+//             }
     
 
 
@@ -44,14 +44,19 @@ let foundNum = 3
 //      Otherwise add the element to an array
 //      After finishing the loop log the new array to the console
 
-// const newArray = ["dog", 3, 26, "cow", "chicken", 17]
-// let arrayofStrings = []
+    const newArray = [3, "dog", 26, "cow", "chicken", 17]
+    let arrayofStrings = []
 
-// for(i = 0; i < newArray.length; i++){
-//     let currentElement = newArray[i]
-//     if(currentElement <=0 && currentElement > 0){ //can use "typeof" but how to make true/false?
-//         continue;
-//     } else
-//         console.log(arrayofStrings.push(currentElement))
-//     }
-//console.log(arrayofStrings)
+   for(i = 0; i < newArray.length; i++){
+        let currentElement = newArray[i]
+               if(currentElement <=0 && currentElement > 0){ //can use "typeof" but how to make true/false?
+             continue;     
+             i++      
+        } else
+            arrayofStrings.push(currentElement)
+        
+        }       
+     
+         
+                    
+    console.log(arrayofStrings)
