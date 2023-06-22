@@ -49,15 +49,14 @@
 
    for(let i = 0; i < newArray.length; i++){
         let currentElement = newArray[i]
-              if(typeOf currentElement = number){ //can use "typeof" but how to make true/false?
-             continue;    
-             i++  
-                }  if(typeOf currentElement = string){
-                    break;
+        let num = newArray[0, 2, 5]
+        let string = newArray[1, 3, 4]
+              if(currentElement = num){ //can use "typeof" but how to make true/false?
+             continue;     
+              } else if(currentElement = string){
+                currentElement += string
                     arrayofStrings.push(currentElement)
-        
               }
             }
-     
-                           
+                               
     console.log(arrayofStrings)
