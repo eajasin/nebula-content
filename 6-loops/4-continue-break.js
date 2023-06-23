@@ -4,16 +4,16 @@
 
 // const string = "I went to the zoo and observed two aardvarks."
 
-// for(let i = 0; i < string.length; i++){
-//     let currentLetter = string[i]
-//     if(currentLetter === "a"){
-//         console.log(currentLetter)
-//         console.log("There it is finally!")
-//     break;
-//     } else {
-//         i++// did I need this?
-//         console.log(currentLetter)
-//     console.log("That's not it!")}
+for(let i = 0; i < string.length; i++){
+    let currentLetter = string[i]
+    if(currentLetter === "a"){
+        console.log(currentLetter)
+        console.log("There it is finally!")
+    break;
+    } else {
+        i++// did I need this?
+        console.log(currentLetter)
+    console.log("That's not it!")}
 // }
 
 
@@ -27,13 +27,13 @@
 // let numToBeFound = 75
 
 
-// for(let i = 0; i < numArray.length; i++){
-//   let currNum = numArray[i]
-//   let currIndex = numArray.indexOf(currNum)
-//     if(currNum === numToBeFound){
-//       console.log(`At index ${currIndex} there is the number ${numToBeFound}`)
-//   }
-// }
+for(let i = 0; i < numArray.length; i++){
+  let currNum = numArray[i]
+  let currIndex = numArray.indexOf(currNum)
+    if(currNum === numToBeFound){
+      console.log(`At index ${currIndex} there is the number ${numToBeFound}`)
+  }
+}
 //REVIEW FOR USE OF BREAK/CONTINUE
 
 
