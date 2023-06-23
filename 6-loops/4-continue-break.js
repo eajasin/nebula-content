@@ -2,19 +2,19 @@
 //      The loop should log the letter 'a' to the console
 //      STOP immediately after finding the letter 'a'
 
-const string = "I went to the zoo and observed two aardvarks."
+// const string = "I went to the zoo and observed two aardvarks."
 
-for(let i = 0; i < string.length; i++){
-    let currentLetter = string[i]
-    if(currentLetter === "a"){
-        console.log(currentLetter)
-        console.log("There it is finally!")
-    break;
-    } else {
-        i++// did I need this?
-        console.log(currentLetter)
-    console.log("That's not it!")}
-}
+// for(let i = 0; i < string.length; i++){
+//     let currentLetter = string[i]
+//     if(currentLetter === "a"){
+//         console.log(currentLetter)
+//         console.log("There it is finally!")
+//     break;
+//     } else {
+//         i++// did I need this?
+//         console.log(currentLetter)
+//     console.log("That's not it!")}
+// }
 
 
 // 2.   Write a for loop that looks for a number
@@ -23,18 +23,18 @@ for(let i = 0; i < string.length; i++){
 //      ex: Input: ['a','b','c', 100,'e']
 //          Output: 'at index 3 there is the number 100'
 
-// let num = 34689869486948561 (this should be an array)
-// let foundNum = 0
+// let numArray = [34, 56, 95, 80, 23, 18, 75]
+// let numToBeFound = 75
 
-//     for(let i = 0; i < num.length; i++){
-//         let currentNum = num[i]
-//         if(currentNum === foundNum){
-//             console.log(`at index ${currentNum} there is the number ${foundNum}`)
-//             break;
-//         } 
-//             }
-    
 
+// for(let i = 0; i < numArray.length; i++){
+//   let currNum = numArray[i]
+//   let currIndex = numArray.indexOf(currNum)
+//     if(currNum === numToBeFound){
+//       console.log(`At index ${currIndex} there is the number ${numToBeFound}`)
+//   }
+// }
+//REVIEW FOR USE OF BREAK/CONTINUE
 
 
 
@@ -44,16 +44,22 @@ for(let i = 0; i < string.length; i++){
 //      Otherwise add the element to an array
 //      After finishing the loop log the new array to the console
 
-    const newArray = [3, "dog", 26, "cow", "chicken", 17]
-    let arrayofStrings = []
+let mixedArray = [3, "dog", 26, "cow", "chicken", 17]
+let newArray = []
 
-   for(let i = 0; i < newArray.length; i++){
-        let currentElement = newArray[i]
-        let num = newArray[0, 2, 5]
-        let string = newArray[1, 3, 4]
-              if(typeof currentElement === 'number'){ //can use "typeof" but how to make true/false?
-             continue;     
-          arrayofStrings.push(currentElement)
-            }
-                               
-    console.log(arrayofStrings)
+for (let i = 0; i < mixedArray.length; i++){
+  let currElement = mixedArray[i];
+  if(typeof currElement == 'string'){
+    newArray.push(currElement)
+  }
+}
+console.log(newArray)
+
+//REVIEW FOR USE OF BREAK/CONTINUE
+
+
+
+
+
+
+
