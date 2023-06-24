@@ -2,7 +2,7 @@
 //      The loop should log the letter 'a' to the console
 //      STOP immediately after finding the letter 'a'
 
-// const string = "I went to the zoo and observed two aardvarks."
+const string = "I went to the zoo and observed two aardvarks."
 
 for(let i = 0; i < string.length; i++){
     let currentLetter = string[i]
@@ -14,7 +14,7 @@ for(let i = 0; i < string.length; i++){
         i++// did I need this?
         console.log(currentLetter)
     console.log("That's not it!")}
-// }
+}
 
 
 // 2.   Write a for loop that looks for a number
@@ -23,8 +23,8 @@ for(let i = 0; i < string.length; i++){
 //      ex: Input: ['a','b','c', 100,'e']
 //          Output: 'at index 3 there is the number 100'
 
-// let numArray = [34, 56, 95, 80, 23, 18, 75]
-// let numToBeFound = 75
+let numArray = [34, 56, 95, 80, 23, 18, 75]
+let numToBeFound = 95
 
 
 for(let i = 0; i < numArray.length; i++){
@@ -32,9 +32,11 @@ for(let i = 0; i < numArray.length; i++){
   let currIndex = numArray.indexOf(currNum)
     if(currNum === numToBeFound){
       console.log(`At index ${currIndex} there is the number ${numToBeFound}`)
+      break;
   }
 }
-//REVIEW FOR USE OF BREAK/CONTINUE
+
+
 
 
 
@@ -51,11 +53,12 @@ for (let i = 0; i < mixedArray.length; i++){
   let currElement = mixedArray[i];
   if(typeof currElement == 'string'){
     newArray.push(currElement)
+          }
   }
-}
 console.log(newArray)
 
-//REVIEW FOR USE OF BREAK/CONTINUE
+
+
 
 
 
