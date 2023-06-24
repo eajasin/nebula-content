@@ -8,7 +8,7 @@ const arrayOfNums = (arr) => {
   let arrayofNewNums = []
   for(i = 0; i < arr.length; i++){
     
-    arrayofNewNums.push(arr[i] += 1)
+    arrayofNewNums.push(arr[i]+= 1)
   } 
     return arrayofNewNums
 }
