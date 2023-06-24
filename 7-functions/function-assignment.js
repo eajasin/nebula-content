@@ -42,7 +42,7 @@ console.log(findTheLetter(sampleString, letterInString))
 // Example array = ["Tom Smith", "Bob Jones", "Bill Williams"] returns ["Tom", "Bob", "Bill"]
 
  let soloMotownArtists = ["Marvin Gaye", "Stevie Wonder", "Smokey Robinson", "Diana Ross"]
-  let newArray = []
+  let newArray1 = []
 
 const arrayOfNames = (array) => {
 let arrayOfFirstNames = []
