@@ -36,11 +36,15 @@ let backtoSquareOne = arrayOfNames.join(" ")
 
 // Given the name Tony Stark, get his initials
 
-// let ironMan = "Tony Stark"
-// let split = ironMan.split(" ")
-// let initials = split.slice(0)
+let ironMan = "Tony Stark"
+let split = ironMan.split(" ")
+let initials = ""
+for(i = 0; i < split.length; i++){
+     initials += split[i][0]
+    
+}
 
-// console.log(initials)
+console.log(initials)
 
 // REVIEW HOW TO GET INITIALS
 
