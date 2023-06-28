@@ -1,13 +1,13 @@
 // 1) Create an object representing a car and assign it to a variable. 
 // Add properties such as "make," "model," and "year" to describe the car.
 
-const nissan = {
-    model: "sentra",
-    year: 2014,
-    color: "silver"
- }
+// const nissan = {
+//     model: "sentra",
+//     year: 2014,
+//     color: "silver"
+//  }
 
-// // console.log(nissan)
+// // // console.log(nissan)
 
 // // 2) Write a function that takes an object as an argument and returns an array of all the keys in the object.
 
@@ -124,7 +124,17 @@ const student ={
             grade3: 85
         }
 }
-console.log(student)
+//grades are 93, 81, 85
+//console.log(student)
+
+function avgGrade (student){
+    let averageGrade = 0    
+    //let count = 3 //how to access the grades key
+    
+}
+
+console.log(avgGrade(student))
+
 // function avgGrade (student){
 //       let count = 3
 // for(let item in grades)
