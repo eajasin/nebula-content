@@ -1,0 +1,135 @@
+// 1) Create an object representing a car and assign it to a variable. 
+// Add properties such as "make," "model," and "year" to describe the car.
+
+const nissan = {
+    model: "sentra",
+    year: 2014,
+    color: "silver"
+ }
+
+// // console.log(nissan)
+
+// // 2) Write a function that takes an object as an argument and returns an array of all the keys in the object.
+
+
+// function arrOfKeys (nissan){
+//         let keysOfObject= []
+//         for(let key in nissan){
+//          keysOfObject.push(key)
+//     } return keysOfObject
+// }
+// console.log(arrOfKeys(nissan))
+
+
+// function arrayOfKeys (nissan){
+    
+//     let keys = []
+//     for(let key in nissan){
+//         keys.push(key) 
+//     } return keys
+// }
+// console.log(arrayOfKeys(nissan)) //see array of keys from nissan object
+
+
+
+
+// 3) Create an object representing a shopping cart with various items. 
+// Each item should have properties such as "name," "price," and "quantity."
+// // Write a function to calculate the total cost of all items in the shopping cart.
+
+// const shoppingCart = {
+//     pants: {
+//         price: 30,
+//         quantity: 1
+//     },
+//     skirt: {
+//         price: 40,
+//         quantity: 2
+//     },
+//     blouse: {
+//         price: 25,
+//         quantity: 3
+//     }
+// }
+// console.log(shoppingCart)
+
+// function totalCost(shoppingCart){
+//     totalCostWithTax = 0
+//     for(let key in shoppingCart){
+//         totalCostWithTax += (shoppingCart[key].price * shoppingCart[key].quantity) + (shoppingCart[key].price * shoppingCart[key].quantity)*.08
+//     } return totalCostWithTax
+// }
+// console.log(totalCost(shoppingCart))
+
+// let shoppingCart = {
+//     pants:{
+//         price: 30,
+//         quantity: 1
+//     }, 
+//     blouse: {
+//         price: 25,
+//         quantity: 1
+//     },
+    
+// }
+
+// function calculateTotalOfItems(Cart){
+//     totalCost = 0
+// for(let item in shoppingCart){
+//         totalCost += cart[item].price //access quanity, then ...* .quanity
+// }
+// return totalCost
+// }
+// console.log(calculateTotalOfItems(shoppingCart))
+
+
+
+
+
+// // 4) Write a function that takes two objects as arguments and checks if they have the same set of keys.
+
+
+// const nissan = {
+//         model: "sentra",
+//         year: 2014,
+//         color: "silver"
+//     }
+// const toyota = {
+//         model: "camry",
+//         year: 1999,
+//         color: "black"
+//     }    
+
+//     function sameSetOfKeys (nissan, toyota){
+//         //create variables to access the keys
+//         //check the length
+//         console.log(obj1.model === obj2.model)
+//             //then for loop to iterate through the first variable (obj1)
+//         }
+
+// console.log(sameSetOfKeys(nissan.model, toyota.model))
+
+
+
+// // 5) Create an object representing a student's information, including 
+// //  properties such as "name," "age," and "grades" (an array).
+// //  Write a function to calculate the average grade of the student.
+
+const student ={
+        name: "John",
+        age: 56,
+        grades: {
+            grade1: 93,
+            grade2: 81,
+            grade3: 85
+        }
+}
+console.log(student)
+// function avgGrade (student){
+//       let count = 3
+// for(let item in grades)
+//         averageGrade += student[item].grades /= count
+//         return averageGrade
+// }
+
+// console.log(avgGrade(student))
