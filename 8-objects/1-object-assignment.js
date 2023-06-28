@@ -49,29 +49,48 @@ console.log(dreamVehicle)
 
 // 8.   Create a method for turning your vehicle on
 
+dreamVehicle.on = false
+
 function turnOn(){
     console.log("Vroom Vroom!")
-}
+    dreamVehicle.on = true
+   }
 
-dreamVehicle.start = turnOn(dreamVehicle)
-
+dreamVehicle.turnOn = turnOn; //assigning the function ('start')
 
 
 
 // 9.   Create a method for turning your vehicle off
 
 function turnOff(){
-    console.log("Ping")
+    console.log("Ping!")
+    dreamVehicle.on = false
 }
 
-dreamVehicle.start = turnOff(dreamVehicle)
+dreamVehicle.turnOff = turnOff
+// dreamVehicle.finish()
+console.log(dreamVehicle)
 
 //10.   
 //      a. Check if your vehicle is on (it should be off)
-//      b. Start your vehicle
-//      c. Check if your vehicle is on (it should be on)
-//      d. Stop your vehicle
+
+         console.log(dreamVehicle.on)
+
+// //      b. Start your vehicle
+
+         dreamVehicle.turnOn()
+
+// //      c. Check if your vehicle is on (it should be on)
+
+          console.log(dreamVehicle.on)
+
+// //      d. Stop your vehicle
+
+         dreamVehicle.turnOff()
+
 //      e. Check if your vehicle is on (it should be on)
+
+        console.log(dreamVehicle.on)
 
 
 
