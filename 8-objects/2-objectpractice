@@ -6,10 +6,10 @@
 //     year: 2014,
 //     color: "silver"
 //  }
+//GOOD
+// // // // console.log(nissan)
 
-// // // console.log(nissan)
-
-// // 2) Write a function that takes an object as an argument and returns an array of all the keys in the object.
+// // // 2) Write a function that takes an object as an argument and returns an array of all the keys in the object.
 
 
 // function arrOfKeys (nissan){
@@ -19,7 +19,7 @@
 //     } return keysOfObject
 // }
 // console.log(arrOfKeys(nissan))
-
+//GOOD
 
 // function arrayOfKeys (nissan){
     
@@ -60,33 +60,35 @@
 //     } return totalCostWithTax
 // }
 // console.log(totalCost(shoppingCart))
+//GOOD
+
 
 // let shoppingCart = {
-//     pants:{
-//         price: 30,
-//         quantity: 1
-//     }, 
-//     blouse: {
-//         price: 25,
-//         quantity: 1
-//     },
+// //     pants:{
+// //         price: 30,
+// //         quantity: 1
+// //     }, 
+// //     blouse: {
+// //         price: 25,
+// //         quantity: 1
+// //     },
     
-// }
+// // }
 
-// function calculateTotalOfItems(Cart){
-//     totalCost = 0
-// for(let item in shoppingCart){
-//         totalCost += cart[item].price //access quanity, then ...* .quanity
-// }
-// return totalCost
-// }
-// console.log(calculateTotalOfItems(shoppingCart))
-
-
+// // function calculateTotalOfItems(Cart){
+// //     totalCost = 0
+// // for(let item in shoppingCart){
+// //         totalCost += cart[item].price //access quanity, then ...* .quanity
+// // }
+// // return totalCost
+// // }
+// // console.log(calculateTotalOfItems(shoppingCart))
 
 
 
-// // 4) Write a function that takes two objects as arguments and checks if they have the same set of keys.
+
+
+// // // 4) Write a function that takes two objects as arguments and checks if they have the same set of keys.
 
 
 // const nissan = {
@@ -100,38 +102,49 @@
 //         color: "black"
 //     }    
 
-//     function sameSetOfKeys (nissan, toyota){
-//         //create variables to access the keys
-//         //check the length
-//         console.log(obj1.model === obj2.model)
-//             //then for loop to iterate through the first variable (obj1)
+//     function sameSetofKeys (nissan, toyota){
+//         //check length of keys?
+//         for(let key in nissan){
+//             console.log(nissan === toyota)
 //         }
-
-// console.log(sameSetOfKeys(nissan.model, toyota.model))
-
+//     }
 
 
-// // 5) Create an object representing a student's information, including 
-// //  properties such as "name," "age," and "grades" (an array).
-// //  Write a function to calculate the average grade of the student.
+
+//     // function sameSetOfKeys (nissan, toyota){
+//     //     //create variables to access the keys
+//     //     //check the length
+//     //     console.log(obj1.model === obj2.model)
+//     //         //then for loop to iterate through the first variable (obj1)
+//     //     }
+
+// console.log(sameSetOfKeys())
+
+
+
+// // // 5) Create an object representing a student's information, including 
+// // //  properties such as "name," "age," and "grades" (an array).
+// // //  Write a function to calculate the average grade of the student.
 
 const student ={
         name: "John",
         age: 56,
-        grades: {
+        grades: { //grades are 93, 81, 85
             grade1: 93,
             grade2: 81,
             grade3: 85
         }
 }
-//grades are 93, 81, 85
-//console.log(student)
+
+console.log(student)
 
 function avgGrade (student){
     let averageGrade = 0    
-    //let count = 3 //how to access the grades key
-    
-}
+    let count = 3 //how to access the grades key
+    for(let key in student)
+        averageGrade = student[key].grades / 3
+         return averageGrade
+}  
 
 console.log(avgGrade(student))
 
