@@ -136,16 +136,20 @@ const student ={
         }
 }
 
-console.log(student)
+console.log(student.grades)
 
 function avgGrade (student){
+    let arrayofGrades = Object.values(student.grades)
     let averageGrade = 0    
-    let count = 3 //how to access the grades key
-    for(let key in student)
-        averageGrade = student[key].grades / 3
-         return averageGrade
+    let count = arrayofGrades.length //how to access the grades key
+    for(let i = 0; i < count; i++){// run Object.value(student.grades) to create an array;
+        averageGrade += arrayofGrades[i]
+      //for(let grade in arrayofGrades){ //these only work on objects
+        //averageGrade += grade
+      }
+        
+     return averageGrade/count 
 }  
-
 console.log(avgGrade(student))
 
 // function avgGrade (student){
