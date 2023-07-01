@@ -52,8 +52,9 @@ console.log(dreamVehicle)
 dreamVehicle.on = false
 
 function turnOn(){
+    this.on = true //USE "THIS" SO THAT CAN USE ANY OBJECT WITH THESE FUNCTIONS. "THIS" HELPS REFER TO THIS PARTICULAR OBJECT IN THIS FUNCTION.
     console.log("Vroom Vroom!")
-    dreamVehicle.on = true
+    //dreamVehicle.on = true
    }
 
 dreamVehicle.turnOn = turnOn; //assigning the function ('start')
@@ -63,8 +64,9 @@ dreamVehicle.turnOn = turnOn; //assigning the function ('start')
 // 9.   Create a method for turning your vehicle off
 
 function turnOff(){
+    this.on = false
     console.log("Ping!")
-    dreamVehicle.on = false
+    //dreamVehicle.on = false
 }
 
 dreamVehicle.turnOff = turnOff

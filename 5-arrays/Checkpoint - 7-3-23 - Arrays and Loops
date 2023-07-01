@@ -1,0 +1,87 @@
+//1. Which cohort are you in?
+
+//SV11
+
+//2. In the simpletest way you can think of, describe an array?
+
+//An array is a list of values that can hold different types of data.
+
+//3. Is an array primitive or non-primitive? What types of data can an array consist of?
+
+//An array is non-primitive, but it can consist of primitive types such as strings, numbers, and booleans.
+
+//4. Create an array and then access the fifth item in the array.
+
+// let keysToGoodHealth = ["drinking water", "exercising", "7-8 hours of sleep each night", "fruits", "vegetables", "stress management"]
+// let fifthItem = keysToGoodHealth[5]
+// console.log(fifthItem)
+
+//5. Create an array of numbers and calculate the mean, median, and range.
+
+ let footballTeamScores = [10, 2, 38, 23, 38, 23, 21]
+    
+//     function mean (array){
+//     let sum = 0
+//     for(let i = 0; i < array.length; i++){
+//         sum += array[i]
+        
+//     } return sum/array.length
+// }
+    // console.log(mean(footballTeamScores))
+     
+    //median
+    function median(array){
+        array.sort(function(x, y) {
+            return x - y
+        });
+       
+       
+    //     let indexOfMedian = Math.floor(array.length / 2) //number of elements divided by 2 (rounded number)
+
+    //     if(array.length % 2 === 0){
+    //         return (array[indexOfMedian] + array[indexOfMedian - 1]) / 2  //locates and averages the two middle numbers
+    //     } else {
+    //         return array[indexOfMedian]
+    //     }
+     }
+  
+
+
+    //console.log(sortedFootballTeamScores)
+    // median = 
+        // range = 
+
+//6. What is the purpose of using loops in JavaScript?
+
+//With loops, the computer is instructed to re-run a process a certain number of times.  This way, coders do not have to write out the same code multiple times.
+
+//7. Write a for loop and then explain each of the three parts of that loop
+
+//A for loop, for(let i = 0; i < x; i++), has three parts:
+    // 1. Initializing expression ('i = 0'): Here, the loop declares a variable (i) and assigns it an intial value (0).  
+    // 2. Stopping Condition ('i < x'): Here, the loop evaluates a stopping condition, which if evaluates to true, will continue running.  If the stopping condition is false, the loop ends. 'x' refers to the data that will be evaluated in the loop.
+    // 3. Iteration Statement ('i++'): Here, i is incremented by one each loop.  This means that x is accessed in succession up until the stopping condition registers as false.
+
+//8. Create a function that loops through an array and counts how many even numbers are in that array
+
+//DO
+
+//9. What type of array is multi-dimensional?
+
+//A nested array is multi-dimensional because it contains another array(s) inside it.
+
+//10. Write a while loop.
+
+//DO
+
+//11. Write a loop where the loop that goes to 100 and has a conditional statement that breaks out of the loop at 10 if a condition is met.
+
+// let i = 0
+ 
+// while(i < 100){
+//     if(i === 10){
+//     console.log("THE END")}
+//         }
+
+// console.log(i)
+//DO

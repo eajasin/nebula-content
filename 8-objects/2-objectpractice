@@ -102,6 +102,22 @@
 //         color: "black"
 //     }    
 
+
+//     function sameSetOfKeys (obj1, obj2){
+//         let obj1AsArray = Object.keys(obj1)
+//         let obj2AsArray = Obhject.keys(obj2)
+
+//         if(obj1AsArray.length === obj2AsArray.length){
+//           return false
+//         }
+//       for(i = 0; i < obj1AsArray.length ; i++){
+//           let doesInlucde = obj1AsArray.includes(obj2AsArray[i])
+//           if(doesInclude === false){
+//        return false
+// }     
+// //     } return true
+//     }
+// console.log(nissan, toyota)
 //     function sameSetofKeys (nissan, toyota){
 //         //check length of keys?
 //         for(let key in nissan){
@@ -109,6 +125,10 @@
 //         }
 //     }
 
+//GET KEYS FROM OBJECT AND MAKE INTO ARRAY.// let obj1keys = object.keys(object1); pbjec/length !== 
+//run for loop (i =; i <objevylen...)
+//obj1keys.inluides(obj2leys[i]
+//if does not include will return false (dpesd mc;ide === false))
 
 
 //     // function sameSetOfKeys (nissan, toyota){
@@ -126,32 +146,32 @@
 // // //  properties such as "name," "age," and "grades" (an array).
 // // //  Write a function to calculate the average grade of the student.
 
-const student ={
-        name: "John",
-        age: 56,
-        grades: { //grades are 93, 81, 85
-            grade1: 93,
-            grade2: 81,
-            grade3: 85
-        }
-}
+// const student ={
+//         name: "John",
+//         age: 56,
+//         grades: { //grades are 93, 81, 85
+//             grade1: 93,
+//             grade2: 81,
+//             grade3: 85
+//         }
+// }
 
-console.log(student.grades)
+// // console.log(student.grades)
 
-function avgGrade (student){
-    let arrayofGrades = Object.values(student.grades)
-    let averageGrade = 0    
-    let count = arrayofGrades.length //how to access the grades key
-    for(let i = 0; i < count; i++){// run Object.value(student.grades) to create an array;
-        averageGrade += arrayofGrades[i]
-      //for(let grade in arrayofGrades){ //these only work on objects
-        //averageGrade += grade
-      }
+// // function avgGrade (student){
+//     let arrayofGrades = Object.values(student.grades)
+//     let averageGrade = 0    
+//     let count = arrayofGrades.length //how to access the grades key
+//     for(let i = 0; i < count; i++){// run Object.value(student.grades) to create an array;
+//         averageGrade += arrayofGrades[i]
+//       //for(let grade in arrayofGrades){ //these only work on objects
+//         //averageGrade += grade
+//       }
         
-     return averageGrade/count 
-}  
-console.log(avgGrade(student))
-
+// //      return averageGrade/count 
+// }  
+// console.log(avgGrade(student))
+//THIS ABOVE
 // function avgGrade (student){
 //       let count = 3
 // for(let item in grades)
@@ -160,3 +180,17 @@ console.log(avgGrade(student))
 // }
 
 // console.log(avgGrade(student))
+
+
+function findAverage(array) {
+ 
+  let sumOfElements = 0
+  let count = array.length
+  
+  for(let i = 0; i < count; i++){
+    sumOfElements += count[i]
+ 
+  }
+   
+  return sumOfElements / count;
+}

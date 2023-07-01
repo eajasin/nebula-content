@@ -1,0 +1,28 @@
+//1. Which cohort are you in?
+
+    //SV11
+
+//2. What is a function and why is it useful?
+
+    //A function is a resusauble chunk of code.  They are useful because 
+
+//3. Explain a parameter and an argument.
+//4. Write a function declaration, a function expression, and an arrow function.
+//5. What is a higher order function and why do we use them?
+//6. Declare an object that a school system may use to present a student?
+
+    const student = {
+            grade: 3,
+            age: 9,
+            readingLevel: "Above Average",
+            emergencyContactOnFile: true,
+            allergies: "peanuts"
+    }
+
+    console.log(student)
+
+//7. What is a property and what is a method in relation to objects?
+//8. Describe a key-value pair?
+//9. Create an object with at ;east 5 key pairs and then access 3 od those keys.
+//10. Create a method using your object.
+//11. Create a function that allows you to add new properties to your object. 

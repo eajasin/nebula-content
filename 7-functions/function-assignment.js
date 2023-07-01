@@ -15,13 +15,15 @@ const arrayOfNums = (arr) => {
 
 console.log(arrayOfNums(firstArray))
 
+//
+
 
 // 2. Write a function that takes in a string, and a letter, and returns true or false if the string contains the letter.
 // Example string = "happy birthday", letter = "a", should return true
 // Example string = "happy birthday", letter = "q" should return false
 
 let sampleString = "onomatopoeia"
-let letterInString = "i"
+let letterInString = ""
 
 const findTheLetter = (string, letter) => {
   for (let i = 0; i < string.length; i++) {
@@ -56,6 +58,7 @@ for(let i = 0; i < array.length; i++){
 
 console.log(arrayOfNames(soloMotownArtists))
 
+//  can do all this without a placeholder
 
 // 4. Write a function that takes in a name and a greeting and logs a string greeting the person to the console.
 // Example name = "John Boy" greeting = Goodnight, returns "Goodnight John Boy"

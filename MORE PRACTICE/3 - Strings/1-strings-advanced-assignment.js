@@ -2,7 +2,7 @@
 //    Create another variable called `lastName` and assign it a value of your last name.
 //    Combine the two variables to create a full name and log it to the console.
 
-
+    
 
 // 2. Create a variable called `greeting` and assign it a value of your choice.
 //    Log the length of the string to the console.
