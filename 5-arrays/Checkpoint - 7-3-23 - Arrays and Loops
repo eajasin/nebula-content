@@ -1,3 +1,5 @@
+//NEED HELP WITH 5
+
 //1. Which cohort are you in?
 
 //SV11
@@ -20,20 +22,20 @@
 
  let footballTeamScores = [10, 2, 38, 23, 38, 23, 21]
     
-//     function mean (array){
-//     let sum = 0
-//     for(let i = 0; i < array.length; i++){
-//         sum += array[i]
+    function mean (array){
+    let sum = 0
+    for(let i = 0; i < array.length; i++){
+        sum += array[i]
         
-//     } return sum/array.length
+    } return sum/array.length
 // }
     // console.log(mean(footballTeamScores))
      
     //median
-    function median(array){
-        array.sort(function(x, y) {
-            return x - y
-        });
+    // function median(array){
+    //     array.sort(function(x, y) {
+    //         return x - y
+    //     });
        
        
     //     let indexOfMedian = Math.floor(array.length / 2) //number of elements divided by 2 (rounded number)
@@ -43,13 +45,13 @@
     //     } else {
     //         return array[indexOfMedian]
     //     }
-     }
+    // }
   
 
 
-    //console.log(sortedFootballTeamScores)
+    // console.log(sortedFootballTeamScores)
     // median = 
-        // range = 
+    //     range = 
 
 //6. What is the purpose of using loops in JavaScript?
 
@@ -64,7 +66,14 @@
 
 //8. Create a function that loops through an array and counts how many even numbers are in that array
 
-//DO
+// const numOfArrEvenNums = (array) => {
+//     let numOfEvenNums = 0
+//     for(let i=0; i < array.length; i++){
+//         if(array[i] % 2 === 0){
+//             numOfEvenNums++ 
+//         }
+//     } return numOfEvenNums
+// }
 
 //9. What type of array is multi-dimensional?
 
@@ -72,16 +81,22 @@
 
 //10. Write a while loop.
 
-//DO
+// let age = 0
+
+// while(age < 21){
+//    if(age < 21){
+//    console.log("You cannot legally buy alcohol.") 
+//    break;
+// }}
+
 
 //11. Write a loop where the loop that goes to 100 and has a conditional statement that breaks out of the loop at 10 if a condition is met.
 
-// let i = 0
- 
-// while(i < 100){
-//     if(i === 10){
-//     console.log("THE END")}
-//         }
+// let i = 10
 
-// console.log(i)
-//DO
+// while(i < 100){
+//         if(i === 10){
+//         console.log("THE END")
+        
+// } break;
+// }

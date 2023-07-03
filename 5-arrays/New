@@ -1,0 +1,31 @@
+//5. Create an array of numbers and calculate the mean, median, and range.
+
+ let footballTeamScores = [10, 2, 38, 23, 38, 23, 21]
+    
+    function mean (array){
+    let sum = 0
+    for(let i = 0; i < array.length; i++){
+        sum += array[i]
+        
+    } return sum/array.length
+// }
+    // console.log(mean(footballTeamScores))
+     
+    //median
+    // function median(array){
+    //     array.sort(function(x, y) {
+    //         return x - y
+    //     });
+       
+       
+    //     let indexOfMedian = Math.floor(array.length / 2) //number of elements divided by 2 (rounded number)
+
+    //     if(array.length % 2 === 0){
+    //         return (array[indexOfMedian] + array[indexOfMedian - 1]) / 2  //locates and averages the two middle numbers
+    //     } else {
+    //         return array[indexOfMedian]
+    //     }
+    // }
+  
+
+    // console.log(sortedFootballTeamScores)
