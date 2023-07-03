@@ -1,28 +1,93 @@
+//NEED HELP WITH 11
+
+
+
 //1. Which cohort are you in?
 
     //SV11
 
 //2. What is a function and why is it useful?
 
-    //A function is a resusauble chunk of code.  They are useful because 
+    //Function are reusable chunks of code, and they are useful because they can be reused in mulitple parts of a program and combined to create a larger, modular structure.
 
 //3. Explain a parameter and an argument.
+
+    //Parameters are placeholders for an input that can be passed into a function when it is executed.  Arguments are the actual input that will pass through the function during invocation.
+
+
 //4. Write a function declaration, a function expression, and an arrow function.
+
+    //A) Function Declaration: 
+
+    //     function japaneseGreeting(){
+    //         console.log("konnichiwa")
+    //     }
+
+    // //B) Function Expression:
+
+    //     const japaneseGreeting(){
+    //         console.log("konnichiwa")
+    //     }
+
+    // //C) Arrow Function:
+
+    //     const japaneseGreeting = () => {
+    //         console.log("konnichiwa")
+    //     }
+
 //5. What is a higher order function and why do we use them?
+
+    //High-order functions are functions that can take on another function as an argument.  Because they can return other functions, they can make coding manageable and concise.
+
+
 //6. Declare an object that a school system may use to present a student?
 
-    const student = {
-            grade: 3,
-            age: 9,
-            readingLevel: "Above Average",
-            emergencyContactOnFile: true,
-            allergies: "peanuts"
-    }
+    // const student = {
+    //         grade: 3,
+    //         age: 9,
+    //         readingLevel: "Above Average",
+    //         emergencyContactOnFile: true,
+    //         allergies: "peanuts"
+    // }
 
-    console.log(student)
+    // console.log(student)
 
 //7. What is a property and what is a method in relation to objects?
+
+    //A property is a key-value pair that describes an object.  A method is a function that the object can invoke on itself.
+
 //8. Describe a key-value pair?
-//9. Create an object with at ;east 5 key pairs and then access 3 od those keys.
+
+    //Key-value pairs describe an object.  Objects use keys, instead of indices, to hold and access its values.
+
+//9. Create an object with at least 5 key pairs and then access 3 of those keys.
+
+    const rainbow = {
+        color1: "red",
+        color2: "orange",
+        color3: "yellow",
+        color4: "green",
+        color5: "blue",
+        color6: "indigo",
+        color7: "violet"
+    };
+
+// console.log(rainbow.color1)
+// console.log(rainbow["color2"])
+// console.log(rainbow.color3)
+
 //10. Create a method using your object.
+
+// function skittles(rainbow){
+//     return "Skittles, taste the rainbow!"
+// }
+// console.log(skittles(rainbow))
+// console.log(Object.keys(rainbow))
+
 //11. Create a function that allows you to add new properties to your object. 
+
+function addNewProperties (obj, newKey, newValue) {
+   return obj.newKey = newValue 
+}
+
+console.log(addNewProperties(rainbow, color8, "pink"))
