@@ -2,14 +2,6 @@ h1 {
     color: purple;
     font-family: arial
 }
-
-.container1{
-    display:flex;
-    border: solid 2px black;
-    background-color: purple;
-    margin: 10px 0px;
-    justify-content: flex-start
-}
 .box{
     width: 100px;
     height: 100px;
@@ -17,35 +9,43 @@ h1 {
     border: solid 2px black;
     background-color: orange;
 }
-.container2{
+.flex-start{
+    display:flex;
+    border: solid 2px black;
+    background-color: purple;
+    margin: 10px 0px;
+    justify-content: flex-start
+
+}
+.flex-end{
     display:flex;
     border: solid 2px black;
     background-color: purple;
     margin: 10px 0px;
     justify-content: flex-end 
 } 
-.container3{
+.center{
     display:flex;
     border: solid 2px black;
     background-color: purple;
     margin: 10px 0px;
     justify-content: center
 } 
-.container4{
+.space-between{
     display:flex;
     border: solid 2px black;
     background-color: purple;
     margin: 10px 0px;
     justify-content: space-between
 }
-.container5{
+.space-around{
     display:flex;
     border: solid 2px black;
     background-color: purple;
     margin: 10px 0px;
     justify-content: space-around
 }
-.container6{
+.space-evenly{
     display:flex;
     border: solid 2px black;
     background-color: purple;
