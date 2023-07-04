@@ -38,7 +38,7 @@
 //median is the middle index in an array
 //if array is even, median is average of middle indices
 //if array is odd, return middle index
-     
+    
         function median (array){
             let indexOfMidNum = array.length / 2
             if (array.length % 2 === 0){
@@ -46,7 +46,6 @@
             } else {
                 return (array[indexOfMidNum])
             }
-
         }
             console.log(median(footballTeamScores))
 
