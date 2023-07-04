@@ -1,0 +1,60 @@
+.button {
+    width: 80px;
+    height: 80px;
+    color: black
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topLeftContainer {
+    display: flex;
+    
+}
+.topRightContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.logo{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    height: 225px
+}
+.searchBar{
+
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    
+   
+
+}
+.underSearchBarButtons{
+
+    display: flex;
+    justify-content: center;
+}
+.button{
+
+
+}    
+.leftFooterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+.centerFooterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}    
+    .rightFooterContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between
+    }
