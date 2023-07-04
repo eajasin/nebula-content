@@ -72,22 +72,21 @@
         color7: "violet"
     };
 
-// console.log(rainbow.color1)
-// console.log(rainbow["color2"])
-// console.log(rainbow.color3)
+console.log(rainbow.color1)
+console.log(rainbow["color2"])
+console.log(rainbow.color3)
 
 //10. Create a method using your object.
 
-// function skittles(rainbow){
-//     return "Skittles, taste the rainbow!"
-// }
-// console.log(skittles(rainbow))
-// console.log(Object.keys(rainbow))
+function skittles(rainbow){
+    return "Skittles, taste the rainbow!"
+}
+console.log(skittles(rainbow))
+console.log(Object.keys(rainbow))
 
 //11. Create a function that allows you to add new properties to your object. 
 
 function addNewProperties (obj, newKey, newValue) {
-   return obj.newKey = newValue 
-}
+   obj[newKey] = newValue
+} return obj
 
-console.log(addNewProperties(rainbow, color8, "pink"))
