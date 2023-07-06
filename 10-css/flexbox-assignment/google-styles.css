@@ -17,15 +17,6 @@ a:hover{
     color: black;
     text-decoration: underline;
 } 
-
-
-    
-
-
-
-
-    
-
 .toplinks{
     
     width:80px;
@@ -34,13 +25,6 @@ a:hover{
 
     
 }    
-.grid{
-        display: flex;
-        width:100px;
-        height:95px;
-        font-size: 40px;
-        justify-content: center;
-}
 .leftbar{
     display: flex;
     align-items: center;
