@@ -14,9 +14,9 @@
 
 //4. Create an array and then access the fifth item in the array.
 
-// let keysToGoodHealth = ["drinking water", "exercising", "7-8 hours of sleep each night", "fruits", "vegetables", "stress management"]
-// let fifthItem = keysToGoodHealth[5]
-// console.log(fifthItem)
+let keysToGoodHealth = ["drinking water", "exercising", "7-8 hours of sleep each night", "fruits", "vegetables", "stress management"]
+let fifthItem = keysToGoodHealth[5]
+console.log(fifthItem)
 
 //5. Create an array of numbers and calculate the mean, median, and range.
 
@@ -26,18 +26,16 @@
 
 //  console.log(sortedFootballTeamScores)
     
-//     function mean (array){
-//     let sum = 0
-//     for(let i = 0; i < array.length; i++){
-//         sum += array[i]
+    function mean (array){
+    let sum = 0
+    for(let i = 0; i < array.length; i++){
+        sum += array[i]
         
-//     } return sum/array.length
-//  }
+    } return sum/array.length
+ }
 //     console.log(mean(sortedfootballTeamScores))
 
-//median is the middle index in an array
-//if array is even, median is average of middle indices
-//if array is odd, return middle index
+
     
         function median (array){
             let indexOfMidNum = array.length / 2
@@ -65,11 +63,11 @@
   
 
     
-        // function range (array){
-        //     return (array[array.length-1] - array[0])
+        function range (array){
+            return (array[array.length-1] - array[0])
 
 
-        // } 
+        } 
         // console.log(range(sortedFootballTeamScores))
 
 
@@ -83,21 +81,21 @@
 
 //7. Write a for loop and then explain each of the three parts of that loop
 
-//A for loop, for(let i = 0; i < x; i++), has three parts:
-    // 1. Initializing expression ('i = 0'): Here, the loop declares a variable (i) and assigns it an intial value (0).  
-    // 2. Stopping Condition ('i < x'): Here, the loop evaluates a stopping condition, which if evaluates to true, will continue running.  If the stopping condition is false, the loop ends. 'x' refers to the data that will be evaluated in the loop.
-    // 3. Iteration Statement ('i++'): Here, i is incremented by one each loop.  This means that x is accessed in succession up until the stopping condition registers as false.
+A for loop, for(let i = 0; i < x; i++), has three parts:
+    1. Initializing expression ('i = 0'): Here, the loop declares a variable (i) and assigns it an intial value (0).  
+    2. Stopping Condition ('i < x'): Here, the loop evaluates a stopping condition, which if evaluates to true, will continue running.  If the stopping condition is false, the loop ends. 'x' refers to the data that will be evaluated in the loop.
+    3. Iteration Statement ('i++'): Here, i is incremented by one each loop.  This means that x is accessed in succession up until the stopping condition registers as false.
 
 //8. Create a function that loops through an array and counts how many even numbers are in that array
 
-// const numOfArrEvenNums = (array) => {
-//     let numOfEvenNums = 0
-//     for(let i=0; i < array.length; i++){
-//         if(array[i] % 2 === 0){
-//             numOfEvenNums++ 
-//         }
-//     } return numOfEvenNums
-// }
+const numOfArrEvenNums = (array) => {
+    let numOfEvenNums = 0
+    for(let i=0; i < array.length; i++){
+        if(array[i] % 2 === 0){
+            numOfEvenNums++ 
+        }
+    } return numOfEvenNums
+}
 
 //9. What type of array is multi-dimensional?
 
@@ -105,22 +103,22 @@
 
 //10. Write a while loop.
 
-// let age = 0
+let age = 0
 
-// while(age < 21){
-//    if(age < 21){
-//    console.log("You cannot legally buy alcohol.") 
-//    break;
-// }}
+while(age < 21){
+   if(age < 21){
+   console.log("You cannot legally buy alcohol.") 
+   break;
+}}
 
 
 //11. Write a loop where the loop that goes to 100 and has a conditional statement that breaks out of the loop at 10 if a condition is met.
 
-// let i = 10
+let i = 10
 
-// while(i < 100){
-//         if(i === 10){
-//         console.log("THE END")
+while(i < 100){
+        if(i === 10){
+        console.log("THE END")
         
-// } break;
-// }
+} break;
+}

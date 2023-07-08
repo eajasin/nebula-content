@@ -1,9 +1,0 @@
-alphabetPosition = (text) => {
-  let textAsArray = text.split(" ")
-  let alphabet = ["a", "b", "c"]
-  for(i = 0; i < alphabet.length; i++){
-    if alphabet[i] === 
-  
-  return text.indexOf[alphabet[i]]
-}
-}
