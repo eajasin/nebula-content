@@ -129,16 +129,27 @@ let number = 3
 return using min.max methods
 */
 
-let array = [2, 6, 90, 59, -3]
+// let array = [2, 6, 90, 59, -3]
 
-const min = (list) => {
+// const min = (list) => {
     
-    return Math.min(...list)
-}
+//     return Math.min(...list)
+// }
 
-const max = (list) => {
+// const max = (list) => {
     
-    return Math.max(...list)
-}
+//     return Math.max(...list)
+// }
 
-console.log(max(array))
+// console.log(max(array))
+
+/*  -INPUT POSITION AND NUMBER
+    - multiply rroll by two
+    -add this figure position
+    
+*/
+
+const move = (position, roll) => {
+  return (roll * 2) + position
+}
+console.log(move(2,5))
