@@ -95,14 +95,50 @@ let strin = "We wish you a Merry Christmas."
 
 let number = 3
      
-const countSheep = (num) => {
-  let sleepString = ""
-    for(let i = 1; i <= num; i++){ //iterate through all numbers up to num, starting at 1
-      sleepString += `${i} sheep...` //input all numbers into string, adding by 1 digit increments
-    }
-        return sleepString// add "..." alongside each number
-  } 
+// const countSheep = (num) => {
+//   let sleepString = ""
+//     for(let i = 1; i <= num; i++){ //iterate through all numbers up to num, starting at 1
+//       sleepString += `${i} sheep...` //input all numbers into string, adding by 1 digit increments
+//     }
+//         return sleepString// add "..." alongside each number
+//   } 
 
-//need to increase 
-console.log(countSheep(number))
+// //need to increase 
+// console.log(countSheep(number))
   
+//Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
+/*
+1) input array, output array
+2) rermove second element
+3) push the second-element-less element into a new array
+*/
+
+// let array = ["school", "shoes", "car", "candy", "cup", "church"]
+
+// const removeEveryOther = (arr) => {
+//   let newArr = []
+//   for(let i = 0; i < arr.length; i+=2){
+//       newArr.push(arr[i])
+//     } return newArr
+//   } 
+
+// console.log(removeEveryOther(array))
+
+/*array => number
+
+return using min.max methods
+*/
+
+let array = [2, 6, 90, 59, -3]
+
+const min = (list) => {
+    
+    return Math.min(...list)
+}
+
+const max = (list) => {
+    
+    return Math.max(...list)
+}
+
+console.log(max(array))
