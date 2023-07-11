@@ -149,7 +149,51 @@ return using min.max methods
     
 */
 
-const move = (position, roll) => {
-  return (roll * 2) + position
-}
-console.log(move(2,5))
+// const move = (position, roll) => {
+//   return (roll * 2) + position
+// }
+// console.log(move(2,5))
+
+// string=> string
+//do reverse loop (i--, i > 0, start a)
+//return string backwards
+//
+//let string = "bootcamp"
+
+// const solution = (str) => {
+//   let newStr = ""
+//   for(let i = str.length-1; i >= 0; i--){
+//       newStr += str[i]
+//   } 
+//     return newStr
+// } 
+
+// console.log(solution(string))
+
+let str = "gdgjd dgjkdjg djgkdj"
+
+// const noSpace = (x) => { //string => string
+//   let newStr = ""  //placeholder string
+//   for(i = 0; i < x.length; i++){ //loop through string 
+//     if(x[i] !== " "){ //identifies the spaces
+//      newStr += x[i]} //add non-spaces to new string
+//   }
+//   return newStr
+// }  
+  
+// console.log(noSpace(str))
+let string = "bootcamp"
+
+const removeChar = (str) => { //string => string
+  let noFirstAndLast = str.slice(1, -1)//need to identify indices of first str[1] and last char str[-1] in string and extract their range
+     return noFirstAndLast 
+    }                                
+  
+console.log(removeChar(string))                       
+ 
+  
+                                      
+
+console.log(removeChar(string))
+  //return string with first and last index removed
+
