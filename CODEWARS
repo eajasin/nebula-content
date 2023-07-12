@@ -182,18 +182,34 @@ let str = "gdgjd dgjkdjg djgkdj"
 // }  
   
 // console.log(noSpace(str))
-let string = "bootcamp"
+// let string = "bootcamp"
 
-const removeChar = (str) => { //string => string
-  let noFirstAndLast = str.slice(1, -1)//need to identify indices of first str[1] and last char str[-1] in string and extract their range
-     return noFirstAndLast 
-    }                                
+// const removeChar = (str) => { //string => string
+//   let noFirstAndLast = str.slice(1, -1)//need to identify indices of first str[1] and last char str[-1] in string and extract their range
+//      return noFirstAndLast 
+//     }                                
   
-console.log(removeChar(string))                       
+// console.log(removeChar(string))   
+
+// console.log(removeChar(string))
+//   //return string with first and last index removed
+
+let array = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+
+const findNeedle = (haystack) => {  //array => string
+                                    //iterate through array to find index of element "needle"
+   for(let i = 0; i < haystack.length; i++){
+    if(haystack[i] === "needle"){
+      return "found the needle at position" +" "+ i
+    }
+   }
+  //output string containing index of needle
+}
+
+console.log(findNeedle(array))
  
   
                                       
 
-console.log(removeChar(string))
-  //return string with first and last index removed
+
 
