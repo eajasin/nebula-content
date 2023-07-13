@@ -194,20 +194,31 @@ let str = "gdgjd dgjkdjg djgkdj"
 // console.log(removeChar(string))
 //   //return string with first and last index removed
 
-let array = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
+// let array = ["hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"]
 
-const findNeedle = (haystack) => {  //array => string
-                                    //iterate through array to find index of element "needle"
-   for(let i = 0; i < haystack.length; i++){
-    if(haystack[i] === "needle"){
-      return "found the needle at position" +" "+ i
-    }
-   }
-  //output string containing index of needle
-}
+// const findNeedle = (haystack) => {  //array => string
+//                                     //iterate through array to find index of element "needle"
+//    for(let i = 0; i < haystack.length; i++){
+//     if(haystack[i] === "needle"){
+//       return "found the needle at position" +" "+ i
+//     }
+//    }
+//   //output string containing index of needle
+// }
 
-console.log(findNeedle(array))
- 
+//You only need one - Beginner
+
+//array and value => true/false
+
+let array = [1, 2, 3]
+let value = 5
+const check = (a, x) => {
+  if(a.includes(x)){return true}
+  return false
+} 
+
+ console.log(check(array, value))
+
   
                                       
 
