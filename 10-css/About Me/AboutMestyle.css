@@ -1,0 +1,39 @@
+body {
+    
+    grid: repeat(4, 1fr) / 1fr 1fr 2fr;
+    
+    
+}
+
+nav{
+    display: grid;
+    background-color: yellow;
+    grid: 1fr / repeat(5, 1fr);
+    justify-items: center
+    
+}
+header {
+    display: block;
+    background-color: pink;
+    height: 50vh;
+    justify-items: center;
+    margin: 100px
+}
+img {
+    width: 50%;
+    max-height: 100%;
+    float: right;
+   
+    
+}
+h1{
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.AboutMe {
+ display:grid;
+ justify-items:  center;
+ /* font-family: ;
+ font-size: ; */
+}
