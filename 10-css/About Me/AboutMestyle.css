@@ -1,3 +1,4 @@
+
 body {
     
     grid: repeat(4, 1fr) / 1fr 1fr 2fr;
@@ -30,10 +31,25 @@ h1{
     text-align: center;
     letter-spacing: 4px;
 }
-
+main{
+    display: grid;
+    justify-items:  center;
+    margin: 100px;
+    background-color: lightskyblue;
+}
 .AboutMe {
- display:grid;
- justify-items:  center;
+ 
+ 
  /* font-family: ;
+ font-size: ; */
+}
+
+
+
+
+.contactmeform {
+    
+    background-color: greenyellow;
+    /* font-family: ;
  font-size: ; */
 }

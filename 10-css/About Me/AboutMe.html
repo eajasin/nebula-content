@@ -1,27 +1,49 @@
 <!doctype html>
 <html>
+    
+    
     <head>
-        <title>Grid</title>
+        <title>About Me</title>
         <link rel="stylesheet" href="AboutMestyle.css">
         <title>Document</title>
         
     </head>
-<body>
+<body style="background:url(istockphoto-1393912497-612x612.jpg);">
+
    <nav>
-    <div>Home</div>
-    <div>About Me</div>
-    <div>Plans</div>
-    <div>Blog</div>
-    <div>Contact Me</div>
+        <div><a href="http://127.0.0.1:5500/10-css/About%20Me/AboutMe.html">Home</a></div>
+        <div><a href="#AboutMe">About Me</a></div>
+        <div><a href="#Plans">Plans</a></div>
+        <div><a href="#Blog">Blog</a></div>
+        <div><a href="#ContactMe">Contact Me</a></div>
    </nav> 
    <header> 
-    <img src="IMG_1964.jpg"></img>
+        <img src="IMG_1964.jpg"></img>
         <h1>Hi, I'm Elizabeth! Welcome to my page!</h1>
     </header>
-   <p class="AboutMe">Right now I am in Nebula Academy and am learning to code.  The work is challenging, but it has been fun so far.  I can't wait to see what I will accomplish!  I'm originally from the Bronx but have lived on Long Island for a long time.</p>
-  
+    <main>
+        <h2 id="AboutMe">About Me</h2>
+            <p class="AboutMe">Right now I am in Nebula Academy and am learning to code.  The work is challenging, but it has been fun so far.  I can't wait to see what I will accomplish!  I'm originally from the Bronx but have lived on Long Island for a long time.</p>
+        <h3>My Hobbies Include</h3>
+        <h2 id="Plans">Plans</h2>
+            <p>I plan to do x, y, and z.</p>
+        <h2 id="Blog">Blog</h2>
+            <p>Visit my blog here:</p>
+    </main>
+    <form class="contactmeform">
+        <h2 id="ContactMe">Contact Me</h2>
+            <label>First Name:</label>
+            <input type="text"><br>
+            <label>Last Name:</label>
+            <input type="text"><br>
+            <label>Email Address:</label>
+            <input type="text"><br>
+            <input type="submit" value="Submit"
+    </form>
 
+    
 </body>
+
 </html>
 
 
