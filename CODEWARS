@@ -206,21 +206,62 @@ let str = "gdgjd dgjkdjg djgkdj"
 //   //output string containing index of needle
 // }
 
-//You only need one - Beginner
+//YOU ONLY NEED ONE - BEGINNER
 
 //array and value => true/false
 
-let array = [1, 2, 3]
-let value = 5
-const check = (a, x) => {
-  if(a.includes(x)){return true}
-  return false
-} 
+// let array = [1, 2, 3]
+// let value = 5
+// const check = (a, x) => {
+//   if(a.includes(x)){return true}
+//   return false
+// } 
 
- console.log(check(array, value))
+//  console.log(check(array, value))
 
   
-                                      
+  //Square(n) Sum
+
+// let array = [2, 1, 3]
+
+//   const squareSum = (numbers) => {  //array of integers => integer
+//     let sumOfNumbers = 0  //create placeholder for final return
+//     for(let i = 0; i < numbers.length; i++){ //iterate through array
+//        sumOfNumbers += Math.pow(numbers[i], 2)                //square each number and add the squares
+//     }  
+//    return sumOfNumbers                       
+// } 
+
+// console.log(squareSum(array))                                      
+
+//Anagram Detection
+//test (anagram or not) and oringal work (strings) => "true"/"false" if anagram i/is not anagram of each other (boolean)
+//convert to array using "split"
+//lowercase all letters and alphabatize (sort - an array method)
+//convert arrays back into strings using "join" and compare them to each other (joined back to string because not checking the actual values of array)not primitive vAlue so checking references in memory); 
+//compare strings because it is primitive, non-primitives have differnet memory references
+//return true/false
+
+let anagram = "foefet"
+let word = "toffee"
 
 
+const isAnagram = (test, original) => {
+  let lTest = test.toLowerCase().split("").sort().join("")
+  let lOrig = original.toLowerCase().split("").sort().join("")
+  // let testArray = lTest.split("")
+  // let origArray = lOrig.split("")
+  // let sortedTest = testArray.sort()
+  // let sortedOrig = origArray.sort()
+  
+  
+// console.log(sortedTest)
+// console.log(sortedOrig)
+  // if(sortedTest.join("") === sortedOrig.join("")) {
+  //   if(lTest === lOrig){
+  // return true
+  // } return false
+  return lTest === lOrig
+}
 
+console.log(isAnagram(anagram, word))
