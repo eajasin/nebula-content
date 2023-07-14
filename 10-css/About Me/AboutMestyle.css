@@ -9,14 +9,17 @@ body {
 
 nav{
     display: grid;
-    background-color: yellow;
+    background-color: rgb(249, 211, 217);
+    border-radius: 10px;
+    font-size: 20px;
     grid: 1fr / repeat(5, 1fr);
-    justify-items: center
+    justify-items: center;
+    padding: 10px
     
 }
 header {
     display: block;
-    background-color: pink;
+    background-color: rgb(249, 211, 217);
     height: 50vh;
     
     justify-items: center;
@@ -41,7 +44,7 @@ h1{
 
 main{
     display: grid;
-    grid: repeat(3, 1fr) / 1fr 1fr;
+    grid: repeat(4, 1fr) / 1fr 1fr;
     gap: 10px 10px;
     /* justify-items:  center; */
     grid-template-areas:    "#AboutMe ."
@@ -53,8 +56,7 @@ main{
 }
 #AboutMe {
     background-color: blanchedalmond;
-    grid-column: 2; 
-    grid-area: #AboutMe;
+    grid-area: AboutMe;
     
  
  /* font-family: ;
@@ -65,7 +67,7 @@ main{
 }
 #Plans {
     background-color: blanchedalmond;
-    grid-area: #Plans;    
+    grid-area: Plans;    
    
 }
 .plans {
@@ -73,16 +75,26 @@ main{
 }
 #Blog {
     background-color: blanchedalmond;
-    grid-area: #Blog;
+    grid-area: Blog;
 }
 .blog{
     background-color: green;
 }
 .contactmeform {
-    background-color: greenyellow;
+    display: grid;
+    justify-items: center;
+    background-color: rgb(249, 211, 217);
+    border-radius: 10px;
+    width: 50%;
+    margin: 20px;
     /* font-family: ;
  font-size: ; */
 }
 .submit{
-    background-color: red;
+    
+}
+
+a {
+    color: lightcoral;
+    font-weight: bold
 }
