@@ -273,21 +273,38 @@ let str = "gdgjd dgjkdjg djgkdj"
 // iterate through str twice and compare the two for same characters
 // return false if letters do not equal
 
-let string = "owll"
+// let string = "owll"
 
-const isIsogram = (str) => {
-  let lStr = str.toLowerCase()
-  for(let i = 0; i < lStr.length; i++){
-    for(let j = 0; j < lStr.length; j++){
-    if(i !== j){ //check if equal only when they are not on the same index
-      if(lStr[i] == lStr[j]){
-      return false
-  } 
-} 
-}
-  }
-return true
-}
-console.log(isIsogram(string))
+// const isIsogram = (str) => {
+//   let lStr = str.toLowerCase()
+//   for(let i = 0; i < lStr.length; i++){
+//     for(let j = 0; j < lStr.length; j++){
+//     if(i !== j){ //check if equal only when they are not on the same index; could also do j=i+1 to circumcent comparing the same characters
+//       if(lStr[i] == lStr[j]){
+//       return false
+//   } 
+// } 
+// }
+//   }
+// return true
+// }
+// console.log(isIsogram(string))
 
 //for(let char of str) - when indices not relevant
+
+
+
+//Friend or Foe (7) - if name has 4 characters they are a friend; input = list of names and output = list of name with 4 characters
+let list = ["alvin", "simon", "theo"]
+
+const friend = (friends) => {
+  let fArray = [] //placeholder array for list of friends with 4 chars
+    
+    for(let i = 0; i < friends.length; i++){             //for loop will iterate through each name
+       if(friends[i].length === 4){               //compare length (# of indices) of each each name to 4
+       fArray.push(friends[i])                    //adds only 4 letter names into new list (array)
+       } 
+   }
+   return fArray      //return final array
+}  
+console.log(friend(list))
