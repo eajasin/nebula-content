@@ -242,26 +242,52 @@ let str = "gdgjd dgjkdjg djgkdj"
 //compare strings because it is primitive, non-primitives have differnet memory references
 //return true/false
 
-let anagram = "foefet"
-let word = "toffee"
+// let anagram = "foefet"
+// let word = "toffee"
 
 
-const isAnagram = (test, original) => {
-  let lTest = test.toLowerCase().split("").sort().join("")
-  let lOrig = original.toLowerCase().split("").sort().join("")
-  // let testArray = lTest.split("")
-  // let origArray = lOrig.split("")
-  // let sortedTest = testArray.sort()
-  // let sortedOrig = origArray.sort()
+// const isAnagram = (test, original) => {
+//   let lTest = test.toLowerCase().split("").sort().join("")
+//   let lOrig = original.toLowerCase().split("").sort().join("")
+//   // let testArray = lTest.split("")
+//   // let origArray = lOrig.split("")
+//   // let sortedTest = testArray.sort()
+//   // let sortedOrig = origArray.sort()
   
   
-// console.log(sortedTest)
-// console.log(sortedOrig)
-  // if(sortedTest.join("") === sortedOrig.join("")) {
-  //   if(lTest === lOrig){
-  // return true
-  // } return false
-  return lTest === lOrig
+// // console.log(sortedTest)
+// // console.log(sortedOrig)
+//   // if(sortedTest.join("") === sortedOrig.join("")) {
+//   //   if(lTest === lOrig){
+//   // return true
+//   // } return false
+//   return lTest === lOrig
+// }
+
+// console.log(isAnagram(anagram, word))
+
+// Isogram
+// string ==> boolean
+// test str to see if has any repeating chracters in it; if it does, true, if not false
+// lowercase all letters
+// iterate through str twice and compare the two for same characters
+// return false if letters do not equal
+
+let string = "owll"
+
+const isIsogram = (str) => {
+  let lStr = str.toLowerCase()
+  for(let i = 0; i < lStr.length; i++){
+    for(let j = 0; j < lStr.length; j++){
+    if(i !== j){ //check if equal only when they are not on the same index
+      if(lStr[i] == lStr[j]){
+      return false
+  } 
+} 
 }
+  }
+return true
+}
+console.log(isIsogram(string))
 
-console.log(isAnagram(anagram, word))
+//for(let char of str) - when indices not relevant

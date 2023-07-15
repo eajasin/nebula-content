@@ -143,8 +143,7 @@ img {
 }
 .tower {
     grid-area:tower;
-    
-    
+  
 }
 .cupcakes {
     grid-area: cupcakes;
@@ -167,9 +166,6 @@ button {
     background-color: lightcoral;
     border: transparent;
     color: white
-    
-
 }
 
 
-/* <span></span> for coloring certain parts of text */
