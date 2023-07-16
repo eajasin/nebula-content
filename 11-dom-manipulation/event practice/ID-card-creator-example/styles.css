@@ -1,0 +1,44 @@
+.idcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    background-color: lightskyblue;
+    width: 600px;
+    padding: 30px 5px 30px 40px;
+    border-radius: 20px;
+    font-family: 'Times New Roman', Times, serif
+    
+}
+
+.formcontainer {
+    display: grid;
+    height: 200px;
+    width: 400px;
+    background-color:lightgreen;
+    border-style: solid;
+}
+h1 {
+    font-size: 25px
+}
+img{
+    height: 300px;
+    width: 250px;
+    grid-column: 1 / 2;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px; 
+}
+.inputcontainer {
+    background-color: blueviolet;
+    grid-column: 1fr / 2;
+    height: 300px;
+    width: 250px;
+    border-style: double;
+    border-color:red
+       
+}
+
+
+#submit{
+    cursor: pointer;
+}
