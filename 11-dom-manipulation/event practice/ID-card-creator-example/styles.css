@@ -1,3 +1,4 @@
+
 .idcontainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,19 +7,35 @@
     width: 600px;
     padding: 30px 5px 30px 40px;
     border-radius: 20px;
-    font-family: 'Times New Roman', Times, serif
+    font-family: 'Times New Roman', Times, serif;
+    border-style: solid;
+    align-content: center;
     
 }
 
 .formcontainer {
-    display: grid;
-    height: 200px;
+    
+    height: 300px;
     width: 400px;
     background-color:lightgreen;
     border-style: solid;
+    margin: 20px;
+    padding: 20px
+   
+
 }
-h1 {
-    font-size: 25px
+
+#submit{
+    cursor: pointer;
+    margin: 20px;
+    border: transparent;
+    background-color: lightseagreen;
+    border-radius: 5px;
+   
+    
+}
+#idform{
+    text-align: center
 }
 img{
     height: 300px;
@@ -27,18 +44,25 @@ img{
     align-self: center;
     justify-self: center;
     border-radius: 20px; 
+    border-style: solid;
 }
-.inputcontainer {
-    background-color: blueviolet;
+.outputcontainer {
     grid-column: 1fr / 2;
     height: 300px;
     width: 250px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-style: italic;
+    border-radius: 20px;
+   
     border-style: double;
-    border-color:red
+    padding: 10px;
+      
+   
+    
+ 
        
 }
 
 
-#submit{
-    cursor: pointer;
-}
+

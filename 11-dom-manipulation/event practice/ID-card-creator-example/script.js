@@ -1,25 +1,65 @@
 const form = document.querySelector('form')
 
+const createNewID = (fname,lname, idnumber, address, city, state, zipcode, funfact) => {
+    
+    //this is for accessing the output box inside idcontainer
+    const outputcontainer = document.body.querySelector(".outputcontainer")
+    const IDOutputs = document.createElement('div')
+    outputcontainer.appendChild(IDOutputs)
 
-form.addEventListener("submit", (e) => {
+    //this is for adding the photo of WW
+
+    // const newImage = document.createElement('img')
+    // img.src= "WWImage.png"
+    // const oldImage = document.getElementByClassName('avatarimage')
+    // document.replaceChild(newImage, oldImage)
+
+    // imgcontainer.appendChild(IDOutputs)
+
+    //this is for displaying the values inside the outputcontainer
+    
+    IDOutputs.innerText =   `ID#: ${idnumber}
+
+                            ${lname}, ${fname}
+                            
+                            ${address}
+                            
+                            ${city}, ${state} ${zipcode}
+                            
+                            ${funfact}`
+    
+}
+
+form.addEventListener("submit", e => {
     e.preventDefault()  //stops auto-submissions
-    const {fname} = e.target  //why curly brackets?
-    console.log(fname.value)
-
-    function displayfields(){
-    const inputcontainer = document.querySelector('.outputcontainer')
-    const output = document.createElement("P")
-    .inputcontainer.appendChild(output)
-
-    }
-// const fnameEl = document.createElement('p')//creates element to add to display box
-// console.log(fnameEl)
-// output.appendChild(firstname)
+    let fname = e.target.fname.value
+    let lname = e.target.lname.value
+    let idnumber = e.target.idnumber.value
+    let address = e.target.address.value
+    let city = e.target.city.value
+    let state = e.target.state.value
+    let zipcode = e.target.zipcode.value
+    let funfact = e.target.funfact.value
+    
+    createNewID(fname, lname, idnumber, address, city, state, zipcode, funfact)
 
 
-firstname.innerText = `Name: ${firstname.value}`
+}) 
 
-})
+
+
+    // function displayfields(){
+    // const inputcontainer = document.querySelector('.outputcontainer')
+    // const output = document.createElement("P")
+    // .inputcontainer.appendChild(output)
+
+    
+
+
+
+
+
+
 
 
 
