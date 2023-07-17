@@ -1,4 +1,5 @@
 const form = document.querySelector('form')
+const newImage = document.getElementById('avatarimage')
 
 const createNewID = (fname,lname, idnumber, address, city, state, zipcode, funfact) => {
     
@@ -8,9 +9,7 @@ const createNewID = (fname,lname, idnumber, address, city, state, zipcode, funfa
     outputcontainer.appendChild(IDOutputs)
 
     //this is for adding the photo of WW
-
-    // const newImage = document.createElement('img')
-    // img.src= "WWImage.png"
+ 
     // const oldImage = document.getElementByClassName('avatarimage')
     // document.replaceChild(newImage, oldImage)
 
@@ -40,7 +39,7 @@ form.addEventListener("submit", e => {
     let state = e.target.state.value
     let zipcode = e.target.zipcode.value
     let funfact = e.target.funfact.value
-    
+    newImage.src= "WWImage.png"
     createNewID(fname, lname, idnumber, address, city, state, zipcode, funfact)
 
 

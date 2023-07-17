@@ -7,7 +7,7 @@
 //   return text.indexOf[alphabet[i]]
 // }
 // }
-let strin = "We wish you a Merry Christmas."
+// let strin = "We wish you a Merry Christmas."
 // const disemvowel = (str) => {
 //   let vowels = "aeiou"
 //   let newStr = ""
@@ -93,7 +93,7 @@ let strin = "We wish you a Merry Christmas."
 
 //Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
 
-let number = 3
+// let number = 3
      
 // const countSheep = (num) => {
 //   let sleepString = ""
@@ -294,17 +294,83 @@ let str = "gdgjd dgjkdjg djgkdj"
 
 
 
-//Friend or Foe (7) - if name has 4 characters they are a friend; input = list of names and output = list of name with 4 characters
-let list = ["alvin", "simon", "theo"]
+// //Friend or Foe (7) - if name has 4 characters they are a friend; input = list of names and output = list of name with 4 characters
+// let list = ["alvin", "simon", "theo"]
 
-const friend = (friends) => {
-  let fArray = [] //placeholder array for list of friends with 4 chars
+// const friend = (friends) => {
+//   let fArray = [] //placeholder array for list of friends with 4 chars
     
-    for(let i = 0; i < friends.length; i++){             //for loop will iterate through each name
-       if(friends[i].length === 4){               //compare length (# of indices) of each each name to 4
-       fArray.push(friends[i])                    //adds only 4 letter names into new list (array)
-       } 
-   }
-   return fArray      //return final array
-}  
-console.log(friend(list))
+//     for(let i = 0; i < friends.length; i++){             //for loop will iterate through each name
+//        if(friends[i].length === 4){               //compare length (# of indices) of each each name to 4
+//        fArray.push(friends[i])                    //adds only 4 letter names into new list (array)
+//        } 
+//    }
+//    return fArray      //return final array
+// }  
+// console.log(friend(list))
+
+
+//Categorize New Member (7) - input is an array of integer pairs (one for age and one for the person's handicap); output = array of string values of "Open" or "Senior"
+//seniors are 55+ and have a handicap greater than 7 (standing range of -2 to 26)
+//create placeholder array for return
+//two for loop to iterate through array, and place condition that if index[0] is 55+ and index[1] > 7, return senior
+
+// let list = [[55, 6], [100, 7], [45, 8]] //should return [Open, Senior, Open]
+
+// const openOrSenior = (data) => {
+
+
+
+// }
+
+//Is this a triangle
+
+//input 3 integer values, and determine if third side can be built with the sides of a given length
+//output is a boolean
+//sum of two sides has to be larger than the third one
+// if statement and use logic operator 
+
+// let side1 = 2;
+// let side2 = 3;
+// let side3 = 4
+
+// const isTriangle = (a,b,c) => {
+
+// if(a + b > c && a + c > b && b + c > a) {
+//   return true
+// } 
+//   return false
+// }
+
+
+// console.log(isTriangle(side1, side2, side3))
+
+
+
+//find the stray number
+//input us an arrary of numbers with an odd length
+//output is number that is not equal to the otther numbers
+//create placeholder for the odd integer out
+
+let array = [17, 17, 3, 17, 17, 17, 17]
+
+
+const stray = (numbers) => {
+
+
+let sortedArray = numbers.sort((a,b) => a-b)
+
+if(sortedArray[0] ===sortedArray[1]){
+  return sortedArray[sortedArray.length-1]
+} else {
+  return sortedArray[0]
+}
+}
+//console.log(sortedArray)
+// let firstNum = sortedArray[0]
+// let secondNum = sortedArray[1]
+// let thirdNum = sortedArray[2]
+
+
+
+console.log(stray(array))
