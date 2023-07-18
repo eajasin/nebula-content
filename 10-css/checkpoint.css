@@ -1,0 +1,24 @@
+/* .square {
+height: 500px;
+width: 500px;
+background-color: green;
+
+}
+.circle {
+display: block;
+background-color: red;
+height: 300px;
+width: 300px;
+border-radius: 200px;
+} */
+
+.pcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    position: absolute;
+  
+
+}
