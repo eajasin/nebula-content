@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     font-family:Helvetica;
-    background-color: rgb(249, 211, 217);
+    
 }
 body {
    
@@ -11,6 +11,7 @@ body {
     width: 100vw;
     justify-content: space-between;
     flex-direction: column;
+    background-color: rgb(249, 211, 217);
     /* gap: 50px; */
 
 }
@@ -22,6 +23,7 @@ nav {
     grid: 1fr / repeat(5, 1fr);
     justify-items: center;
     padding: 15px;
+    border-style: solid;
 }
 a {
     color: lightcoral;
@@ -31,6 +33,42 @@ a:hover {
     color: white;
     transition: .5s;  
 }
+.herocontainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border-style: dashed;
+    border-color: red;
+    height: 800px;
+       
+}
+.greeting {
+    
+    align-self: center;
+    height: 400px;
+    letter-spacing: 3px;
+    border-style: solid;
+}
+#colorchangerbtn{
+    
+        border-radius: 10px;
+        width: 160px;
+        cursor: pointer;
+        background: lightcoral;
+        border: transparent;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition-duration: 0.6s;
+       
+}
+#colorchangerbtn:hover, #colorchangerbtn:focus, #colorchangerbtn:active {
+    
+    transform: scale(1.2);
+
+}
+
 .mainphoto { 
     margin: 100px;
     background-image: url(IMG_1964.jpg);
@@ -40,20 +78,20 @@ a:hover {
     border-radius: 20px;
     margin-bottom: 200px;
     float: right;
+    border-style: solid;
 }
-.greeting {
-    
-    position: absolute;
-     top: 40%;
-    left: 20%; 
-    letter-spacing: 3px;
-}
+
+
 span {
     font-style: italic;
     color: white;
     text-transform: uppercase;
    
     
+}
+
+main {
+border-style: solid;
 }
 h1 {
     color: lightcoral;
@@ -73,13 +111,22 @@ p {
     margin-left: 25px;
     padding: 20px;
 }
+.parallax {
+
+
+}
+
 #AboutMe {
     display: flex;
     justify-content: center;
+    background-color: lightcoral;
+    color: white
 }
 #Favorites {
     display: flex;
     justify-content: center;
+    background-color: lightcoral;
+    color: white
 }
 .favoritescontent {
     display: grid;
@@ -95,6 +142,8 @@ p {
 #goalcreations {
     display: flex;
     justify-content: center;
+    background-color: lightcoral;
+    color: white
 }
 img {
     width: 100%;
@@ -157,14 +206,6 @@ h3 {
     margin-right: auto;
      /* font-size: */
 }
-button {
-    border-radius: 10px;
-    margin-left: 10px;
-    width: 75px;
-    cursor: pointer;
-    background-color: lightcoral;
-    border: transparent;
-    color: white
-}
+
 
 
