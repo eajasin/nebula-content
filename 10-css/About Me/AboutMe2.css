@@ -2,68 +2,90 @@
     padding: 0;
     margin: 0;
     font-family:Helvetica;
+    perspective: 1px;
     
+  
 }
 body {
    
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     justify-content: space-between;
     flex-direction: column;
-    background-color: rgb(249, 211, 217);
+    
+background: linear-gradient(144deg, rgba(240,128,128,1) 0%, rgba(255,192,203,1) 32%, rgba(255,255,240,1) 88%);
     /* gap: 50px; */
+    transform-style: preserve-3d
 
 }
 nav {
     display: grid;
     background-color: rgb(249, 211, 217);
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 19px;
     grid: 1fr / repeat(5, 1fr);
     justify-items: center;
     padding: 15px;
-    border-style: solid;
+    
 }
 a {
     color: lightcoral;
     letter-spacing: 3px;
 }
 a:hover {
-    color: white;
+    color: #fffff0;
     transition: .5s;  
+
+
 }
-.herocontainer{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    border-style: dashed;
-    border-color: red;
+#herocontainer{
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+   
     height: 800px;
-       
 }
+#mid{
+    scroll-behavior: smooth;
+   
+    background-color: #fffff0;
+    height: 100%;
+    width: 100%
+}
+
+
+
+
 .greeting {
-    
-    align-self: center;
-    height: 400px;
-    letter-spacing: 3px;
-    border-style: solid;
+ display: flex;   
+ 
+ flex-direction: column;
+ align-content: center;
+ align-self: center; 
+ text-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+
+
+
+   
+
 }
 #colorchangerbtn{
     
         border-radius: 10px;
         width: 160px;
+        
         cursor: pointer;
         background: lightcoral;
         border: transparent;
-        color: white;
+        color: #fffff0;
         font-size: 20px;
         font-weight: bold;
         text-transform: uppercase;
         transition-duration: 0.6s;
        
 }
-#colorchangerbtn:hover, #colorchangerbtn:focus, #colorchangerbtn:active {
+#colorchangerbtn:hover, #colorchangerbtn:active {
     
     transform: scale(1.2);
 
@@ -72,27 +94,37 @@ a:hover {
 .mainphoto { 
     margin: 100px;
     background-image: url(IMG_1964.jpg);
-    height: 600px;
-    width: 600px;
+    height: 400px;
+    width: 400px;
     background-size: cover;
     border-radius: 20px;
-    margin-bottom: 200px;
-    float: right;
-    border-style: solid;
+    margin-bottom: 20px;
+    align-self: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
 }
-
 
 span {
     font-style: italic;
-    color: white;
+    color: #fffff0;
     text-transform: uppercase;
    
     
 }
+.clickme{
 
-main {
-border-style: solid;
+display: flex;
+justify-content: center;
+margin-top: 40px;
+
 }
+#aboutmecontainer {
+
+margin-top: 100px
+}
+
+
+
 h1 {
     color: lightcoral;
     margin: 20px 0px 20px;
@@ -111,22 +143,22 @@ p {
     margin-left: 25px;
     padding: 20px;
 }
-.parallax {
 
-
-}
 
 #AboutMe {
     display: flex;
     justify-content: center;
     background-color: lightcoral;
-    color: white
+    color: #fffff0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3)
+    
 }
 #Favorites {
     display: flex;
     justify-content: center;
     background-color: lightcoral;
-    color: white
+    color: #fffff0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3)
 }
 .favoritescontent {
     display: grid;
@@ -143,7 +175,9 @@ p {
     display: flex;
     justify-content: center;
     background-color: lightcoral;
-    color: white
+    color: #fffff0;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3) 
+    /* creates shadow in text */
 }
 img {
     width: 100%;
@@ -156,6 +190,7 @@ img {
     height: 20%;
     width: 30%;
     padding: 20px;
+    
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -207,5 +242,52 @@ h3 {
      /* font-size: */
 }
 
+
+
+/* start animation here --> */
+
+.floatingflower div {
+  
+   height: 50px;
+   width: 50px;
+   position: absolute;
+   animation: animate 4s linear infinite
+   
+       
+}
+.floatingflower div:nth-child(1){
+
+    left: 20%;
+    animation: animate 4s linear infinite;
+
+} 
+.floatingflower div:nth-child(2){
+   
+    left: 40%;
+    animation: animate 4s linear infinite
+}
+.floatingflower div:nth-child(3){
+    
+    left: 60%;
+    animation: animate 4s linear infinite
+}
+.floatingflower div:nth-child(4){
+  
+    left: 80%;
+    animation: animate 4s linear infinite
+}
+.floatingflower div:nth-child(5){
+    
+    left: 95%;
+    animation: animate 4s linear infinite
+}
+
+
+
+@keyframes animate{
+    0%{
+        transform: translateY(0) rotate(60deg);
+    }
+}
 
 
