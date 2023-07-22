@@ -283,7 +283,7 @@ h3 {
 }
 
 
-
+/* defines the 'animate' animation; 4s sequence starts at beginning of animation, no vertical movement */
 @keyframes animate{
     0%{
         transform: translateY(0) rotate(60deg);

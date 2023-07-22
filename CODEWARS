@@ -170,7 +170,7 @@ return using min.max methods
 
 // console.log(solution(string))
 
-let str = "gdgjd dgjkdjg djgkdj"
+// let str = "gdgjd dgjkdjg djgkdj"
 
 // const noSpace = (x) => { //string => string
 //   let newStr = ""  //placeholder string
@@ -352,25 +352,170 @@ let str = "gdgjd dgjkdjg djgkdj"
 //output is number that is not equal to the otther numbers
 //create placeholder for the odd integer out
 
-let array = [17, 17, 3, 17, 17, 17, 17]
+// let array = [17, 17, 3, 17, 17, 17, 17]
 
 
-const stray = (numbers) => {
+// const stray = (numbers) => {
 
 
-let sortedArray = numbers.sort((a,b) => a-b)
+// let sortedArray = numbers.sort((a,b) => a-b)
 
-if(sortedArray[0] ===sortedArray[1]){
-  return sortedArray[sortedArray.length-1]
-} else {
-  return sortedArray[0]
-}
-}
-//console.log(sortedArray)
-// let firstNum = sortedArray[0]
-// let secondNum = sortedArray[1]
-// let thirdNum = sortedArray[2]
+// if(sortedArray[0] ===sortedArray[1]){
+//   return sortedArray[sortedArray.length-1]
+// } else {
+//   return sortedArray[0]
+// }
+// }
+// //console.log(sortedArray)
+// // let firstNum = sortedArray[0]
+// // let secondNum = sortedArray[1]
+// // let thirdNum = sortedArray[2]
 
 
 
-console.log(stray(array))
+// console.log(stray(array))
+
+//Credit Card Mask (7)
+//input = string of words/numbers, output = string of words/numbers with all but last 4 digits redacted with '#'
+//  let example = "Elizabeth"
+ 
+//  const maskify = (cc) => {
+  
+   
+//     if(cc.length <= 4){ //return string as is because only 4 digits
+//         return cc
+     
+         
+//     } else {  //if greater, splice the last 4 characters and concatenate them to string replaced with #
+//               //first piece of string should splice off the last 4
+   
+//     let normalLastFour = cc.slice(-4)
+//     let ccWithRedaction = cc.slice(0, -4).replace(/./g ,'#') //matches any character in string except for new line// check out regex (regular expressions); regex101 and 
+   
+//          return ccWithRedaction  += normalLastFour 
+//     }
+   
+//     }
+//   // if (cc.length > 4){  //for all strings that are greater than 4 characters
+    
+
+// console.log(maskify(example))
+
+
+ //Find the off int (6)
+ //input is array of integers, output is integer that appears an odd number of times
+ //find out how many occurrences each number in array has
+ //find the number that occurres an odd amount of times
+
+// let array = [1,2,2,3,3,3,4,3,3,3,2,2,1] 
+
+//  const findOdd = (A) => {
+//     const frequency = {}; //object placeholder; frequency will be an object 
+//       for(let i = 0; i < A.length; i++){
+//         let result = 0   //placeholder
+//         let currNum = A[i];
+//         frequency[currNum] = (frequency[currNum] || 0) + 1 /*increments count of current number; freq[num] accesses the frequency property by the num (number in array:frequency number); 0 part checks logic
+//         (does number occur and if doesnt, skips; if yes, add 1 to frequency of number however many times it occurs)
+//         */
+//         //return frequency
+        
+//         // if(frequency[currNum] % 2 == 1){
+//         //  return result
+//       }
+//       for(let key in frequency){  //iterates through object (key is the numbers in array, value is the frequency)
+//         if(frequency[key]%2 == 1){
+//           //console.log(typeof(key))
+//           return parseInt(key) //this converts back to an integer because every key of an object is a string
+//         }
+//       }
+//     //console.log(frequency[currNum])
+   
+//   }
+    
+      
+  
+  
+
+//   console.log(findOdd(array))
+
+
+
+// //REMOVE FIRST AND LAST CHARACTER (8)
+// let string = "happy"
+
+// const removeChar = (str) => {
+//   let newstr = str.substring(1, str.length-1)
+
+//   return newstr
+// }
+
+// // console.log(removeChar(string))
+
+// // Make a function that does arithmetic (7)
+// // -input is two numbers and a an operator; output is a number
+// // create a switch statement to evaluate the expressesion (operator)
+// // case is the operator, and the function will return the value of a and b when the expressions is applied
+
+
+
+// const arithmetic = (a, b, operator) => {
+  
+//   switch (operator){
+//   case "+":
+//      return a + b; 
+//      break;
+ 
+//   case "-":
+//      return a - b; 
+  
+//   case "*":
+//      return a * b;
+  
+//   case "/":
+//      return a / b;
+ 
+// }
+// }
+
+// console.log(arithmetic(20, 2, "+"))
+
+
+
+// Your order, please (6) NOT SOLVED
+//input string, output string (in order of the numbers in the string)
+//convert string to array and determine if a number is in it
+//create empty array into which newly arranged arr will go; at end will join back together
+//loop through the elements and determine if there is an integer in it (regex)
+//if there is a number, have function that can then sort the numbered strings in order of number in them
+  
+
+// let weirdStr = "is2 Thi1s T4est 3a" 
+
+// const order = (word) => {
+
+    // let result = []
+
+    
+     //if there is a number in each element (expression) of arr
+    
+//     let arr = word.split(' ')
+//     let wordindices = {}
+
+//     for(let i = 0; i < arr.length; i++){
+//       arr.match
+
+
+//      console.log(arr[i].match(/\d/))
+
+
+
+
+//       result.push[arr[i]]
+    
+      
+//     } 
+      
+  
+//   return result.join(' ')
+// }
+// order(weirdStr)

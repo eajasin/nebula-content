@@ -1,22 +1,20 @@
-const form = document.querySelector('form')
-const newImage = document.getElementById('avatarimage')
+const form = document.querySelector('form') //accesses first occurrence of form
+const newImage = document.getElementById('avatarimage') //access avatar image
 
+
+//create function that display each element of the form
 const createNewID = (fname,lname, idnumber, address, city, state, zipcode, funfact) => {
     
     //this is for accessing the output box inside idcontainer
     const outputcontainer = document.body.querySelector(".outputcontainer")
+    //created new value that access values of form and 'sends' them to the outputcontainer
     const IDOutputs = document.createElement('div')
+    //appended the 'child' (outputcontainer) 
     outputcontainer.appendChild(IDOutputs)
 
-    //this is for adding the photo of WW
- 
-    // const oldImage = document.getElementByClassName('avatarimage')
-    // document.replaceChild(newImage, oldImage)
-
-    // imgcontainer.appendChild(IDOutputs)
-
-    //this is for displaying the values inside the outputcontainer
-    
+      
+    //this is for displaying the values inside the outputcontainer; used template literal for desired spacing
+    //innertext method removes displaythe actual text inside the <div> tag
     IDOutputs.innerText =   `ID#: ${idnumber}
 
                             ${lname}, ${fname}
@@ -29,9 +27,12 @@ const createNewID = (fname,lname, idnumber, address, city, state, zipcode, funfa
     
 }
 
+//this function creates the event (createID fucntion) upon clicking 'submit'
 form.addEventListener("submit", e => {
     e.preventDefault()  //stops auto-submissions
-    let fname = e.target.fname.value
+
+    //value is the input typed into the form fields
+    let fname = e.target.fname.value 
     let lname = e.target.lname.value
     let idnumber = e.target.idnumber.value
     let address = e.target.address.value
@@ -39,6 +40,7 @@ form.addEventListener("submit", e => {
     let state = e.target.state.value
     let zipcode = e.target.zipcode.value
     let funfact = e.target.funfact.value
+    //changes the source of the photo
     newImage.src= "WWImage.png"
     createNewID(fname, lname, idnumber, address, city, state, zipcode, funfact)
 
