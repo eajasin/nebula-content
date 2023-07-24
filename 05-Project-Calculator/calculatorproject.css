@@ -1,0 +1,32 @@
+.maincontainer{
+    border-style: solid;
+    height: 400px;
+    width: 300px;
+    background-color: lightgreen;
+}
+
+#displayscreen {
+
+width: 90%;
+background-color: lightskyblue;
+border-style: solid;
+height: 50px;
+width: 250px;
+text-align: right;
+}
+
+.numberbuttons {
+border-style: solid;
+background-color: orange;
+height: 150px;
+width: 200px
+
+}
+.operatorbuttons {
+
+border-style: solid;
+background-color: lightpink;
+height: 150px;
+width: 200px
+
+}
