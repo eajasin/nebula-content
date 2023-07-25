@@ -1,0 +1,38 @@
+body{
+    background-color:yellowgreen;
+}
+
+.container {
+    
+    height: 400px;
+    width: 300px;
+    border-style: solid;
+}
+
+.calculatorcontainer {
+
+    border-style: solid;
+    background-color: lightpink;
+}
+#displayscreen {
+    background-color: lightskyblue;
+    border-style: solid
+
+}
+
+.firstcol {
+    border-style: solid;
+}
+
+.secondcol {
+    border-style: solid;
+}
+.thirdcol {
+    border-style: solid;
+}
+.fourthcol {
+    border-style: solid;
+}
+.fifthcol {
+    border-style: solid;
+}

@@ -5,22 +5,32 @@ let operatorbtns = document.querySelectorAll('.operatorbtns')
 
 // <-- START OF DISPLAYING CONCATENATED  NUMBERS -->
 
+
+//WITH CLICK
 numberbtns.forEach(button =>{
 button.addEventListener('click', e => {
    document.querySelector('#displayscreen').innerText += button.dataset.number
 })
 })
-//<-- END OF DISPLAYING CONCATENATED NUMBERS --->
 
-operatorbtns.forEach(button =>{
-    button.addEventListener('click', e => {
-      const operator = e.target.innerText;
-      const displayscreen = document.querySelector('#displayscreen')
-      displayscreen.innerText += operator
-      
-    })
-    })
+//WITH KEYDOWN
 
+
+
+
+
+//<-- END OF DISPLAYING CONCATENATED NUMBERS -->
+
+
+//<-- START OF DISPLAYING OPERATORS -->
+
+operatorbtns.forEach(button=>{
+    button.addEventListener('click', e =>{
+      resultdisplay.innerText += button.dataset.operator
+})
+})
+    
+//<-- END OF DISPLAYING OPERATORS -->
 
 // <-- CLEAR BUTTON START -->
 
@@ -28,9 +38,12 @@ const clearbtn = document.getElementById('clearbtn')
 
 clearbtn.addEventListener('click', e => {
     resultdisplay.innerText = ''
-
 })
 // <-- CLEAR BUTTON END -->
+
+
+
+
 
 // // <-- BACKSPACE BUTTON START -->
 
@@ -38,8 +51,7 @@ clearbtn.addEventListener('click', e => {
 
 // function backspace(input) {
 //     return input.slice(0, -1)
-    
-
+   
 // }
 
 // backspacebtn.addEventListener('click', e => {
@@ -47,33 +59,31 @@ clearbtn.addEventListener('click', e => {
   
 // })
 
-
 // // <-- BACKSPACE BUTTON END -->
+
+
+
 
 //<-- ADD FUNCTION START -->
 
-const addbtn = document.getElementById('addbtn')
+// const addbtn = document.getElementById('addbtn')
 
-function add(num1, num2){
-    return parseInt(num1) + parseInt(num2)
-}
+// function add(num1, num2){
+//     return parseInt(num1) + parseInt(num2)
+// }
 
-addbtn.addEventListener('click', () => {
-    const num1 = document.querySelector('#displayscreen').innerText
-    const num2 = document.querySelector('#displayscreen').innerText
-    const result = add(num1, num2)
-    resultdisplay.innerText = `result ${result}`
+// addbtn.addEventListener('click', () => {
+//     #displayscreen.innerText
 
 
-})
+// })
 
 // subtractbtn.addEventListener('click', () => {
 //     const num1 = document.getElementById('num1').value
 //     const num2 = document.getElementById('num2').value
 //     const result = subtract(num1, num2)    
 //     resultdisplay.innerText = `Result: ${result}`
-
-
+// })
 
 //<-- ADD FUNCTION END -->
 
@@ -105,7 +115,21 @@ addbtn.addEventListener('click', () => {
 // console.log(arithmetic(20, 2, "+"))
 
 
+// Exes and Ohs (7)
+//input is string, output is boolean
 
+// const XO = (str) => {
+  
+//     let x = str.match(/x/gi) //find the number of occurrences for each letter, taking case into account
+    
+//     let o = str.match(/o/gi)
+    
+//     return (x && x.length) === (o && o.length) //determine if there is any occurrence and if the number of occurrences equals each other
+        
+//     }
+
+//Unique In Order (6)
+ //input is string/array; output is string/array in original order of elements
 
 
 
