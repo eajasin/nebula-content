@@ -104,3 +104,9 @@ addbtn.addEventListener('click', () => {
 
 // console.log(arithmetic(20, 2, "+"))
 
+
+
+
+
+
+

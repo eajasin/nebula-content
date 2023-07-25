@@ -519,3 +519,52 @@ return using min.max methods
 //   return result.join(' ')
 // }
 // order(weirdStr)
+
+
+// Exes and Ohs (7)
+//input is string, output is boolean
+
+// const XO = (str) => {
+  
+//     let x = str.match(/x/gi) //find the number of occurrences for each letter, taking case into account
+    
+//     let o = str.match(/o/gi)
+    
+//     return (x && x.length) === (o && o.length) //determine if there is any occurrence and if the number of occurrences equals each other
+        
+//     }
+
+//Unique In Order (6)
+ //input is string/array; output is string/array in original order of elements
+
+// let stringarr = "fjksjfkjsfjsjkf"
+// const uniqueInOrder = (iterable) = {
+// // let newArray = iterable.split('')//split into array
+
+// // let numberOcc = iterable.match(/[0-9]/gi)
+// // let letterOcc = iterable.match(/[a-z]/gi)
+// let newiterable = iterable.replace(/[0-9]/gi, "").replace(/[a-z]/gi, "")
+// console.log(newiterable)
+
+//    //identify and remove characters that occur more than once
+
+// }
+// console.log(uniqueInOrder(stringarr))
+
+let string = "ABDBDBDBBDDDB"
+
+
+const uniqueInOrder = (iterable) => {
+
+
+
+let empArr = []
+ for(let i = 0; i < iterable.length; i++){
+  
+  if(iterable[i] !== iterable[i+1]){
+    empArr.push(iterable[i])
+  }
+ }
+return empArr
+}
+console.log(uniqueInOrder(string))

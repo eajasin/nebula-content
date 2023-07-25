@@ -1,6 +1,13 @@
-.result {
-border-style: solid;
+#result {
+
+margin-top: 20px;
+
 height: 50px;
-width: 50px
+width: 60px
+
+}
+
+.buttoncontainer {
+margin-top: 20px;
 
 }
