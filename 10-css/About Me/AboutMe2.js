@@ -7,7 +7,7 @@ let clickCount = 0
 //create function that will assign a random color to the background
 
 function randomColor(){
- //let redchannel = Math.floor(Math.random() * 255);
+ 
 let red = Math.floor(Math.random() * 255);
 let green = Math.floor(Math.random() * 255);
 let blue = Math.floor(Math.random() * 255);
@@ -31,7 +31,3 @@ colorchangerbtn.addEventListener('click', randomColor)
 // <--- Color Change Button End --->
 
 
-// <--- Parallax Scrolling Effect Start --->
-
-
-// <--- Parallax Scrolling Effect End --->

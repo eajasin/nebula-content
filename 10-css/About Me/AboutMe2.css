@@ -273,7 +273,7 @@ h3 {
 }
 .floatingflower div:nth-child(4){
   
-    left: 80%;
+    left: 78%;
     animation: animate 4s linear infinite
 }
 .floatingflower div:nth-child(5){
@@ -283,10 +283,10 @@ h3 {
 }
 
 
-/* defines the 'animate' animation; 4s sequence starts at beginning of animation, no vertical movement */
+/* defines the 'animate' animation; 4s sequence starts at beginning of animation */
 @keyframes animate{
     0%{
-        transform: translateY(0) rotate(60deg);
+        transform: rotate(60deg);
     }
 }
 
