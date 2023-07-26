@@ -1,7 +1,9 @@
 const resultdisplay = document.getElementById('displayscreen')
 let numberbtns = document.querySelectorAll('.numberbtns')
 let operatorbtns = document.querySelectorAll('.operatorbtns')
-
+let num1 = null;
+let num2 = null;
+let separator = null
 
 // <-- START OF DISPLAYING CONCATENATED  NUMBERS -->
 
@@ -10,14 +12,14 @@ let operatorbtns = document.querySelectorAll('.operatorbtns')
 numberbtns.forEach(button =>{
 button.addEventListener('click', e => {
    document.querySelector('#displayscreen').innerText += button.dataset.number
+
+ num1 = document.querySelector('#displayscreen').innerText 
+ num2 = document.querySelector('#displayscreen').innerText 
+
 })
 })
 
 //WITH KEYDOWN
-
-
-
-
 
 //<-- END OF DISPLAYING CONCATENATED NUMBERS -->
 
@@ -32,6 +34,21 @@ operatorbtns.forEach(button=>{
     
 //<-- END OF DISPLAYING OPERATORS -->
 
+// <-- START OF SEPARATING STRINGS -->
+
+const splitStr = (numstr1, numstr2, separator) => {
+    if(!Number.isNaN(Number(numstr1)) && !Number.isNaN(Number(numstr2))){
+        return numstr1 + separator + numstr2
+    // } else {
+    //     "Error"
+    }   
+}
+
+// <-- END OF SEPARATING STRINGS -->
+
+
+
+
 // <-- CLEAR BUTTON START -->
 
 const clearbtn = document.getElementById('clearbtn')
@@ -40,6 +57,75 @@ clearbtn.addEventListener('click', e => {
     resultdisplay.innerText = ''
 })
 // <-- CLEAR BUTTON END -->
+
+
+//<-- OPERATOR FUNCTIONALITY START -->
+
+let equalbtn = document.getElementById('equalbtn')
+
+
+const mathOp = (num1, num2, operation) => {
+
+    let = result;
+
+
+    switch(operation) {
+    case "+":
+        result = parseFloat(num1) + parseFloat (num2);
+        break;
+    case "-":
+        result = parseFloat(num1) - parseFloat (num2);
+        break;
+    case "*":
+        result = parseFloat(num1) * parseFloat (num2);
+        break;
+    case "/": 
+        result =  parseFloat(num1) / parseFloat (num2);
+        break;
+                         
+} return result
+    }
+const onebtn = document.getElementById('onebtn')
+
+// const onclick = () => {
+//     = displayscreen.value
+
+// function that can split the string by the non-number
+
+
+   
+// }   
+
+// zerobtn.addEventListener('click', e => {
+//    console.log(e)
+   
+//     //resultdisplay.innerText = zerobtn.innerText
+// })
+
+
+
+
+
+// equalbtn.addEventListener('click', e => {
+    
+//     let result = mathOp(splitStr(num1, num2, separator))
+//     resultdisplay.innerText = result
+   
+
+
+
+    // let selOperator = operatorbtns.e.target.innerText
+    // let result = mathOp(number1, number2, selOperator)
+    // resultdisplay.innerText = result
+
+
+
+
+
+})
+
+
+//<-- OPERATOR FUNCTIONALITY END -->
 
 
 

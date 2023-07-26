@@ -4,55 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="calculatorproject2.css">
-    <title>Document</title>
+    <title>Basic Calculator</title>
 </head>
 <body>
-    <div class="container">
-        <div class="calculatorcontainer">
-            <form>
-                <div id="displayscreen">
-                    <input type="text" name="calcdisplay">
-                </div>
-                    <div class="firstcol">
-                        <input type="button" value="on/off">
-                        <input type="button" value="7">
-                        <input type="button" value="4">
-                        <input type="button" value="1">
-                        <input type="button" value="0">
-                    </div>
-                    <div class="secondcol">
-                        <input type="button" value="+/-">
-                        <input type="button" value="8">
-                        <input type="button" value="5">
-                        <input type="button" value="2">
-                    </div>
-                    <div class="thirdcol">
-                        <input type="button" value="√">
-                        <input type="button" value="9">
-                        <input type="button" value="6">
-                        <input type="button" value="3">
-                        <input type="button" value=".">
-                    </div>
-                    <div class="fourthcol">
-                        <input type="button" value="clear">
-                        <input type="button" value="%">
-                        <input type="button" value="÷">
-                        <input type="button" value="-">
-                    </div>
-                    <div class="fifthcol">
-                        <input type="button" value="backspace">
-                        <input type="button" value="other">
-                        <input type="button" value="x">
-                        <input type="button" value="+">
-                        <input type="button" value="=">
-                        
-                    </div>
-            </form>
-        </div>
-    </div>
+    <h1>Calculator Project</h1>
+    
+    <div class="maincontainer">
+
+    
+
+
+       <div id="displayscreen">
+        <!-- <input type="num1">
+        <input type="num2">
+        <input type="operator"> -->
+            <!-- <div>num1</div>
+            <div>num2</div> -->
+       </div>
+        <!-- <input type='text' id="displayscreen"> -->
+            
+        </section>
+        <section class="numberbuttons">
+            <button class="numberbtns" data-number="0">0</button>
+            <button class="numberbtns" data-number="1">1</button>
+            <button class="numberbtns" data-number="2">2</button>
+            <button class="numberbtns" data-number="3">3</button>
+            <button class="numberbtns" data-number="4">4</button>
+            <button class="numberbtns" data-number="5">5</button>
+            <button class="numberbtns" data-number="6">6</button>
+            <button class="numberbtns" data-number="7">7</button>
+            <button class="numberbtns" data-number="7">8</button>
+            <button class="numberbtns" data-number="9">9</button>
+            <button class="numberbtns" data-number=".">.</button>
+            
+        </section>
+
+         <!-- <section class="operatorbuttons">
+            <button class="operatorbtns" data-operator="+">+</button>
+            <button class="operatorbtns" data-operator="-">-</button>
+            <button class="operatorbtns" data-operator="x">×</button>
+            <button class="operatorbtns" data-operator="÷">÷</button>
+            
+            
+        </section>
+
+       
+
+        <!-- <section class="operatorbuttons">
+            <button class="operatorbtns">+</button>
+            <button class="operatorbtns">-</button>
+            <button class="operatorbtns">×</button>
+            <button class="operatorbtns">÷</button>
+            <button class="equalbtn">=</button> -->
+             
+        </section>
+         
+        <!-- <section class="otherbuttons">
+        <button id="equalbtn">=</button>
+        <button id="clearbtn">Clear</button>
+        <button id="backspacebtn">Backspace</button>
+        
+        </section> -->
+
+       
+
+<!-- 
+      
+            <button id="percentbtn">%</button>
+            <button id="squarebtn">√ </button>
+            <button id="negbtn">+/-</button>
+            <button id="clearbtn">Clear</button>
+            <button id="backspacebtn">Backspace</button>
+            <button id="onoffbtn">On/Off</button> -->
+        
+         
+<!--          
+        displayscreen
+        all buttons
+            numbers buttons
+            functions (addition, subtract, multiply, divide, on/off, decimal, neg/pos, square root, reset, backspace, equal, percent, memory buttons(3)) buttons -->
+       
 
 
 
+
+
+    
+    <div id="result"></div>
+</div>
+    
 </body>
-<script src='calculatorproject2.js' defer></script>
+<script src='calculatorproject.js' defer></script>
 </html>
