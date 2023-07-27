@@ -551,20 +551,22 @@ return using min.max methods
 // }
 // console.log(uniqueInOrder(stringarr))
 
-let string = "ABDBDBDBBDDDB"
+// let string = "ABDBDBDBBDDDB"
 
 
-const uniqueInOrder = (iterable) => {
+// const uniqueInOrder = (iterable) => {
 
 
 
-let empArr = []
- for(let i = 0; i < iterable.length; i++){
+// let empArr = []
+//  for(let i = 0; i < iterable.length; i++){
   
-  if(iterable[i] !== iterable[i+1]){
-    empArr.push(iterable[i])
-  }
- }
-return empArr
-}
-console.log(uniqueInOrder(string))
+//   if(iterable[i] !== iterable[i+1]){
+//     empArr.push(iterable[i])
+//   }
+//  }
+// return empArr
+// }
+// console.log(uniqueInOrder(string))
+
+
