@@ -630,4 +630,3 @@ return using min.max methods
 //   }
 
 
-console.log(2**3)
