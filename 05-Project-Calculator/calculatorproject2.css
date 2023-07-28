@@ -1,4 +1,4 @@
-.maincontainer{
+/* .maincontainer{
     border-style: solid;
     height: 400px;
     width: 300px;
@@ -36,7 +36,7 @@ width: 200px
 }
  */
 
- button:nth-child(1) {
+ /* button:nth-child(1) {
  border-style: dashed;
  display: block;
  position: relative;
@@ -51,4 +51,58 @@ width: 200px
 
 
 
+ } */
+
+ .maincontainer{
+    border-style: solid;
+    height: 400px;
+    width: 300px;
+    background-color: lightgreen;
+}
+
+
+ #displayscreen {
+    margin: 20px;
+    width: 90%;
+    background-color: lightskyblue;
+    border-style: solid;
+    height: 50px;
+    width: 250px;
+    text-align: right;
+    }
+
+ button {
+    width: 50px;
+    height: 60px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    rotate: 90deg;
+    /* border-top: 5px solid lightgray;
+    border-bottom: 5px solid lightgray;
+    border-left: 5px solid lightgray;
+    border-right: 5px solid lightgray; */
+
+ }
+
+
+ .numberbuttons{
+    
+    
+    justify-content: center;
+    border-style: solid;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+ }
+ section {
+    display: flex;
+    flex-direction: column;
+    
  }

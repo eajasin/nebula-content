@@ -570,3 +570,64 @@ return using min.max methods
 // console.log(uniqueInOrder(string))
 
 
+// Delete occurrences of an element if it occures niore than n times (6)
+
+// loop through list and count how many times each number appears
+// push count to an object to see number of occurrences
+// if count is equal to "n", delete any extras using pop
+
+// let array = [1,2,3,1,2,1,2,3];
+// let freq = 2
+
+// const deleteNth = (arr,n) => {
+//  let freqOfOccur = {} //object placeholder; frequ will be an object
+//  let newArr = []  //placeholder to store new array 
+  
+//   for(let i = 0; i < arr.length; i++){ //iterate through each element in array
+//       let currNum = arr[i]  //create variable for each number in array
+//       freqOfOccur[currNum] = (freqOfOccur[currNum] || 0) + 1 //increments count of curr number however many times it occurs
+//   if(freqOfOccur[currNum] <= n){ //number should only appear as many times as n
+//     newArr.push(currNum) //push new array into placeholder
+//     }
+//   }
+//     return newArr
+// }
+
+// console.log(deleteNth(array, freq))
+
+
+
+
+
+ //Find the off int (6)
+ //input is array of integers, output is integer that appears an odd number of times
+ //find out how many occurrences each number in array has
+ //find the number that occurres an odd amount of times
+
+// let array = [1,2,2,3,3,3,4,3,3,3,2,2,1] 
+
+//  const findOdd = (A) => {
+//     const frequency = {}; //object placeholder; frequency will be an object 
+//       for(let i = 0; i < A.length; i++){
+//         let result = 0   //placeholder
+//         let currNum = A[i];
+//         frequency[currNum] = (frequency[currNum] || 0) + 1 /*increments count of current number; freq[num] accesses the frequency property by the num (number in array:frequency number); 0 part checks logic
+//         (does number occur and if doesnt, skips; if yes, add 1 to frequency of number however many times it occurs)
+//         */
+//         //return frequency
+        
+//         // if(frequency[currNum] % 2 == 1){
+//         //  return result
+//       }
+//       for(let key in frequency){  //iterates through object (key is the numbers in array, value is the frequency)
+//         if(frequency[key]%2 == 1){
+//           //console.log(typeof(key))
+//           return parseInt(key) //this converts back to an integer because every key of an object is a string
+//         }
+//       }
+//     //console.log(frequency[currNum])
+   
+//   }
+
+
+console.log(2**3)
