@@ -6,13 +6,17 @@ let num2 = null;
 let separator = null;
 let operatorClicked = false;
 let result = null
+resultdisplay.innerText = '0.00'
 
 // <-- START OF DISPLAYING CONCATENATED  NUMBERS -->
 
 
 numberbtns.forEach(button =>{
 button.addEventListener('click', e => {
-   if(!operatorClicked){
+   resultdisplay.innerText = ""
+   
+   
+    if(!operatorClicked){
     num1 = num1 ? num1 + button.dataset.number : button.dataset.number
    
    } else {
@@ -32,7 +36,7 @@ button.addEventListener('click', e => {
 //     separator = null;
 //     num2 = null
 // }
-console.log(num1, num2, separator, result)
+
 
 })
 })
@@ -59,7 +63,7 @@ operatorbtns.forEach(button=>{
 const clearbtn = document.getElementById('clearbtn')
 
 clearbtn.addEventListener('click', e => {
-resultdisplay.innerText = ''
+resultdisplay.innerText = '0.00'
 num1 = null
 num2 = null
 operatorClicked = false;
@@ -72,20 +76,41 @@ operatorClicked = false;
 
 // // <-- MAKE NEG NUMBER START -->
 
-// let negnumbtn = document.getElementById('negnumbtn')
+let negnumbtn = document.getElementById('negnumbtn')
 
-// negnumbtn.addEventListener('click', e => {
-//     let negatedNum1 = -parseFloat(num1);
-//     num1 = negatedNum1
+negnumbtn.addEventListener('click', e => {
+    let negatedNum1 = parseFloat(num1)*-1;
+    num1 = negatedNum1
+    
+    
+    let negatedNum2 = parseFloat(num2)*-1;
+    num2 = negatedNum2
 
-//     // let negatedNum2 = -parseFloat(num2);
-//     // num2 = negatedNum2
+    resultdisplay.innerText = negatedNum2
+    resultdisplay.innerText = negatedNum1;
 
-//     resultdisplay.innerText = negatedNum1;
-//     // resultdisplay.innerText = negatedNum2
-// })
-
+   
+})
 // // <-- MAKE NEG NUMBER END -->
+
+// // <-- MAKE PERC NUMBER START -->
+
+let percbtn = document.getElementById("percbtn")
+
+percbtn.addEventListener('click', e => {
+    let percNum1 = parseFloat(num1)*.1;
+    num1 = percNum1
+
+    let percNum2 = parseFloat(num2)*.1;
+    
+    num2 = percNum2
+
+    resultdisplay.innerText = percNum1
+    resultdisplay.innerText = percNum2
+
+})
+
+// // <-- MAKE PERC NUMBER END -->
 
 
 
@@ -109,10 +134,12 @@ const mathOp = (num1, num2, operation) => {
     case "÷": 
         result = parseFloat(num1) / parseFloat(num2);
         break;
+    case "^":
+        result = parseFloat(num1) ** parseFloat(num2);
+        break;
     case "√":
         result =  Math.sqrt(num1)
-    case "%":
-    result =  num1 * .1
+   
                              
 } return result
 }
@@ -138,28 +165,6 @@ resultdisplay.innerText = parseFloat(result);
 })
 
 // //<-- EQUAL BUTTON END HERE --> 
-
-
-  
-let powerbtn = document.getElementById('powerbtn')
-
-powerbtn.addEventListener('click', e => {
- let result = parseFloat(num1) ** parseFloat(num2)
-console.log(result)
- resultdisplay.innerText = result
-
-})
-
-//     // let result = mathOp(splitStr(num1, num2, separator))
-//     // resultdisplay.innerText = result
-   
-
-
-
-//     // let selOperator = operatorbtns.e.target.innerText
-//     // let result = mathOp(number1, number2, selOperator)
-//     // resultdisplay.innerText = result
-
 
 // // // <-- BACKSPACE BUTTON START -->
 
