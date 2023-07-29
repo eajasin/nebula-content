@@ -1,0 +1,27 @@
+.maincontainer{
+    border-style: solid;
+    height: 400px;
+    width: 300px;
+    background-color: lightgreen;
+}
+
+#displayscreen {
+margin: 20px;
+width: 90%;
+background-color: lightskyblue;
+border-style: solid;
+height: 50px;
+width: 250px;
+text-align: right;
+}
+
+.numberbuttons {
+margin: 20px;
+border-style: solid;
+background-color: orange;
+height: 150px;
+width: 250px
+
+}
+
+
