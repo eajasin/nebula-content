@@ -1,33 +1,40 @@
 const resultdisplay = document.getElementById('displayscreen')
 let numberbtns = document.querySelectorAll('.numberbtns')
 let operatorbtns = document.querySelectorAll('.operatorbtns')
-let num1 = null;
-let num2 = null;
-let separator = null;
+let num1 = '';
+let num2 = '';
+let separator = '';
 let operatorClicked = false;
 let result = null
-resultdisplay.innerText = '0.00'
+
+
+
+
+
 
 // <-- START OF DISPLAYING CONCATENATED  NUMBERS -->
 
 
 numberbtns.forEach(button =>{
 button.addEventListener('click', e => {
-   resultdisplay.innerText = ""
+resultdisplay.innerText += button.dataset.number
+
+//    resultdisplay.innerText = ""
    
-   
-    if(!operatorClicked){
-    num1 = num1 ? num1 + button.dataset.number : button.dataset.number
-   
-   } else {
-    num2 = num2 ? parseFloat(num2 + button.dataset.number) : parseFloat(button.dataset.number)
+//     if(!operatorClicked){
+//     num1 += button.dataset.number
+//     resultdisplay.innerText = num1
+
+//    } else {
+    
+//     num2 += button.dataset.number
+//     resultdisplay.innerText = num2
+//    }
+    //document.querySelector('#displayscreen').innerText += button.dataset.number
   
-   }
-    document.querySelector('#displayscreen').innerText += button.dataset.number
-  
-   if(num1 && separator){
-    resultdisplay.innerText = num2
-   }
+//    if(num1 && separator){
+//     resultdisplay.innerText = num2
+//    }
 
 // if(result){
 //     num1 = result;
@@ -36,8 +43,6 @@ button.addEventListener('click', e => {
 //     separator = null;
 //     num2 = null
 // }
-
-
 })
 })
 
@@ -49,9 +54,10 @@ button.addEventListener('click', e => {
 operatorbtns.forEach(button=>{
     button.addEventListener('click', e =>{
         operatorClicked = true
-      resultdisplay.innerText += button.dataset.operator
+        num1 = resultdisplay.innerText
+      
     separator = button.dataset.operator  
-    
+  resultdisplay.innerText = ''  
 })
 })
     
@@ -63,7 +69,7 @@ operatorbtns.forEach(button=>{
 const clearbtn = document.getElementById('clearbtn')
 
 clearbtn.addEventListener('click', e => {
-resultdisplay.innerText = '0.00'
+resultdisplay.innerText = ''
 num1 = null
 num2 = null
 operatorClicked = false;
@@ -79,15 +85,20 @@ operatorClicked = false;
 let negnumbtn = document.getElementById('negnumbtn')
 
 negnumbtn.addEventListener('click', e => {
-    let negatedNum1 = parseFloat(num1)*-1;
-    num1 = negatedNum1
-    
-    
-    let negatedNum2 = parseFloat(num2)*-1;
-    num2 = negatedNum2
+    //let negatedNum1 = parseFloat(num1)*-1;
+    num1 = parseFloat(num1)*-1
+    resultdisplay.innerText = num1;
 
-    resultdisplay.innerText = negatedNum2
-    resultdisplay.innerText = negatedNum1;
+    if(num2){
+        num2 = parseFloat(num2)*-1
+        resultdisplay.innerText = result
+    }
+    
+    // let negatedNum2 = parseFloat(num2)*-1;
+    // num2 = negatedNum2
+
+    // resultdisplay.innerText = negatedNum2
+    
 
    
 })
@@ -98,15 +109,10 @@ negnumbtn.addEventListener('click', e => {
 let percbtn = document.getElementById("percbtn")
 
 percbtn.addEventListener('click', e => {
-    let percNum1 = parseFloat(num1)*.1;
-    num1 = percNum1
-
-    let percNum2 = parseFloat(num2)*.1;
-    
-    num2 = percNum2
-
-    resultdisplay.innerText = percNum1
-    resultdisplay.innerText = percNum2
+    if(num1){
+        num1 = parseFloat(num1)/100
+        resultdisplay.innerText = num1 
+    }
 
 })
 
@@ -138,7 +144,10 @@ const mathOp = (num1, num2, operation) => {
         result = parseFloat(num1) ** parseFloat(num2);
         break;
     case "√":
-        result =  Math.sqrt(num1)
+        result =  Math.sqrt(num1);
+        break;
+    
+
    
                              
 } return result
@@ -148,19 +157,22 @@ const mathOp = (num1, num2, operation) => {
 
 //     //<-- EQUAL BUTTON START HERE -->
 
-let equalbtn = document.getElementById('equalbtn')
 
 
 equalbtn.addEventListener('click', e => {
-result = mathOp(num1, num2, separator);
+num2 = resultdisplay.innerText
+    result = mathOp(num1, num2, separator);
+resultdisplay.innerText = result
 
-try {
+
+
+// try {
     
-resultdisplay.innerText = parseFloat(result);
+// resultdisplay.innerText = parseFloat(result);
 
- } catch (error) {
-     resultdisplay.innerText = error.message;
- }
+//   } catch (error) {
+//       resultdisplay.innerText = error.message;
+//   }
 
 })
 
@@ -184,14 +196,40 @@ backspacebtn.addEventListener('click', backspace);
 // // // <-- BACKSPACE BUTTON END -->
 
 
+
+
+
 // // <-- ON/OFF BUTTON START -->
 
+let onoffbtn = document.getElementById("onoffbtn")
 
+let isOn = false
+
+function turnOn(){
+    isOn = !isOn
+    updateCal();
+}
+
+function updateCal(){
+    if (isOn){
+        resultdisplay.innerText = ""
+        
+    } else {
+        resultdisplay.innerText = " "
+        num1 = ""
+        num2 = ""
+        operatorClicked = false;
+    }
+    
+   
+}
+
+onoffbtn.addEventListener('click', turnOn)
+
+
+//click twice, then turn off
 
 // // <-- ON/OFF BUTTON END -->
-
-
-
 
 
 
