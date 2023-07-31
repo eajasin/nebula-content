@@ -630,3 +630,100 @@ return using min.max methods
 //   }
 
 
+//Stop gninnipS My sdroW! (6)
+//input: string, output: string with some words reversed; 
+
+// let string = "Hey fellow warriors"
+
+// const spinWords = (string) => {
+//  let arr = string.split(" ") //convert string into an array
+//  let newArr = [] //placeholder array to store the new array with reversed words
+ 
+
+//  for(let i = 0; i < arr.length; i++){ //loop over each word in array to identify those that have 5 or more letters with if statement
+//     if(arr[i].length >= 5){
+//       arr[i] = arr[i].split("").reverse().join(""); //if true (have 5 or more letters, convert words to strings of letters, reverse them, then rejoin them )
+//     }
+//   newArr.push(arr[i]) //push normal words and modified (reversed) words into placeholder array
+   
+//  }
+ 
+//  return newArr.join(" ") //return the new array as a string using join
+
+// }
+
+// console.log(spinWords(string))
+
+
+
+// Persistent Bugger (6)
+// input: positive number, output: returns number of times to multiply its digits until reach a single digit
+
+// let number = 999
+
+// function persistence(num) {
+//   let numOfPers = 0
+  
+//     while (num >= 10) { //need a conditional loop to keep running until number of digits is 1
+//     let numAsStr = num.toString()//need to convert number to string to determine the number of digits it has
+// //                //need to iterate over each digit in stringed num and multiply them
+//        let product = 1  
+//         for(let i = 0; i < numAsStr.length; i++){
+//           product *= parseInt(numAsStr[i]) 
+//         }
+//       num = product
+//       numOfPers++ //add 1 count for each iteration
+    
+//    }
+//    return numOfPers
+//  }
+
+
+
+// console.log(persistence(number))
+
+
+//Duplicate Encoder (6)
+//goal:replace each character with ( if letter appears once and ) if it appears more than once
+//input string, output string of parentheses
+//convert all to lower case
+//convert to array for better handling
+//count number of times each character appears using object/loop
+//Loop through again using an if statement:
+  //if appears more than once, replace with ( 
+  //if appears once, replace with )
+//revert array back to string
+//return the new string
+
+let string = "recede"
+
+const duplicateEncode = (word) => {
+    let charCount = {};
+    let wordAsArray = word.toLowerCase().split("");
+    let pArray = [];
+
+    for (let i = 0; i < wordAsArray.length; i++) {
+        charCount[wordAsArray[i]] = (charCount[wordAsArray[i]] || 0) + 1;
+    }
+
+    for (let i = 0; i < wordAsArray.length; i++) {
+        if (charCount[wordAsArray[i]] === 1) {
+            pArray.push("(");
+        } else {
+            pArray.push(")");
+        }
+    }
+    return pArray.join('');
+}
+
+//can do the same with a string (str += to add parentheses to the string)
+
+
+
+
+
+
+console.log(duplicateEncode(string))
+
+  
+ 

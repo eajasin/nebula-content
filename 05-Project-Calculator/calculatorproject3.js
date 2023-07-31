@@ -5,9 +5,48 @@ let num1 = '';
 let num2 = '';
 let separator = '';
 let operatorClicked = false;
-let result = null
+let result = null;
 
 
+// // <-- ON/OFF BUTTON START -->
+
+let onoffbtn = document.getElementById("onoffbtn")
+
+let isOn = false;
+
+
+function turnOn() {
+    isOn = !isOn
+    updateCal();
+
+}
+
+function updateCal() {
+    if (isOn) {
+        resultdisplay.innerText = ""
+        
+
+    } else {
+
+        resultdisplay.innerText = ""
+        num1 = ""
+        num2 = ""
+        operatorClicked = false;
+       
+        numberbtns.forEach(button => {
+            button.addEventListener('click', e => {
+                document.querySelectorAll('.numberbtns').disabled = true
+            })
+        })
+    }
+}
+
+onoffbtn.addEventListener('click', turnOn)
+
+
+
+
+// // <-- ON/OFF BUTTON END -->
 
 
 
@@ -15,35 +54,35 @@ let result = null
 // <-- START OF DISPLAYING CONCATENATED  NUMBERS -->
 
 
-numberbtns.forEach(button =>{
-button.addEventListener('click', e => {
-resultdisplay.innerText += button.dataset.number
+numberbtns.forEach(button => {
+    button.addEventListener('click', e => {
+        resultdisplay.innerText += button.dataset.number
 
-//    resultdisplay.innerText = ""
-   
-//     if(!operatorClicked){
-//     num1 += button.dataset.number
-//     resultdisplay.innerText = num1
+        //    resultdisplay.innerText = ""
 
-//    } else {
-    
-//     num2 += button.dataset.number
-//     resultdisplay.innerText = num2
-//    }
-    //document.querySelector('#displayscreen').innerText += button.dataset.number
-  
-//    if(num1 && separator){
-//     resultdisplay.innerText = num2
-//    }
+        //     if(!operatorClicked){
+        //     num1 += button.dataset.number
+        //     resultdisplay.innerText = num1
 
-// if(result){
-//     num1 = result;
-//     result = null;
-//     operatorClicked = false
-//     separator = null;
-//     num2 = null
-// }
-})
+        //    } else {
+
+        //     num2 += button.dataset.number
+        //     resultdisplay.innerText = num2
+        //    }
+        //document.querySelector('#displayscreen').innerText += button.dataset.number
+
+        //    if(num1 && separator){
+        //     resultdisplay.innerText = num2
+        //    }
+
+        // if(result){
+        //     num1 = result;
+        //     result = null;
+        //     operatorClicked = false
+        //     separator = null;
+        //     num2 = null
+        // }
+    })
 })
 
 //<-- END OF DISPLAYING CONCATENATED NUMBERS -->
@@ -51,16 +90,16 @@ resultdisplay.innerText += button.dataset.number
 
 //<-- START OF DISPLAYING OPERATORS -->
 
-operatorbtns.forEach(button=>{
-    button.addEventListener('click', e =>{
+operatorbtns.forEach(button => {
+    button.addEventListener('click', e => {
         operatorClicked = true
         num1 = resultdisplay.innerText
-      
-    separator = button.dataset.operator  
-  resultdisplay.innerText = ''  
+
+        separator = button.dataset.operator
+        resultdisplay.innerText = ''
+    })
 })
-})
-    
+
 // //<-- END OF DISPLAYING OPERATORS -->
 
 
@@ -69,10 +108,10 @@ operatorbtns.forEach(button=>{
 const clearbtn = document.getElementById('clearbtn')
 
 clearbtn.addEventListener('click', e => {
-resultdisplay.innerText = ''
-num1 = null
-num2 = null
-operatorClicked = false;
+    resultdisplay.innerText = ''
+    num1 = null
+    num2 = null
+    operatorClicked = false;
 
 })
 // <-- CLEAR BUTTON END -->
@@ -86,21 +125,21 @@ let negnumbtn = document.getElementById('negnumbtn')
 
 negnumbtn.addEventListener('click', e => {
     //let negatedNum1 = parseFloat(num1)*-1;
-    num1 = parseFloat(num1)*-1
+    num1 = parseFloat(num1) * -1
     resultdisplay.innerText = num1;
 
-    if(num2){
-        num2 = parseFloat(num2)*-1
+    if (num2) {
+        num2 = parseFloat(num2) * -1
         resultdisplay.innerText = result
     }
-    
+
     // let negatedNum2 = parseFloat(num2)*-1;
     // num2 = negatedNum2
 
     // resultdisplay.innerText = negatedNum2
-    
 
-   
+
+
 })
 // // <-- MAKE NEG NUMBER END -->
 
@@ -109,9 +148,9 @@ negnumbtn.addEventListener('click', e => {
 let percbtn = document.getElementById("percbtn")
 
 percbtn.addEventListener('click', e => {
-    if(num1){
-        num1 = parseFloat(num1)/100
-        resultdisplay.innerText = num1 
+    if (num1) {
+        num1 = parseFloat(num1) / 100
+        resultdisplay.innerText = num1
     }
 
 })
@@ -127,30 +166,30 @@ const mathOp = (num1, num2, operation) => {
 
     let = result;
 
-    switch(operation) {
-    case "+":
-        result = parseFloat(num1) + parseFloat(num2);
-        break;
-    case "-":
-        result = parseFloat(num1) - parseFloat(num2);
-        break;
-    case "*":
-        result = parseFloat(num1) * parseFloat(num2);
-        break;
-    case "÷": 
-        result = parseFloat(num1) / parseFloat(num2);
-        break;
-    case "^":
-        result = parseFloat(num1) ** parseFloat(num2);
-        break;
-    case "√":
-        result =  Math.sqrt(num1);
-        break;
-    
+    switch (operation) {
+        case "+":
+            result = parseFloat(num1) + parseFloat(num2);
+            break;
+        case "-":
+            result = parseFloat(num1) - parseFloat(num2);
+            break;
+        case "*":
+            result = parseFloat(num1) * parseFloat(num2);
+            break;
+        case "÷":
+            result = parseFloat(num1) / parseFloat(num2);
+            break;
+        case "^":
+            result = parseFloat(num1) ** parseFloat(num2);
+            break;
+        case "√":
+            result = Math.sqrt(num1);
+            break;
 
-   
-                             
-} return result
+
+
+
+    } return result
 }
 
 //     //<-- OPERATOR FUNCTIONALITY END -->
@@ -160,19 +199,19 @@ const mathOp = (num1, num2, operation) => {
 
 
 equalbtn.addEventListener('click', e => {
-num2 = resultdisplay.innerText
+    num2 = resultdisplay.innerText
     result = mathOp(num1, num2, separator);
-resultdisplay.innerText = result
+    resultdisplay.innerText = result
 
 
 
-// try {
-    
-// resultdisplay.innerText = parseFloat(result);
+    // try {
 
-//   } catch (error) {
-//       resultdisplay.innerText = error.message;
-//   }
+    // resultdisplay.innerText = parseFloat(result);
+
+    //   } catch (error) {
+    //       resultdisplay.innerText = error.message;
+    //   }
 
 })
 
@@ -186,7 +225,7 @@ const backspacebtn = document.getElementById('backspacebtn');
 const backspace = () => {
     const currentText = document.querySelector('#displayscreen').innerText;
     if (currentText.length > 0) {
-             document.querySelector('#displayscreen').innerText = currentText.slice(0, -1);
+        document.querySelector('#displayscreen').innerText = currentText.slice(0, -1);
 
     }
 };
@@ -199,37 +238,7 @@ backspacebtn.addEventListener('click', backspace);
 
 
 
-// // <-- ON/OFF BUTTON START -->
 
-let onoffbtn = document.getElementById("onoffbtn")
-
-let isOn = false
-
-function turnOn(){
-    isOn = !isOn
-    updateCal();
-}
-
-function updateCal(){
-    if (isOn){
-        resultdisplay.innerText = ""
-        
-    } else {
-        resultdisplay.innerText = " "
-        num1 = ""
-        num2 = ""
-        operatorClicked = false;
-    }
-    
-   
-}
-
-onoffbtn.addEventListener('click', turnOn)
-
-
-//click twice, then turn off
-
-// // <-- ON/OFF BUTTON END -->
 
 
 

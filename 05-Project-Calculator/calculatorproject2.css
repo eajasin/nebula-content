@@ -160,3 +160,15 @@ width: 200px
    font-family: calcnumfont;
    src: url(ImpressedMetal.ttf)
  }
+
+
+
+
+ /* @keyframes reveal {
+   0% {
+     transform: translateX(100%);
+   }
+ /*   100% {
+     transform: translateX(100%);
+   } */
+ } */
