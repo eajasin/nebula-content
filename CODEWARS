@@ -695,35 +695,69 @@ return using min.max methods
 //revert array back to string
 //return the new string
 
-let string = "recede"
+// let string = "recede"
 
-const duplicateEncode = (word) => {
-    let charCount = {};
-    let wordAsArray = word.toLowerCase().split("");
-    let pArray = [];
+// const duplicateEncode = (word) => {
+//     let charCount = {};
+//     let wordAsArray = word.toLowerCase().split("");
+//     let pArray = [];
 
-    for (let i = 0; i < wordAsArray.length; i++) {
-        charCount[wordAsArray[i]] = (charCount[wordAsArray[i]] || 0) + 1;
-    }
+//     for (let i = 0; i < wordAsArray.length; i++) {
+//         charCount[wordAsArray[i]] = (charCount[wordAsArray[i]] || 0) + 1;
+//     }
 
-    for (let i = 0; i < wordAsArray.length; i++) {
-        if (charCount[wordAsArray[i]] === 1) {
-            pArray.push("(");
-        } else {
-            pArray.push(")");
-        }
-    }
-    return pArray.join('');
-}
+//     for (let i = 0; i < wordAsArray.length; i++) {
+//         if (charCount[wordAsArray[i]] === 1) {
+//             pArray.push("(");
+//         } else {
+//             pArray.push(")");
+//         }
+//     }
+//     return pArray.join('');
+// }
 
+//console.log(duplicateEncode(string))
 //can do the same with a string (str += to add parentheses to the string)
 
 
 
 
+// Build Tower (6)
+// goal: build pyramid-shaped tower as an array/string with n nFloors
+// input is the number of floors, output is the pyramid of asterisks
+//need placeholder for the pyramid array
+//need to iterate through the number of floors, adding 2 asterisks per floor, starting at one and <= the floor
+// each level of pyramid after 1 adds 2 astericks, repeat them accordingly
+//display the pyramid with each set of asterisks on different lines
+
+let nFloor = 5
+
+const towerBuilder = (numOfFloors) => {
+
+let pyr = []
+
+for (let i = 1; i <= numOfFloors; i++ ){
+ let asterisks = '*'.repeat(2 * i - 1)
+ let wSpaces = ' '.repeat(numOfFloors-i)
+pyr.push(wSpaces + asterisks + wSpaces)
+}
+return pyr
 
 
-console.log(duplicateEncode(string))
+
+}
+
+console.log(towerBuilder(nFloor))
+
+
+
+
+
+
+
+
+
+
 
   
  
