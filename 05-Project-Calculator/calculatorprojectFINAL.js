@@ -23,50 +23,75 @@ darkModebtn.addEventListener('click', () => {
 
 //make bees static upon off
 let onoffbtn = document.getElementById("onoffbtn")
-let images = document.querySelectorAll('.bee img')
+let img = document.getElementsByClassName('bee')
+let greeting = document.getElementsByClassName('greeting')
 
-let isOn = false;
+let isOn = true;
 
 
 function turnOn() {
+    console.log(greeting)
     isOn = !isOn
     updateCal();
-
+ 
 }
 
+function startAnimation() {
+    for(item of img) {
+        item.classList.add('beeanimation')
+        
+    }
+   
+    greeting.classList.add("wordanimation")
+    
+    
+}
+
+function stopAnimation() {
+    for(item of img) {
+        item.classList.remove('beeanimation')
+        
+    }
+    // for(item of word)
+
+    // item.classList.remove("wordanimation")
+    
+    greeting.classList.remove("wordanimation")
+    resultdisplay.innerText = greeting.innerText
+}
+
+
 function updateCal() {
+    
     if (isOn) {
-        resultdisplay.innerText = "On";
+        resultdisplay.innerText = "";
         allbtns.forEach(button => {
             button.disabled = false;
+           
         });
-        startAnimation(); // Call the function to start the animation
+        
+        startAnimation() 
+        ; // Call the function to start the animation
     } else {
-        resultdisplay.classList.add("animate"); // Add the "animate" class to trigger the animation on resultdisplay
+         // Add the "animate" class to trigger the animation on resultdisplay
         resultdisplay.innerText = "OFF";
         num1 = "";
         num2 = "";
         operatorClicked = false;
         allbtns.forEach(button => {
             button.disabled = true;
+            
         });
-        stopAnimation(); // Call the function to stop the animation
+        onoffbtn.disabled = false
+        stopAnimation()
+        ; // Call the function to stop the animation
     }
 }
 
-function startAnimation() {
-    images.forEach((img, index) => {
-        img.classList.add('animate');
-    });
-}
 
-function stopAnimation() {
-    images.forEach((img, index) => {
-        img.classList.remove('animate');
-    });
-}
-
+window.addEventListener("load", turnOn)
 onoffbtn.addEventListener('click', turnOn)
+
 
 // // <-- ON/OFF BUTTON END -->
 
@@ -123,16 +148,10 @@ clearbtn.addEventListener('click', e => {
 let negnumbtn = document.getElementById('negnumbtn')
 
 negnumbtn.addEventListener('click', e => {
-    //let negatedNum1 = parseFloat(num1)*-1;
-    num1 = parseFloat(num1) * -1
-    resultdisplay.innerText = -num1;
-
-    if (num2) {
-        num2 = parseFloat(num2) * -1
-        resultdisplay.innerText = result
-    }
-
-})
+       
+    resultdisplay.innerText = parseFloat(resultdisplay.innerText) * -1;
+    
+   })
 // // <-- MAKE NEG NUMBER END -->
 
 
@@ -140,20 +159,24 @@ negnumbtn.addEventListener('click', e => {
 
 // // <-- MAKE PERC NUMBER START -->
 
-let percentbtn = document.getElementById("percentbtn")
+let squarebtn = document.getElementById("percentbtn")
 
-percentbtn.addEventListener('click', e => {
-    if (num1) {
-        num1 = parseFloat(num1) / 100
-        resultdisplay.innerText = num1
+squarebtn.addEventListener('click', e => {
+           resultdisplay.innerText = parseFloat(resultdisplay.innerText)/100
     }
 
-})
+)
 
 // // <-- MAKE PERC NUMBER END -->
 
 
+let percentbtn = document.getElementById("percentbtn")
 
+percentbtn.addEventListener('click', e => {
+           resultdisplay.innerText = parseFloat(resultdisplay.innerText)/100
+    }
+
+)
 
 
 // //<-- OPERATOR FUNCTIONALITY START -->
@@ -179,7 +202,7 @@ const mathOp = (num1, num2, operation) => {
         case "^":
             result = parseFloat(num1) ** parseFloat(num2);
             break;
-        case "√":
+        case "@":
             result = Math.sqrt(num1);
             break;
     } return result
@@ -228,7 +251,7 @@ function handleKeyDown(event) {
     }
   
     // Check if the pressed key is an operator (+, -, *, /, ^)
-    else if (key === '+' || key === '-' || key === '*' || key === '/' || key === '^') {
+    else if (key === '+' || key === '-' || key === '*' || key === '/' || key === '^' || key === '@') {
       operatorClicked = true;
       num1 = resultdisplay.innerText;
       separator = key;
