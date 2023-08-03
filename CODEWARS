@@ -730,34 +730,85 @@ return using min.max methods
 // each level of pyramid after 1 adds 2 astericks, repeat them accordingly
 //display the pyramid with each set of asterisks on different lines
 
-let nFloor = 5
+// let nFloor = 5
 
-const towerBuilder = (numOfFloors) => {
+// const towerBuilder = (numOfFloors) => {
 
-let pyr = []
+// let pyr = []
 
-for (let i = 1; i <= numOfFloors; i++ ){
- let asterisks = '*'.repeat(2 * i - 1)
- let wSpaces = ' '.repeat(numOfFloors-i)
-pyr.push(wSpaces + asterisks + wSpaces)
-}
-return pyr
+// for (let i = 1; i <= numOfFloors; i++ ){
+//  let asterisks = '*'.repeat(2 * i - 1)
+//  let wSpaces = ' '.repeat(numOfFloors-i)
+// pyr.push(wSpaces + asterisks + wSpaces)
+// }
+// return pyr
 
-
-
-}
-
-console.log(towerBuilder(nFloor))
+// }
+// console.log(towerBuilder(nFloor))
 
 
+// Replace every nth (7)
+
+// input is string, number of occurence to change char, the targeted char, and the replacement char; output is new string
+//create variable using regex that identifies occurrence of char
+//use the replace method to replace new char with the old
+
+//iterate through each letter in text and get char at current index
 
 
+//creat placeholder for empty string (output)
+//have count that will track the number of occurrences of oldvalue
+//with if statement, see how many times the char equals to the old value and count number of times
+//then create another if statemetn to see if this coun has reached the value of n; if so, add newValue to the empty string
+//need to then go on to the next character(?) and begin count again and run through each of the if statements
 
+//NOT DONE
+// let string = "Vader said: No, I am your father!"
+// let occ = 1
+// let oldV = "*"
+// let newV = "y"
 
-
-
-
-
-
+// const replaceEveryNthChar = (text, n, oldValue, newValue) => {
+//   let result = '';
+//   let count = 0;
   
- 
+//     for (let i = 0; i < text.length; i++) {
+//     let char = text.charAt(i);
+//     if (char === oldValue) {
+//       count++;
+//       if (count === n) {
+//         result += newValue;
+//         count = 0
+        
+        
+//       }
+//     }
+//     result += char;
+//   }
+
+//   return result;
+// }
+
+// console.log(replaceEveryNthChar(string, occ, oldV, newV))
+
+
+//Number of People on the Bus (7)
+//input array of people that get on the bus and the number of people who get off (contains subarray), output is an array, number of people left on the bus
+//create placeholder to count number of stops
+//create loop to iterate through each bus stop
+
+
+// const number = (busStops) => {
+//     let numOfP = 0;
+//   for (let i = 0; i < busStops.length; i++) {
+//     numOfP += busStops[i][0]; //for each stop, adds the number of people getting onto the bus
+//     numOfP -= busStops[i][1]; //for each stop, subtracts the number of people getting off
+//   }
+//   return numOfP; //return number of people on bus at last stop
+   
+// }
+
+
+
+
+
