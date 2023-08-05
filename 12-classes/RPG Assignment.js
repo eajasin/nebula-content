@@ -1,3 +1,4 @@
+//Gigapet inspired!
 //I am creating Pet RPG in which person has to feed, play with, and groom pets; person also has to purchase food, toys, groom tools, and a new pet.
 // Person earns coins for each interaction with the pets.  Each pet starts with varying levels. 
 // Each property of pet 10 drops every x amount of seconds, and person gets a warning when value reaches 50.
@@ -86,7 +87,8 @@ class Pets {
     if(this.hunger <= 50 || this.boredom <= 50 || this.ungroomed <= 50){
         return `${this.name}'s ${constructor} is at 50.  You may want to attend to ${this.name}'s need(s).`
     }         
-    //maybe can add a return for everytime there is a decrease   
+    //maybe can add a return for everytime there is a decrease 
+    //what would I console log here?  
     }
 }
 
