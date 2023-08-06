@@ -807,8 +807,123 @@ return using min.max methods
 //   return numOfP; //return number of people on bus at last stop
    
 // }
+ //Find the Capitals (7)
+
+ //input is string, output is array of the indices of all capital letter in string 
+ //create placeholder array for final array
+ //create for loop to iterate through string
+ //create if statement tht identifies the capital letters and their indices
+ //push the indices into the placeholder
+
+// let string = "HapPy"
+
+// const capitals = (word) => {
+// let indOfCapital = []
+
+// for (let i = 0; i < word.length; i++){
+//   if (word[i].toUpperCase() === word[i]){
+//     indOfCapital.push(i)
+//   }
+// }
+// return indOfCapital
+// };
+
+// console.log(capitals(string))
 
 
 
+//Highest Scoring Word (6)
+//input is a string of words, output is the highest scoring word in the string
+//create placeholder string to store final string
+//create placeholder for score of each word
+//create alphabet string 
+// split the words so they are an array, split by space 
+//create function that calculates the score of each word by iterating through word, and addes the indices number to the score
+//create another function that iterates through each word again
+//thius time use if statemnt that sets the highestscore to the score of the word and the highestword to word argument
+//finally return the highestWord
 
 
+// let string = "add char index to word score" 
+
+// const high = (x) => {
+//   let highestWord = ""
+//   let highestScore = 0
+//   let alphabet = "abcdefghijklmnopqrstuvwxyz"
+//   let xAsArray = x.split(" ")
+
+
+// const calcScore = (word) => {
+//   let score = 0
+
+//   for(let i = 0; i < word.length; i++){
+//     let indOfChar = alphabet.indexOf(word[i]) + 1
+//     score += indOfChar
+//   }
+//  return score
+// }
+
+//   for (const word of xAsArray){
+//     const score = calcScore(word)
+
+//     if(score > highestScore){
+//       highestScore = score
+//       highestWord = word
+
+//     }
+
+
+//   }
+//   return highestWord
+// }
+
+
+  
+
+// Categorize New Member (7)
+//input is an array of integer pairs (one for age and one for the person's handicap); output = array of string values of "Open" or "Senior"
+// seniors are 55+ and have a handicap greater than 7 (standing range of -2 to 26)
+// create placeholder array for return
+// iterate over each pair with a for loop, extracting the age and handicap (since a subarray; if both 55+ and 8+, push into array as senior
+// otherwise, psuh into array as "open"
+// let list = [[55, 6], [100, 8], [45, 8]] //should return [Open, Senior, Open]
+
+// const openOrSenior = (data) => {
+//   let newArray = []
+//   for(const [age, handicap] of data){
+//     if(age>=55 && handicap > 7){
+//       newArray.push("Senior")
+//     } else {
+//       newArray.push("Open")
+//     }
+//   }
+//   return newArray
+// }
+
+// console.log(openOrSenior(list))
+
+
+//Split Strings (6)
+//input: string; output: array of string split into 2 (if even) or with _ appended to last letter (if odd)
+//create placeholder array
+//use for loop to iterate over every two chars and push the extracted substring into array
+//create if statement for string of odd lengths
+//in placeholder array, access the last char and append an underscore to it
+
+let string = "abcde"
+
+const solution = (str) => {
+  let splitArr = []
+  
+      for(let i = 0; i < str.length; i+= 2){
+        splitArr.push(str.substr(i, 2))
+      }
+    if(str.length % 2 > 0){
+      splitArr[splitArr.length-1] += '_'
+    }
+     return splitArr
+}
+  
+
+
+console.log(solution(string))

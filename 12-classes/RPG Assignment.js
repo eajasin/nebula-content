@@ -89,6 +89,7 @@ class Pets {
     }         
     //maybe can add a return for everytime there is a decrease 
     //what would I console log here?  
+    //ad random "thank you" upon interactions
     }
 }
 
