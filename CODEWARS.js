@@ -910,20 +910,90 @@ return using min.max methods
 //create if statement for string of odd lengths
 //in placeholder array, access the last char and append an underscore to it
 
-let string = "abcde"
+// let string = "abcde"
 
-const solution = (str) => {
-  let splitArr = []
+// const solution = (str) => {
+//   let splitArr = []
   
-      for(let i = 0; i < str.length; i+= 2){
-        splitArr.push(str.substr(i, 2))
-      }
-    if(str.length % 2 > 0){
-      splitArr[splitArr.length-1] += '_'
-    }
-     return splitArr
-}
+//       for(let i = 0; i < str.length; i+= 2){
+//         splitArr.push(str.substr(i, 2))
+//       }
+//     if(str.length % 2 > 0){
+//       splitArr[splitArr.length-1] += '_'
+//     }
+//      return splitArr
+// }
   
 
 
-console.log(solution(string))
+// console.log(solution(string))
+
+
+//Thinkful - Logic Drills: Traffic light (8)
+
+// let light = 'red'
+
+// const updateLight = (current) => {
+
+//     switch(current){
+//       case 'green':
+//         return 'yellow'
+//       case 'yellow':
+//         return 'red'
+//       case 'red':
+//         return 'green'
+//     }
+// }
+
+// console.log(updateLight(light))
+
+//Basic Mathematical Operations (8)
+
+// function basicOp(operation, value1, value2) {
+  
+// switch(operation){
+//   case '+':
+//     return value1 + value2;
+
+//   case '-':
+//     return value1 - value2;
+
+//   case "*":
+//     return value1 * value2;
+
+//   case "/":
+//     return value1 / value2;
+// }
+
+// }
+
+// console.log(basicOp('+', 2, 3))
+
+
+//Three added characters (6)
+
+// string1 = "hello"
+// string2 = "aheallao"
+
+// function addedChar(s1, s2){
+//   let freqOfCharS1 = {}
+//   let freqOfCharS2 = {}
+
+//     for(const char of s1){
+//       freqOfCharS1[char] = (freqOfCharS1[char] || 0) + 1
+//     }
+//     console.log(freqOfCharS1)
+//     for(const char of s2){
+//       freqOfCharS2[char] = (freqOfCharS2[char] || 0) + 1
+//     }
+//     console.log(freqOfCharS2)
+//     for(const char in freqOfCharS2){
+//       if(freqOfCharS2[char] === 3 && !(char in freqOfCharS1)){
+//         return char
+//       }
+//     }
+//     return null
+//   }
+
+
+// console.log(addedChar(string1, string2))
