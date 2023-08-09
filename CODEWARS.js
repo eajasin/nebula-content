@@ -997,3 +997,100 @@ return using min.max methods
 
 
 // console.log(addedChar(string1, string2))
+
+//Testing 1-2-3 (7)
+//input is array, output is array
+//use map method because 1) returns an array and 2) as iterates through array, applies a method to each element 
+// create two parameters, one representing each element and the other its index
+//with each iteration, starting at 0, add one to index of the curr element using a template literal (instead of concatenation)
+
+
+// const number = (array) => {
+  
+//   return array.map((currentElement, index) => `${index + 1}: ${currentElement}`);
+
+
+//Consecutive strings (6)
+//find the longest grouping of consecutive strings
+//input array of string and amount of elements to concatenate by, output is concatenation of strings that produce the longest length
+//need a way to count length of array
+//iterate over concatenation of each respesctive index
+//make sure array has elements in it, that k is greatrer than the length, adn that k is not a negative number
+//use slice to extract the strings that needs to be extracted from the strings/array
+
+
+// let strarr1 = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"]
+// let k1 = 2
+
+// function longestConsec(strarr, k) {
+//     let longestEl = "";
+//     let highestLength = 0;
+
+//     for(let i = 0; i < strarr.length + k; i++){
+//       let currEl = strarr[i]
+//       if(currEl.length > highestLength){
+//       highestLength = currEl.length
+//       longestEl = currEl
+//       }
+//       longestEl += currEl
+//     }
+//   return longestEl
+// }
+
+// console.log(longestConsec(strarr1, k1))
+
+// NOT DONE
+
+
+
+//   }
+// //   return highestWord
+// function longestConsec(strarr, k) {
+//   const n = strarr.length;
+//   if (k <= 0 || k > n || n === 0) {
+//     return '';
+//   }
+
+//   let longestStr = '';
+//   let max_length = 0;
+
+//   for (let i = 0; i <= n - k; i++) {
+//     let currentStr = strarr.slice(i, i + k).join('');
+//     if (currentStr.length > max_length) {
+//       max_length = currentStr.length;
+//       longestStr = currentStr;
+//     }
+//   }
+
+//   return longestStr;
+// }
+
+//Break Camel Case (6)
+
+//input is a string, output is a string (if have camel case, return with space before capitalized letter)
+//create placeholder string for final result
+//use for loop to iterate through the string 
+//use if statement for if any of the letters are uppercase, add it to the palceholder with a space just before it
+//if not, add string as is to the placeholder
+
+// let str = "camelCasing"
+
+// function solution(string) {
+//   let brokenCamStr = ''
+
+//   for(let letter of string){
+//     if(letter === letter.toUpperCase()){
+//       brokenCamStr += ` ${letter}`
+//     } else {
+//       brokenCamStr += letter
+//     }
+//     }
+  
+//     return brokenCamStr
+// }
+
+// console.log(solution(str))
+
+//Find the missing letter(6)
+//input is array, output is a missing element from array
+//
