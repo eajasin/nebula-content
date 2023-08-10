@@ -27,6 +27,6 @@ console.log(partyPeople)
 Write an HOF to sort an array of strings by the last letter of the string */
 const strings = ['sam', 'john', 'daniel', 'vanessa']
 
-strings.sort((a,b) => (a.length-) - (b.length-2))
+strings.sort((a,b) => (a.length-1) - (b.length-1))
 
 console.log(strings)
