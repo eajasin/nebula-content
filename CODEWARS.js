@@ -1092,5 +1092,202 @@ return using min.max methods
 // console.log(solution(str))
 
 //Find the missing letter(6)
-//input is array, output is a missing element from array
-//
+//input is array, output is a missing element from array (string)
+//need to be able to 1) identify code for each letter (lower and uppercase) and identify when a number is skipped
+//need to iterate through array
+//check the difference in character codes for each consecutive char using reduce
+//need to be able to convert the code back to a letter (string)
+
+// let arr = ['a','b','c','d','f'] 
+
+// // function findMissingLetter(array) {
+// //   const missingLetter = array.reduce((firstLetter, currLetter) => {
+// //     console.log(firstLetter)
+// //     if ((currLetter.charCodeAt(0) - firstLetter.charCodeAt(0)) > 1){ //shows there is a missing letter as codes increment by 1
+// //         return firstLetter + 1
+// //     } 
+// //       return currLetter.charCodeAt(0)
+    
+// //   })
+// //     return String(missingLetter);
+// // }
+
+// // console.log(findMissingLetter(arr))
+
+// // //NOT DONE
+
+// //Equal Sides of An Array (6)
+// //input arr; output is index where sum of numbers on each side are equal
+// //need to iterate multiple times through the array:
+//   //1) through full length
+//   //2) through left side (when new loop is less than current index)
+//   //3) through right side (when new loop is greater than current index), starting at the index to rightr of index
+// //have placholder for both left side and right side of index 
+// //for each iteration, add current index to each sum
+// //compare the two sums to see if they're equal
+// //if equal, return i
+// //return -1 if balance never occurs
+
+// let array = [1,2,3,4,3,2,1]
+
+// const findEvenIndex = (arr) => {
+  
+
+//   for(let i = 0; i < arr.length; i++){
+//     let sumOfLeft = 0
+//     let sumOfRight = 0
+
+
+//     for(let j = 0; j < i; j++){
+//       sumOfLeft += arr[j]
+//     }
+//       for(let k = i + 1; k < arr.length; k++){
+//         sumOfRight += arr[k]
+//       }
+
+//         if(sumOfLeft === sumOfRight){
+//           return i
+//         }
+//   }
+
+//   return -1
+
+// }
+
+//console.log(findEvenIndex(array
+
+
+//Move Zeros to the End (5)
+//input is array, output is array with zeros extracted and pushed to end
+//placeholder for new array
+//filter for all the zeros and all non zeros
+//push all zeros into the nonZero object
+//return new nonZero
+
+// let array = [false,1,0,1,2,0,1,3,"a"]
+
+// const moveZeros = (arr) => {
+  
+//   let zeros = arr.filter(e => e === 0)
+//   console.log((zeros))
+//   let nonZeros = arr.filter(e => e !== 0)
+//   console.log(nonZeros)
+
+// nonZeros.push(...zeros)
+// return nonZeros
+
+
+
+// }
+
+// console.log(moveZeros(array))
+
+
+//The Supermarket Queue (6)
+//input is array (element: customers, value: time required to check out) and number of self-checkout tills (registers);
+//return time required to check out all customers
+//need a way to run all tills at on time; naturally, the more tills the faster "line" will go
+//multithread: each worker (till) needs to handle a portion of the customers
+//create a till as the main thread
+
+// let lineTime = ([5,3,4], 2)
+
+// function queueTime(customers, n) {
+
+//   if(n >= customers.length){
+//     return Math.max(...customers)
+//   }
+
+//   const chunkSize = Math.ceil(customers.length / n) //approximate # of customers to be processed by each till
+//   const workers = []
+//   let totalTime = 0
+
+//   for(let i = 0; i < n; i++){ //iterates n times to create n tills, determine range of customers worker will process
+//     const startIndex = i * chunkSize
+//     const endIndex = Math.min((i +1) * chunkSize - 1, customers.length - 1) //
+
+//     const worker = new Worker('CODEWARS copy.js'); //create workers inside the loop
+//     worker.onmessage = function(e) { //onmessage event is attached to the worker to listen for messages sent back to worker
+//       totalTime += e.data
+      
+//       if(workers.length === n){
+//         console.log(totalTime)
+//       }
+//     }
+//     worker.postMessage({  //provides workers with necessary data to perfrom calculation
+//       customers: customers,
+//       startIndex: startIndex,
+//       endIndex: endIndex
+//     })
+//     workers.push(worker)
+//   }
+
+
+// }
+
+// console.log(queueTime(lineTime))
+
+// NOT DONE - how to do without using workers
+//DEVON SOLUTION
+
+// function queueTime(customers, n) {
+//   console.log('===========')
+//   console.log(customers,'customers')
+//   // If there is only one till, return the sum of all the customers' checkout times
+//     if (n === 1) {
+//         return customers.reduce((a, b) => a + b, 0);
+//     }
+
+//     // If the number of tills is greater than or equal to the number of customers,
+//     // return the maximum checkout time since every customer has their own till
+//     if (n >= customers.length) {
+//         return Math.max(...customers);
+//     }
+
+//     // If there are multiple tills and more customers than tills:
+//     // Initialize the tills with the checkout times of the first `n` customers
+//     let tills = customers.slice(0, n);
+
+//     // For each remaining customer
+//     for (let i = n; i < customers.length; i++) {
+//       console.log(tills)
+//         // Find the till with the minimum checkout time (i.e., the next till that will become free)
+//         let minIndex = tills.indexOf(Math.min(...tills)); // getting the index of the lowest number in the array
+//         // Assign the next customer to this till
+//         tills[minIndex] += customers[i];
+//     }
+  
+//     // Return the maximum checkout time among all the tills
+//     return Math.max(...tills);
+// }
+
+//Mexican Wave (6)
+//input: string; output: array
+//create placeholder for output
+//iterate through each character in str
+//create another variable within loop that:
+//1) using slice, extracts all letters from 0 index to i so they stay uncapitalized
+//2) capitalizes i
+//3) also using slice, extracts all letters after i (i+1) to end so they stay uncapitalized
+//4) concatenates them altogether
+
+// let string = "hello"
+
+// function wave(str){
+  
+  
+//   let wavedArr = []
+
+//   for (let i = 0; i < str.length; i++) {
+//     let createWave = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
+   
+//     wavedArr.push(createWave);
+// }
+
+// return wavedArr
+
+// }
+
+// console.log(wave(string))
+
+// //NOT DONE

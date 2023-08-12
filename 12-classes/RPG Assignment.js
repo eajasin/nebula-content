@@ -178,7 +178,7 @@ class Person {
                 this.coins -= petStoreItem.prices.premiumGroomTools
                 return `${this.name} purchased premium groom tools for ${petStoreItem.prices.premiumGroomTools} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.petForSale:
+            case PetStore.petForSale :
                 this.newPet += petStoreItem.newPet
                 this.coins -= petStoreItem.prices.newPet
                 return `${this.name} purchased a new pet for ${petStoreItem.prices.newPet} coins and now has ${this.toysValue} and ${this.coins}.` 
