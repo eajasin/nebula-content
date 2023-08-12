@@ -7,26 +7,76 @@
 
 
 class Person {
-    constructor(name, foodValue, toysValue, groomToolsValue, coins) {
+    constructor(name, pet) {
         this.name = name;
-        this.foodValue = foodValue|| 100;
-        this.toys = toysValue || 100;
-        this.groomToolsValue = groomToolsValue || 100;
-        this.coins = coins || 100;
+        this.foodValue = 100
+        this.toys = 100;
+        this.groomToolsValue = 100;
+        this.coins = 100;
+        this.pet = pet
     }
     introduction() {
-        return `Hi, I'm ${this.name}.  I have ${this.foodValue} food, ${this.toysValue} toys and ${this.groomToolsValue} grooming tools.`
+        return `Hi, I'm ${this.name}.  I have ${this.foodValue} food, ${this.toys} toys and ${this.groomToolsValue} grooming tools.`
     }
-    feed(pet){
-        if(this.food > 0 && pet.hunger < 50){
-            pet.hunger += 10;
-            this.foodValue -= 10;
-            this.coins += 5
-           return `${this.name} fed ${pet.name} with ...` 
-        } else {
-            return `${this.name} is out of food and cannot feed ${pet.name}.`
+
+    checkInventory(){
+       
+       //START FOOD
+        
+       if(this.foodValue === 0) {
+        
+        return `${this.name} is out of food and cannot feed ${pet.name}.` 
+                      
+      } else {
+        if(this.foodValue > 0){
+        feed(pet, foodType){
+        //use of food type start (because person has food) -->
+        this.coins += 5
+        this.foodValue -= 10
+        let price = 0
+       
+        if (foodType === regularFood){
+            price = PetStore.foodType.regularFood.price
+        } else if (foodType === premiumFood){
+           price = PetStore.foodType.premiumFood.price
+        } 
+        this.coin -= price
+        //<--use of food type end
+        
+        //response for pet start -->
+        pet.hungerValue += 10;
+        
+        //<--response for pet end
+        
+        // response for person start -->
+        console.log(`${this.name} fed ${pet.name} with ${foodType}`)
+            
         }
         }
+    }
+    }
+      // END FOOD
+        
+       if(this.toys === 0) {
+        return `${this.name} is out of toys and cannot play with ${pet.name}.` 
+       }
+        
+       if(this.groomToolsValue === 0) {
+        return `${this.name} is out of grooming tools and cannot groom ${pet.name}.` 
+       }
+    
+    }
+
+
+   
+        
+        
+      
+
+
+        
+       
+        
     
     playWith(pet) {
         if(this.toys > 0 && pet.boredom < 50){
@@ -88,20 +138,22 @@ class Person {
                 this.coins -= petStoreItem.prices.newPet
                 return `${this.name} purchased a new pet for ${petStoreItem.prices.newPet} coins and now has ${this.toysValue} and ${this.coins}.` 
         }
-        
+    }    
   
-    
+    showStatus(){
+        return `${this.name} has ${this.food.Value} hunger, ${this.toys} boredom and ${this.groomTools.Value}.`
+    }   
+
     gameOver(){
         if(this.foodValue === 0 || this.toysValue === 0 || this.groomToolsValue === 0){
             return `Game Over! ${this.name} got taken away by Animal Protective Services.  Shame on you, ${Person.name}!`
         }
     }
-    }
+    
 }
 
-
-let person1 = new Person('Bob', 10, 10, 10, 50)
-//console.log(person1.introduction())
+//let person1 = new Person('Bob')
+//status should always be showing
 
 
 class Pets {
@@ -110,7 +162,8 @@ class Pets {
         this.hungerValue = hungerValue;
         this.boredomValue = boredomValue;
         this.ungroomedValue = ungroomedValue;
-        
+
+               
     }
     introduction(){
         return `Hi, I'm ${this.name}.  I have ${this.hungerValue} hunger, ${this.boredomValue} boredom and ${this.ungroomedValue} ungroomed.`
@@ -118,9 +171,9 @@ class Pets {
 
     
     decreaseProperties(){
-        this.hungerValue = Math.max(this.hunger - 10, 0);
-        this.boredomValue = Math.max(this.boredom - 20, 0);
-        this.ungroomedValue= Math.max(this.ungroomed - 30, 0)
+        this.hungerValue = Math.max(this.hungerValue - 10, 0);
+        this.boredomValue = Math.max(this.boredomValue - 20, 0);
+        this.ungroomedValue= Math.max(this.ungroomedValue - 30, 0)
     
         let warning = ""
         if (this.hungerValue <= 50 || this.boredomValue <= 50 || this.ungroomed <= 50){
@@ -132,19 +185,43 @@ class Pets {
 
     }
 
+    increaseProperties(){
+        //if person feed pet, pet hunger value goes up by 10
+        if(Person.feed(foodValue)){
+            this.hungerValue += 10
+        }
+        if(Person.playWith(toysValue)){
+            this.boredomValue += 10
+        }
+
+        if(Person.groom(groomToolsValue)){
+            this.ungroomedValue += 10
+        }
+
+    }
+
     showStatus(){
             return `${this.name} has ${this.hunger.Value} hunger, ${this.boredom.Value} boredom and ${this.ungroomed.Value} ungroomed.`
         }    
-
+        //status should always be showing
           
     //maybe can add a return for everytime there is a decrease 
     //what would I console log here?  
-    //ad random "thank you" upon interactions
+    //ad random "thank you" or other statement upon interactions
 }
 
 
-//let pet1 = new Pets('Rover', 50, 40, 80)
-console.log(pet1.introduction())
+let pet1 = new Pets('Rover', 40, 40, 80)
+let person1 = new Person('Bob', pet1)
+//console.log(pet1.introduction())
+console.log(person1.foodValue)
+console.log(person1.coins)
+console.log(pet1.hungerValue)
+console.log(person1.feed(pet1))
+console.log(person1.foodValue)
+console.log(person1.coins)
+console.log(pet1.hungerValue)
+console.log(person1.feed(pet1))
 
 
 
@@ -152,29 +229,33 @@ class PetStore {
     constructor(name, newPet){
         this.name = name
         this.newPet = newPet
-        this.toysValue = {
-            regularToys: 10, 
-            premiumToys: 20,
-        }
-        this.foodValue = {
-            regularFood: 10,
-            premiumFood: 20,
-        }
-        this.groomToolsValue = {
-            regularGroomTools: 10,
-            premiumGroomTools: 20,
-        }
-        this.prices = {
-            regularFood: 10,
-            premiumFood: 20,
-            regularToys: 10,
-            premiumToys: 20,
-            regularGroomTools: 10,
-            premiumGroomTools: 20,
-            newPet: 50,
+        this.foodType = {
+            regularFood: {value: 10, price: 10},
+            premiumFood: {value: 20, price: 20}
         }
     }
-    introduction(){
-        return `Welcome to ${this.name} Pet Store!`
-    }
+        // }
+        // this.toysValue = {
+        //     regularToys: 10, 
+        //     premiumToys: 20,
+        // }
+
+
+        
+        // this.groomToolsValue = {
+        //     regularGroomTools: 10,
+        //     premiumGroomTools: 20,
+        // }
+        // this.prices = {
+            
+        //     regularToys: 10,
+        //     premiumToys: 20,
+        //     regularGroomTools: 10,
+        //     premiumGroomTools: 20,
+        //     newPet: 50,
+        // }
+    // }
+    // introduction(){
+    //     return `Welcome to ${this.name} Pet Store!`
+    // }
 }
