@@ -10,8 +10,8 @@ class Person {
     constructor(name, pet) {
         this.name = name;
         this.foodValue = 100
-        this.toys = 100;
-        this.groomToolsValue = 100;
+        this.toyValue = 100;
+        this.groomingToolValue = 100;
         this.coins = 100;
         this.pet = pet
     }
@@ -19,138 +19,180 @@ class Person {
         return `Hi, I'm ${this.name}.  I have ${this.foodValue} food, ${this.toys} toys and ${this.groomToolsValue} grooming tools.`
     }
 
-    checkInventory(){
+    checkInventoryAndInteractWithPet(){
        
-       //START FOOD
+       //START FEED PET PROCESS -->
         
        if(this.foodValue === 0) {
         
         return `${this.name} is out of food and cannot feed ${pet.name}.` 
-                      
-      } else {
-        if(this.foodValue > 0){
-        feed(pet, foodType){
-        //use of food type start (because person has food) -->
-        this.coins += 5
-        this.foodValue -= 10
-        let price = 0
+         
+       } else {
+
+          // feed pet start -->
+
+        function feed(pet, foodType){
+            let regularFood = PetStore.foodType.regularFood
+            let premiumFood = PetStore.foodType.premiumFood
+
+            if(foodType === regularFood){
+                let regFoodValue = PetStore.foodType.regularFood.value
+                this.foodValue -= 10
+                pet.hungerValue += regFoodValue
+
+            } else if (foodType === premiumFood) {
+            let premiumFoodValue = PetStore.foodType.premiumFood.value
+            this.foodValue -= 10
+            pet.hungerValue += premiumFoodValue
+            }
+            this.coins += 5
+            console.log(`${this.name} fed ${pet.name} with ${foodType}`)
+       }
+            //<--feed pet end
+        feed(pet, foodType) 
+    }
+     
+    // <-- END FEED PET PROCESS
+    
+    // START PLAY WITH PET PROCESS -->     
+    
+        if(this.toyValue === 0) {
+            return `${this.name} is out of toys and cannot play with ${pet.name}.`
+        } else {
+
+        function playWith(pet, toyType) {
+            let regularToy = PetStore.toyType.regularToy
+            let premiumToy = PetStore.toyType.premiumToy
+
+            if(toyType === regularToy){
+                let regToyValue = PetStore.toyType.regularToy.value
+                this.toyValue -= 10
+                pet.boredomValue += regToyValue
+            } else if (toyType === premiumToy){
+                let premiumToyValue = PetStore.toyType.premiumToy.value
+                this.toyValue -= 10
+                pet.boredomValue += premiumToyValue
+            }
+            this.coins += 5
+            console.log(`${this.name} played with ${pet.name} with a ${toyType}.`)
+        }
+        playWith(pet, toyType)
+    }    
+    // <-- END PLAY WITH PET PROCESS -->  
+    
+    // START GROOM PET PROCESS -->  
+    
+        if(this.groomingToolsValue === 0) {
+            return `${this.name} is out of grooming tools and cannot groom ${pet.name}.`
+
+        } else {
+        
+        function groom(pet, groomingToolType) {
+            let regularGroomingTool = PetStore.groomingToolType.regularGroomingTool
+            let premiumGroomingTool = PetStore.groomingToolType.premiumGroomingTool
+
+            if(groomingToolType === regularGroomingTool){
+                let regularGroomingToolValue = PetStore.groomingToolType.regularGroomingTool.value
+                this.groomingToolValue -= 10
+                pet.ungroomed += regularGroomingToolValue
+            } else if (groomingToolType === premiumGroomingTool){
+                let premiumGroomingToolValue = PetStore.groomingToolType.premiumGroomingTool.value
+                this.groomingToolValue -= 10
+                pet.ungroomed += premiumGroomingToolValue
+            }
+            this.coins += 5
+            console.log(`${this.name} groomed ${pet.name} with a ${toyType}.`)
+             
+        }
+        groom(pet, groomingToolType)
        
-        if (foodType === regularFood){
-            price = PetStore.foodType.regularFood.price
-        } else if (foodType === premiumFood){
-           price = PetStore.foodType.premiumFood.price
-        } 
-        this.coin -= price
+    }
+    // <-- END GROOM PET PROCESS -->  
+    }  // END OF checkInventoryAndInteractWithPet function
+    
+
+
+    // ADD TO PURCHASE MODE    
+    //   } else {
+    //     let price = 0
+
+    //     if (foodType === regularFood){
+    //         price = PetStore.foodType.regularFood.price
+    //     } else if (foodType === premiumFood){
+    //         price = PetStore.foodType.premiumFood.price
+    //     } 
+
+    //     this.coin -= price
+
+        // if(this.coins < price){
+        //     return `${this.name} does not have enough coins to buy ${foodType}.`
+        // } use this in purchase mode
+     
+        //END WHERE NEED TO ADD IN PURCHASE MODE
+
+       
+        //use of food type start (because person has food) -->
+        
         //<--use of food type end
         
         //response for pet start -->
-        pet.hungerValue += 10;
+        
         
         //<--response for pet end
         
         // response for person start -->
-        console.log(`${this.name} fed ${pet.name} with ${foodType}`)
-            
-        }
-        }
-    }
-    }
-      // END FOOD
         
-       if(this.toys === 0) {
-        return `${this.name} is out of toys and cannot play with ${pet.name}.` 
-       }
-        
-       if(this.groomToolsValue === 0) {
-        return `${this.name} is out of grooming tools and cannot groom ${pet.name}.` 
-       }
-    
-    }
-
-
-   
-        
-        
-      
-
-
-        
-       
-        
-    
-    playWith(pet) {
-        if(this.toys > 0 && pet.boredom < 50){
-            pet.boredom += 10;
-            this.toysValue -= 10;
-            this.coins += 5
-           return `${this.name} played with ${pet.name} using the ${this.toy}.` 
-        } else {
-            return `${this.name} is out of toys and cannot play with ${pet.name}.`
-        }
-    }
-        
-    groom(pet){
-        if(this.groom > 0 && pet.ungroomed < 50){
-            pet.ungroomed += 10;
-            this.groomToolsValue -= 10;
-            this.coins += 5
-           return `${this.name} groomed ${this.petname} using the ${this.groomTool}.` 
-        } else {
-            return `${this.name} is out of grooming tools and cannot groom ${pet.name}.`
-        }
-        }
     
     purchase(petStoreItem){
+        let price = 0
+
         switch (petStoreItem) {
-            case PetStore.regularFood:
+            case PetStore.foodType.regularFood:
                 this.foodValue += petStoreItem.foodValue.regularFood
                 this.coins -= petStoreItem.prices.regularFood
                 return `${this.name} purchased regular food for ${petStoreItem.prices.regularFood} coins and now has ${this.foodValue} and ${this.coins}.` 
 
-            case PetStore.premiumFood:
+            case PetStore.foodTypepremiumFood:
                 this.foodValue += petStoreItem.foodValue.premiumFood
                 this.coins -= petStoreItem.prices.premiumFood
                 return `${this.name} purchased premium food for ${petStoreItem.prices.premiumFood} coins and now has ${this.foodValue} and ${this.coins}.` 
 
 
-            case PetStore.regularToys:
+            case PetStore.toyType.regularToy:
                 this.toysValue += petStoreItem.toysValue.regularToys
                 this.coins -= petStoreItem.pricess.regularToys
                 return `${this.name} purchased regular toys for ${petStoreItem.prices.regularToys} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.premiumToys:
+            case PetStore.toyType.premiumToy:
                 this.toysValue += petStoreItem.toysValue.premiumToys
                 this.coins -= petStoreItem.prices.premiumToys
                 return `${this.name} purchased premium toys for ${petStoreItem.prices.premiumToys} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.regularGroomTools:
+            case PetStore.groomingToolType.regularGroomingTool:
                 this.groomToolsValue += petStoreItem.groomToolsValue.regularGroomTools
                 this.coins -= petStoreItem.prices.regularGroomTools
                 return `${this.name} purchased regular groom tools for ${petStoreItem.prices.regularGroomTools} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.premiumGroomTools:
+            case PetStore.groomingToolType.premiumGroomingTool:
                 this.groomToolsValue += petStoreItem.groomToolsValue.premiumGroomTools
                 this.coins -= petStoreItem.prices.premiumGroomTools
                 return `${this.name} purchased premium groom tools for ${petStoreItem.prices.premiumGroomTools} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.newPet:
+            case PetStore.petForSale:
                 this.newPet += petStoreItem.newPet
                 this.coins -= petStoreItem.prices.newPet
                 return `${this.name} purchased a new pet for ${petStoreItem.prices.newPet} coins and now has ${this.toysValue} and ${this.coins}.` 
         }
     }    
   
-    showStatus(){
-        return `${this.name} has ${this.food.Value} hunger, ${this.toys} boredom and ${this.groomTools.Value}.`
-    }   
+    // showStatus(){
+    //     return `${this.name} has ${this.food.Value} hunger, ${this.toys} boredom and ${this.groomTools.Value}.`
+    // }   //SHOW STATUS AT ALL TIMES
 
-    gameOver(){
-        if(this.foodValue === 0 || this.toysValue === 0 || this.groomToolsValue === 0){
-            return `Game Over! ${this.name} got taken away by Animal Protective Services.  Shame on you, ${Person.name}!`
-        }
-    }
     
-}
+    
+} // END OF PERSON CLASS
+
 
 //let person1 = new Person('Bob')
 //status should always be showing
@@ -208,54 +250,50 @@ class Pets {
     //maybe can add a return for everytime there is a decrease 
     //what would I console log here?  
     //ad random "thank you" or other statement upon interactions
-}
+ // gameOver(){
+        //     if(pet.hungerValue === 0 || pet.boredomValue === 0 || pet.ungroomedValue === 0){
+        //         return `Game Over! ${this.name} got taken away by Animal Protective Services.  Shame on you, ${Person.name}!`
+        //     }
+        // }    MOVE TO PET 
+
+
+
+} //END OF PET CLASS
 
 
 let pet1 = new Pets('Rover', 40, 40, 80)
 let person1 = new Person('Bob', pet1)
 //console.log(pet1.introduction())
-console.log(person1.foodValue)
-console.log(person1.coins)
-console.log(pet1.hungerValue)
-console.log(person1.feed(pet1))
-console.log(person1.foodValue)
-console.log(person1.coins)
-console.log(pet1.hungerValue)
-console.log(person1.feed(pet1))
-
+// console.log(person1.foodValue)
+// console.log(person1.coins)
+// console.log(pet1.hungerValue)
+// console.log(person1.feed(pet1))
+// console.log(person1.foodValue)
+// console.log(person1.coins)
+// console.log(pet1.hungerValue)
+// console.log(person1.feed(pet1))
 
 
 class PetStore {
-    constructor(name, newPet){
-        this.name = name
-        this.newPet = newPet
+    constructor(){ //no parameters needed
+        
         this.foodType = {
             regularFood: {value: 10, price: 10},
             premiumFood: {value: 20, price: 20}
         }
-    }
-        // }
-        // this.toysValue = {
-        //     regularToys: 10, 
-        //     premiumToys: 20,
-        // }
-
-
+        this.toyType = {
+            regularToy: {value: 10, price: 10},
+            premiumToy: {value: 20, price: 20}
+        }
+        this.groomingToolType = {
+            regularGroomingTool: {value: 10, price: 10},
+            premiumGroomingTool: {value: 20, price: 20},
+        }
         
-        // this.groomToolsValue = {
-        //     regularGroomTools: 10,
-        //     premiumGroomTools: 20,
-        // }
-        // this.prices = {
-            
-        //     regularToys: 10,
-        //     premiumToys: 20,
-        //     regularGroomTools: 10,
-        //     premiumGroomTools: 20,
-        //     newPet: 50,
-        // }
-    // }
-    // introduction(){
-    //     return `Welcome to ${this.name} Pet Store!`
-    // }
+        this.petForSale = {
+            petA: {price: 100},
+            petB: {price: 150}
+        }
+    }
+        
 }
