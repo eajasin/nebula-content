@@ -1291,3 +1291,31 @@ return using min.max methods
 // console.log(wave(string))
 
 // //NOT DONE
+
+//Count of positives/sum sum of negatives (8)
+//input is array; output is array with first being count of pos nums and second the sum of neg nums
+
+// let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]
+
+// function countPositivesSumNegatives(input) {
+  
+//   if (input.length === 0 || input === null){
+//     return []
+//     }
+//   let posCount = 0
+//   let negSum = 0
+  
+//   for(let num of input){
+//     if(num > 0){
+//       posCount++
+//     } else if(num < 0){
+//         negSum += num
+//     }
+//   }
+//    return [posCount, negSum]
+  
+// }
+
+// console.log(countPositivesSumNegatives(array))
+
+
