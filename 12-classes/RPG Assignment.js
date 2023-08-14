@@ -7,20 +7,36 @@
 
 
 class Person {
-    constructor(name, pet) {
+    constructor(name, pet, numOfPets) {
         this.name = name;
         this.foodValue = 100
         this.toyValue = 100;
         this.groomingToolValue = 100;
         this.coins = 100;
-        this.pet = pet
+        this.pet = pet;
+        this.numOfPets = numOfPets
     }
     introduction() {
         return `Hi, I'm ${this.name}.  I have ${this.foodValue} food, ${this.toys} toys and ${this.groomToolsValue} grooming tools.`
     }
 
     checkInventoryAndInteractWithPet(){
+        let regularFood = PetStore.foodType.regularFood
+        let premiumFood = PetStore.foodType.premiumFood
+        let regularToy = PetStore.toyType.regularToy
+        let premiumToy = PetStore.toyType.premiumToy
+        let regularGroomingTool = PetStore.groomingToolType.regularGroomingTool
+        let premiumGroomingTool = PetStore.groomingToolType.premiumGroomingTool
+
+
+        let regularFoodValue = PetStore.foodType.regularFood.value
+        let premiumFoodValue = PetStore.foodType.premiumFood.value
+        let regularToyValue = PetStore.toyType.regularToy.value
+        let premiumToyValue = PetStore.toyType.premiumToy.value
+        let regularGroomingToolValue = PetStore.groomingToolType.regularGroomingTool.value
+        let premiumGroomingToolValue = PetStore.groomingToolType.premiumGroomingTool.value
        
+
        //START FEED PET PROCESS -->
         
        if(this.foodValue === 0) {
@@ -32,16 +48,12 @@ class Person {
           // feed pet start -->
 
         function feed(pet, foodType){
-            let regularFood = PetStore.foodType.regularFood
-            let premiumFood = PetStore.foodType.premiumFood
-
             if(foodType === regularFood){
-                let regFoodValue = PetStore.foodType.regularFood.value
                 this.foodValue -= 10
-                pet.hungerValue += regFoodValue
+                pet.hungerValue += regularFoodValue
 
             } else if (foodType === premiumFood) {
-            let premiumFoodValue = PetStore.foodType.premiumFood.value
+            
             this.foodValue -= 10
             pet.hungerValue += premiumFoodValue
             }
@@ -61,15 +73,14 @@ class Person {
         } else {
 
         function playWith(pet, toyType) {
-            let regularToy = PetStore.toyType.regularToy
-            let premiumToy = PetStore.toyType.premiumToy
+            
 
             if(toyType === regularToy){
-                let regToyValue = PetStore.toyType.regularToy.value
+               
                 this.toyValue -= 10
-                pet.boredomValue += regToyValue
+                pet.boredomValue += regularToyValue
             } else if (toyType === premiumToy){
-                let premiumToyValue = PetStore.toyType.premiumToy.value
+                
                 this.toyValue -= 10
                 pet.boredomValue += premiumToyValue
             }
@@ -88,15 +99,13 @@ class Person {
         } else {
         
         function groom(pet, groomingToolType) {
-            let regularGroomingTool = PetStore.groomingToolType.regularGroomingTool
-            let premiumGroomingTool = PetStore.groomingToolType.premiumGroomingTool
-
+            
             if(groomingToolType === regularGroomingTool){
-                let regularGroomingToolValue = PetStore.groomingToolType.regularGroomingTool.value
+                
                 this.groomingToolValue -= 10
                 pet.ungroomed += regularGroomingToolValue
             } else if (groomingToolType === premiumGroomingTool){
-                let premiumGroomingToolValue = PetStore.groomingToolType.premiumGroomingTool.value
+                
                 this.groomingToolValue -= 10
                 pet.ungroomed += premiumGroomingToolValue
             }
@@ -108,13 +117,13 @@ class Person {
        
     }
     // <-- END GROOM PET PROCESS -->  
+
     }  // END OF checkInventoryAndInteractWithPet function
     
-
+  
 
     // ADD TO PURCHASE MODE    
-    //   } else {
-    //     let price = 0
+    
 
     //     if (foodType === regularFood){
     //         price = PetStore.foodType.regularFood.price
@@ -130,58 +139,70 @@ class Person {
      
         //END WHERE NEED TO ADD IN PURCHASE MODE
 
-       
-        //use of food type start (because person has food) -->
-        
-        //<--use of food type end
-        
-        //response for pet start -->
-        
-        
-        //<--response for pet end
-        
         // response for person start -->
         
+    //when make purcahse, have to know which item to buy, check if have enough coins, if so, can make purchase
     
-    purchase(petStoreItem){
-        let price = 0
+    makePurchase(petStoreItem){
+
+        if(this.coins === 0) {
+        
+            return `${this.name} is out of coins and cannot make any purchases.` 
+             
+           } else {
+        
+        let regularFoodPrice = PetStore.foodType.price.regularFood
+        let premiumFoodPrice = PetStore.foodType.price.premiumFood
+        let regularToyPrice = PetStore.toyType.price.regularToy
+        let premiumToyPrice = PetStore.toyType.price.premiumToy
+        let regularGroomingToolPrice = PetStore.groomingToolType.price.regularGroomingTool
+        let premiumGroomingToolPrice = PetStore.groomingToolType.price.premiumGroomTool
+        
+        let petA = PetStore.petforSale.petA
+        let petB = PetStore.petForSale.petB
+        let petAForSalePrice = PetStore.petA.price
+        let petBForSalePrice = PetStore.petB.price
 
         switch (petStoreItem) {
-            case PetStore.foodType.regularFood:
-                this.foodValue += petStoreItem.foodValue.regularFood
-                this.coins -= petStoreItem.prices.regularFood
-                return `${this.name} purchased regular food for ${petStoreItem.prices.regularFood} coins and now has ${this.foodValue} and ${this.coins}.` 
+            case regularFood:
+                this.foodValue += regularFoodValue
+                this.coins -= regularFoodPrice
+                return `${this.name} purchased regular food for ${regularFoodPrice} coins and now has ${this.foodValue} and ${this.coins}.` 
 
-            case PetStore.foodTypepremiumFood:
-                this.foodValue += petStoreItem.foodValue.premiumFood
-                this.coins -= petStoreItem.prices.premiumFood
-                return `${this.name} purchased premium food for ${petStoreItem.prices.premiumFood} coins and now has ${this.foodValue} and ${this.coins}.` 
+            case premiumFood:
+                this.foodValue += premiumFoodValue
+                this.coins -= premiumFoodPrice
+                return `${this.name} purchased premium food for ${premiumFoodPrice} coins and now has ${this.foodValue} and ${this.coins}.` 
 
 
-            case PetStore.toyType.regularToy:
-                this.toysValue += petStoreItem.toysValue.regularToys
-                this.coins -= petStoreItem.pricess.regularToys
-                return `${this.name} purchased regular toys for ${petStoreItem.prices.regularToys} coins and now has ${this.toysValue} and ${this.coins}.` 
+            case regularToy:
+                this.toysValue += regularToyValue
+                this.coins -= regularToyPrice
+                return `${this.name} purchased regular toys for ${regularToyPrice} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.toyType.premiumToy:
-                this.toysValue += petStoreItem.toysValue.premiumToys
-                this.coins -= petStoreItem.prices.premiumToys
-                return `${this.name} purchased premium toys for ${petStoreItem.prices.premiumToys} coins and now has ${this.toysValue} and ${this.coins}.` 
+            case premiumToy:
+                this.toysValue += premiumToyValue
+                this.coins -= premiumToyPrice
+                return `${this.name} purchased premium toys for ${premiumToyPrice} coins and now has ${this.toysValue} and ${this.coins}.` 
 
-            case PetStore.groomingToolType.regularGroomingTool:
-                this.groomToolsValue += petStoreItem.groomToolsValue.regularGroomTools
-                this.coins -= petStoreItem.prices.regularGroomTools
-                return `${this.name} purchased regular groom tools for ${petStoreItem.prices.regularGroomTools} coins and now has ${this.toysValue} and ${this.coins}.` 
+            case regularGroomingTool:
+                this.groomToolsValue += regularGroomingToolValue
+                this.coins -= regularGroomingToolPrice
+                return `${this.name} purchased regular groom tools for ${regularGroomingToolPrice} coins and now has ${this.groomingToolValue} and ${this.coins}.` 
 
-            case PetStore.groomingToolType.premiumGroomingTool:
-                this.groomToolsValue += petStoreItem.groomToolsValue.premiumGroomTools
-                this.coins -= petStoreItem.prices.premiumGroomTools
-                return `${this.name} purchased premium groom tools for ${petStoreItem.prices.premiumGroomTools} coins and now has ${this.toysValue} and ${this.coins}.` 
+            case premiumGroomingTool:
+                this.groomToolsValue += premiumGroomingToolValue
+                this.coins -= premiumGroomingToolPrice
+                return `${this.name} purchased premium groom tools for ${premiumGroomingToolPrice} coins and now has ${this.groomingToolValue} and ${this.coins}.` 
 
-            case PetStore.petForSale :
-                this.newPet += petStoreItem.newPet
-                this.coins -= petStoreItem.prices.newPet
-                return `${this.name} purchased a new pet for ${petStoreItem.prices.newPet} coins and now has ${this.toysValue} and ${this.coins}.` 
+            case petA:
+                this.newPet += petA
+                this.coins -= petAForSalePrice
+                return `${this.name} purchased a new pet for ${petAForSalePrice} coins and now has ${this.numOfPets} pet(s) and ${this.coins}.` 
+            case petB :
+                this.newPet += petB
+                this.coins -= petBForSalePrice
+                return `${this.name} purchased a new pet for ${petBForSalePrice} coins and now has ${this.numOfPets} pet(s) and ${this.coins}.` 
         }
     }    
   
@@ -189,7 +210,7 @@ class Person {
     //     return `${this.name} has ${this.food.Value} hunger, ${this.toys} boredom and ${this.groomTools.Value}.`
     // }   //SHOW STATUS AT ALL TIMES
 
-    
+}  
     
 } // END OF PERSON CLASS
 
@@ -275,7 +296,7 @@ let person1 = new Person('Bob', pet1)
 
 
 class PetStore {
-    constructor(){ //no parameters needed
+    constructor(){ //no parameters needed because each value is fixed
         
         this.foodType = {
             regularFood: {value: 10, price: 10},
@@ -297,3 +318,6 @@ class PetStore {
     }
         
 }
+
+
+//cannot have more than 100 value of anything, pet and person
