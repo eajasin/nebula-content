@@ -1319,3 +1319,75 @@ return using min.max methods
 // console.log(countPositivesSumNegatives(array))
 
 
+//Fix string case (7)
+//input string, output string with 
+//iterate through to determine count of upper and lower case
+//return d to capital if more lower than upper
+//return e to lower if more upper than lower
+//return all lower if upper and lower are equal
+
+// let string = "coDE"
+
+// function solve(s){
+//   let upperCount = 0
+//   let lowerCount = 0 
+
+// for(let i = 0; i < s.length; i++){
+//   if(s[i] === s[i].toUpperCase()){
+//     upperCount++
+//   } else {
+//     lowerCount++
+//   }
+// }
+
+// if(lowerCount >= upperCount){
+//   return s.toLowerCase()
+// }
+// return s.toUpperCase()
+
+
+// }
+
+// console.log(solve(string))
+
+
+//Pair of Gloves (6)
+//input is array of glove colors, output is integer (number of pairs that can be constituted)
+//create placehodler object
+//use handydandy objects formula to count frequency of each element (or each color)
+//using the object of color, create 
+// to check for total pairs, divide each value by 2 and return that amount
+
+// let input1 = ["red", "green", "red", "blue", "blue"]
+// let input2 = ["red", "red", "red", "red", "red", "red", "yellow", "yellow"]
+
+
+// function numberOfPairs(gloves){
+
+//   let gloveColorCount = {}
+
+//   for(let color of gloves){
+//   gloveColorCount[color] = (gloveColorCount[color] || 0) + 1
+//   //console.log(gloveColorCount)
+//   }
+ 
+//   let totalGlovePairs = 0
+
+  
+//   for (let count of Object.values(gloveColorCount)){
+    
+
+//     totalGlovePairs += Math.floor(count/2)
+//   }
+
+// return totalGlovePairs
+//   //My hands are freezing
+// }
+
+// console.log(numberOfPairs(input2))
+
+
+
+
+
+
