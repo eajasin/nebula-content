@@ -248,6 +248,14 @@ class Pets {
 
     }
 
+    setInterval(() => {
+        this.hungerValue = Math.max(this.hungerValue - 10, 0);
+        this.boredomValue = Math.max(this.boredomValue - 20, 0);
+        this.ungroomedValue= Math.max(this.ungroomedValue - 30, 0)
+        
+    }, 60000 * 1);
+
+
     increaseProperties(){
         //if person feed pet, pet hunger value goes up by 10
         if(Person.feed(foodValue)){
