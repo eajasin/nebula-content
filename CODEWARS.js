@@ -1386,7 +1386,70 @@ return using min.max methods
 
 // console.log(numberOfPairs(input2))
 
+//Write Number in Expanded Form (6)
+//input is number; output is number in expanded form (array)
+//change number to a string to make it iterable
+//if num has one digit, return the digit
+//iterable through string
+//if any string digit is 0, skip over it
+//for each digit, concatenate 0s onto it (depending on its length: length minus the indices left)
 
+// let number = 70304
+
+// const expandedForm = (num) => {
+
+//   let numToStr = num.toString()
+//   let result = []
+
+//   for(let i = 0; i < numToStr.length; i++){
+//     if(numToStr[i] !== '0'){
+//       result.push(numToStr[i] + '0'.repeat(numToStr.length - i - 1))
+//       //console.log(numToStr.length - i)
+//     }
+//   }
+
+//     return result.join(' + ')
+    
+
+// }
+
+// console.log(expandedForm(number))
+
+
+//Fold an Array (6)
+//input array; output is array with mid num folder and sum of nums on the opposite side of middle num
+//
+
+let arr = [1, 2, 3]
+let fold = 1
+
+const foldArray = (array, runs) => {
+
+  let left = 0
+  let right = array.length - 1 //last number
+
+  while (runs > 0){ //will always be a positive number
+  let foldedArray = []
+
+  while (left < right){ //denotes even number of nums in array
+    let sum = array[left] + array[right]
+    foldedArray.push(sum) 
+    left++ //adding to index, so moving right
+    right-- //chipping away at index from the right, so moving left
+
+  }
+
+  if(left === right){ //denotes odd number of nums in array because there is one element in the center
+    
+  }
+
+
+
+}
+}
+console.log(foldArray(arr,fold))
+
+//expected output is [4,2]
 
 
 
