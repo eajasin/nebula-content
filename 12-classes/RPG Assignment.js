@@ -49,7 +49,7 @@ class Person {
 
             function feed(pet, foodType) {
                 if (foodType === regularFood) {
-                    this.foodValue -= 10
+                    this.foodValue -= regularFoodValue
                     pet.hungerValue += regularFoodValue
 
                 } else if (foodType === premiumFood) {
@@ -121,26 +121,7 @@ class Person {
     }  // END OF checkInventoryAndInteractWithPet function
 
 
-
-    // ADD TO PURCHASE MODE    
-
-
-    //     if (foodType === regularFood){
-    //         price = PetStore.foodType.regularFood.price
-    //     } else if (foodType === premiumFood){
-    //         price = PetStore.foodType.premiumFood.price
-    //     } 
-
-    //     this.coin -= price
-
-    // if(this.coins < price){
-    //     return `${this.name} does not have enough coins to buy ${foodType}.`
-    // } use this in purchase mode
-
-    //END WHERE NEED TO ADD IN PURCHASE MODE
-
-    // response for person start -->
-
+  
     //when make purcahse, have to know which item to buy, check if have enough coins, if so, can make purchase
 
     makePurchase(petStoreItem) {
@@ -215,7 +196,8 @@ class Person {
 } // END OF PERSON CLASS
 
 
-//let person1 = new Person('Bob')
+let person1 = new Person('Bob')
+person1.makePurchase('premiumFood')
 //status should always be showing
 
 
@@ -245,24 +227,22 @@ class Pets {
    
     startDecreaseProperties() {
 
-     
-
         setInterval(() => {
             this.hungerValue = Math.max(this.hungerValue - 10, 0);
             this.boredomValue = Math.max(this.boredomValue - 10, 0);
             this.ungroomedValue = Math.max(this.ungroomedValue - 10, 0)
 
 
-            console.log("ungroomedValue: ", this.ungroomedValue)
+           // console.log("ungroomedValue: ", this.ungroomedValue)
 
 
-            // if (this.hungerValue <= 50){
-            //     console.log(`${this.name}'s hunger is at 50.  You may want to attend to ${this.name}'s need(s).`)
-            // }  
+            if (this.hungerValue <= 50){
+                console.log(`${this.name}'s hunger is at 50.  You may want to attend to ${this.name}'s need(s).`)
+            }  
 
-            // if (this.boredomValue <= 50){
-            //     console.log(`${this.name}'s boredom is at 50.  You may want to attend to ${this.name}'s need(s).`)
-            // }  
+            if (this.boredomValue <= 50){
+                console.log(`${this.name}'s boredom is at 50.  You may want to attend to ${this.name}'s need(s).`)
+            }  
 
             if (this.ungroomedValue === 40) {
                 console.log(`${this.name}'s ungroomed is less than 40.  You may want to attend to ${this.name}'s need(s) soon.`)
@@ -279,14 +259,17 @@ class Pets {
     increaseProperties() {
         //if person feed pet, pet hunger value goes up by 10
         if (Person.feed(foodValue)) {
-            this.hungerValue += 10
+            this.hungerValue += PetStore.foodType.regularFood.value
+            console.log(`${Person.name} just feed ${this.name}.`)
         }
         if (Person.playWith(toysValue)) {
-            this.boredomValue += 10
+            this.boredomValue += PetStore.toyType.regularToy.value 
+            console.log(`${Person.name} just played with ${this.name}.`)
         }
 
         if (Person.groom(groomToolsValue)) {
-            this.ungroomedValue += 10
+            this.ungroomedValue += PetStore.groomingToolType.regularGroomingTool.value
+            console.log(`${Person.name} just groomed ${this.name}.`)
         }
 
     }
