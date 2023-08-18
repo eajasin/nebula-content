@@ -1420,37 +1420,157 @@ return using min.max methods
 //input array; output is array with mid num folder and sum of nums on the opposite side of middle num
 //
 
-let arr = [1, 2, 3]
-let fold = 1
+//  let arr = [1, 2, 3, 4]
+//  let fold = 2
 
-const foldArray = (array, runs) => {
+// const foldArray = (array, runs) => {
 
-  let left = 0
-  let right = array.length - 1 //last number
+//   let left = 0
+//   let right = array.length - 1 //last number
 
-  while (runs > 0){ //will always be a positive number
-  let foldedArray = []
+//   let temporaryArr = array.slice()
 
-  while (left < right){ //denotes even number of nums in array
-    let sum = array[left] + array[right]
-    foldedArray.push(sum) 
-    left++ //adding to index, so moving right
-    right-- //chipping away at index from the right, so moving left
+//   while (runs > 0){ //will always be a positive number
+//   console.log(temporaryArr)  
+//   let foldedArray = []
+//   left = 0
+//   right = temporaryArr.length - 1
+  
 
-  }
+//   while (left < right){ //denotes even number of nums in array
+//     let sum = temporaryArr[left] + temporaryArr[right]
+//     foldedArray.push(sum) 
+//     left++ //adding to index, so moving right
+//     right-- //chipping away at index from the right, so moving left
 
-  if(left === right){ //denotes odd number of nums in array because there is one element in the center
+//   }
+//   console.log(foldedArray)
+ 
+
+//   if(left === right){ //denotes odd number of nums in array because there is one element in the center
+//     foldedArray.push(temporaryArr[left])
     
-  }
 
-
-
-}
-}
-console.log(foldArray(arr,fold))
+//   }
+//   temporaryArr = foldedArray.slice()
+//   runs--
+// }
+// return temporaryArr
+// }
+//console.log(foldArray(arr,fold))
 
 //expected output is [4,2]
 
+//Descending Order (7)
+
+// let num = 42145
+
+// function descendingOrder(n){
+
+//   let arr = Array.from(String(n), Number)
+//   const desc = arr.sort((a,b) => b - a )
+
+//   return parseInt(desc.join(''))
+     
+// }
+
+// console.log(descendingOrder(num))
+
+//Complementary DNA (7)
+
+// let string1 = "ATTGC"
+// let string2 = "GTAT"
+
+// function DNAStrand(dna){
+
+
+//   let newString = ""
+    
+//   for(let i = 0; i < dna.length; i++){
+//     if(dna[i] === "A"){
+//       newString += "T"
+      
+//     } else if (dna[i] === "T"){
+//       newString += "A"
+    
+//     } else if (dna[i] === "C"){
+//     newString += "G"
+    
+//     } else if (dna[i] === "G"){
+//     newString += "C"
+//     }
+//   }
+//    return newString
+//   }
+
+
+//   console.log(DNAStrand(string1))
+//   console.log(DNAStrand(string2))
+
+
+//Who Likes This? (6)
+//input is array of names; output is display text (string)
+//count number of elements and return the specific message
+//use template literal for the message
+
+// let listOfNames = ["John", "Peter", "Jerry", "Max", "Mark", "Jacob"]
+
+// function likes(names){
+//   let likesMessage = ''
+
+  
+  
+//   switch(names.length){
+//     case 0:
+//       likesMessage = 'no one likes this'
+//       break
+//     case 1:
+//       likesMessage = `${names} likes this`
+//       break
+//     case 2:
+//       likesMessage = `${names[0]} and ${names[1]} like this`
+//       break
+//     case 3: 
+//       likesMessage = `${names[0]}, ${names[1]} and ${names[2]} like this`
+//       break
+//     default:
+//       likesMessage = `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+//       break
+ 
+// }
+
+//   return likesMessage
+// }
+
+// console.log(likes(listOfNames))
+
+//Length of missing array (6)
+//input is array of arrays; output is length (integer) of missing array
+//sort the arrays in order of length
+//loop over new array and check the difference in indices from one to the other
+//missingLength will be the length of the current index, where this rings true, minus 1
+
+// let array = [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]]
+// let array2 = [[5, 2, 9 ], [4, 5, 1, 1 ], [ 1 ], [ 5, 6, 7, 8, 9]]
+
+// function getLengthOfMissingArray(arrayOfArrays) {
+
+//   if(arrayOfArrays.length === 0 || arrayOfArrays === null){
+//     return 0
+//   }
+
+// let arrInOrder = arrayOfArrays.sort((a,b) => a.length - b.length)
+
+// //console.log(arrInOrder)
+// for(let i = 0; i < arrInOrder.length; i++){
+//   if (arrInOrder[i].length + 1 !== arrInOrder[i + 1].length){  //checking that the lenght of current plus one is not equal to the length of the next array
+//     return arrInOrder[i].length +1  //length of missing by adding 1 to the current array (missing array is its right)
+//   }
+// }
+  
+// }
+
+// console.log(getLengthOfMissingArray(array)) //NOT DONE - keep getting error
 
 
 
