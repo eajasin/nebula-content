@@ -1573,4 +1573,82 @@ return using min.max methods
 // console.log(getLengthOfMissingArray(array)) //NOT DONE - keep getting error
 
 
+//Coding Meetup #1 - Higher-Order Functions Series - Count the number of JavaScript developers coming from Europ (7)
+//input is output is object, output is a number 
+//have to loop through object to count frequency 
+//return frequency
 
+var list2 = [
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+  { firstName: 'Maia', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
+  { firstName: 'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'HTML' },
+  { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' },
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'CSS' }
+];
+
+
+// // function countDevelopers(list) {
+// //  console.log(list[continent])
+
+// //   let countOfEuropeans = 0
+
+// //   for(let continent in list){
+
+
+
+
+// function countDevelopers(list) {
+//   let countOfJsEuropeans = 0;
+
+//   for (let i = 0; i < list.length; i++) {
+//     let developer = list[i];
+
+//     if (developer.language === 'JavaScript' && developer.continent === 'Europe') {
+//       countOfJsEuropeans++
+//     }
+//   }
+
+//   return countOfJsEuropeans
+// }
+
+// // }
+
+
+
+// function count(list){
+
+// let countOfJsEuropeans = list.filter(e => e.language === "Javascript" && e.continent === 'Europe')
+
+// return countOfJsEuropeans
+
+// }
+
+// console.log(countDevelopers(list2))
+
+
+//Coding Meetup #2 - Greet Developers (7)
+
+//input is array of objects; output is array of objects with new property of greeting
+//iterate through array of objects
+//create a new property for the greeting
+//use a template literal to customize the greeting by name and language
+
+function greetDevelopers(list) {
+  
+  for(let developer of list){
+    developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
+  }
+  return list
+
+}
+
+function greetDevelopers (list){
+
+  let newList = list.map(x.greeting => {x.greeting `Hi ${develop.firstName}, what do you like the most about ${developer.language}?`})
+
+  return newList
+}
+
+
+console.log(greetDevelopers(list2))
