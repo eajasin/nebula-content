@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="style.css">
-
-  <title>TO DO TASKS</title>
-
+  <link rel="stylesheet" href="todolist.css">
+  <title>Document</title>
 </head>
 
 <body>
-
-  <input class="TASKS" type="text" placeholder="ADD TASK">
-
-  <button class="ADD">ADD</button>
-  <div class = "taskDisplay">
-    <ul class="taskList">
-
-      <li class="newTask">TASK 1<input type="checkbox"><button class ="delete">DELETE</button></li>
-
-      <li>TASK 2<input type="checkbox"><button>DELETE</button></li>
-
-      <li>TASK 3<input type="checkbox"><button>DELETE</button></li>
-
-      <li>TASK 4<input type="checkbox"><button>DELETE</button></li>
-
+  <div class="maincontainer">
+    <h1>To-Do List</h1>
+    <input type="text" class="textbox">
+    <button class="add">Add Task </button>
+    <ul class="taskDisplay">
+      <select class = "filterTasks">
+        <option>All</option>
+        <option>Completed</option>
+        <option>Not Completed</option>
+      </select>
     </ul>
+    <div class="taskCountDisplay"></div>
+    <div class="tasksCompletedDisplay"></div>
 
   </div>
 
+
+
+
 </body>
-
-
-
 <script src='todolist.js' defer></script>
 
 </html>
