@@ -14,3 +14,6 @@ ctx.fillStyle = "orange"
 ctx.fillRect (210, 10, 100, 100)
 
 
+
+
+//wirreframing is like pseudocode, brief summary of what game will do 
