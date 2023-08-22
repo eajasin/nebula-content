@@ -3,7 +3,7 @@
 //   let alphabet = ["a", "b", "c"]
 //   for(i = 0; i < alphabet.length; i++){
 //     if alphabet[i] === 
-  
+
 //   return text.indexOf[alphabet[i]]
 // }
 // }
@@ -11,10 +11,10 @@
 // const disemvowel = (str) => {
 //   let vowels = "aeiou"
 //   let newStr = ""
-  
+
 //   for(let i = 0; i < str.length; i++){
 //       if(!vowels.includes(str[i].toLowerCase())){
-               
+
 //   } 
 //   }  return newStr += str[i]  
 // }
@@ -42,7 +42,7 @@
 //   let index = s.length / 2
 //        if (s.length % 2 === 0 ){
 //           return s.charAt(index - 1) + s.charAt(index) 
-                  
+
 //       } else {
 //   } return s.charAt(index)
 
@@ -86,7 +86,7 @@
 
 //     }
 //   }
-  
+
 // }
 
 
@@ -94,7 +94,7 @@
 //Given a non-negative integer, 3 for example, return a string with a murmur: "1 sheep...2 sheep...3 sheep...". Input will always be valid, i.e. no negative integers.
 
 // let number = 3
-     
+
 // const countSheep = (num) => {
 //   let sleepString = ""
 //     for(let i = 1; i <= num; i++){ //iterate through all numbers up to num, starting at 1
@@ -105,7 +105,7 @@
 
 // //need to increase 
 // console.log(countSheep(number))
-  
+
 //Take an array and remove every second element from the array. Always keep the first element and start removing with the next element.
 /*
 1) input array, output array
@@ -132,12 +132,12 @@ return using min.max methods
 // let array = [2, 6, 90, 59, -3]
 
 // const min = (list) => {
-    
+
 //     return Math.min(...list)
 // }
 
 // const max = (list) => {
-    
+
 //     return Math.max(...list)
 // }
 
@@ -180,7 +180,7 @@ return using min.max methods
 //   }
 //   return newStr
 // }  
-  
+
 // console.log(noSpace(str))
 // let string = "bootcamp"
 
@@ -188,7 +188,7 @@ return using min.max methods
 //   let noFirstAndLast = str.slice(1, -1)//need to identify indices of first str[1] and last char str[-1] in string and extract their range
 //      return noFirstAndLast 
 //     }                                
-  
+
 // console.log(removeChar(string))   
 
 // console.log(removeChar(string))
@@ -219,8 +219,8 @@ return using min.max methods
 
 //  console.log(check(array, value))
 
-  
-  //Square(n) Sum
+
+//Square(n) Sum
 
 // let array = [2, 1, 3]
 
@@ -253,8 +253,8 @@ return using min.max methods
 //   // let origArray = lOrig.split("")
 //   // let sortedTest = testArray.sort()
 //   // let sortedOrig = origArray.sort()
-  
-  
+
+
 // // console.log(sortedTest)
 // // console.log(sortedOrig)
 //   // if(sortedTest.join("") === sortedOrig.join("")) {
@@ -299,7 +299,7 @@ return using min.max methods
 
 // const friend = (friends) => {
 //   let fArray = [] //placeholder array for list of friends with 4 chars
-    
+
 //     for(let i = 0; i < friends.length; i++){             //for loop will iterate through each name
 //        if(friends[i].length === 4){               //compare length (# of indices) of each each name to 4
 //        fArray.push(friends[i])                    //adds only 4 letter names into new list (array)
@@ -378,34 +378,34 @@ return using min.max methods
 //Credit Card Mask (7)
 //input = string of words/numbers, output = string of words/numbers with all but last 4 digits redacted with '#'
 //  let example = "Elizabeth"
- 
+
 //  const maskify = (cc) => {
-  
-   
+
+
 //     if(cc.length <= 4){ //return string as is because only 4 digits
 //         return cc
-     
-         
+
+
 //     } else {  //if greater, splice the last 4 characters and concatenate them to string replaced with #
 //               //first piece of string should splice off the last 4
-   
+
 //     let normalLastFour = cc.slice(-4)
 //     let ccWithRedaction = cc.slice(0, -4).replace(/./g ,'#') //matches any character in string except for new line// check out regex (regular expressions); regex101 and 
-   
+
 //          return ccWithRedaction  += normalLastFour 
 //     }
-   
+
 //     }
 //   // if (cc.length > 4){  //for all strings that are greater than 4 characters
-    
+
 
 // console.log(maskify(example))
 
 
- //Find the off int (6)
- //input is array of integers, output is integer that appears an odd number of times
- //find out how many occurrences each number in array has
- //find the number that occurres an odd amount of times
+//Find the off int (6)
+//input is array of integers, output is integer that appears an odd number of times
+//find out how many occurrences each number in array has
+//find the number that occurres an odd amount of times
 
 // let array = [1,2,2,3,3,3,4,3,3,3,2,2,1] 
 
@@ -418,7 +418,7 @@ return using min.max methods
 //         (does number occur and if doesnt, skips; if yes, add 1 to frequency of number however many times it occurs)
 //         */
 //         //return frequency
-        
+
 //         // if(frequency[currNum] % 2 == 1){
 //         //  return result
 //       }
@@ -429,12 +429,12 @@ return using min.max methods
 //         }
 //       }
 //     //console.log(frequency[currNum])
-   
+
 //   }
-    
-      
-  
-  
+
+
+
+
 
 //   console.log(findOdd(array))
 
@@ -459,21 +459,21 @@ return using min.max methods
 
 
 // const arithmetic = (a, b, operator) => {
-  
+
 //   switch (operator){
 //   case "+":
 //      return a + b; 
 //      break;
- 
+
 //   case "-":
 //      return a - b; 
-  
+
 //   case "*":
 //      return a * b;
-  
+
 //   case "/":
 //      return a / b;
- 
+
 // }
 // }
 
@@ -487,17 +487,17 @@ return using min.max methods
 //create empty array into which newly arranged arr will go; at end will join back together
 //loop through the elements and determine if there is an integer in it (regex)
 //if there is a number, have function that can then sort the numbered strings in order of number in them
-  
+
 
 // let weirdStr = "is2 Thi1s T4est 3a" 
 
 // const order = (word) => {
 
-    // let result = []
+// let result = []
 
-    
-     //if there is a number in each element (expression) of arr
-    
+
+//if there is a number in each element (expression) of arr
+
 //     let arr = word.split(' ')
 //     let wordindices = {}
 
@@ -511,11 +511,11 @@ return using min.max methods
 
 
 //       result.push[arr[i]]
-    
-      
+
+
 //     } 
-      
-  
+
+
 //   return result.join(' ')
 // }
 // order(weirdStr)
@@ -525,17 +525,17 @@ return using min.max methods
 //input is string, output is boolean
 
 // const XO = (str) => {
-  
+
 //     let x = str.match(/x/gi) //find the number of occurrences for each letter, taking case into account
-    
+
 //     let o = str.match(/o/gi)
-    
+
 //     return (x && x.length) === (o && o.length) //determine if there is any occurrence and if the number of occurrences equals each other
-        
+
 //     }
 
 //Unique In Order (6)
- //input is string/array; output is string/array in original order of elements
+//input is string/array; output is string/array in original order of elements
 
 // let stringarr = "fjksjfkjsfjsjkf"
 // const uniqueInOrder = (iterable) = {
@@ -560,7 +560,7 @@ return using min.max methods
 
 // let empArr = []
 //  for(let i = 0; i < iterable.length; i++){
-  
+
 //   if(iterable[i] !== iterable[i+1]){
 //     empArr.push(iterable[i])
 //   }
@@ -582,7 +582,7 @@ return using min.max methods
 // const deleteNth = (arr,n) => {
 //  let freqOfOccur = {} //object placeholder; frequ will be an object
 //  let newArr = []  //placeholder to store new array 
-  
+
 //   for(let i = 0; i < arr.length; i++){ //iterate through each element in array
 //       let currNum = arr[i]  //create variable for each number in array
 //       freqOfOccur[currNum] = (freqOfOccur[currNum] || 0) + 1 //increments count of curr number however many times it occurs
@@ -599,10 +599,10 @@ return using min.max methods
 
 
 
- //Find the off int (6)
- //input is array of integers, output is integer that appears an odd number of times
- //find out how many occurrences each number in array has
- //find the number that occurres an odd amount of times
+//Find the off int (6)
+//input is array of integers, output is integer that appears an odd number of times
+//find out how many occurrences each number in array has
+//find the number that occurres an odd amount of times
 
 // let array = [1,2,2,3,3,3,4,3,3,3,2,2,1] 
 
@@ -615,7 +615,7 @@ return using min.max methods
 //         (does number occur and if doesnt, skips; if yes, add 1 to frequency of number however many times it occurs)
 //         */
 //         //return frequency
-        
+
 //         // if(frequency[currNum] % 2 == 1){
 //         //  return result
 //       }
@@ -626,7 +626,7 @@ return using min.max methods
 //         }
 //       }
 //     //console.log(frequency[currNum])
-   
+
 //   }
 
 
@@ -638,16 +638,16 @@ return using min.max methods
 // const spinWords = (string) => {
 //  let arr = string.split(" ") //convert string into an array
 //  let newArr = [] //placeholder array to store the new array with reversed words
- 
+
 
 //  for(let i = 0; i < arr.length; i++){ //loop over each word in array to identify those that have 5 or more letters with if statement
 //     if(arr[i].length >= 5){
 //       arr[i] = arr[i].split("").reverse().join(""); //if true (have 5 or more letters, convert words to strings of letters, reverse them, then rejoin them )
 //     }
 //   newArr.push(arr[i]) //push normal words and modified (reversed) words into placeholder array
-   
+
 //  }
- 
+
 //  return newArr.join(" ") //return the new array as a string using join
 
 // }
@@ -663,7 +663,7 @@ return using min.max methods
 
 // function persistence(num) {
 //   let numOfPers = 0
-  
+
 //     while (num >= 10) { //need a conditional loop to keep running until number of digits is 1
 //     let numAsStr = num.toString()//need to convert number to string to determine the number of digits it has
 // //                //need to iterate over each digit in stringed num and multiply them
@@ -673,7 +673,7 @@ return using min.max methods
 //         }
 //       num = product
 //       numOfPers++ //add 1 count for each iteration
-    
+
 //    }
 //    return numOfPers
 //  }
@@ -690,8 +690,8 @@ return using min.max methods
 //convert to array for better handling
 //count number of times each character appears using object/loop
 //Loop through again using an if statement:
-  //if appears more than once, replace with ( 
-  //if appears once, replace with )
+//if appears more than once, replace with ( 
+//if appears once, replace with )
 //revert array back to string
 //return the new string
 
@@ -771,7 +771,7 @@ return using min.max methods
 // const replaceEveryNthChar = (text, n, oldValue, newValue) => {
 //   let result = '';
 //   let count = 0;
-  
+
 //     for (let i = 0; i < text.length; i++) {
 //     let char = text.charAt(i);
 //     if (char === oldValue) {
@@ -779,8 +779,8 @@ return using min.max methods
 //       if (count === n) {
 //         result += newValue;
 //         count = 0
-        
-        
+
+
 //       }
 //     }
 //     result += char;
@@ -805,15 +805,15 @@ return using min.max methods
 //     numOfP -= busStops[i][1]; //for each stop, subtracts the number of people getting off
 //   }
 //   return numOfP; //return number of people on bus at last stop
-   
-// }
- //Find the Capitals (7)
 
- //input is string, output is array of the indices of all capital letter in string 
- //create placeholder array for final array
- //create for loop to iterate through string
- //create if statement tht identifies the capital letters and their indices
- //push the indices into the placeholder
+// }
+//Find the Capitals (7)
+
+//input is string, output is array of the indices of all capital letter in string 
+//create placeholder array for final array
+//create for loop to iterate through string
+//create if statement tht identifies the capital letters and their indices
+//push the indices into the placeholder
 
 // let string = "HapPy"
 
@@ -878,7 +878,7 @@ return using min.max methods
 // }
 
 
-  
+
 
 // Categorize New Member (7)
 //input is an array of integer pairs (one for age and one for the person's handicap); output = array of string values of "Open" or "Senior"
@@ -914,7 +914,7 @@ return using min.max methods
 
 // const solution = (str) => {
 //   let splitArr = []
-  
+
 //       for(let i = 0; i < str.length; i+= 2){
 //         splitArr.push(str.substr(i, 2))
 //       }
@@ -923,7 +923,7 @@ return using min.max methods
 //     }
 //      return splitArr
 // }
-  
+
 
 
 // console.log(solution(string))
@@ -950,7 +950,7 @@ return using min.max methods
 //Basic Mathematical Operations (8)
 
 // function basicOp(operation, value1, value2) {
-  
+
 // switch(operation){
 //   case '+':
 //     return value1 + value2;
@@ -1006,7 +1006,7 @@ return using min.max methods
 
 
 // const number = (array) => {
-  
+
 //   return array.map((currentElement, index) => `${index + 1}: ${currentElement}`);
 
 
@@ -1085,7 +1085,7 @@ return using min.max methods
 //       brokenCamStr += letter
 //     }
 //     }
-  
+
 //     return brokenCamStr
 // }
 
@@ -1107,7 +1107,7 @@ return using min.max methods
 // //         return firstLetter + 1
 // //     } 
 // //       return currLetter.charCodeAt(0)
-    
+
 // //   })
 // //     return String(missingLetter);
 // // }
@@ -1131,7 +1131,7 @@ return using min.max methods
 // let array = [1,2,3,4,3,2,1]
 
 // const findEvenIndex = (arr) => {
-  
+
 
 //   for(let i = 0; i < arr.length; i++){
 //     let sumOfLeft = 0
@@ -1167,7 +1167,7 @@ return using min.max methods
 // let array = [false,1,0,1,2,0,1,3,"a"]
 
 // const moveZeros = (arr) => {
-  
+
 //   let zeros = arr.filter(e => e === 0)
 //   console.log((zeros))
 //   let nonZeros = arr.filter(e => e !== 0)
@@ -1209,7 +1209,7 @@ return using min.max methods
 //     const worker = new Worker('CODEWARS copy.js'); //create workers inside the loop
 //     worker.onmessage = function(e) { //onmessage event is attached to the worker to listen for messages sent back to worker
 //       totalTime += e.data
-      
+
 //       if(workers.length === n){
 //         console.log(totalTime)
 //       }
@@ -1256,7 +1256,7 @@ return using min.max methods
 //         // Assign the next customer to this till
 //         tills[minIndex] += customers[i];
 //     }
-  
+
 //     // Return the maximum checkout time among all the tills
 //     return Math.max(...tills);
 // }
@@ -1274,13 +1274,13 @@ return using min.max methods
 // let string = "hello"
 
 // function wave(str){
-  
-  
+
+
 //   let wavedArr = []
 
 //   for (let i = 0; i < str.length; i++) {
 //     let createWave = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
-   
+
 //     wavedArr.push(createWave);
 // }
 
@@ -1298,13 +1298,13 @@ return using min.max methods
 // let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]
 
 // function countPositivesSumNegatives(input) {
-  
+
 //   if (input.length === 0 || input === null){
 //     return []
 //     }
 //   let posCount = 0
 //   let negSum = 0
-  
+
 //   for(let num of input){
 //     if(num > 0){
 //       posCount++
@@ -1313,7 +1313,7 @@ return using min.max methods
 //     }
 //   }
 //    return [posCount, negSum]
-  
+
 // }
 
 // console.log(countPositivesSumNegatives(array))
@@ -1370,12 +1370,12 @@ return using min.max methods
 //   gloveColorCount[color] = (gloveColorCount[color] || 0) + 1
 //   //console.log(gloveColorCount)
 //   }
- 
+
 //   let totalGlovePairs = 0
 
-  
+
 //   for (let count of Object.values(gloveColorCount)){
-    
+
 
 //     totalGlovePairs += Math.floor(count/2)
 //   }
@@ -1409,7 +1409,7 @@ return using min.max methods
 //   }
 
 //     return result.join(' + ')
-    
+
 
 // }
 
@@ -1435,7 +1435,7 @@ return using min.max methods
 //   let foldedArray = []
 //   left = 0
 //   right = temporaryArr.length - 1
-  
+
 
 //   while (left < right){ //denotes even number of nums in array
 //     let sum = temporaryArr[left] + temporaryArr[right]
@@ -1445,11 +1445,11 @@ return using min.max methods
 
 //   }
 //   console.log(foldedArray)
- 
+
 
 //   if(left === right){ //denotes odd number of nums in array because there is one element in the center
 //     foldedArray.push(temporaryArr[left])
-    
+
 
 //   }
 //   temporaryArr = foldedArray.slice()
@@ -1471,7 +1471,7 @@ return using min.max methods
 //   const desc = arr.sort((a,b) => b - a )
 
 //   return parseInt(desc.join(''))
-     
+
 // }
 
 // console.log(descendingOrder(num))
@@ -1485,17 +1485,17 @@ return using min.max methods
 
 
 //   let newString = ""
-    
+
 //   for(let i = 0; i < dna.length; i++){
 //     if(dna[i] === "A"){
 //       newString += "T"
-      
+
 //     } else if (dna[i] === "T"){
 //       newString += "A"
-    
+
 //     } else if (dna[i] === "C"){
 //     newString += "G"
-    
+
 //     } else if (dna[i] === "G"){
 //     newString += "C"
 //     }
@@ -1518,8 +1518,8 @@ return using min.max methods
 // function likes(names){
 //   let likesMessage = ''
 
-  
-  
+
+
 //   switch(names.length){
 //     case 0:
 //       likesMessage = 'no one likes this'
@@ -1536,7 +1536,7 @@ return using min.max methods
 //     default:
 //       likesMessage = `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
 //       break
- 
+
 // }
 
 //   return likesMessage
@@ -1567,7 +1567,7 @@ return using min.max methods
 //     return arrInOrder[i].length +1  //length of missing by adding 1 to the current array (missing array is its right)
 //   }
 // }
-  
+
 // }
 
 // console.log(getLengthOfMissingArray(array)) //NOT DONE - keep getting error
@@ -1634,21 +1634,70 @@ var list2 = [
 //create a new property for the greeting
 //use a template literal to customize the greeting by name and language
 
-function greetDevelopers(list) {
+// function greetDevelopers(list) {
+
+//   for(let developer of list){
+//     developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
+//   }
+//   return list
+
+// }
+
+// function greetDevelopers (list){
+
+//   let newList = list.map(x.greeting => {x.greeting `Hi ${develop.firstName}, what do you like the most about ${developer.language}?`})
+
+//   return newList
+// }
+
+
+// console.log(greetDevelopers(list2))
+
+//Bit Counting (6)
+//
+
+// let num = 1234
+
+// var countBits = function (n) {
   
-  for(let developer of list){
-    developer.greeting = `Hi ${developer.firstName}, what do you like the most about ${developer.language}?`
-  }
-  return list
+  
+//   let numAsBin = ''
+//   let ones = 0
 
-}
+//   while (n > 0) {
+//     const remainder = n % 2;
+//     numAsBin = remainder + numAsBin;
+//     n = Math.floor(n / 2);
+    
+//     ones += n & 1
+//   }
 
-function greetDevelopers (list){
+  
+//   return ones
+// }    
 
-  let newList = list.map(x.greeting => {x.greeting `Hi ${develop.firstName}, what do you like the most about ${developer.language}?`})
+// console.log(countBits(num))
 
-  return newList
-}
+// let string = "BORN IN 2015!"
+
+// function playPass(s, n) {
+  
+//   let arr = s.split("")
+//   //console.log(arr)
+
+//   //first command
+//   for (let i = 0; i < n; i++) {
+//     arr.unshift(arr.pop());
+
+// console.log(arr)
+// }
+ 
+
+ 
+ 
+// }
+
+// console.log(playPass(string, 1))
+//NOT DONE - Caesar Cipher kata
 
 
-console.log(greetDevelopers(list2))
