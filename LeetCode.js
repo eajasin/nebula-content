@@ -31,32 +31,58 @@
 
 //     console.log(twoSum(arr,sum))
 
-let symbols = ['@', '#', '$', '%', '&', '*']
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-let characterCode = Array.from(Array(26)).map((_, i) => i + 97)
-let lowerLetters = characterCode.map(code => String.fromCharCode(code)) 
-let upperLetters = lowerLetters.map(letter => letter.toUpperCase())
 
-function generatePassword(length, hasSymbols, hasNumbers, hasLowerLetters, hasUpperLetters){
-    let availableCharacters = [
-    ...(hasSymbols ? symbols : []),
-    ...(hasNumbers ? numbers : []),
-    ...(hasLowerLetters ? lowerLetters : []),
-    ...(hasUpperLetters ? upperLetters : []),
-  
-]
+//Contains Dupplicates (Easy)
+//sort the array
+//use for loop to determine if the current number is equal to the adjacent number then return true
 
-let password =  ""
+// var containsDuplicate = function(nums){
+// nums.sort((a,b) => a - b)
+
+// for(let i = 0; i < nums.length - 1; i++){
+//     if(nums[i] === nums[i+1]){
+//         return true
+//     }
+// }
+// return false
+// }
+
+// console.log(containsDuplicate([1,2,3,4, 1]))
+
+//set() only takes in unqique nums; use for duplicates!!
+//new Set(nums).size !== nums.length
+
+//Valid Anagram (Easy)
+//test (anagram or not) and oringal work (strings) => "true"/"false" if anagram is/is not anagram of each other (boolean)
+//convert to array using "split" and alphabtize with sort, then convert back to string
+//compare strings to each other (joined back to string because not checking the actual values of array)not primitive vAlue so checking references in memory); 
+//compare strings because it is primitive, non-primitives have differnet memory references
+//return true/false
+
+let string1 = "rat"
+let string2 = "tar"
+
+const isAnagram = (s, t) => {
  
-if(availableCharacters.length === 0) return "" 
-for  (let i = 0; i < length; i++){
-    const randomIndex = Math.floor(math.random() * availableCharacters.length) //grabs characters from avaliable characters array randomly
-    password += availableCharacters[randomIndex]
-
+        let sAnagram = s.split("").sort().join("") //convert to array, alphabatize, convert back to string
+        let tAnagram = t.split("").sort().join("")
+        //  let sArray = sAnagram.split("") //
+        //  let tArray = tAnagram.split("")
+        //  let sortedS = sArray.sort()
+        //  let sortedT = tArray.sort()
+        
+         //console.log(sArray)
+        //  if(sortedS.join("") === sortedT.join("")) {
+           if(sAnagram === tAnagram){
+         return true
+         } 
+         
+        return false
+          
 }
- return password
 
-}
+console.log(isAnagram(string1, string2))
 
-console.log(generatePassword(4, true, true, true, true))
+
+//array.fill(26)
