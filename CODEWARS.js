@@ -1578,15 +1578,15 @@ return using min.max methods
 //have to loop through object to count frequency 
 //return frequency
 
-var list2 = [
-  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
-  { firstName: 'Maia', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
-  { firstName: 'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'HTML' },
-  { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' },
-  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
-  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'CSS' }
-];
-
+// var list2 = [
+//   { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+//   { firstName: 'Maia', lastName: 'S.', country: 'Tahiti', continent: 'Oceania', age: 28, language: 'JavaScript' },
+//   { firstName: 'Shufen', lastName: 'L.', country: 'Taiwan', continent: 'Asia', age: 35, language: 'HTML' },
+//   { firstName: 'Sumayah', lastName: 'M.', country: 'Tajikistan', continent: 'Asia', age: 30, language: 'CSS' },
+//   { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'JavaScript' },
+//   { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'CSS' }
+// ];
+// 
 
 // // function countDevelopers(list) {
 // //  console.log(list[continent])
@@ -1700,4 +1700,46 @@ var list2 = [
 // console.log(playPass(string, 1))
 //NOT DONE - Caesar Cipher kata
 
+//Simple Pig Latin (5)
+// function pigIt(str){
+//     let wordsOfString = str.split(" ");
+  
+//   let newWordsOfString = wordsOfString.map(word => {
+//    if (word.match(/[a-zA-Z]/)){
+//     let firstLetter = word[0];
+//     let remainingLetters = word.slice(1);
+//     return remainingLetters + firstLetter + "ay";
+//    } else {
+//     return word
+//    }
+//   });
 
+
+//   return newWordsOfString.join(' ');
+// }
+
+
+//Are they the same? (6)
+//input is two arrays, output is boolean (if second array contains the squares of the numbers in first array)
+//square each number in array1, then sort
+//convert to string and compare
+
+
+// let a = [121, 144, 19, 161, 19, 144, 19]  
+// let b = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+
+// function comp(array1, array2){
+//    if(array1 === null || array2 === null){
+//     return false
+//    }
+
+//    let squaredArray1 = array1.map(e => e * e)
+
+//    let sortedArray1 = squaredArray1.sort((a, b) => a - b)
+   
+//    let sortedArray2 = array2.sort((a, b) => a - b)
+   
+//    return sortedArray1.toString() === sortedArray2.toString() ? true : false
+    
+
+//   }
