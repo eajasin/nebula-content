@@ -241,10 +241,11 @@ function animateMovement() { //needs be drawn out continuously
                 rectangularCollision({
                     rectangle1: player,
                     rectangle2: randomizedArea
-                })
+                }) &&
+                Math.random() < 0.0001
 
             ) {
-                console.log('colliding random area')
+                console.log('You just found x coins!')
                 
                 break
             }
