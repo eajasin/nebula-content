@@ -234,7 +234,22 @@ function animateMovement() { //needs be drawn out continuously
     })
     player.draw()
     //foreground.draw()
-    if(keys.)
+    if(keys.ArrowDown.pressed || keys.ArrowUp.pressed || keys.ArrowLeft.pressed || keys.ArrowRight.pressed){
+        for (let i = 0; i < randomizedAreas.length; i++) {
+            const randomizedArea = randomizedAreas[i]
+            if (
+                rectangularCollision({
+                    rectangle1: player,
+                    rectangle2: randomizedArea
+                })
+
+            ) {
+                console.log('colliding random area')
+                
+                break
+            }
+        }
+    }
 
 
     let moving = true
@@ -262,20 +277,7 @@ function animateMovement() { //needs be drawn out continuously
                 break
             }
         }
-        for (let i = 0; i < randomizedAreas.length; i++) {
-            const randomizedArea = randomizedAreas[i]
-            if (
-                rectangularCollision({
-                    rectangle1: player,
-                    rectangle2: randomizedArea
-                })
-
-            ) {
-                console.log('colliding random area')
-                
-                break
-            }
-        }
+        
 
         if (moving)
             movables.forEach(movable => {
