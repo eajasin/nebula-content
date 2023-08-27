@@ -355,3 +355,37 @@ class Pets {
 
 
 //cannot have more than 100 value of anything, pet and person
+
+
+
+
+//ADDING TEXT
+
+//need a container and selector for the text
+//ctx.fillRect(0, 0, 300, 300)
+// let container = document.querySelector('canvas')
+let container = document.getElementsByClassName("text")
+let speeds = {
+    slow: 120,
+    normal: 70,
+    fast: 40
+}
+
+let textLines = [
+{string: "Hey, how are you?", speed: speeds.normal},
+{string: "I'm doing good, and yourself?", speed: speeds.fast},
+{string: "I'm soooooo tired.", speed: speeds.slow}
+
+]
+
+let character = []
+textLines.forEach(line => {
+    line.string.split("").forEach(character => {
+        let span = document.createElement("span")
+        span.textContent = character
+        container.appendChild(span)
+    })
+})
+
+
+

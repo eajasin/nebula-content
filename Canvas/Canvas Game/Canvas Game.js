@@ -430,8 +430,18 @@ window.addEventListener('keyup', (e) => {
 
 
 //TRANSITIONING TO A NEW SCREEN
+//Whenever player goes to state screen, enters a home/store, or sails, a transition scene will be triggered
+//when activitae 
 
+const newScene = {
+    initiated: false//by default
 
+}
+
+if (sceneChange.initiated){
+    sceneChange = true
+
+}
 
 
 //TRANSITION TO A NEW SCREEN
