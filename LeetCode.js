@@ -60,29 +60,32 @@
 //compare strings because it is primitive, non-primitives have differnet memory references
 //return true/false
 
-let string1 = "rat"
-let string2 = "tar"
+// let string1 = "rat"
+// let string2 = "tar"
 
-const isAnagram = (s, t) => {
+// const isAnagram = (s, t) => {
  
-        let sAnagram = s.split("").sort().join("") //convert to array, alphabatize, convert back to string
-        let tAnagram = t.split("").sort().join("")
-        //  let sArray = sAnagram.split("") //
-        //  let tArray = tAnagram.split("")
-        //  let sortedS = sArray.sort()
-        //  let sortedT = tArray.sort()
+//         let sAnagram = s.split("").sort().join("") //convert to array, alphabatize, convert back to string
+//         let tAnagram = t.split("").sort().join("")
+//         //  let sArray = sAnagram.split("") //
+//         //  let tArray = tAnagram.split("")
+//         //  let sortedS = sArray.sort()
+//         //  let sortedT = tArray.sort()
         
-         //console.log(sArray)
-        //  if(sortedS.join("") === sortedT.join("")) {
-           if(sAnagram === tAnagram){
-         return true
-         } 
+//          //console.log(sArray)
+//         //  if(sortedS.join("") === sortedT.join("")) {
+//            if(sAnagram === tAnagram){
+//          return true
+//          } 
          
-        return false
+//         return false
           
-}
+// }
 
-console.log(isAnagram(string1, string2))
+// console.log(isAnagram(string1, string2))
 
 
-//array.fill(26)
+// //array.fill(26)
+
+//Valid Parenthese (Easy)
+//input string containing square/curly brackets and parenthesis; output is true false if 1) closed by same type, 2) closed in the correct order, 3)

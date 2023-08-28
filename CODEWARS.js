@@ -1743,3 +1743,29 @@ return using min.max methods
     
 
 //   }
+
+
+//Count characters in your string (6)
+//input string, output frequency
+
+// function count(string) {
+//   if (string === ""){
+//     return {}
+//   }
+
+//   let splitString = string.split("")
+//   console.log(splitString)
+  
+//     let freqOfLetters = {}
+
+//     for (letter of splitString){
+//         freqOfLetters[letter] = (freqOfLetters[letter] || 0) + 1
+//     }
+    
+
+
+//     return freqOfLetters
+//   } 
+  
+//   console.log(count("Haaaaarrrrry Pooottteeeer"))
+
