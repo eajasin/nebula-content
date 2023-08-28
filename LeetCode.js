@@ -64,22 +64,22 @@
 // let string2 = "tar"
 
 // const isAnagram = (s, t) => {
- 
+
 //         let sAnagram = s.split("").sort().join("") //convert to array, alphabatize, convert back to string
 //         let tAnagram = t.split("").sort().join("")
 //         //  let sArray = sAnagram.split("") //
 //         //  let tArray = tAnagram.split("")
 //         //  let sortedS = sArray.sort()
 //         //  let sortedT = tArray.sort()
-        
+
 //          //console.log(sArray)
 //         //  if(sortedS.join("") === sortedT.join("")) {
 //            if(sAnagram === tAnagram){
 //          return true
 //          } 
-         
+
 //         return false
-          
+
 // }
 
 // console.log(isAnagram(string1, string2))
@@ -87,5 +87,24 @@
 
 // //array.fill(26)
 
-//Valid Parenthese (Easy)
-//input string containing square/curly brackets and parenthesis; output is true false if 1) closed by same type, 2) closed in the correct order, 3)
+//Best Time to Buy and Sell Stock
+//input: array of prices, output: integer representing maximum profit you can achieve
+
+let array = [7, 1, 5, 3, 6, 4]
+
+const maxProfit = (prices) => {
+        let minimumPrice = Infinity
+        let maximumProfit = 0
+
+        for(let i = 0; i < prices.length; i ++){
+                if (prices[i] < minimumPrice){
+                        minimumPrice = prices[i]
+                } else if (prices[i] - minimumPrice > maximumProfit){
+                        maximumProfit = prices[i] - minimumPrice
+                }
+
+        }
+        return maximumProfit
+}
+
+console.log(maxProfit(array))
