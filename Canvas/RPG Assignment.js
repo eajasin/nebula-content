@@ -34,31 +34,31 @@ class PetStore {
             petB: { price: 150 }
         }
 
-        this.petLessons = {
-            //etiquette training (have mini-game)
-            //physicality training (have mini-game)
-
-        }
+        // this.petLessons = {
+        //     //etiquette training (have mini-game)
+        //     //physicality training (have mini-game)
 
     }
 
 }
+
+//}
 
 let fortunatePets = new PetStore()
 
 class SailingSchool {
-    constructor() { 
-    this.sailingLessons = {
-        package1: {price: 500},
-        package2: {price: 800}
-        //need two for license
+    constructor() {
+        this.sailingLessons = {
+            package1: { price: 500 },
+            package2: { price: 800 }
+            //need two for license
+        }
     }
-}
 }
 
 let happySails = new SailingSchool
 
-class Person {
+class Player {
     constructor(name, pet, numOfPets) {
         this.name = name;
         this.foodValue = 100
@@ -69,25 +69,25 @@ class Person {
         this.numOfPets = numOfPets
     }
     introduction() {
-        return `Hi, I'm ${this.name}.  I have ${this.foodValue} food, ${this.toys} toys and ${this.groomToolsValue} grooming tools.`
+        return `Hi, I'm ${this.name}.`//  I have ${this.foodValue} food, ${this.toys} toys and ${this.groomToolsValue} grooming tools.`
     }
 
     checkInventoryAndInteractWithPet() {
-        let regularFood = TownStore.foodType.regularFood
-        let premiumFood = TownStore.foodType.premiumFood
-        let regularToy = TownStore.toyType.regularToy
-        let premiumToy = TownStore.toyType.premiumToy
-        let regularGroomingTool = TownStore.groomingToolType.regularGroomingTool
-        let premiumGroomingTool = TownStore.groomingToolType.premiumGroomingTool
-      
+        let regularFood = fortunatePets.foodType.regularFood
+        let premiumFood = fortunatePets.foodType.premiumFood
+        let regularToy = fortunatePets.toyType.regularToy
+        let premiumToy = fortunatePets.toyType.premiumToy
+        let regularGroomingTool = fortunatePets.groomingToolType.regularGroomingTool
+        let premiumGroomingTool = fortunatePets.groomingToolType.premiumGroomingTool
 
 
-        let regularFoodValue = TownStore.foodType.regularFood.value
-        let premiumFoodValue = TownStore.foodType.premiumFood.value
-        let regularToyValue = TownStore.toyType.regularToy.value
-        let premiumToyValue = TownStore.toyType.premiumToy.value
-        let regularGroomingToolValue = TownStore.groomingToolType.regularGroomingTool.value
-        let premiumGroomingToolValue = TownStore.groomingToolType.premiumGroomingTool.value
+
+        let regularFoodValue = fortunatePets.foodType.regularFood.value
+        let premiumFoodValue = fortunatePets.foodType.premiumFood.value
+        let regularToyValue = fortunatePets.toyType.regularToy.value
+        let premiumToyValue = fortunatePets.toyType.premiumToy.value
+        let regularGroomingToolValue = fortunatePets.groomingToolType.regularGroomingTool.value
+        let premiumGroomingToolValue = fortunatePets.groomingToolType.premiumGroomingTool.value
 
 
         //START FEED PET PROCESS -->
@@ -185,18 +185,18 @@ class Person {
 
         } else {
 
-            let regularFoodPrice = generalStore.foodType.regularFood.price
-            let premiumFoodPrice = generalStore.foodType.premiumFood.price
-            let regularToyPrice = generalStore.toyType.regularToy.price
-            let premiumToyPrice = generalStore.toyType.premiumToy.price
-            let regularGroomingToolPrice = generalStore.groomingToolType.regularGroomingTool.price
-            let premiumGroomingToolPrice = generalStore.groomingToolType.premiumGroomingTool.price
-            
+            let regularFoodPrice = fortunatePets.foodType.regularFood.price
+            let premiumFoodPrice = fortunatePets.foodType.premiumFood.price
+            let regularToyPrice = fortunatePets.toyType.regularToy.price
+            let premiumToyPrice = fortunatePetstoyType.premiumToy.price
+            let regularGroomingToolPrice = fortunatePets.groomingToolType.regularGroomingTool.price
+            let premiumGroomingToolPrice = fortunatePets.groomingToolType.premiumGroomingTool.price
 
-            let petA = TownStore.petforSale.petA
-            let petB = TownStore.petForSale.petB
-            let petAForSalePrice = TownStore.petA.price
-            let petBForSalePrice = TownStore.petB.price
+
+            let petA = fortunatePets.petforSale.petA
+            let petB = fortunatePets.petForSale.petB
+            let petAForSalePrice = fortunatePets.petA.price
+            let petBForSalePrice = fortunatePets.petB.price
 
             switch (storeItem) {
                 case regularFood:
@@ -231,25 +231,20 @@ class Person {
                     return `${this.name} purchased premium groom tools for ${premiumGroomingToolPrice} coins and now has ${this.groomingToolValue} and ${this.coins}.`
 
                 case petA:
-                    this.newPet += petA
+                    this.newPet += petAForSale.petA
                     this.coins -= petAForSalePrice
                     return `${this.name} purchased a new pet for ${petAForSalePrice} coins and now has ${this.numOfPets} pet(s) and ${this.coins}.`
                 case petB:
-                    this.newPet += petB
+                    this.newPet += petBForSalePrice.petB
                     this.coins -= petBForSalePrice
                     return `${this.name} purchased a new pet for ${petBForSalePrice} coins and now has ${this.numOfPets} pet(s) and ${this.coins}.`
-         
+
             }
         }
-
-        // showStatus(){
-        //     return `${this.name} has ${this.food.Value} hunger, ${this.toys} boredom and ${this.groomTools.Value}.`
-        // }   //SHOW STATUS AT ALL TIMES
-
     }
 
 } // END OF PERSON CLASS
-
+//be able to name pets
 
 // let person1 = new Person('Bob')
 // person1.makePurchase('premiumFood')
@@ -303,29 +298,30 @@ class Pets {
                 console.log(`${this.name}'s ungroomed is less than 40.  You may want to attend to ${this.name}'s need(s) soon.`)
             }
             if (this.hungerValue === 0 || this.boredomValue === 0 || this.ungroomedValue === 0) {
-                return `Game Over! ${this.name} got taken away by Animal Protective Services.  Shame on you, ${Person.name}!`
+                return `${this.name} has collapsed!`
                 //need to stop interval here because console logginh mutiple 0s
+                //need way to "refill" pet value
             }
 
 
         }, 1000 * 1);
 
-       
+
     }
 
     increaseProperties() {
         //if person feed pet, pet hunger value goes up by 10
-        if (Person.feed(foodValue)) {
-            this.hungerValue += TownStore.foodType.regularFood.value
-            console.log(`${Person.name} just feed ${this.name}.`)
+        if (Player.feed(foodValue)) {
+            this.hungerValue += fortunatePets.foodType.regularFood.value
+            console.log(`${Player.name} just feed ${this.name}.`)
         }
-        if (Person.playWith(toysValue)) {
-            this.boredomValue += TownStore.toyType.regularToy.value
+        if (Player.playWith(toysValue)) {
+            this.boredomValue += fortunatePets.toyType.regularToy.value
             console.log(`${Person.name} just played with ${this.name}.`)
         }
 
-        if (Person.groom(groomToolsValue)) {
-            this.ungroomedValue += TownStore.groomingToolType.regularGroomingTool.value
+        if (Player.groom(groomToolsValue)) {
+            this.ungroomedValue += fortunatePets.groomingToolType.regularGroomingTool.value
             console.log(`${Person.name} just groomed ${this.name}.`)
         }
 
@@ -350,42 +346,38 @@ class Pets {
 //let pet1 = new Pets('Rover', 40, 40, 80)
 
 
-
-
-
-
 //cannot have more than 100 value of anything, pet and person
 
 
 
 
-//ADDING TEXT
+//ADDING TEXT ----->>
 
 //need a container and selector for the text
 //ctx.fillRect(0, 0, 300, 300)
 // let container = document.querySelector('canvas')
-let container = document.getElementsByClassName("text")
-let speeds = {
-    slow: 120,
-    normal: 70,
-    fast: 40
-}
+// let container = document.getElementsByClassName("text")
+// let speeds = {
+//     slow: 120,
+//     normal: 70,
+//     fast: 40
+// }
 
-let textLines = [
-{string: "Hey, how are you?", speed: speeds.normal},
-{string: "I'm doing good, and yourself?", speed: speeds.fast},
-{string: "I'm soooooo tired.", speed: speeds.slow}
+// let textLines = [
+// {string: "Hey, how are you?", speed: speeds.normal},
+// {string: "I'm doing good, and yourself?", speed: speeds.fast},
+// {string: "I'm soooooo tired.", speed: speeds.slow}
 
-]
+// ]
 
-let character = []
-textLines.forEach(line => {
-    line.string.split("").forEach(character => {
-        let span = document.createElement("span")
-        span.textContent = character
-        container.appendChild(span)
-    })
-})
+// let character = []
+// textLines.forEach(line => {
+//     line.string.split("").forEach(character => {
+//         let span = document.createElement("span")
+//         span.textContent = character
+//         container.appendChild(span)
+//     })
+// })
 
 
 
