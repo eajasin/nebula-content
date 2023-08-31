@@ -354,7 +354,7 @@ class Pets {
 //ADDING TEXT ----->>
 
 //need a container and selector for the text
-//ctx.fillRect(0, 0, 300, 300)
+
 // let container = document.querySelector('canvas')
 // let container = document.getElementsByClassName("text")
 // let speeds = {

@@ -152,7 +152,7 @@ const player = new Sprite({
         max: 4
     },
     sprite: {
-        down:playerImage,
+        down: playerImage,
         up: playerUpImage,
         left: playerLeftImage,
         right: playerRightImage
@@ -234,7 +234,7 @@ function animateMovement() { //needs be drawn out continuously
     })
     player.draw()
     //foreground.draw()
-    if(keys.ArrowDown.pressed || keys.ArrowUp.pressed || keys.ArrowLeft.pressed || keys.ArrowRight.pressed){
+    if (keys.ArrowDown.pressed || keys.ArrowUp.pressed || keys.ArrowLeft.pressed || keys.ArrowRight.pressed) {
         for (let i = 0; i < randomizedAreas.length; i++) {
             const randomizedArea = randomizedAreas[i]
             if (
@@ -246,7 +246,7 @@ function animateMovement() { //needs be drawn out continuously
 
             ) {
                 console.log('You just found x coins!')
-                
+
                 break
             }
         }
@@ -278,7 +278,7 @@ function animateMovement() { //needs be drawn out continuously
                 break
             }
         }
-        
+
 
         if (moving)
             movables.forEach(movable => {
@@ -433,19 +433,71 @@ window.addEventListener('keyup', (e) => {
 //Whenever player goes to state screen, enters a home/store, or sails, a transition scene will be triggered
 //when activitae 
 
-const newScene = {
-    initiated: false//by default
+// const newScene = {
+//     initiated: false//by default
 
-}
+// }
 
-if (sceneChange.initiated){
-    sceneChange = true
+// if (sceneChange.initiated){
+//     sceneChange = true
 
-}
+// }
 
 
 //TRANSITION TO A NEW SCREEN
 
 
+/*To Do:
+-create pet character
+-create home
+-create petStore
+-fix some collisions
+-make sure game works entirely
+-add foreground
+-create text boxes
+-create event listeners
+-align player at center upon start
+-fix a few map things
+*/
 
+const textbox = {
+  x: 50,
+  y: canvas.height - 150,
+  width: canvas.width - 100,
+  height: 100,
+  text: "",
+  visible: false,
+};
 
+function drawTextBox() {
+  if (textbox.visible) {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(textbox.x, textbox.y, textbox.width, textbox.height);
+
+    ctx.fillStyle = 'white';
+    ctx.font = '16px Arial';
+    const lineHeight = 20;
+    const lines = textbox.text.split('\n');
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], textbox.x + 10, textbox.y + 30 + i * lineHeight);
+    }
+  }
+}
+
+function showTextbox(text) {
+  textbox.text = text;
+  textbox.visible = true;  // Corrected the property name from 'textbox.value' to 'textbox.visible'
+  drawTextBox();
+}
+
+function hideTextbox() {
+  textbox.visible = false;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+showTextbox("Hello There");
+document.addEventListener('keydown', (event) => {
+  if (event.key === "Enter") {
+    hideTextbox();
+  }
+});
