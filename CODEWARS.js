@@ -1659,8 +1659,8 @@ return using min.max methods
 // let num = 1234
 
 // var countBits = function (n) {
-  
-  
+
+
 //   let numAsBin = ''
 //   let ones = 0
 
@@ -1668,11 +1668,11 @@ return using min.max methods
 //     const remainder = n % 2;
 //     numAsBin = remainder + numAsBin;
 //     n = Math.floor(n / 2);
-    
+
 //     ones += n & 1
 //   }
 
-  
+
 //   return ones
 // }    
 
@@ -1681,7 +1681,7 @@ return using min.max methods
 // let string = "BORN IN 2015!"
 
 // function playPass(s, n) {
-  
+
 //   let arr = s.split("")
 //   //console.log(arr)
 
@@ -1691,10 +1691,10 @@ return using min.max methods
 
 // console.log(arr)
 // }
- 
 
- 
- 
+
+
+
 // }
 
 // console.log(playPass(string, 1))
@@ -1703,7 +1703,7 @@ return using min.max methods
 //Simple Pig Latin (5)
 // function pigIt(str){
 //     let wordsOfString = str.split(" ");
-  
+
 //   let newWordsOfString = wordsOfString.map(word => {
 //    if (word.match(/[a-zA-Z]/)){
 //     let firstLetter = word[0];
@@ -1736,11 +1736,11 @@ return using min.max methods
 //    let squaredArray1 = array1.map(e => e * e)
 
 //    let sortedArray1 = squaredArray1.sort((a, b) => a - b)
-   
+
 //    let sortedArray2 = array2.sort((a, b) => a - b)
-   
+
 //    return sortedArray1.toString() === sortedArray2.toString() ? true : false
-    
+
 
 //   }
 
@@ -1755,17 +1755,88 @@ return using min.max methods
 
 //   let splitString = string.split("")
 //   console.log(splitString)
-  
+
 //     let freqOfLetters = {}
 
 //     for (letter of splitString){
 //         freqOfLetters[letter] = (freqOfLetters[letter] || 0) + 1
 //     }
-    
+
 
 
 //     return freqOfLetters
 //   } 
-  
+
 //   console.log(count("Haaaaarrrrry Pooottteeeer"))
+
+//Sum Mixed Array (8)
+//input array of integers; output: sum of array values
+
+//Multi-tap Keypad Text Entry on an Old Mobile Phone (6)
+//input: string; output: number of pressed required to achieve the string 
+
+// function presses(phrase) {
+//     let caseFreePhrase = phrase.toUpperCase()
+
+//  let phoneDiagram = [' 0', '1', 'ABC2', 'DEF3', 'GHI4', 'JKL5', 'MNO6', 'PQRS7', 'TUV8', 'WXYZ9', '0']
+
+//  let numOfPresses = 0
+
+//  for (let char of caseFreePhrase) {
+//      for (let i = 1; i < phoneDiagram.length; i++) {
+//          const key = phoneDiagram[i];
+//          const presses = key.indexOf(char) + 1;
+
+//        if(char == '0'){
+//          numOfPresses += 2
+//          break;
+//        } 
+//        if (presses > 0) {
+
+//              numOfPresses += presses;
+//              break;
+//          } if (char === " "){
+//              numOfPresses++
+//              break;
+//          }
+
+//      }
+//  }
+
+//  return numOfPresses
+// }
+
+//   console.log(presses("WHERE DO U WANT 2 MEET L8R")) //NOT DONE
+
+//Greed is Good (5)
+//input: values of dice (1-6); output: score
+
+function score(dice) {
+    let score = 0 //placeholder score
+   
+    for (let i = 1; i <= 6; i++) { 
+        let occurrence = dice.filter(value => value === i).length //use loop and filter to generate new array that lays out the occurrence of each value of the dice (1-6)
+
+        if (occurrence >= 3) { //if there are at least three occurrences, and if 1, get 1000, otherwise mukltiple by 100 for other values
+            if (i === 1) {
+                score += 1000
+            } else {
+                score += i * 100
+            }
+            //
+            if (occurrence > 3) {
+                if (i === 1) {
+                    score += (occurrence - 3) * 100
+                } else if (i === 5) {
+                    score += (occurrence - 3) * 50
+                }
+            }
+        }
+    }
+
+
+    return score
+}
+
+//NOT DONE
 

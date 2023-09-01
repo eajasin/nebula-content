@@ -454,10 +454,10 @@ window.addEventListener('keyup', (e) => {
 -fix some collisions
 -make sure game works entirely
 -add foreground
--create text boxes
+-create text boxes (not working)
 -create event listeners
 -align player at center upon start
--fix a few map things
+-fix a few map things (grass in wrong place, eg)
 */
 
 const textbox = {
