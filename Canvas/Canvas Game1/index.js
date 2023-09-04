@@ -2,39 +2,83 @@ const canvas = document.querySelector('canvas')
 
 const ctx = canvas.getContext('2d')
 
+/*maybe create a cuteborder
+-have the coordinates
+-have a last move thing
+-have a current move indicator
+-have a story behind it 
+-display interesting chess facts
+-have timer for each move
+*/
+// DRAW CHESSBOARD, ESTABLISH SIDES, DEFINE GAME PIECES, HAVE THEIR IMAGES --> using an array because easy to organize as a grid, stores info about each square
+let chessboard = new Array(64),
+  gameSpace = (canvas.width / 8),
+  piecesImages,
+  validMoves,
+  activePiece,
+  activePlayer;
 
+  // create identifies for player sides
 
-let chessboard = {
+  const playerSide = {
+    light: {name: 'light', value: '1'},
+    dark: {name: 'dark', value: '-1'}
+  }
 
+// create identifiers for game pieces
 
+const gamePiece = {
+  pawn: "pawn",
+  knight: 'knight',
+  bishop: 'bishop',
+  rook: 'rook',
+  queen: 'queen',
+  king: 'king'
+}
 
+// store mapping of data between player sides, game pieces, and their images;
+
+function gamePieces(side, gamePiece){
+  this.side = side
+  this.gamePiece = gamePiece
+  this.image = new Image(40, 40)
+  this.image.src = imageURL
+  //this.firstMove = true //indicats whether it's the first move of the piece
+}
+
+const images = {
+  [playerSide.light.value]: {
+    [gamePiece.pawn]: "https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg",
+    [gamePiece.knight]: "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg",
+    [gamePiece.bishop]: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg",
+    [gamePiece.rook]: "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg",
+    [gamePiece.queen]: "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg",
+    [gamePiece.king]: "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg"
+  },
+  [playerSide.dark.value]: {
+    [gamePiece.pawn]: "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg",
+    [gamePiece.knight]: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg",
+    [gamePiece.bishop]: "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg",
+    [gamePiece.rook]: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg",
+    [gamePiece.queen]: "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg",
+    [gamePiece.king]: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg"
+  },
 }
 
 
 
 
 
-// var canvas = document.getElementById('chess_game');
 
-// var boardArray = new Array(64),
-//     boardSpace = (canvas.width / 8),
-//     context = canvas.getContext('2d'),
-//     currentPiece,
-//     currentPlayer,
-//     images,
-//     validMoves;
 
-// Side = {
-//   LIGHT : { name: "Light", value: "1" },
-//   DARK : { name: "Dark", value: "-1" }
-// }
-// Type = {
-//   BISHOP: "bishop",
-//   KING: "king",
-//   KNIGHT: "knight",
-//   PAWN: "pawn",  
-//   QUEEN: "queen",
-//   ROOK: "rook"
+
+
+
+
+
+
+
+//defines flags that can be used to represent different types of moves or actions 
 // }
 // Flag = {
 //   NONE: "none",
@@ -43,66 +87,7 @@ let chessboard = {
 //   KING: "king"
 // }
 
-// function GamePiece(typeEnum, sideEnum) {
-//   this.type = typeEnum;
-//   this.side = sideEnum;
-//   this.firstMove = true;
-//   this.image = new Image(40,40);
-//   var validMoves;
 
-//   switch (this.side) {
-//     case Side.DARK:
-//       switch (this.type) {
-//         case Type.PAWN:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg';
-//           break;
-//         case Type.ROOK:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg';
-//           break;
-//         case Type.KNIGHT:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg';
-//           break;
-//         case Type.BISHOP:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg';
-//           break;
-//         case Type.KING:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg';
-//           break;
-//         case Type.QUEEN:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg';
-//           break;
-//         default:
-//           return false;
-//       }
-//       break;
-//     case Side.LIGHT:
-//       switch (this.type) {
-//         case Type.PAWN:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg';
-//           break;
-//         case Type.ROOK:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg';
-//           break;
-//         case Type.KNIGHT:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg';
-//           break;
-//         case Type.BISHOP:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg';
-//           break;
-//         case Type.KING:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg';
-//           break;
-//         case Type.QUEEN:
-//           this.image.src = 'https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg';
-//           break;
-//         default:
-//           return false;
-//       }
-//       break;
-//     default:
-//       return false;
-//   }
-//   this.image.onLoad = images.push(this.image);
   
 //   this.clearValidMoves = function() {
 //     for(var i = 0; i < validMoves.length; i++) {
