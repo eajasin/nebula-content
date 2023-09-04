@@ -9,14 +9,46 @@ const ctx = canvas.getContext('2d')
 -have a story behind it 
 -display interesting chess facts
 -have timer for each move
+-option to see valid moves should be an option
 */
 // DRAW CHESSBOARD, ESTABLISH SIDES, DEFINE GAME PIECES, HAVE THEIR IMAGES --> using an array because easy to organize as a grid, stores info about each square
+
+const canvasSize = 700
+const squareSize = canvas.width / 8
+
+canvas.width = canvasSize
+canvas.height = canvasSize
+
+function drawChessBoard(){
+  for(let row = 0; row < 8; row++){
+    for(let column = 0; column < 8; column++){
+      const x = column * squareSize
+      const y = row * squareSize
+
+      if ((row + column) % 2 === 0) {
+        ctx.fillStyle = 'rgb(210,180,140)';
+      } else {
+        ctx.fillStyle = 'rgb(255, 248, 220)';
+      }
+
+      // Draw the square
+      ctx.fillRect(x, y, squareSize, squareSize);
+    }
+  }
+}
+drawChessBoard()
+
+
+
+
 let chessboard = new Array(64),
   gameSpace = (canvas.width / 8),
   piecesImages,
   validMoves,
   activePiece,
   activePlayer;
+
+
 
   // create identifies for player sides
 
@@ -65,11 +97,49 @@ const images = {
   },
 }
 
+// <-- ESTABLISH CHESSBOARD, SIDES, AND GAME PIECES
+
+
+// GET INDEX OF SQUARES AND ESTABLISH VALID MOVES FOR GAME PIECES -->
+
+
+// function getSquareIndex(){
+//   for(let i = 0; i < chessboard.length; i++){
+//       if(chessboard[i].)
+
+//   }
+
+
+// }
+
+
+// <-- GET INDEX OF SQUARES AND ESTABLISH VALID MOVES FOR GAME PIECES
 
 
 
 
 
+
+
+// SETUP THE CHESSBOARD -->
+
+// function drawChessBoard(){
+
+// for(let row = 0; row < 8; row++){
+//   for(let column = 0; column < 8; column++){
+//     const x 
+//   }
+// }
+
+
+
+
+// }
+
+
+
+
+// <-- SETUP THE CHESSBOARD
 
 
 
