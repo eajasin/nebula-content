@@ -19,9 +19,9 @@ const squareSize = canvas.width / 8
 canvas.width = canvasSize
 canvas.height = canvasSize
 
-function drawChessBoard(){
-  for(let row = 0; row < 8; row++){
-    for(let column = 0; column < 8; column++){
+function drawChessBoard() {
+  for (let row = 0; row < 8; row++) {
+    for (let column = 0; column < 8; column++) {
       const x = column * squareSize
       const y = row * squareSize
 
@@ -50,12 +50,12 @@ let chessboard = new Array(64),
 
 console.log(chessboard)
 
-  // create identifies for player sides
+// create identifies for player sides
 
-  const playerSide = {
-    light: {name: 'light', value: '1'},
-    dark: {name: 'dark', value: '-1'}
-  }
+const playerSide = {
+  light: { name: 'light', value: '1' },
+  dark: { name: 'dark', value: '-1' }
+}
 
 // create identifiers for game pieces
 
@@ -71,15 +71,15 @@ const gamePiece = {
 // store mapping of data between player sides, game pieces, and their images;
 
 class Chesspiece {
-  constructor(side, type){
-  this.side = side;
-  this.type = type;
-  this.image = new Image(40, 40)
-  //this.image.src = imageURL
+  constructor(side, type) {
+    this.side = side;
+    this.type = type;
+    this.image = new Image(40, 40)
+    //this.image.src = imageURL
   }
 }
 
-  //this.firstMove = true //indicats whether it's the first move of the piece
+//this.firstMove = true //indicats whether it's the first move of the piece
 
 
 const images = {
@@ -106,47 +106,47 @@ drawChessBoard()
 
 // INITIALIZE CHESSBOARD AND PLACE PIECE IN THEIR STARTING POSITIONS -->
 
-function initializeChessboard(){
-for(let i = 0; i < 64; i++){
-  chessboard[i] = null
-}
-//Place white
-chessboard[0] = new Chesspiece(playerSide.light, gamePiece.rook)
-chessboard[1] = new Chesspiece(playerSide.light, gamePiece.knight)
-chessboard[2] = new Chesspiece(playerSide.light, gamePiece.bishop)
-chessboard[3] = new Chesspiece(playerSide.light, gamePiece.queen)
-chessboard[4] = new Chesspiece(playerSide.light, gamePiece.king)
-chessboard[5] = new Chesspiece(playerSide.light, gamePiece.bishop)
-chessboard[6] = new Chesspiece(playerSide.light, gamePiece.knight)
-chessboard[7] = new Chesspiece(playerSide.light, gamePiece.rook)
+function initializeChessboard() {
+  for (let i = 0; i < 64; i++) {
+    chessboard[i] = null
+  }
+  //Place white
+  chessboard[0] = new Chesspiece(playerSide.light, gamePiece.rook)
+  chessboard[1] = new Chesspiece(playerSide.light, gamePiece.knight)
+  chessboard[2] = new Chesspiece(playerSide.light, gamePiece.bishop)
+  chessboard[3] = new Chesspiece(playerSide.light, gamePiece.queen)
+  chessboard[4] = new Chesspiece(playerSide.light, gamePiece.king)
+  chessboard[5] = new Chesspiece(playerSide.light, gamePiece.bishop)
+  chessboard[6] = new Chesspiece(playerSide.light, gamePiece.knight)
+  chessboard[7] = new Chesspiece(playerSide.light, gamePiece.rook)
 
-chessboard[8] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[9] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[10] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[11] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[12] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[13] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[14] = new Chesspiece(playerSide.light, gamePiece.pawn)
-chessboard[15] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[8] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[9] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[10] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[11] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[12] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[13] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[14] = new Chesspiece(playerSide.light, gamePiece.pawn)
+  chessboard[15] = new Chesspiece(playerSide.light, gamePiece.pawn)
 
-//Place black
-chessboard[48] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[49] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[50] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[51] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[52] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[53] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[54] = new Chesspiece(playerSide.dark, gamePiece.pawn)
-chessboard[55] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  //Place black
+  chessboard[48] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[49] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[50] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[51] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[52] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[53] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[54] = new Chesspiece(playerSide.dark, gamePiece.pawn)
+  chessboard[55] = new Chesspiece(playerSide.dark, gamePiece.pawn)
 
-chessboard[56] = new Chesspiece(playerSide.dark, gamePiece.rook)
-chessboard[57] = new Chesspiece(playerSide.dark, gamePiece.knight)
-chessboard[58] = new Chesspiece(playerSide.dark, gamePiece.bishop)
-chessboard[59] = new Chesspiece(playerSide.dark, gamePiece.queen)
-chessboard[60] = new Chesspiece(playerSide.dark, gamePiece.king)
-chessboard[61] = new Chesspiece(playerSide.dark, gamePiece.bishop)
-chessboard[62] = new Chesspiece(playerSide.dark, gamePiece.knight)
-chessboard[63] = new Chesspiece(playerSide.dark, gamePiece.rook)
+  chessboard[56] = new Chesspiece(playerSide.dark, gamePiece.rook)
+  chessboard[57] = new Chesspiece(playerSide.dark, gamePiece.knight)
+  chessboard[58] = new Chesspiece(playerSide.dark, gamePiece.bishop)
+  chessboard[59] = new Chesspiece(playerSide.dark, gamePiece.queen)
+  chessboard[60] = new Chesspiece(playerSide.dark, gamePiece.king)
+  chessboard[61] = new Chesspiece(playerSide.dark, gamePiece.bishop)
+  chessboard[62] = new Chesspiece(playerSide.dark, gamePiece.knight)
+  chessboard[63] = new Chesspiece(playerSide.dark, gamePiece.rook)
 
 }
 initializeChessboard()
@@ -158,7 +158,7 @@ initializeChessboard()
 
 //1) need to see if the position is on the chessboard
 
-function positionOnChessboard(x, y){
+function positionOnChessboard(x, y) {
   return x >= 0 && x < 8 && y >= 0 && y < 8
 }
 
@@ -166,45 +166,45 @@ console.log(positionOnChessboard(7, 7))
 
 //2) need a function to see if a square is empty?
 
-function emptySquare(x, y, chessboard){
+function emptySquare(x, y, chessboard) {
 
-let indexOfSquare = y * 8 + x
+  let indexOfSquare = y * 8 + x
 
-if(chessboard[indexOfSquare] === null){
-  return true 
+  if (chessboard[indexOfSquare] === null) {
+    return true
 
-} else {
-  
-  return false
-}
+  } else {
+
+    return false
+  }
 
 }
 console.log(emptySquare(7, 1, chessboard))
 
 //3) need to see if a piece can be captured at a given position 
 
-function capturablePiece (x, y, chessboard, currentPlayerSide){
+function capturablePiece(x, y, chessboard, currentPlayerSide) {
 
   let index = y * 8 + x
   let gamePiece = chessboard[index]
 
-  if(gamePiece !== null && Chesspiece.side !== currentPlayerSide){
+  if (gamePiece !== null && Chesspiece.side !== currentPlayerSide) {
     return true
   } else {
     return false
   }
 }
 
-console.log(capturablePiece(7,1, chessboard, playerSide.light))
+console.log(capturablePiece(7, 1, chessboard, playerSide.light))
 
 //4) need to set the valid moves for each piece
 
 
 //PAWN - moves up and down; one square at a time, but two squares for their very first move; captures diagonally
 
-function pawnValidMoves (x, y, chessboard, currentPlayerSide){
-const validMoves = []
-const directions = [] //this will depend on light (down) and dark (up)
+function pawnValidMoves(x, y, chessboard, currentPlayerSide) {
+  const validMoves = []
+  const directions = [] //this will depend on light (down) and dark (up)
 
 
 }
@@ -213,109 +213,163 @@ const directions = [] //this will depend on light (down) and dark (up)
 
 //ROOK - moves up and down, left and right; unlimited 
 
-function rookValidMoves (x, y, chessboard, currentPlayerSide){
+function rookValidMoves(x, y, chessboard, currentPlayerSide) {
   const validMoves = []
   const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
-  
-  for(let [dx, dy] of directions){
+
+  for (let [dx, dy] of directions) {
     let newX = x + dx
     let newY = y + dy
-  
-  while(positionOnChessboard(newX, newY)){
-    if(emptySquare(newX, newY, chessboard)){
-      validMoves.push([newX, newY])
-    } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)){
-      validMoves.push([newX, newY])
-      //break so wont be able to go after the square of the captured piece?
-    
-    } else {
-      //need a way to stop the piece from moving more in that direction (break?)
+
+    while (positionOnChessboard(newX, newY)) {
+      if (emptySquare(newX, newY, chessboard)) {
+        validMoves.push([newX, newY])
+      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+        validMoves.push([newX, newY])
+        //break so wont be able to go after the square of the captured piece?
+
+      } else {
+        //need a way to stop the piece from moving more in that direction (break?)
+
+      }
+      //this should be able to move the piece to the nextr valid square in the same direction
+      newX += dx
+      newY += dy
+
 
     }
-    //this should be able to move the piece to the nextr valid square in the same direction
-    newX += dx
-    newY += dy
-
-
-  }
 
 
 
   }
-  
-return validMoves
 
-  }
+  return validMoves
+
+}
 
 //ROOK
 
 //KNIGHT - moves in an L shape; only piece that can move over other pieces
 
-function knightValidMoves (x, y, chessboard, currentPlayerSide){
+function knightValidMoves(x, y, chessboard, currentPlayerSide) {
   const validMoves = []
   const directions = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
-  
-  
+
+  for (let [dx, dy] of directions) {
+    let newX = x + dx
+    let newY = y + dy
+
+    /*this will be different because the knight can jump over other pieces;
+    I should check if the square is a valid space, and if an empty square or capturable square
+    validMoves.push([newX, newY])  
+    */
   }
+  return validMoves
+}
 
 //KNIGHT
 
 //BISHOP - moves diagonally; unlimited
 
-function bishopValidMoves (x, y, chessboard, currentPlayerSide){
+function bishopValidMoves(x, y, chessboard, currentPlayerSide) {
   const validMoves = []
   const directions = [[-1, -1], [-1, 1], [1, -1], [1, 1]]
-  
-  for(let [dx, dy] of directions){
+
+  for (let [dx, dy] of directions) {
     let newX = x + dx
     let newY = y + dy
-    
-    while(positionOnChessboard(newX, newY)){
-      if(emptySquare(newX, newY, chessboard)){
+
+    while (positionOnChessboard(newX, newY)) {
+      if (emptySquare(newX, newY, chessboard)) {
         validMoves.push([newX, newY])
-      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)){
+      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
         validMoves.push([newX, newY])
         //break so wont be able to go after the square of the captured piece?
-      
+
       } else {
         //need a way to stop the piece from moving more in that direction (break?)
-  
+
       }
       //this should be able to move the piece to the nextr valid square in the same direction
       newX += dx
       newY += dy
-  
-  
+
+
     }
-    }
-    
-  return validMoves
-  
   }
+
+  return validMoves
+
+}
 
 //BISHOP
 
 //QUEEN - moves in all directions; unlimited
 
-function queenValidMoves (x, y, chessboard, currentPlayerSide){
+function queenValidMoves(x, y, chessboard, currentPlayerSide) {
   const validMoves = []
   const directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
-  
 
-  
-  
+  for (let [dx, dy] of directions) {
+    let newX = x + dx
+    let newY = y + dy
+
+    while (positionOnChessboard(newX, newY)) {
+      if (emptySquare(newX, newY, chessboard)) {
+        validMoves.push([newX, newY])
+      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+        validMoves.push([newX, newY])
+        //break so wont be able to go after the square of the captured piece?
+
+      } else {
+        //need a way to stop the piece from moving more in that direction (break?)
+
+      }
+      //this should be able to move the piece to the nextr valid square in the same direction
+      newX += dx
+      newY += dy
+
+
+    }
   }
+
+  return validMoves
+}
 
 //QUEEN
 
 //KING - moves in all directions; one square at a time
 
-function kingValidMoves (x, y, chessboard, currentPlayerSide){
+function kingValidMoves(x, y, chessboard, currentPlayerSide) {
   const validMoves = []
   const directions = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
-  
-  
+
+  for (let [dx, dy] of directions) {
+    let newX = x + dx
+    let newY = y + dy
+
+    while (positionOnChessboard(newX, newY)) {
+      if (emptySquare(newX, newY, chessboard)) {
+        validMoves.push([newX, newY])
+      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+        validMoves.push([newX, newY])
+        //break so wont be able to go after the square of the captured piece?
+
+      } else {
+        //need a way to stop the piece from moving more in that direction (break?)
+
+      }
+      //this should be able to move the piece to the nextr valid square in the same direction
+      newX += dx
+      newY += dy
+
+
+    }
   }
+
+  return validMoves
+
+}
 
 //KING
 
@@ -323,6 +377,74 @@ function kingValidMoves (x, y, chessboard, currentPlayerSide){
 // <-- SET VALID MOVES
 
 
-// <-- ESTABLISH CHESSBOARD, SIDES, AND GAME PIECES
+// TRACK PLAYER TURN, MOVES, AND TIMER -->
+
+const playerLight = {
+  name: "name",
+  side: playerSide.light,
+  moveCount: 0,
+  totalTime: 300 //is this seconds or miliseconds
+  
+}
+
+const playerDark = {
+  name: "name",
+  side: playerSide.dark,
+  moveCount: 0,
+  totalTime: 300
+
+}
+
+// will need to draw a time display (call it "timerDisplay")
+
+let currentPlayer = playerSide.light
+// will need an event listener to trigger a starttimer functions
+
+function startTime(){
+  currentPlayer.totalTime--
+  //update timer display in real time
+}
+
+if(currentPlayer.remainingTime === 0){
+//if chess players runs out of time, they lose the game
+//console.log(you lose)
+}
+function switchPlayer(){
+
+  //code for seeing which is current player and setting it equal to the other
+currentPlayer.moveCount++
+
+startTime() // with switched to player
+}
+
+//have different levels of games (more time, less moves)
+// <-- TRACK PLAYER TURN, MOVES, AND TIMER 
+
+
+
+
+
+
+// IMPLEMENT CHECK AND CHECKMATE -->
+
+// <-- IMPLEMENT CHECK AND CHECKMATE 
+
+
+
+
+// IMPLEMENT SPECIAL GAME MOVES? -->
+
+
+// <-- IMPLEMENT SPECIAL GAME MOVES?
+
+
+// IMPLEMENT PLAY WITH COMPUTER OPTION -->
+
+// <-- IMPLEMENT PLAY WITH COMPUTER OPTION 
+
+
+// IMPLEMENT "EASY" MODE -->
+
+// <-- IMPLEMENT "EASY" MODE
 
 
