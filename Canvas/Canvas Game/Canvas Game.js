@@ -12,7 +12,7 @@ const randomizedAreasMap = []
 for (let i = 0; i < randomizedAreasData.length; i += 70) {//need rows of the data, go by number of horizontal tiles (width of map - 70 tiles)
     randomizedAreasMap.push(randomizedAreasData.slice(i, 70 + i))
 }
-console.log(randomizedAreasMap)
+//console.log(randomizedAreasMap)
 
 
 
@@ -224,6 +224,15 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
 
 function animateMovement() { //needs be drawn out continuously
     window.requestAnimationFrame(animateMovement)
+
+
+
+
+
+
+
+
+
     background.draw()//needs to change as character "moves"
     boundaries.forEach(boundary => {
         boundary.draw()
@@ -253,6 +262,64 @@ function animateMovement() { //needs be drawn out continuously
     }
 
 
+
+
+
+    //TEXTBOX SECTION START -->
+
+    const textbox = {
+        x: 50,
+        y: canvas.height - 150,
+        width: canvas.width - 100,
+        height: 100,
+        text: "Hello",
+        textColor: "white",
+        fontSize: '20px Arial',
+        borderColor: 'rgba(0, 0, 0, 0.7)',
+        visible: true
+    };
+    
+    function drawTextBox() {
+        ctx.fillStyle = textbox.borderColor
+        ctx.fillRect(textbox.x, textbox.y, textbox.width, textbox.height);
+        
+        ctx.strokeStyle = textbox.borderColor
+        ctx.strokeRect(textbox.x, textbox.y, textbox.width, textbox.height)
+
+
+        ctx.fillStyle = textbox.textColor
+        ctx.font = textbox.fontSize
+        ctx.fillText(textbox.text, textbox.x + 10, textbox.y + 30)
+
+    }
+
+    function clearTextbox(){
+
+        ctx.clearRect(textbox.x, textbox.y, textbox.width, textbox.height)
+        textbox.text = ""
+        textbox.visible = false
+    }
+
+    
+   // clearCanvas()
+   window.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        console.log("Pressed: Enter")
+        drawTextBox()
+        
+    }
+})
+ 
+          
+    
+    // <-- TEXTBOX SECTION END
+
+
+
+
+
+    // <-- HAVE COLLISION FOR EACH SIDE OF PLAYER
+
     let moving = true
     player.moving = false
     if (keys.ArrowDown.pressed && lastKeyPressed === "ArrowDown") {
@@ -273,7 +340,7 @@ function animateMovement() { //needs be drawn out continuously
                 })
 
             ) {
-                console.log('colliding')
+                //console.log('colliding')
                 moving = false
                 break
             }
@@ -305,7 +372,7 @@ function animateMovement() { //needs be drawn out continuously
                 })
 
             ) {
-                console.log('colliding')
+                //console.log('colliding')
                 moving = false
                 break
             }
@@ -333,7 +400,7 @@ function animateMovement() { //needs be drawn out continuously
                 })
 
             ) {
-                console.log('colliding')
+                //console.log('colliding')
                 moving = false
                 break
             }
@@ -362,7 +429,7 @@ function animateMovement() { //needs be drawn out continuously
                 })
 
             ) {
-                console.log('colliding')
+                //console.log('colliding')
                 moving = false
                 break
             }
@@ -377,9 +444,17 @@ function animateMovement() { //needs be drawn out continuously
     }
 }
 
+// <-- HAVE COLLISION FOR EACH SIDE OF PLAYER
+
+
+
 animateMovement()
 
 let lastKeyPressed = ""
+
+
+
+// CHARACTER MOVEMENT CONTROLS -->
 
 window.addEventListener('keydown', (e) => {
     switch (e.key) {
@@ -399,6 +474,7 @@ window.addEventListener('keydown', (e) => {
             keys.ArrowRight.pressed = true
             lastKeyPressed = 'ArrowRight'
             break
+
     }
 
 })
@@ -417,11 +493,12 @@ window.addEventListener('keyup', (e) => {
         case 'ArrowRight':
             keys.ArrowRight.pressed = false
             break
+
     }
 
 })
 
-// <-- MOVE CHARACTER AROUND END 
+// <-- CHARACTER MOVEMENT CONTROLS
 
 
 //Activate money spawn areas
@@ -460,44 +537,3 @@ window.addEventListener('keyup', (e) => {
 -fix a few map things (grass in wrong place, eg)
 */
 
-const textbox = {
-  x: 50,
-  y: canvas.height - 150,
-  width: canvas.width - 100,
-  height: 100,
-  text: "",
-  visible: false,
-};
-
-function drawTextBox() {
-  if (textbox.visible) {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    ctx.fillRect(textbox.x, textbox.y, textbox.width, textbox.height);
-
-    ctx.fillStyle = 'white';
-    ctx.font = '16px Arial';
-    const lineHeight = 20;
-    const lines = textbox.text.split('\n');
-    for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i], textbox.x + 10, textbox.y + 30 + i * lineHeight);
-    }
-  }
-}
-
-function showTextbox(text) {
-  textbox.text = text;
-  textbox.visible = true;  // Corrected the property name from 'textbox.value' to 'textbox.visible'
-  drawTextBox();
-}
-
-function hideTextbox() {
-  textbox.visible = false;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-showTextbox("Hello There");
-document.addEventListener('keydown', (event) => {
-  if (event.key === "Enter") {
-    hideTextbox();
-  }
-});
