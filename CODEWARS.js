@@ -1811,32 +1811,74 @@ return using min.max methods
 //Greed is Good (5)
 //input: values of dice (1-6); output: score
 
-function score(dice) {
-    let score = 0 //placeholder score
+// function score(dice) {
+//     let score = 0 //placeholder score
    
-    for (let i = 1; i <= 6; i++) { 
-        let occurrence = dice.filter(value => value === i).length //use loop and filter to generate new array that lays out the occurrence of each value of the dice (1-6)
+//     for (let i = 1; i <= 6; i++) { 
+//         let occurrence = dice.filter(value => value === i).length //use loop and filter to generate new array that lays out the occurrence of each value of the dice (1-6)
 
-        if (occurrence >= 3) { //if there are at least three occurrences, and if 1, get 1000, otherwise mukltiple by 100 for other values
-            if (i === 1) {
-                score += 1000
-            } else {
-                score += i * 100
-            }
-            //
-            if (occurrence > 3) {
-                if (i === 1) {
-                    score += (occurrence - 3) * 100
-                } else if (i === 5) {
-                    score += (occurrence - 3) * 50
-                }
-            }
-        }
-    }
+//         if (occurrence >= 3) { //if there are at least three occurrences, and if 1, get 1000, otherwise mukltiple by 100 for other values
+//             if (i === 1) {
+//                 score += 1000
+//             } else {
+//                 score += i * 100
+//             }
+//             //
+//             if (occurrence > 3) {
+//                 if (i === 1) {
+//                     score += (occurrence - 3) * 100
+//                 } else if (i === 5) {
+//                     score += (occurrence - 3) * 50
+//                 }
+//             }
+//         }
+//     }
 
 
-    return score
-}
+//     return score
+// }
 
 //NOT DONE
 
+//Roman Numerals Decoder (6)
+
+//hard code the numeral values and store as an object
+//iterate through the roman numeral and identify both the current numeral and the value of the current numeral
+//because roman numerals uses letters in descending order, check is there is a next character and if it is it greater than the current value
+//if so subtract the value from the number; otherwise add the value
+
+
+
+let string = "MDCLXVI"
+function solution (roman) {
+    let numeralValue = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+    
+    
+    let number = 0
+
+    for (let i = 0; i < roman.length; i++) {
+        let currentNumeral = roman[i];
+        let currentValue = numeralValue[currentNumeral];
+        console.log(currentValue)
+        if (i < roman.length - 1 && numeralValue[roman[i + 1]] > currentValue) {
+            
+            number -= currentValue;
+        } else {
+            // Otherwise, add its value
+            number += currentValue;
+        }
+        }
+    
+
+    return number;
+}
+
+console.log(solution(string))
