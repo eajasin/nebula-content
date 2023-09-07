@@ -24,12 +24,8 @@ canvas.height = canvasSize
 
 
 
-// let chessboard = new Array(64),
-//   gameSpace = (canvas.width / 8),
-//   piecesImages,
-//   validMoves,
-//   activePiece,
-//   activePlayer;
+const chessboard = new Array(8).fill(null).map(() => new Array(8).fill(null));
+
 
 // console.log(chessboard)
 
@@ -58,6 +54,7 @@ class Chesspiece {
   constructor(side, type, imageURL) {
     this.side = side;
     this.type = type;
+    this.imageURL
     this.image = new Image(40, 40)
     this.image.src = imageURL
   }
@@ -66,45 +63,68 @@ class Chesspiece {
 
 
 
+//let selectedPieceCoordinates = null
+
+// function selectedPiece(row, column){
+
+//   const piece = chessboard[row][column]
+
+//   if (!activePiece && piece && piece.side === currentPlayer){
+
+//     activePiece = {
+//       row,
+//       column,
+//       piece,
+
+//     }
+
+//     selectedPieceCoorindates = {row, column}
+//   }
+
+
+// }
+
+
+
+
+
+
 
 //this.firstMove = true //indicats whether it's the first move of the piece
 
-let lightPawn = new Image()
-lightPawn.src = "https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg"
-
-let lightRook = new Image()
-lightRook.src = "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg"
-
-let lightKnight = new Image()
-lightKnight.src = "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg"
-
-let lightBishop = new Image()
-lightBishop.src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg"
-
-let lightQueen = new Image()
-lightQueen.src = "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg"
-
-let lightKing = new Image()
-lightKing.src = "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg"
 
 
-let darkPawn = new Image()
-darkPawn.src = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg"
 
-let darkRook = new Image()
-darkRook.src = "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg"
+// let lightKnight = new Image()
+// lightKnight.src = "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg"
 
-let darkKnight = new Image()
-darkKnight.src = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg"
+// let lightBishop = new Image()
+// lightBishop.src = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg"
 
-let darkBishop = new Image()
-darkBishop.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg"
+// let lightQueen = new Image()
+// lightQueen.src = "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg"
 
-let darkQueen = new Image()
-darkQueen.src = "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg"
+// let lightKing = new Image()
+// lightKing.src = "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg"
 
-let darkKing = new Image()
-darkKing.src = "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg"
+
+// let darkPawn = new Image()
+// darkPawn.src = "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg"
+
+// let darkRook = new Image()
+// darkRook.src = "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg"
+
+// let darkKnight = new Image()
+// darkKnight.src = "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg"
+
+// let darkBishop = new Image()
+// darkBishop.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg"
+
+// let darkQueen = new Image()
+// darkQueen.src = "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg"
+
+// let darkKing = new Image()
+// darkKing.src = "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg"
 
 
 
@@ -128,9 +148,27 @@ function drawChessBoard() {
 
 
       }
+      //draw the square
+ctx.fillRect(x, y, squareSize, squareSize)
+      // if (
+      //   selectedPieceCoordinates &&
+      //   selectedPieceCoordinates.row === row &&
+      //   selectedPieceCoordinates.column === column
+      // ) {
+      //   ctx.strokeStyle = 'red'; // You can change this color
+      //   ctx.lineWidth = 2;
+      //   ctx.strokeRect(x, y, squareSize, squareSize);
+        
+      // }
 
-      // Draw the square
-      ctx.fillRect(x, y, squareSize, squareSize);
+      const piece = chessboard[row][column];
+      if (piece) {
+        ctx.drawImage(piece.image, x, y, squareSize, squareSize);
+      }
+
+
+
+   
 
       /*[0, 0, rook] [0, 1, knight] [0, 2, bishop]
         [1, 0] [1, 1] [1, 2]
@@ -145,57 +183,64 @@ function drawChessBoard() {
 
 
       //switch statement here? switch row, colum
-      switch (row) {
-        case 0:
-          switch (column) {
-            case 0: ctx.drawImage(lightRook, x, y, squareSize, squareSize);
-              break;
-            case 1: ctx.drawImage(lightKnight, x, y, squareSize, squareSize);
-              break;
-            case 2: ctx.drawImage(lightBishop, x, y, squareSize, squareSize);
-              break;
-            case 3: ctx.drawImage(lightQueen, x, y, squareSize, squareSize);
-              break;
-            case 4: ctx.drawImage(lightKing, x, y, squareSize, squareSize);
-              break;
-            case 5: ctx.drawImage(lightBishop, x, y, squareSize, squareSize);
-              break;
-            case 6: ctx.drawImage(lightKnight, x, y, squareSize, squareSize);
-              break;
-            case 7: ctx.drawImage(lightRook, x, y, squareSize, squareSize)
-          }
-          break;
-        case 1:
-          ctx.drawImage(lightPawn, x, y, squareSize, squareSize);
-          break;
-        case 6:
-          ctx.drawImage(darkPawn, x, y, squareSize, squareSize);
-          break;
-        case 7:
-          switch (column) {
-            case 0: ctx.drawImage(darkRook, x, y, squareSize, squareSize);
-              break;
-            case 1: ctx.drawImage(darkKnight, x, y, squareSize, squareSize);
-              break;
-            case 2: ctx.drawImage(darkBishop, x, y, squareSize, squareSize);
-              break;
-            case 3: ctx.drawImage(darkQueen, x, y, squareSize, squareSize);
-              break;
-            case 4: ctx.drawImage(darkKing, x, y, squareSize, squareSize);
-              break;
-            case 5: ctx.drawImage(darkBishop, x, y, squareSize, squareSize);
-              break;
-            case 6: ctx.drawImage(darkKnight, x, y, squareSize, squareSize);
-              break;
-            case 7: ctx.drawImage(darkRook, x, y, squareSize, squareSize)
+      // switch (row) {
+      //   case 0:
+      //     switch (column) {
+      //       case 0: ctx.drawImage(lightRook, x, y, squareSize, squareSize);
+      //         break;
+      //       case 1: ctx.drawImage(lightKnight, x, y, squareSize, squareSize);
+      //         break;
+      //       case 2: ctx.drawImage(lightBishop, x, y, squareSize, squareSize);
+      //         break;
+      //       case 3: ctx.drawImage(lightQueen, x, y, squareSize, squareSize);
+      //         break;
+      //       case 4: ctx.drawImage(lightKing, x, y, squareSize, squareSize);
+      //         break;
+      //       case 5: ctx.drawImage(lightBishop, x, y, squareSize, squareSize);
+      //         break;
+      //       case 6: ctx.drawImage(lightKnight, x, y, squareSize, squareSize);
+      //         break;
+      //       case 7: ctx.drawImage(lightRook, x, y, squareSize, squareSize)
+      //     }
+      //     break;
+      //   case 1:
+      //     ctx.drawImage(lightPawn, x, y, squareSize, squareSize);
+      //     break;
+      //   case 6:
+      //     ctx.drawImage(darkPawn, x, y, squareSize, squareSize);
+      //     break;
+      //   case 7:
+      //     switch (column) {
+      //       case 0: ctx.drawImage(darkRook, x, y, squareSize, squareSize);
+      //         break;
+      //       case 1: ctx.drawImage(darkKnight, x, y, squareSize, squareSize);
+      //         break;
+      //       case 2: ctx.drawImage(darkBishop, x, y, squareSize, squareSize);
+      //         break;
+      //       case 3: ctx.drawImage(darkQueen, x, y, squareSize, squareSize);
+      //         break;
+      //       case 4: ctx.drawImage(darkKing, x, y, squareSize, squareSize);
+      //         break;
+      //       case 5: ctx.drawImage(darkBishop, x, y, squareSize, squareSize);
+      //         break;
+      //       case 6: ctx.drawImage(darkKnight, x, y, squareSize, squareSize);
+      //         break;
+      //       case 7: ctx.drawImage(darkRook, x, y, squareSize, squareSize)
 
-          }
-          break
+      //     }
+      //     break
       }
     }
   }
-}
+
+
+//create object for the rook and its url image
+let lightRook = new Chesspiece('light', 'rook', "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg")
+//place the light rook on the chessboard
+chessboard[0][0] = lightRook
+console.log("Before drawing chessboard")
 drawChessBoard()
+console.log("After drawing chessboard")
 
 
 
@@ -204,56 +249,53 @@ drawChessBoard()
 
 
 
+// function initializeChessboard() {
+//   for (let i = 0; i < 64; i++) {
+//     chessboard[i] = null
+//   }
+//   //Place white
+  
+//   chessboard[1] = lightKnight
+//   chessboard[2] = lightBishop
+//   chessboard[3] = lightQueen
+//   chessboard[4] = lightKing
+//   chessboard[5] = lightBishop
+//   chessboard[6] = lightKnight
+//   chessboard[7] = lightRook
 
+//   chessboard[8] = lightPawn
+//   chessboard[9] = lightPawn
+//   chessboard[10] = lightPawn
+//   chessboard[11] = lightPawn
+//   chessboard[12] = lightPawn
+//   chessboard[13] = lightPawn
+//   chessboard[14] = lightPawn
+//   chessboard[15] = lightPawn
 
+//   //Place black
+//   chessboard[48] = darkPawn
+//   chessboard[49] = darkPawn
+//   chessboard[50] = darkPawn
+//   chessboard[51] = darkPawn
+//   chessboard[52] = darkPawn
+//   chessboard[53] = darkPawn
+//   chessboard[54] = darkPawn
+//   chessboard[55] = darkPawn
 
-function initializeChessboard() {
-  for (let i = 0; i < 64; i++) {
-    chessboard[i] = null
-  }
-  //Place white
-  chessboard[0] = lightRook
-  chessboard[1] = lightKnight
-  chessboard[2] = lightBishop
-  chessboard[3] = lightQueen
-  chessboard[4] = lightKing
-  chessboard[5] = lightBishop
-  chessboard[6] = lightKnight
-  chessboard[7] = lightRook
-
-  chessboard[8] = lightPawn
-  chessboard[9] = lightPawn
-  chessboard[10] = lightPawn
-  chessboard[11] = lightPawn
-  chessboard[12] = lightPawn
-  chessboard[13] = lightPawn
-  chessboard[14] = lightPawn
-  chessboard[15] = lightPawn
-
-  //Place black
-  chessboard[48] = darkPawn
-  chessboard[49] = darkPawn
-  chessboard[50] = darkPawn
-  chessboard[51] = darkPawn
-  chessboard[52] = darkPawn
-  chessboard[53] = darkPawn
-  chessboard[54] = darkPawn
-  chessboard[55] = darkPawn
-
-  chessboard[56] = darkRook
-  chessboard[57] = darkKnight
-  chessboard[58] = darkBishop
-  chessboard[59] = darkQueen
-  chessboard[60] = darkKing
-  chessboard[61] = darkBishop
-  chessboard[62] = darkKnight
-  chessboard[63] = darkRook
+//   chessboard[56] = darkRook
+//   chessboard[57] = darkKnight
+//   chessboard[58] = darkBishop
+//   chessboard[59] = darkQueen
+//   chessboard[60] = darkKing
+//   chessboard[61] = darkBishop
+//   chessboard[62] = darkKnight
+//   chessboard[63] = darkRook
 
 
 
 
-}
-initializeChessboard()
+// }
+// initializeChessboard()
 
 
 
@@ -261,320 +303,344 @@ initializeChessboard()
 // <-- INITIALIZE CHESSBOARD AND PLACE PIECES IN THEIR STARTING POSITIONS
 
 
+// NEED A SELECT PIECE FUNCTION -->
 
-// SET VALID MOVES -->
 
-//1) need to see if the position is on the chessboard
 
-function positionOnChessboard(x, y) {
-  return x >= 0 && x < 8 && y >= 0 && y < 8
-}
 
-console.log(positionOnChessboard(7, 7))
+// <-- SELECT PIECE FUNCTION
 
-//2) need a function to see if a square is empty?
 
-function emptySquare(x, y, chessboard) {
 
-  let indexOfSquare = y * 8 + x
+// // SET VALID MOVES -->
 
-  if (chessboard[indexOfSquare] === null) {
-    return true
+// //1) need to see if the position is on the chessboard
 
-  } else {
+// function positionOnChessboard(x, y) {
+//   return x >= 0 && x < 8 && y >= 0 && y < 8
+// }
 
-    return false
-  }
+// console.log(positionOnChessboard(7, 7))
 
-}
-console.log(emptySquare(7, 1, chessboard))
+// //2) need a function to see if a square is empty?
 
-//3) need to see if a piece can be captured at a given position 
+// function emptySquare(x, y, chessboard) {
 
-function capturablePiece(x, y, chessboard, currentPlayerSide) {
+//   let indexOfSquare = y * 8 + x
 
-  let index = y * 8 + x
-  let gamePiece = chessboard[index]
+//   if (chessboard[indexOfSquare] === null) {
+//     return true
 
-  if (gamePiece !== null && Chesspiece.side !== currentPlayerSide) {
-    return true
-  } else {
-    return false
-  }
-}
+//   } else {
 
-console.log(capturablePiece(7, 1, chessboard, playerSide.light))
+//     return false
+//   }
 
-//4) need to set the valid moves for each piece
+// }
+// console.log(emptySquare(7, 1, chessboard))
 
+// //3) need to see if a piece can be captured at a given position 
 
-//PAWN - moves up and down; one square at a time, but two squares for their very first move; captures diagonally
+// function capturablePiece(x, y, chessboard, currentPlayerSide) {
 
-function pawnValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const direction = currentPlayerSide === "light" ? 1 : -1 //y is always 0
+//   let index = y * 8 + x
+//   let gamePiece = chessboard[index]
 
-  //need to determine when first move
-  if ((currentPlayerSide === "light" && x === 1) || (currentPlayer === "dark" && x === 6)) {
-    let newXFirst = x + 2 * direction
-    let newYFirst = y
-    if (emptySquare(newXFirst, newYFirst, chessboard)) {
-      validMoves.push([newXFirst, newYFirst])
+//   if (gamePiece !== null && Chesspiece.side !== currentPlayerSide) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
-      //non first move
-      let newX = x + direction
-      let newY = y
-      if (emptySquare(newX, newY, chessboard)) {
-        validMoves.push([newX, newY])
-      }
+// console.log(capturablePiece(7, 1, chessboard, playerSide.light))
 
-    }
-  }
-}
-//PAWN
+// //4) need to set the valid moves for each piece
 
-//ROOK - moves up and down, left and right; unlimited 
 
-function rookValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+// //PAWN - moves up and down; one square at a time, but two squares for their very first move; captures diagonally
 
-  for (let [dx, dy] of directions) {
+// function pawnValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const direction = currentPlayerSide === "light" ? 1 : -1 //y is always 0
 
-    let newY = y + dy
+//   //need to determine when first move
+//   if ((currentPlayerSide === "light" && x === 1) || (currentPlayer === "dark" && x === 6)) {
+//     let newXFirst = x + 2 * direction
+//     let newYFirst = y
+//     if (emptySquare(newXFirst, newYFirst, chessboard)) {
+//       validMoves.push([newXFirst, newYFirst])
 
-    while (positionOnChessboard(newX, newY)) {
-      if (emptySquare(newX, newY, chessboard)) {
-        validMoves.push([newX, newY])
-      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
-        validMoves.push([newX, newY])
-        break//break so wont be able to go after the square of the captured piece?
+//       //non first move
+//       let newX = x + direction
+//       let newY = y
+//       if (emptySquare(newX, newY, chessboard)) {
+//         validMoves.push([newX, newY])
+//       }
 
-      } else {
-        break //need a way to stop the piece from moving more in that direction (break?)
+//     }
+//   }
+// }
+// //PAWN
 
-      }
-      //this should be able to move the piece to the nextr valid square in the same direction
-      newX += dx
-      newY += dy
+// //ROOK - moves up and down, left and right; unlimited 
 
+// function rookValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
 
-    }
+//   for (let [dx, dy] of directions) {
 
-  }
+//     let newY = y + dy
 
-  return validMoves
+//     while (positionOnChessboard(newX, newY)) {
+//       if (emptySquare(newX, newY, chessboard)) {
+//         validMoves.push([newX, newY])
+//       } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+//         validMoves.push([newX, newY])
+//         break//break so wont be able to go after the square of the captured piece?
 
-}
+//       } else {
+//         break //need a way to stop the piece from moving more in that direction (break?)
 
-//ROOK
+//       }
+//       //this should be able to move the piece to the nextr valid square in the same direction
+//       newX += dx
+//       newY += dy
 
-//KNIGHT - moves in an L shape; only piece that can move over other pieces
 
-function knightValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const directions = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
+//     }
 
-  for (let [dx, dy] of directions) {
-    let newX = x + dx
-    let newY = y + dy
+//   }
 
-    if (positionOnChessboard(newX, newY) && capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
-      validMoves.push([newX, newY])
-    }
-  }
+//   return validMoves
 
+// }
 
+// //ROOK
 
-  /*this will be different because the knight can jump over other pieces;
-  I should check if the square is a valid space, and if an empty square or capturable square
-  validMoves.push([newX, newY])  
-  */
+// //KNIGHT - moves in an L shape; only piece that can move over other pieces
 
-  return validMoves
-}
+// function knightValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const directions = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]]
 
-//KNIGHT
+//   for (let [dx, dy] of directions) {
+//     let newX = x + dx
+//     let newY = y + dy
 
-//BISHOP - moves diagonally; unlimited
+//     if (positionOnChessboard(newX, newY) && capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+//       validMoves.push([newX, newY])
+//     }
+//   }
 
-function bishopValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const directions = [[-1, -1], [-1, 1], [1, -1], [1, 1]]
 
-  for (let [dx, dy] of directions) {
-    let newX = x + dx
-    let newY = y + dy
 
-    while (positionOnChessboard(newX, newY)) {
-      if (emptySquare(newX, newY, chessboard)) {
-        validMoves.push([newX, newY])
-      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
-        validMoves.push([newX, newY])
-        //break so wont be able to go after the square of the captured piece?
+//   /*this will be different because the knight can jump over other pieces;
+//   I should check if the square is a valid space, and if an empty square or capturable square
+//   validMoves.push([newX, newY])  
+//   */
 
-      } else {
-        //need a way to stop the piece from moving more in that direction (break?)
+//   return validMoves
+// }
 
-      }
-      //this should be able to move the piece to the nextr valid square in the same direction
-      newX += dx
-      newY += dy
+// //KNIGHT
 
+// //BISHOP - moves diagonally; unlimited
 
-    }
-  }
+// function bishopValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const directions = [[-1, -1], [-1, 1], [1, -1], [1, 1]]
 
-  return validMoves
+//   for (let [dx, dy] of directions) {
+//     let newX = x + dx
+//     let newY = y + dy
 
-}
+//     while (positionOnChessboard(newX, newY)) {
+//       if (emptySquare(newX, newY, chessboard)) {
+//         validMoves.push([newX, newY])
+//       } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+//         validMoves.push([newX, newY])
+//         //break so wont be able to go after the square of the captured piece?
 
-//BISHOP
+//       } else {
+//         //need a way to stop the piece from moving more in that direction (break?)
 
-//QUEEN - moves in all directions; unlimited
+//       }
+//       //this should be able to move the piece to the nextr valid square in the same direction
+//       newX += dx
+//       newY += dy
 
-function queenValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
 
-  for (let [dx, dy] of directions) {
-    let newX = x + dx
-    let newY = y + dy
+//     }
+//   }
 
-    while (positionOnChessboard(newX, newY)) {
-      if (emptySquare(newX, newY, chessboard)) {
-        validMoves.push([newX, newY])
-      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
-        validMoves.push([newX, newY])
-        //break so wont be able to go after the square of the captured piece?
+//   return validMoves
 
-      } else {
-        //need a way to stop the piece from moving more in that direction (break?)
+// }
 
-      }
-      //this should be able to move the piece to the nextr valid square in the same direction
-      newX += dx
-      newY += dy
+// //BISHOP
 
+// //QUEEN - moves in all directions; unlimited
 
-    }
-  }
+// function queenValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
 
-  return validMoves
-}
+//   for (let [dx, dy] of directions) {
+//     let newX = x + dx
+//     let newY = y + dy
 
-//QUEEN
+//     while (positionOnChessboard(newX, newY)) {
+//       if (emptySquare(newX, newY, chessboard)) {
+//         validMoves.push([newX, newY])
+//       } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+//         validMoves.push([newX, newY])
+//         //break so wont be able to go after the square of the captured piece?
 
-//KING - moves in all directions; one square at a time
+//       } else {
+//         //need a way to stop the piece from moving more in that direction (break?)
 
-function kingValidMoves(x, y, chessboard, currentPlayerSide) {
-  const validMoves = []
-  const directions = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
+//       }
+//       //this should be able to move the piece to the nextr valid square in the same direction
+//       newX += dx
+//       newY += dy
 
-  for (let [dx, dy] of directions) {
-    let newX = x + dx
-    let newY = y + dy
 
-    while (positionOnChessboard(newX, newY)) {
-      if (emptySquare(newX, newY, chessboard)) {
-        validMoves.push([newX, newY])
-      } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
-        validMoves.push([newX, newY])
-        //break so wont be able to go after the square of the captured piece?
+//     }
+//   }
 
-      } else {
-        //need a way to stop the piece from moving more in that direction (break?)
+//   return validMoves
+// }
 
-      }
-      //this should be able to move the piece to the nextr valid square in the same direction
-      newX += dx
-      newY += dy
+// //QUEEN
 
+// //KING - moves in all directions; one square at a time
 
-    }
-  }
+// function kingValidMoves(x, y, chessboard, currentPlayerSide) {
+//   const validMoves = []
+//   const directions = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]]
 
-  return validMoves
+//   for (let [dx, dy] of directions) {
+//     let newX = x + dx
+//     let newY = y + dy
 
-}
+//     while (positionOnChessboard(newX, newY)) {
+//       if (emptySquare(newX, newY, chessboard)) {
+//         validMoves.push([newX, newY])
+//       } else if (capturablePiece(newX, newY, chessboard, currentPlayerSide)) {
+//         validMoves.push([newX, newY])
+//         //break so wont be able to go after the square of the captured piece?
 
-//KING
+//       } else {
+//         //need a way to stop the piece from moving more in that direction (break?)
 
+//       }
+//       //this should be able to move the piece to the nextr valid square in the same direction
+//       newX += dx
+//       newY += dy
 
-// <-- SET VALID MOVES
 
+//     }
+//   }
 
-// TRACK PLAYER TURN, MOVES, AND TIMER -->
+//   return validMoves
 
-const playerLight = {
-  name: "name",
-  side: playerSide.light,
-  moveCount: 0,
-  totalTime: 300 //is this seconds or miliseconds
+// }
 
-}
+// //KING
 
-const playerDark = {
-  name: "name",
-  side: playerSide.dark,
-  moveCount: 0,
-  totalTime: 300
 
-}
+// // <-- SET VALID MOVES
 
-// will need to draw a time display (call it "timerDisplay")
 
-let currentPlayer = playerSide.light
-// will need an event listener to trigger a starttimer functions
+// // TRACK PLAYER TURN, MOVES, AND TIMER -->
 
-function startTime() {
-  currentPlayer.totalTime--
-  //update timer display in real time
-}
+// const lightPlayer= {
+//   name: "Light Player",
+//   side: playerSide.light,
+//   moveCount: 0,
+//   totalTime: 300 //is this seconds or miliseconds
 
-if (currentPlayer.remainingTime === 0) {
-  //if chess players runs out of time, they lose the game
-  //console.log(you lose)
-}
-function switchPlayer() {
+// }
 
-  //code for seeing which is current player and setting it equal to the other
-  currentPlayer.moveCount++
+// const darkPlayer = {
+//   name: "Dark Player",
+//   side: playerSide.dark,
+//   moveCount: 0,
+//   totalTime: 300
 
-  startTime() // with switched to player
-}
+// }
 
-//have different levels of games (more time, less moves)
-// <-- TRACK PLAYER TURN, MOVES, AND TIMER 
+// function drawTimer(){
+//   ctx.clearRect(0, 0, canvas.width, canvas.height)
 
 
+// ctx.fillStyle = "white"
+// ctx.font = "20px Arial"
+// ctx.fillText(`${lightPlayer.name}: ${lightPlayer.totalTime} seconds`, 20, 30)
+// ctx.fillText(`${darkPlayer.name}: ${darkPlayer.totalTime} seconds`, 20, 30)
+// }
+// drawTimer()
+// // will need to draw a time display (call it "timerDisplay")
+// let currentPlayer = playerSide.light
+// // will need an event listener to trigger a starttimer functions
 
+// function startTimer() {
+//   let currentPlayerTimer = currentPlayer === playerSide.light ? playerSide.light : playerSide.dark
+  
+//   let timerInterval = setInterval(() => {
+//     currentPlayerTimer.totalTime--
+//     drawTimer()
 
+//   if(currentPlayerTimer.totalTime <= 0) {
+//     clearInterval(timerInterval)
+//     console.log(`${currentPlayerTimer.name} ran out of time and has lost the game!`) 
+//     }
+//   }, 1000)
+// }
 
+// startTimer()
 
-// IMPLEMENT CHECK AND CHECKMATE -->
+// function switchPlayer() {
 
-// if king in check, only the king piece can move
+//   //code for seeing which is current player and setting it equal to the other
+//   currentPlayer = currentPlayer === playerSide.Side.light ? playerSide.dark : playerSide.light
 
+//   startTimer() // with switched to player
+// }
 
-// <-- IMPLEMENT CHECK AND CHECKMATE 
+// //have different levels of games (more time, less moves)
+// // <-- TRACK PLAYER TURN, MOVES, AND TIMER 
 
 
 
 
-// IMPLEMENT SPECIAL GAME MOVES? -->
 
 
-// <-- IMPLEMENT SPECIAL GAME MOVES?
+// // IMPLEMENT CHECK AND CHECKMATE -->
 
+// // if king in check, only the king piece can move
 
-// IMPLEMENT PLAY WITH COMPUTER OPTION -->
 
-// <-- IMPLEMENT PLAY WITH COMPUTER OPTION 
+// // <-- IMPLEMENT CHECK AND CHECKMATE 
 
 
-// IMPLEMENT "EASY" MODE -->
 
-// <-- IMPLEMENT "EASY" MODE
+
+// // IMPLEMENT SPECIAL GAME MOVES? -->
+
+
+// // <-- IMPLEMENT SPECIAL GAME MOVES?
+
+
+// // IMPLEMENT PLAY WITH COMPUTER OPTION -->
+
+// // <-- IMPLEMENT PLAY WITH COMPUTER OPTION 
+
+
+// // IMPLEMENT "EASY" MODE -->
+
+// // <-- IMPLEMENT "EASY" MODE
 
 
