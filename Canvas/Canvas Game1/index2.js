@@ -68,7 +68,7 @@ function handleCanvasClick(event) {
   // Call the selectedPiece function with the clicked coordinates
   selectedPiece(clickedRow, clickedColumn);
 
-  console.log('canvas clicked')
+  //console.log(activePiece)
 }
 
 
@@ -78,31 +78,36 @@ let activePiece = null
 
 
 function selectedPiece(row, column){
-
     const piece = chessboard[row][column]
+    
+    //console.log(currentPlayer)
+    
+    //console.log(piece.type)
 
-    if (!activePiece && piece && piece.side === currentPlayer) {
+    if (!activePiece && piece) {
         activePiece = {
-          row,
-          column,
-          piece,
+            row,
+            column,
+            piece,
         };
-        if (piece.type === gamePiece.pawn) {
-            console.log('A pawn was clicked!');
-        }
-    } else if (activePiece && row === activePiece.row && column === activePiece.column) {
-        // Deselect the same piece if it's clicked again
+        selectedPieceCoordinates = [activePiece.row, activePiece.column]
+        console.log(selectedPieceCoordinates)
+        
+           } else if (activePiece && row === activePiece.row && column === activePiece.column) {
+       
         activePiece = null;
         selectedPieceCoordinates = null;
-      } else {
-        // Handle moving the piece to the clicked square here
-        // You may want to implement this part to make a move
-        // For now, let's just deselect the active piece if another square is clicked
+        
+    } else {
+        // console.log(row, column)
+       
         activePiece = null;
         selectedPieceCoordinates = null;
     }
     drawChessBoard()
+    return activePiece
 }
+
 
 
 
@@ -127,10 +132,19 @@ function drawChessBoard() {
     
       ctx.fillRect(x, y, squareSize, squareSize)
     
-      if (selectedPieceCoordinates && selectedPieceCoordinates.row === row && selectedPieceCoordinates.column === column) {
-        ctx.strokeStyle = 'red'; // Border color
-        ctx.lineWidth = 4; // Border width
-        ctx.strokeRect(x, y, squareSize, squareSize);
+     //how to define selectedpiececoordinates
+     //drawlines between squares!!!
+
+
+     
+
+      if (selectedPieceCoordinates){// && selectedPieceCoordinates.row === row && selectedPieceCoordinates.column === column) {
+        
+        ctx.strokeStyle = 'red'; 
+        ctx.lineWidth = 4; 
+        ctx.strokeRect(selectedPieceCoordinates[0], selectedPieceCoordinates[1], squareSize, squareSize);
+            //need way to draw square at the right location
+        
       }
 
       const piece = chessboard[row][column];
@@ -140,9 +154,10 @@ function drawChessBoard() {
 
       }
     }
+   
   }
 
-  let lightPawn = new Chesspiece('dark', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
+  let lightPawn = new Chesspiece('light', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
   chessboard[1][0] = lightPawn
   chessboard[1][1] = lightPawn
   chessboard[1][2] = lightPawn
