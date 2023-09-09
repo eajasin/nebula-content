@@ -1849,36 +1849,95 @@ return using min.max methods
 
 
 
-let string = "MDCLXVI"
-function solution (roman) {
-    let numeralValue = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    }
+// let string = "MDCLXVI"
+// function solution (roman) {
+//     let numeralValue = {
+//         'I': 1,
+//         'V': 5,
+//         'X': 10,
+//         'L': 50,
+//         'C': 100,
+//         'D': 500,
+//         'M': 1000
+//     }
     
     
-    let number = 0
+//     let number = 0
 
-    for (let i = 0; i < roman.length; i++) {
-        let currentNumeral = roman[i];
-        let currentValue = numeralValue[currentNumeral];
-        console.log(currentValue)
-        if (i < roman.length - 1 && numeralValue[roman[i + 1]] > currentValue) {
+//     for (let i = 0; i < roman.length; i++) {
+//         let currentNumeral = roman[i];
+//         let currentValue = numeralValue[currentNumeral];
+//         console.log(currentValue)
+//         if (i < roman.length - 1 && numeralValue[roman[i + 1]] > currentValue) {
             
-            number -= currentValue;
-        } else {
-            // Otherwise, add its value
-            number += currentValue;
-        }
-        }
+//             number -= currentValue;
+//         } else {
+//             // Otherwise, add its value
+//             number += currentValue;
+//         }
+//         }
     
 
-    return number;
-}
+//     return number;
+// }
 
-console.log(solution(string))
+// console.log(solution(string))
+
+
+
+/*Tic-Tac-Toe Checker (5)
+-input is the game board
+-put is a number of winner, draw, or unfinished
+-set players and track player moves
+-need variable for length of board
+-iterate through rows and column; also need way to iterate through diagonals
+
+*/
+// let game = [[0, 0, 1],
+// [0, 1, 2],
+// [2, 1, 0]]
+
+// function isSolved(board) {
+//    let boardSize = board.length
+
+//     let player = {
+//         1: 'X',
+//         2: 'O'
+//     }
+
+//     const playerMovesCount = {
+//         rows: {},
+//         columns: {},
+//         firstDiagonal: {1:0, 2:0},
+//         secDiagonal: {1: 0, 2: 0}
+//     }
+       
+//     for (let rows = 0; rows < boardSize; rows++){
+//         for(let columns = 0; columns < boardSize; col++){
+//         playerMovesCount.rows[rows][player] = (playerMovesCount.rows[rows][player] || 0) + 1
+//         playerMovesCount.columns[columns][player] = (playerMovesCount.columns[columns][player] || 0) + 1
+//         playerMovesCount.rows = playerMovesCount.rows[rows] || {1:0, 2:0}
+//         playerMovesCount.columns = playerMovesCount.columns[columns] || {1:0, 2:0}
+        
+//         if(playerMovesCount.rows === playerMovesCount.columns){
+//             playerMovesCount.firstDiagonal[player]++
+//         }
+//         if(playerMovesCount.rows + playerMovesCount.columns === boardSize - 1){
+//             playerMovesCount.secDiagonal[player]++
+//         }
+
+//     console.log(playerMovesCount)
+//     //code for win
+//     if(playerMovesCount.rows[rows][player] === size){
+//         return 1
+//     }
+    //code for draw
+
+
+//     //code for unfinished
+//         }   
+// }
+//   }
+
+// console.log(isSolved(game))
+

@@ -82,27 +82,25 @@ class Chesspiece {
 // //4) need to set the valid moves for each piece
 
 
-// //ROOK - moves up and down, left and right; unlimited 
-//board knows if piece is empty (null)
-//this function should only work on rooks
+// ROOK - moves up and down, left and right; unlimited -->
+
 function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
-    // Check if the ending position is within the chessboard bounds
+   
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
         return false;
-      } //NEED TO ADD TO ALL PIECES
+      } //ADD TO ALL PIECES
 
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
       return false;
     }
   
-    // Check if the rook is moving either horizontally or vertically
+    
     if (startingRow !== endingRow && startingColumn !== endingColumn) {
       return false;
     }
   
-    // Check if there are no other pieces between the starting and ending positions
-    if (startingRow === endingRow) {
+      if (startingRow === endingRow) {
       const minCol = Math.min(startingColumn, endingColumn);
       const maxCol = Math.max(startingColumn, endingColumn);
       for (let col = minCol + 1; col < maxCol; col++) {
@@ -120,7 +118,6 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
       }
     }
   
-    // Check if the ending square is empty or has a capturable piece
     const endingPiece = chessboard[endingRow][endingColumn];
     if (endingPiece === null || endingPiece.side !== currentPlayerSide) {
       return true;
@@ -129,11 +126,19 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
     return false;
   }
 
-// //ROOK
+// <-- ROOK
+
+// BISHOP -->
+
+function
 
 
 
 
+
+
+
+// <-- BISHOP
 
 
 
@@ -425,9 +430,10 @@ chessboard[0][7] = rightLightRook
 // chessboard[0][1] = lightKnight
 // chessboard[0][6] = lightKnight
 
-// let lightBishop = new Chesspiece('light', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg")
-// chessboard[0][2] = lightBishop
-// chessboard[0][5] = lightBishop
+let leftLightBishop = new Chesspiece('light', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg")
+chessboard[0][2] = leftLightBishop
+let rightLightBishop = new Chesspiece('light', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg")
+chessboard[0][5] = rightLightBishop
 
 // let lightQueen = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg")
 // chessboard[0][3] = lightQueen
@@ -455,9 +461,10 @@ chessboard[7][7] = rightDarkRook
 // chessboard[7][1] = darkKnight
 // chessboard[7][6] = darkKnight
 
-// let darkBishop = new Chesspiece('dark', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg")
-// chessboard[7][2] = darkBishop
-// chessboard[7][5] = darkBishop
+let leftDarkBishop = new Chesspiece('dark', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg")
+chessboard[7][2] = leftDarkBishop
+let rightDarkBishop = new Chesspiece('dark', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg")
+chessboard[7][5] = rightDarkBishop
 
 // let darkQueen = new Chesspiece('dark', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg")
 // chessboard[7][3] = darkQueen
