@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess Game</title>
     <style>
         canvas {
-            border: 15px solid 
+            border: 15px solid
         }
-        /* have square coordinates embedded in the border*/
 
-        
+        /* CSS for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* Style the modal content */
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            margin: 100px auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        /* Style the "Start Game" button */
+        #start-game-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
+    <div id="game-menu" class="modal">
+        <div class="modal-content">
+            <h2>Chess Game Rules</h2>
+            <p>Include your game rules and instructions here.</p>
+            <!-- Add more rules and instructions as needed -->
+            <button id="start-game-btn">Start Game</button>
+        </div>
+    </div>
     <canvas width="700"></canvas>
-    
+
 </body>
 
 
 <script src='index2.js' defer></script>
+
 </html>
