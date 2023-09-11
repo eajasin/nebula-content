@@ -1813,7 +1813,7 @@ return using min.max methods
 
 // function score(dice) {
 //     let score = 0 //placeholder score
-   
+
 //     for (let i = 1; i <= 6; i++) { 
 //         let occurrence = dice.filter(value => value === i).length //use loop and filter to generate new array that lays out the occurrence of each value of the dice (1-6)
 
@@ -1860,8 +1860,8 @@ return using min.max methods
 //         'D': 500,
 //         'M': 1000
 //     }
-    
-    
+
+
 //     let number = 0
 
 //     for (let i = 0; i < roman.length; i++) {
@@ -1869,14 +1869,14 @@ return using min.max methods
 //         let currentValue = numeralValue[currentNumeral];
 //         console.log(currentValue)
 //         if (i < roman.length - 1 && numeralValue[roman[i + 1]] > currentValue) {
-            
+
 //             number -= currentValue;
 //         } else {
 //             // Otherwise, add its value
 //             number += currentValue;
 //         }
 //         }
-    
+
 
 //     return number;
 // }
@@ -1911,14 +1911,14 @@ return using min.max methods
 //         firstDiagonal: {1:0, 2:0},
 //         secDiagonal: {1: 0, 2: 0}
 //     }
-       
+
 //     for (let rows = 0; rows < boardSize; rows++){
 //         for(let columns = 0; columns < boardSize; col++){
 //         playerMovesCount.rows[rows][player] = (playerMovesCount.rows[rows][player] || 0) + 1
 //         playerMovesCount.columns[columns][player] = (playerMovesCount.columns[columns][player] || 0) + 1
 //         playerMovesCount.rows = playerMovesCount.rows[rows] || {1:0, 2:0}
 //         playerMovesCount.columns = playerMovesCount.columns[columns] || {1:0, 2:0}
-        
+
 //         if(playerMovesCount.rows === playerMovesCount.columns){
 //             playerMovesCount.firstDiagonal[player]++
 //         }
@@ -1931,7 +1931,7 @@ return using min.max methods
 //     if(playerMovesCount.rows[rows][player] === size){
 //         return 1
 //     }
-    //code for draw
+//code for draw
 
 
 //     //code for unfinished
@@ -1941,3 +1941,37 @@ return using min.max methods
 
 // console.log(isSolved(game))
 
+
+
+// What's in a Name (6)
+// create accumulator variable to  track num of chars in string that match those in name
+// loop through the string
+// if character is in the name, add to the count
+// check if there are no more charcaters left in name to be matched 
+
+
+
+function nameInStr(str, name) {
+
+    str = str.toLowerCase()
+    name = name.toLowerCase()
+
+    let count = 0
+
+    for(let i = 0; i < str.length; i++){
+        if (str[i] === name[count]) {
+            count++
+        }
+    }
+
+    if (name.length === count){
+        return true
+    }
+
+    return false
+
+}
+
+
+  
+  
