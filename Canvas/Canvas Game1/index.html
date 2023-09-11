@@ -23,7 +23,7 @@
         }
 
         /* Style the modal content */
-        .modal-content {
+        .menuContent {
             background-color: #fff;
             padding: 20px;
             width: 80%;
@@ -33,9 +33,16 @@
             text-align: center;
         }
 
-        /* Style the "Start Game" button */
-        #start-game-btn {
+       
+        #startGameButton {
             background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #showRulesButton {
+            background-color: #1f1fdc;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -46,13 +53,14 @@
 
 <body>
     <div id="game-menu" class="modal">
-        <div class="modal-content">
-            <h2>Chess Game Rules</h2>
-            <p>Include your game rules and instructions here.</p>
-            <!-- Add more rules and instructions as needed -->
-            <button id="start-game-btn">Start Game</button>
+        <div class="menuContent">
+            <h2>Let's Play Chess!</h2>
+            <button id="startGameButton">Start Game</button>
+            <button id="showRulesButton">Game Rules</button>
         </div>
     </div>
+    
+    
     <canvas width="700"></canvas>
 
 </body>
