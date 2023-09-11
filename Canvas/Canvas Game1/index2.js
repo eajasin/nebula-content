@@ -309,29 +309,31 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
 
 // <-- SET VALID MOVES
 
-// function findOpponentKingPosition(chessboard, currentPlayerSide) {
+// function opponentKingPosition(chessboard, currentPlayerSide) {
+// //const opponentKingPos = opponentKingPosition(chessboard, currentPlayer.side);
+
 //     for (let row = 0; row < 8; row++) {
-//         for (let col = 0; col < 8; col++) {
-//             const piece = chessboard[row][col];
+//         for (let column = 0; column < 8; column ++) {
+//             const piece = chessboard[row][column];
 //             if (piece && piece.side !== currentPlayerSide && piece.type === 'king') {
-//                 return { row, column: col };
+//                 return [row, column];
+                 
 //             }
 //         }
 //     }
-//     return null; // Return null if the opponent's king is not found (should not happen in a valid game)
+//     return null
 // }
 
 
-// function kingIsChecked(chessboard, oppositeKingPosition, currentPlayerSide){
+
+// function kingIsChecked(chessboard, kingRow, kingColumn, currentPlayerSide){
 
 //     for (let row = 0; row < 8; row++) {
-//         for (let col = 0; col < 8; col++) {
-//             const piece = chessboard[row][col];
+//         for (let col = 0; column < 8; column++) {
+//             const piece = chessboard[row][column];
 //             if (piece && piece.side !== currentPlayerSide) {
-//                 // Check if the opponent's piece can attack the king's position
-//                 if (isValidMoveToSquare(chessboard, row, col, kingPosition.row, kingPosition.column, piece.type)) {
-//                     return true;
-//                 }
+//                 return true //???
+//                 //need to verify that valid move is avaliable and return true
 //             }
 //         }
 //     }
@@ -512,11 +514,11 @@ function movePiece(clickedRow, clickedColumn) {
         }
 
         if (validMove) {
-            // Check if there's a piece to capture at the target square
+            
             const targetPiece = chessboard[clickedRow][clickedColumn];
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
 
-                // Capture the opponent's piece by setting it to null
+                // Capture the opponent's piece by setting it back to null
                 chessboard[clickedRow][clickedColumn] = null;
             }
 
