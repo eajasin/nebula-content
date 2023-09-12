@@ -539,8 +539,10 @@ function movePiece(clickedRow, clickedColumn) {
             const targetPiece = chessboard[clickedRow][clickedColumn];
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
 
-                // Capture the opponent's piece by setting it back to null
+                
                 chessboard[clickedRow][clickedColumn] = null;
+                activePiece.row = clickedRow;
+                activePiece.column = clickedColumn;
                
             }
 
