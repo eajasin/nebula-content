@@ -85,21 +85,15 @@ class Chesspiece {
 // ROOK - moves up and down, left and right; unlimited -->
 
 function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
-
-
-
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
-        //console.log('wrong player')
         return false;
-    } //ADD TO ALL PIECES
+    }
 
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
         return false;
     }
 
-
     if (startingRow !== endingRow && startingColumn !== endingColumn) {
-
         return false;
     }
 
@@ -121,13 +115,17 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
         }
     }
 
-    const endingPiece = chessboard[endingRow][endingColumn];
-    if (endingPiece === null || endingPiece.side !== currentPlayerSide) {
-        return true;
+    const targetPiece = chessboard[endingRow][endingColumn];
+    if (targetPiece === null) {
+        return true; // Valid move without capture
+    } else if (targetPiece.side !== currentPlayerSide) {
+        capturePiece(startingRow, startingColumn, endingRow, endingColumn);
+        return true; // Valid move with capture
     }
 
     return false;
 }
+
 
 // <-- ROOK
 
@@ -163,8 +161,8 @@ function isValidBishopMove(chessboard, startingRow, startingColumn, endingRow, e
     }
 
 
-    const endingPiece = chessboard[endingRow][endingColumn];
-    if (endingPiece === null || endingPiece.side !== currentPlayerSide) {
+    const targetPiece = chessboard[endingRow][endingColumn];
+    if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
         return true;
     }
 
@@ -206,8 +204,8 @@ function isValidQueenMove(chessboard, startingRow, startingColumn, endingRow, en
         }
     }
 
-    const endingPiece = chessboard[endingRow][endingColumn];
-    if (endingPiece === null || endingPiece.side !== currentPlayerSide) {
+    const targetPiece = chessboard[endingRow][endingColumn];
+    if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
         return true;
     }
 
@@ -258,8 +256,8 @@ function isValidKnightMove(chessboard, startingRow, startingColumn, endingRow, e
 
     if ((rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2)) {
 
-        const endingPiece = chessboard[endingRow][endingColumn];
-        if (endingPiece === null || endingPiece.side !== currentPlayerSide) {
+        const targetPiece = chessboard[endingRow][endingColumn];
+        if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
             return true;
         }
     }
@@ -271,22 +269,22 @@ function isValidKnightMove(chessboard, startingRow, startingColumn, endingRow, e
 
 // PAWN -->
 function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayerSide) {
-    // Determine the direction of pawn movement based on the current player's side
+
     const direction = (currentPlayerSide === 'light') ? 1 : -1;
 
-    // Calculate the row and column differences
+
     const rowDiff = clickedRow - startingRow;
     const colDiff = Math.abs(clickedColumn - startingColumn);
 
-    // Pawn can move one square forward
+
     if (rowDiff === direction && colDiff === 0) {
-        // Check if the target square is empty
+
         return chessboard[clickedRow][clickedColumn] === null;
     }
 
-    // Pawn can move two squares forward from its starting position
+
     if (rowDiff === 2 * direction && colDiff === 0 && startingRow === (currentPlayerSide === 'light' ? 1 : 6)) {
-        // Check if the two intermediate squares and the target square are empty
+
         const intermediateRow = startingRow + direction;
         return (
             chessboard[intermediateRow][startingColumn] === null &&
@@ -294,20 +292,46 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
         );
     }
 
-    // Pawn can capture diagonally
+
     if (rowDiff === direction && colDiff === 1) {
-        // Check if the target square has an opponent's piece
+
         const targetPiece = chessboard[clickedRow][clickedColumn];
         return targetPiece !== null && targetPiece.side !== currentPlayerSide;
     }
 
-    // Invalid pawn move
+
     return false;
 }
 
 // PAWN <--
 
 // <-- SET VALID MOVES
+
+// chesspiece coordinates = target piece coordinates
+//change intial square to null
+
+function capturePiece(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
+    const targetPiece = chessboard[endingRow][endingColumn];
+
+    // Check if there's a piece on the target square and it belongs to the opponent
+    if (targetPiece !== null && targetPiece.side !== currentPlayerSide) {
+        // Capture the opponent's piece by setting it to null
+        chessboard[endingRow][endingColumn] = null;
+        return true; // Piece successfully captured
+    }
+
+    return false; // No piece captured
+}
+
+
+
+
+
+
+
+
+
+
 
 // function opponentKingPosition(chessboard, currentPlayerSide) {
 // //const opponentKingPos = opponentKingPosition(chessboard, currentPlayer.side);
@@ -317,7 +341,7 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
 //             const piece = chessboard[row][column];
 //             if (piece && piece.side !== currentPlayerSide && piece.type === 'king') {
 //                 return [row, column];
-                 
+
 //             }
 //         }
 //     }
@@ -395,10 +419,14 @@ function handleCanvasClick(event) {
     if (clickedPiece == null) {
         movePiece(clickedRow, clickedColumn)
         // console.log(clickedRow, clickedColumn)
-        // console.log(chessboard)
+        console.log(chessboard)
     } else {
         selectedPiece(clickedRow, clickedColumn)
+    
+        // if (piece.side === clickedPiece.side) {   
+        // currentPlayer.side === clickedPiece.side ?  selectedPiece(clickedRow, clickedColumn) : capturePiece(piece.startingRow, startingColumn, clickedRow, clickedColumn)
     }
+}
 
     //switchPlayer()
 
@@ -406,7 +434,7 @@ function handleCanvasClick(event) {
 
     //console.log(piece)
     //console.log(chessboard)
-}
+
 
 // TRACK CURRENT PLAYER AND DISABLE OTHER PLAYER -->
 
@@ -448,65 +476,58 @@ function movePiece(clickedRow, clickedColumn) {
 
         switch (piece.type) {
             case "rook":
-                if (isValidRookMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
+                validMove = isValidRookMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)
+                break;
+            case "bishop":
+                if (isValidBishopMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-                    pieceType = "rook";
-                    console.log("Rook move is valid");
+                   
+                    console.log("Bishop move is valid");
                 } else {
                     validMove = false;
-                    console.log("Rook move is invalid");
+                    console.log("Bishop move is invalid");
                 }
                 break;
-            // case "bishop":
-            //     if (isValidBishopMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
-            //         validMove = true;
-            //         pieceType = "bishop";
-            //         console.log("Bishop move is valid");
-            //     } else {
-            //         validMove = false;
-            //         console.log("Bishop move is invalid");
-            //     }
-            //     break;
             case "queen":
                 if (isValidQueenMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-                    pieceType = "queen";
+                    
                     console.log("Queen move is valid");
                 } else {
                     validMove = false;
                     console.log("Queen move is invalid");
                 }
                 break;
-            // case "knight":
-            //             if (isValidKnightMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
-            //                 validMove = true;
-            //                 pieceType = "knight";
-            //                 console.log("Knight move is valid");
-            //             } else {
-            //                 validMove = false;
-            //                 console.log("King move is invalid");
-            //             }
-            //             break;
+            case "knight":
+                if (isValidKnightMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
+                    validMove = true;
+                  
+                    console.log("Knight move is valid");
+                } else {
+                    validMove = false;
+                    console.log("King move is invalid");
+                }
+                break;
             case "king":
                 if (isValidKingMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-                    pieceType = "king";
+                   
                     console.log("King move is valid");
                 } else {
                     validMove = false;
                     console.log("King move is invalid");
                 }
                 break;
-            // case "pawn":
-            //         if (isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
-            //             validMove = true;
-            //             pieceType = "pawn";
-            //             console.log("Pawn move is valid");
-            //         } else {
-            //             validMove = false;
-            //             console.log("Pawn move is invalid");
-            //         }
-            //         break;
+            case "pawn":
+                if (isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
+                    validMove = true;
+                    
+                    console.log("Pawn move is valid");
+                } else {
+                    validMove = false;
+                    console.log("Pawn move is invalid");
+                }
+                break;
             default:
                 validMove = false;
                 console.log("Move is invalid");
@@ -514,12 +535,13 @@ function movePiece(clickedRow, clickedColumn) {
         }
 
         if (validMove) {
-            
+
             const targetPiece = chessboard[clickedRow][clickedColumn];
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
 
                 // Capture the opponent's piece by setting it back to null
                 chessboard[clickedRow][clickedColumn] = null;
+               
             }
 
 
@@ -550,14 +572,14 @@ function movePiece(clickedRow, clickedColumn) {
 
 
 
-
+let piece = {side: "lightPlayer"}
 
 // <-- TRACK CURRENT PLAYER AND DISABLE OTHER PLAYER -->
 
 
 function selectedPiece(row, column) {
-    const piece = chessboard[row][column]
-
+    piece = chessboard[row][column]
+    
     if (!activePiece && piece) {
         activePiece = {
             row,
@@ -614,7 +636,7 @@ let selectedSquareColor = 'red'
 // INITIALIZE CHESSBOARD AND PLACE PIECES IN THEIR STARTING POSITIONS -->
 
 function drawChessBoard() {
-
+    ctx.clearRect(0, 0, canvasSize, canvasSize);
     for (let row = 0; row < 8; row++) {
         for (let column = 0; column < 8; column++) {
             const x = column * squareSize
@@ -648,8 +670,6 @@ function drawChessBoard() {
                 ctx.strokeRect(x, y, squareSize, squareSize);
             } //coloring is a bit off, fix!
 
-
-
         }
     }
 
@@ -680,11 +700,11 @@ chessboard[0][7] = rightLightRook
 // let rightLightBishop = new Chesspiece('light', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg")
 // chessboard[0][5] = rightLightBishop
 
-let lightQueen = new Chesspiece('light', 'queen', "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg")
-chessboard[0][3] = lightQueen
+// let lightQueen = new Chesspiece('light', 'queen', "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg")
+// chessboard[0][3] = lightQueen
 
-let lightKing = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg")
-chessboard[0][4] = lightKing
+// let lightKing = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg")
+// chessboard[0][4] = lightKing
 
 //  let darkPawn = new Chesspiece ('dark', 'pawn',"https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg")
 // // chessboard[6][0] = darkPawn
@@ -711,11 +731,11 @@ chessboard[7][7] = rightDarkRook
 // let rightDarkBishop = new Chesspiece('dark', 'bishop',"https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg")
 // chessboard[7][5] = rightDarkBishop
 
-let darkQueen = new Chesspiece('dark', 'queen', "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg")
-chessboard[7][3] = darkQueen
+// let darkQueen = new Chesspiece('dark', 'queen', "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg")
+// chessboard[7][3] = darkQueen
 
-let darkKing = new Chesspiece('dark', 'king', "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg")
-chessboard[7][4] = darkKing
+// let darkKing = new Chesspiece('dark', 'king', "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg")
+// chessboard[7][4] = darkKing
 
 
 drawChessBoard()
