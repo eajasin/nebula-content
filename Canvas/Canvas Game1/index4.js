@@ -14,7 +14,7 @@ function hideGameMenu() {
 }
 
 function showGameRules() {
-    alert('INSERT CONTENT HERE')
+    alert("Chess is the ultimate battlefield of wits, where two players square off on an 8x8 battlefield. The goal? Checkmate your rival's king while guarding your own. Take turns launching your pieces into action, capturing foes, and defending your kingdom.  Win by trapping your rival's king in an inescapable checkmate! Be a cunning commander, plan ahead, and watch out for cunning tactics!")
 }
 
 startGameButton.addEventListener('click', () => {
@@ -48,22 +48,6 @@ canvas.height = canvasSize
 
 const chessboard = new Array(8).fill(null).map(() => new Array(8).fill(null));
 
-
-// create identifiers for player sides
-
-
-
-// create identifiers for game pieces
-
-// const gamePiece = {
-//     pawn: "pawn",
-//     knight: 'knight',
-//     bishop: 'bishop',
-//     rook: 'rook',
-//     queen: 'queen',
-//     king: 'king'
-// }
-
 // store mapping of data between player sides, game pieces, and their images;
 
 
@@ -79,15 +63,15 @@ class Chesspiece {
     }
 }
 
-  let lightPawn = new Chesspiece('light', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
-  chessboard[1][0] = lightPawn
-  chessboard[1][1] = lightPawn
-  chessboard[1][2] = lightPawn
-  chessboard[1][3] = lightPawn
-  chessboard[1][4] = lightPawn
-  chessboard[1][5] = lightPawn
-  chessboard[1][6] = lightPawn
-  chessboard[1][7] = lightPawn
+let lightPawn = new Chesspiece('light', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
+chessboard[1][0] = lightPawn
+chessboard[1][1] = lightPawn
+chessboard[1][2] = lightPawn
+chessboard[1][3] = lightPawn
+chessboard[1][4] = lightPawn
+chessboard[1][5] = lightPawn
+chessboard[1][6] = lightPawn
+chessboard[1][7] = lightPawn
 
 let leftLightRook = new Chesspiece('light', 'rook', "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg")
 chessboard[0][0] = leftLightRook
@@ -110,7 +94,7 @@ chessboard[0][3] = lightQueen
 let lightKing = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg")
 chessboard[0][4] = lightKing
 
- let darkPawn = new Chesspiece ('dark', 'pawn',"https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg")
+let darkPawn = new Chesspiece('dark', 'pawn', "https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg")
 chessboard[6][0] = darkPawn
 chessboard[6][1] = darkPawn
 chessboard[6][2] = darkPawn
@@ -376,32 +360,6 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
 // chesspiece coordinates = target piece coordinates
 //change intial square to null
 
-function capturePiece(chessboard, startingRow, startingColumn, endingRow, endingColumn) {
-
-    const capturingPiece = chessboard[startingRow][startingColumn]
-    const targetPiece = chessboard[endingRow][endingColumn];
-    console.log(chessboard, startingRow, startingColumn)
-    console.log("capturingpiece: ", capturingPiece, targetPiece)
-    // Check if there's a piece on the target square and it belongs to the opponent
-    if (targetPiece && capturingPiece.side !== targetPiece.side) {
-        chessboard[endingRow][endingColumn] = capturingPiece;
-        chessboard[startingRow][startingColumn] = null;
-        return true;
-    }
-
-    return false; // No piece captured
-}
-
-
-
-
-
-
-
-
-
-
-
 // function opponentKingPosition(chessboard, currentPlayerSide) {
 // //const opponentKingPos = opponentKingPosition(chessboard, currentPlayer.side);
 
@@ -597,7 +555,7 @@ function movePiece(clickedRow, clickedColumn) {
 
             }
 
-           // capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn);
+            // capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn);
 
             chessboard[clickedRow][clickedColumn] = piece;
             chessboard[startingRow][startingColumn] = null;
@@ -672,7 +630,7 @@ function selectedPiece(row, column) {
     drawChessBoard()
     return activePiece
 }
-   
+
 
 
 
@@ -734,7 +692,7 @@ function drawChessBoard() {
                 ctx.lineWidth = 4;
                 ctx.strokeRect(x, y, squareSize, squareSize);
 
-            } //coloring is a bit off, fix! have to mimic this for both capturing and moving 
+            } //have to mimic this for both capturing and moving 
 
         }
     }

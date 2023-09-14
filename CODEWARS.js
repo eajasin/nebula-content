@@ -1951,27 +1951,67 @@ return using min.max methods
 
 
 
-function nameInStr(str, name) {
+// function nameInStr(str, name) {
 
-    str = str.toLowerCase()
-    name = name.toLowerCase()
+//     str = str.toLowerCase()
+//     name = name.toLowerCase()
 
-    let count = 0
+//     let count = 0
 
-    for(let i = 0; i < str.length; i++){
-        if (str[i] === name[count]) {
-            count++
+//     for(let i = 0; i < str.length; i++){
+//         if (str[i] === name[count]) {
+//             count++
+//         }
+//     }
+
+//     if (name.length === count){
+//         return true
+//     }
+
+//     return false
+
+// }
+
+/* The Vowel Code (6)
+-input is a string, output is string with vowels replaced by numbers
+-store the vowels and corresponding numbers
+-loops through charcaters in string seraching for vowels and return them with the replacement
+-for decode, swithc the values in the hashmap and the letters strings
+
+*/
+  
+function encode(string) {
+    let newString = ""
+    let vowels = {a:1, e:2, i:3, o:4, u:5}
+
+    for(let i = 0; i < string.length; i++){
+        if (vowels[string[i]]){
+            newString += vowels[string[i]]
+        } else {
+            newString += string[i]
         }
     }
-
-    if (name.length === count){
-        return true
+   
+    return newString
+  }
+  
+  function decode(string) {
+    
+    let originalString = ""
+    let vowels = {1:'a', 2:'e', 3:'i', 4:'o', 5:'u'}
+    
+    for(let i = 0; i < string.length; i++){
+        if (vowels[string[i]]){
+            originalString += vowels[string[i]]
+        } else {
+            originalString += string[i]
+        }
     }
+    
+    
+    return originalString
+  }
 
-    return false
+console.log(encode("hello"))
 
-}
-
-
-  
-  
+console.log(decode("h2ll4"))
