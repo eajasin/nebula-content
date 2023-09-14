@@ -79,15 +79,15 @@ class Chesspiece {
     }
 }
 
-//   let lightPawn = new Chesspiece('light', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
-// //   chessboard[1][0] = lightPawn
-// //   chessboard[1][1] = lightPawn
-// //   chessboard[1][2] = lightPawn
-//   chessboard[1][3] = lightPawn
-//   chessboard[1][4] = lightPawn
-//   chessboard[1][5] = lightPawn
-//   chessboard[1][6] = lightPawn
-//   chessboard[1][7] = lightPawn
+  let lightPawn = new Chesspiece('light', 'pawn', 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg')
+  chessboard[1][0] = lightPawn
+  chessboard[1][1] = lightPawn
+  chessboard[1][2] = lightPawn
+  chessboard[1][3] = lightPawn
+  chessboard[1][4] = lightPawn
+  chessboard[1][5] = lightPawn
+  chessboard[1][6] = lightPawn
+  chessboard[1][7] = lightPawn
 
 let leftLightRook = new Chesspiece('light', 'rook', "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg")
 chessboard[0][0] = leftLightRook
@@ -104,21 +104,21 @@ chessboard[0][2] = leftLightBishop
 let rightLightBishop = new Chesspiece('light', 'bishop', "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg")
 chessboard[0][5] = rightLightBishop
 
-// let lightQueen = new Chesspiece('light', 'queen', "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg")
-// chessboard[0][3] = lightQueen
+let lightQueen = new Chesspiece('light', 'queen', "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg")
+chessboard[0][3] = lightQueen
 
-// let lightKing = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg")
-// chessboard[0][4] = lightKing
+let lightKing = new Chesspiece('light', 'king', "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg")
+chessboard[0][4] = lightKing
 
-//  let darkPawn = new Chesspiece ('dark', 'pawn',"https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg")
-// // chessboard[6][0] = darkPawn
-// // chessboard[6][1] = darkPawn
-// // chessboard[6][2] = darkPawn
-// chessboard[6][3] = darkPawn
-// chessboard[6][4] = darkPawn
-// chessboard[6][5] = darkPawn
-// chessboard[6][6] = darkPawn
-// chessboard[6][7] = darkPawn
+ let darkPawn = new Chesspiece ('dark', 'pawn',"https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg")
+chessboard[6][0] = darkPawn
+chessboard[6][1] = darkPawn
+chessboard[6][2] = darkPawn
+chessboard[6][3] = darkPawn
+chessboard[6][4] = darkPawn
+chessboard[6][5] = darkPawn
+chessboard[6][6] = darkPawn
+chessboard[6][7] = darkPawn
 
 let leftDarkRook = new Chesspiece('dark', 'rook', "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg")
 chessboard[7][0] = leftDarkRook
@@ -135,11 +135,11 @@ chessboard[7][2] = leftDarkBishop
 let rightDarkBishop = new Chesspiece('dark', 'bishop', "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg")
 chessboard[7][5] = rightDarkBishop
 
-// let darkQueen = new Chesspiece('dark', 'queen', "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg")
-// chessboard[7][3] = darkQueen
+let darkQueen = new Chesspiece('dark', 'queen', "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg")
+chessboard[7][3] = darkQueen
 
-// let darkKing = new Chesspiece('dark', 'king', "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg")
-// chessboard[7][4] = darkKing
+let darkKing = new Chesspiece('dark', 'king', "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg")
+chessboard[7][4] = darkKing
 
 // SET VALID MOVES -->
 
@@ -278,6 +278,7 @@ function isValidQueenMove(chessboard, startingRow, startingColumn, endingRow, en
 }
 
 // <-- QUEEN
+
 
 // KING -->
 
@@ -596,7 +597,7 @@ function movePiece(clickedRow, clickedColumn) {
 
             }
 
-            capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn);
+           // capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn);
 
             chessboard[clickedRow][clickedColumn] = piece;
             chessboard[startingRow][startingColumn] = null;
@@ -604,7 +605,7 @@ function movePiece(clickedRow, clickedColumn) {
             piece.column = clickedColumn;
 
             activePiece = null;
-            console.log("here", startingRow, clickedRow)
+            //console.log("here", startingRow, clickedRow)
             //capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn)
             drawChessBoard();
             switchPlayer();
@@ -671,6 +672,9 @@ function selectedPiece(row, column) {
     drawChessBoard()
     return activePiece
 }
+   
+
+
 
 // ADD-ON *add code that will disable box highlights for player whos turn it isnt*
 
