@@ -127,12 +127,40 @@ chessboard[7][4] = darkKing
 
 // SET VALID MOVES -->
 
+function lightKingPosition(clickedRow, clickedColumn) {
+
+    for (let row = 0; row < 8; row++) {
+        for (let column = 0; column < 8; column++) {
+            const piece = chessboard[row][column];
+            if (piece && "light" === "light" && piece.type === 'king') {
+                piece.row = clickedRow;
+                piece.column = clickedColumn;
+                return;
+            }
+        }
+    }
+}
+
+function darkKingPosition(clickedRow, clickedColumn) {
+
+    for (let row = 0; row < 8; row++) {
+        for (let column = 0; column < 8; column++) {
+            const piece = chessboard[row][column];
+            if (piece && "dark" === "dark" && piece.type === 'king') {
+                piece.row = clickedRow;
+                piece.column = clickedColumn;
+                return;
+            }
+        }
+    }
+}
+
 
 // ROOK - moves up and down, left and right; unlimited -->
 
 function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
 
-
+    
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
         return false;
@@ -164,15 +192,23 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
         }
     }
 
+    
+    
+   
+
+
+
     const targetPiece = chessboard[endingRow][endingColumn];
     if (targetPiece === null) {
         return true; // Valid move without capture
     } else if (targetPiece.side !== currentPlayerSide) {
-        capturePiece(startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide);
+        //capturePiece(startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide);
         return true; // Valid move with capture
     }
 
     return false;
+
+    
 }
 
 
@@ -357,64 +393,127 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
 
 // <-- SET VALID MOVES
 
-// chesspiece coordinates = target piece coordinates
-//change intial square to null
+// IMPLEMENT CHECK, CHECKMATE AND STALEMATE -->
+/* 
+- need to know at all times where each king is, or whenever one moves
+- need a isChecked function after any move to see if a king is in check
+- need another function to restrict the king's moves and to disable other pieces
+- these function can be called in the movePiece function
+*/
 
-// function opponentKingPosition(chessboard, currentPlayerSide) {
-// //const opponentKingPos = opponentKingPosition(chessboard, currentPlayer.side);
+function kingInCheck(chessboard, currentPlayerSide) {
+    // Get the positions of both kings
+    const kingPosition = currentPlayerSide === 'light' ? lightKingPosition : darkKingPosition;
+    const opponentSide = currentPlayerSide === 'light' ? 'dark' : 'light';
+
+    // Iterate over opponent's pieces
+    for (let row = 0; row < 8; row++) {
+        for (let column = 0; column < 8; column++) {
+            const piece = chessboard[row][column];
+            if (piece && piece.side === opponentSide) {
+                // Check if the opponent's piece can capture the king
+                const isValidMove = checkIfValidMoveForPiece(piece, row, column, kingPosition.row, kingPosition.column, chessboard, currentPlayerSide);
+                if (isValidMove) {
+                    return true; // King is in check
+                }
+            }
+        }
+    }
+
+    return false; // King is not in check
+}
+
+
+function checkIfValidMoveForPiece(piece, startRow, startColumn, endRow, endColumn, chessboard, currentPlayerSide) {
+    // Use a switch statement or if-else to call the appropriate isValidMoveForPiece function based on the piece type
+    switch (piece.type) {
+        case 'rook':
+            return isValidRookMove(startRow, startColumn, endRow, endColumn, chessboard);
+        case 'bishop':
+            return isValidBishopMove(startRow, startColumn, endRow, endColumn, chessboard);
+        case 'pawn':
+            return isValidPawnMove(startRow, startColumn, endRow, endColumn, chessboard);
+        // Add cases for other piece types (queen, knight, etc.) and their corresponding isValidMoveForPiece functions
+        default:
+            return false; // Handle unsupported piece types or return false by default
+    }
+}
+
+
+
+// function allChessPieces(side) {
+//     let pieces = []
 
 //     for (let row = 0; row < 8; row++) {
-//         for (let column = 0; column < 8; column ++) {
-//             const piece = chessboard[row][column];
-//             if (piece && piece.side !== currentPlayerSide && piece.type === 'king') {
-//                 return [row, column];
-
+//         for (let col = 0; col < 8; col++) {
+//             const piece = chessboard[row][col];
+//             if (piece && piece.side === side) {
+//                 pieces.push(piece);
 //             }
 //         }
 //     }
-//     return null
+
+//     return pieces;
+
 // }
 
+// function capturableKing(chessboard, startingRow, startingColumn, kingRow, kingColumn, currentPlayerSide, isValidMoveFunctions) {
 
-
-// function kingIsChecked(chessboard, kingRow, kingColumn, currentPlayerSide){
-
-//     for (let row = 0; row < 8; row++) {
-//         for (let col = 0; column < 8; column++) {
-//             const piece = chessboard[row][column];
-//             if (piece && piece.side !== currentPlayerSide) {
-//                 return true //???
-//                 //need to verify that valid move is avaliable and return true
-//             }
+//     for (let isValidMoveFunctions of isValidMoveFunctions) {
+//         // Check if the piece can capture the king using the current move validation function
+//         if (isValidMoveFunctions(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayerSide, kingRow, kingColumn)) {
+//             return true;
 //         }
 //     }
 //     return false;
 // }
 
-// function isCheckmate(chessboard, kingPosition, currentPlayerSide) {
-//     // Check if the king is in check
-//     if (isKingInCheck(chessboard, kingPosition, currentPlayerSide)) {
-//         // Check if there are any legal moves for the current player
-//         for (let row = 0; row < 8; row++) {
-//             for (let col = 0; col < 8; col++) {
-//                 const piece = chessboard[row][col];
-//                 if (piece && piece.side === currentPlayerSide) {
-//                     // Check if the piece has any valid moves
-//                     if (hasValidMoves(chessboard, row, col, currentPlayerSide)) {
-//                         return false; // There is a legal move, so it's not checkmate
-//                     }
-//                 }
-//             }
+// const allValidMoves = [isValidBishopMove, isValidKingMove, isValidKnightMove, isValidPawnMove, isValidRookMove, isValidQueenMove]
+
+// function checkedKing(side, chessboard, isValidMoveFunctions) { //dependent on opponent so do need coordinates, call in movePeice function?)
+
+//     let king = (side === 'light') ? lightKing : darkKing
+//     let kingRow = king.row
+//     let kingColumn = king.column
+
+//     let opponent = (side === 'light') ? 'dark' : 'light'
+
+//     //need to loop through all pieces to see if any can capture king
+
+//     let opponentPieces = allChessPieces(opponent)
+
+//     for (let piece of opponentPieces) {
+
+//         let pieceRow = piece.row
+//         let pieceColumn = piece.column
+
+
+
+//         //check for vaLid move and reutnr true (king in check)
+
+//         if (capturableKing(chessboard, pieceRow, pieceColumn, kingRow, kingColumn, side, isValidMoveFunctions)) {
+
+//             return true
+//             console.log("king is in check")
+
 //         }
-//         return true; // There are no legal moves for the current player, it's checkmate
 //     }
-//     return false; // The king is not in check
+//     return false
 // }
 
-// const kingPosition = {
-//     row: 3,
-//     column: 4
-// };
+//piece row and column will be parameters, as well as king row and column
+//else reutn false and king is not/no longer in check
+
+
+
+
+
+
+
+// <-- IMPLEMENT CHECK, CHECKMATE AND STALEMATE
+
+
+
 
 
 let activePiece = null
@@ -436,11 +535,11 @@ function handleCanvasClick(event) {
     let clickedPiece = chessboard[clickedRow][clickedColumn]
     //console.log(clickedPiece, "clickedPiece")
     if (clickedPiece == null) {
-        movePiece(clickedRow, clickedColumn)
+        selectOrMovePiece(clickedRow, clickedColumn)
         // console.log(clickedRow, clickedColumn)
-        console.log(chessboard)
+        //console.log(chessboard)
     } else {
-        selectedPiece(clickedRow, clickedColumn)
+        selectOrMovePiece(clickedRow, clickedColumn)
 
         // if (piece.side === clickedPiece.side) {   
         // currentPlayer.side === clickedPiece.side ?  selectedPiece(clickedRow, clickedColumn) : capturePiece(piece.startingRow, startingColumn, clickedRow, clickedColumn)
@@ -473,11 +572,25 @@ function switchPlayer() {
     currentPlayer === lightPlayer ? (currentPlayer = darkPlayer) : (currentPlayer = lightPlayer)
 
 }
-
-function movePiece(clickedRow, clickedColumn) {
+// CAPTURE WORKS FOR PAWNS, QUEENS, BISHOPS, KNIGHTS, KINGS, ROOK?
+function selectOrMovePiece(clickedRow, clickedColumn) {
     console.log(clickedRow, clickedColumn)
-    if (activePiece) {
-        const piece = activePiece.piece;
+    if (!activePiece) {
+        let piece = chessboard[clickedRow][clickedColumn]
+        // If no active piece is selected, try to select a piece
+        if (piece && piece.side === currentPlayer.side) {
+            // Only allow selection of pieces belonging to the current player's side
+            activePiece = {
+                row: clickedRow,
+                column: clickedColumn,
+                piece,
+            };
+            selectedPieceCoordinates = [activePiece.row, activePiece.column];
+            console.log(selectedPieceCoordinates);
+        }
+    } else {
+        const piece = activePiece.piece
+        // If an active piece is already selected, try to move it
         const startingRow = activePiece.row;
         const startingColumn = activePiece.column;
 
@@ -485,7 +598,14 @@ function movePiece(clickedRow, clickedColumn) {
 
         switch (piece.type) {
             case "rook":
-                validMove = isValidRookMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)
+                if (isValidRookMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
+                    validMove = true;
+
+                    console.log("Rook move is valid");
+                } else {
+                    validMove = false;
+                    console.log("Rook move is invalid");
+                }
                 break;
             case "bishop":
                 if (isValidBishopMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
@@ -520,8 +640,10 @@ function movePiece(clickedRow, clickedColumn) {
             case "king":
                 if (isValidKingMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-
-                    console.log("King move is valid");
+                    lightKingPosition(piece.side, clickedRow, clickedColumn)
+                    // console.log("King move is valid");
+                    console.log(`${currentPlayer.side} king position: `, clickedRow, clickedColumn)
+                    darkKingPosition(piece.side, clickedRow, clickedColumn)
                 } else {
                     validMove = false;
                     console.log("King move is invalid");
@@ -546,90 +668,94 @@ function movePiece(clickedRow, clickedColumn) {
         if (validMove) {
 
             const targetPiece = chessboard[clickedRow][clickedColumn];
+            
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
+                console.log(`${currentPlayer.side} captured ${targetPiece.type}`)
 
-
-                chessboard[clickedRow][clickedColumn] = null;
-                activePiece.row = clickedRow;
-                activePiece.column = clickedColumn;
+                
 
             }
+
 
             // capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn);
 
             chessboard[clickedRow][clickedColumn] = piece;
             chessboard[startingRow][startingColumn] = null;
-            piece.row = clickedRow;
-            piece.column = clickedColumn;
+            activePiece.row = clickedRow;
+            activePiece.column = clickedColumn;
+
+
+            const isCurrentPlayerKingInCheck = kingInCheck(chessboard, currentPlayer.side);
+
+            if (isCurrentPlayerKingInCheck) {
+                console.log(`Check! ${currentPlayer.side}'s king is in check.`);
+                // You can take actions here, such as preventing illegal moves or notifying the player.
+            }
 
             activePiece = null;
             //console.log("here", startingRow, clickedRow)
             //capturePiece(chessboard, startingRow, startingColumn, clickedRow, clickedColumn)
             drawChessBoard();
             switchPlayer();
-            console.log(`current player: ${currentPlayer.side}`);
+            console.log(`current player is ${currentPlayer.side}`)
+            //console.log(`current player: ${currentPlayer.side}`);
         }
 
-        // const oppositeKingPosition = findOpponentKingPosition(chessboard, currentPlayer.side)
-        //     if(kingIsChecked(chessboard, oppositeKingPosition, currentPlayer.side)){
-        //         console.log(`${player.side}'s king is in check`)
-        //     }
+
     }
-    // if(isCheckmate(chessboard, oppositeKingPosition, currentPlayer.side)){
-    //     console.log("Checkmate")
-    // }
+
+    }
 
 
 
-}
 
 let piece = { side: "lightPlayer" }
 
 // <-- TRACK CURRENT PLAYER AND DISABLE OTHER PLAYER 
 
 
-function selectedPiece(row, column) {
-    piece = chessboard[row][column]
+// function selectedPiece(row, column) {
+//     piece = chessboard[row][column]
 
-    if (!activePiece && piece) {
-        activePiece = {
-            row,
-            column,
-            piece,
-        };
-        selectedPieceCoordinates = [activePiece.row, activePiece.column]
-        console.log(selectedPieceCoordinates)
+//     if (!activePiece && piece) {
+//         activePiece = {
+//             row,
+//             column,
+//             piece,
+//         };
+//         selectedPieceCoordinates = [activePiece.row, activePiece.column]
+//         console.log(selectedPieceCoordinates)
 
-    } else if (activePiece && row === activePiece.row && column === activePiece.column) {
+//     } else if (activePiece && row === activePiece.row && column === activePiece.column) {
 
-        activePiece = null;
-        selectedPieceCoordinates = null;
-    } else if (piece.side !== currentPlayer.side) {
-
-
-        if (piece.side == activePiece.piece.side) { return }
-        chessboard[row][column] = activePiece.piece;
-        chessboard[activePiece.row][activePiece.column] = null;
-        activePiece = null;
-        switchPlayer();
-
-    } else if (piece) {
-        // console.log(row, column)
-        console.log(activePiece, piece)
-        activePiece = {
-            row,
-            column,
-            piece,
-        }
-        selectedPieceCoordinates = [activePiece.row, activePiece.column];
+//         activePiece = null;
+//         selectedPieceCoordinates = null;
+//     } else if (piece.side !== currentPlayer.side) {
 
 
-    } else {
-        return null
-    }
-    drawChessBoard()
-    return activePiece
-}
+//         if (piece.side == activePiece.piece.side) { return }
+//         chessboard[row][column] = activePiece.piece;
+//         chessboard[activePiece.row][activePiece.column] = null;
+//         activePiece = null;
+//         switchPlayer();
+
+//     } else if (piece) {
+//         // console.log(row, column)
+//         //console.log(activePiece, piece)
+//         activePiece = {
+//             row,
+//             column,
+//             piece,
+//         }
+//         selectedPieceCoordinates = [activePiece.row, activePiece.column];
+
+
+//     } else {
+//         return null
+//     }
+//     drawChessBoard()
+//     return activePiece
+// }
 
 
 
