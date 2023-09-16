@@ -5,26 +5,26 @@ const startGameButton = document.getElementById('startGameButton');
 const showRulesButton = document.getElementById('showRulesButton');
 
 function showGameMenu() {
-    gameMenu.style.display = 'block';
+    gameMenu.style.display = 'block'
 }
 
 function hideGameMenu() {
-    gameMenu.style.display = 'none';
+    gameMenu.style.display = 'none'
 }
 
 function showGameRules() {
-    alert("Chess is the ultimate battlefield of wits, where two players square off on an 8x8 battlefield. The goal? Checkmate your rival's king while guarding your own. Take turns launching your pieces into action, capturing foes, and defending your kingdom.  Win by trapping your rival's king in an inescapable checkmate! Be a cunning commander, plan ahead, and watch out for cunning tactics!")
+    alert("🏰 Chess is the ultimate battlefield of wits, where two players square off on an 8x8 battlefield. The goal? Checkmate your rival's king while guarding your own. Take turns launching your pieces into action, capturing foes, and defending your kingdom.  Win by trapping your rival's king in an inescapable checkmate! Be a cunning commander, plan ahead, and watch out for cunning tactics!")
 }
 
 startGameButton.addEventListener('click', () => {
-    hideGameMenu();
+    hideGameMenu()
 });
 
 showRulesButton.addEventListener('click', () => {
-    showGameRules();
+    showGameRules()
 });
 
-showGameMenu();
+showGameMenu()
 
 // DRAW CHESSBOARD, ESTABLISH SIDES, DEFINE GAME PIECES, HAVE THEIR IMAGES --> using an array because easy to organize as a grid, stores info about each square
 
@@ -121,22 +121,22 @@ function drawChessBoard() {
             const x = column * squareSize
             const y = row * squareSize
 
-            ctx.strokeStyle = 'black';
+            ctx.strokeStyle = 'black'
             ctx.lineWidth = 2; // You can adjust the line width as needed
-            ctx.strokeRect(x, y, squareSize, squareSize);
+            ctx.strokeRect(x, y, squareSize, squareSize)
 
             if ((row + column) % 2 === 0) {
-                ctx.fillStyle = 'rgb(184,139,74)';
+                ctx.fillStyle = 'rgb(184,139,74)'
 
             } else {
-                ctx.fillStyle = 'rgb(227,193,111)';
+                ctx.fillStyle = 'rgb(227,193,111)'
 
             }
             //draw the square
 
             ctx.fillRect(column * squareSize, row * squareSize, squareSize, squareSize)
 
-            const piece = chessboard[row][column];
+            const piece = chessboard[row][column]
             if (piece) {
                 //console.log(piece, "draw")
 
@@ -144,9 +144,9 @@ function drawChessBoard() {
             }
 
             if (selectedPieceCoordinates && row === selectedPieceCoordinates[0] && column === selectedPieceCoordinates[1]) {
-                ctx.strokeStyle = selectedSquareColor;
+                ctx.strokeStyle = selectedSquareColor
                 ctx.lineWidth = 4;
-                ctx.strokeRect(x, y, squareSize, squareSize);
+                ctx.strokeRect(x, y, squareSize, squareSize)
 
             } //have to mimic this for both capturing and moving 
 
@@ -162,43 +162,43 @@ function drawChessBoard() {
 function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
-        return false;
+        return false
     }
 
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
-        return false;
+        return false
     }
 
     if (startingRow !== endingRow && startingColumn !== endingColumn) {
-        return false;
+        return false
     }
 
     if (startingRow === endingRow) {
-        const minCol = Math.min(startingColumn, endingColumn);
-        const maxCol = Math.max(startingColumn, endingColumn);
+        const minCol = Math.min(startingColumn, endingColumn)
+        const maxCol = Math.max(startingColumn, endingColumn)
         for (let col = minCol + 1; col < maxCol; col++) {
             if (chessboard[startingRow][col] !== null) {
-                return false;
+                return false
             }
         }
     } else if (startingColumn === endingColumn) {
-        const minRow = Math.min(startingRow, endingRow);
-        const maxRow = Math.max(startingRow, endingRow);
+        const minRow = Math.min(startingRow, endingRow)
+        const maxRow = Math.max(startingRow, endingRow)
         for (let row = minRow + 1; row < maxRow; row++) {
             if (chessboard[row][startingColumn] !== null) {
-                return false;
+                return false
             }
         }
     }
 
-    const targetPiece = chessboard[endingRow][endingColumn];
+    const targetPiece = chessboard[endingRow][endingColumn]
     if (targetPiece === null) {
-        return true; // Valid move without capture
+        return true
     } else if (targetPiece.side !== currentPlayerSide) {
-        //capturePiece(startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide);
-        return true; // Valid move with capture
+       
+        return true
     }
-    return false;
+    return false
 
 }
 // <-- ROOK
@@ -208,36 +208,36 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
 function isValidBishopMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
-        return false;
+        return false
     }
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
-        return false;
+        return false
     }
 
-    const rowDifference = Math.abs(startingRow - endingRow);
-    const colDifference = Math.abs(startingColumn - endingColumn);
+    const rowDifference = Math.abs(startingRow - endingRow)
+    const colDifference = Math.abs(startingColumn - endingColumn)
 
     if (rowDifference !== colDifference) {
         return false;
     }
 
-    const rowIncrement = startingRow < endingRow ? 1 : -1;
-    const colIncrement = startingColumn < endingColumn ? 1 : -1;
+    const rowIncrement = startingRow < endingRow ? 1 : -1
+    const colIncrement = startingColumn < endingColumn ? 1 : -1
 
 
     for (let row = startingRow + rowIncrement, col = startingColumn + colIncrement;
         row !== endingRow;
         row += rowIncrement, col += colIncrement) {
         if (chessboard[row][col] !== null) {
-            return false;
+            return false
         }
     }
-    const targetPiece = chessboard[endingRow][endingColumn];
+    const targetPiece = chessboard[endingRow][endingColumn]
     if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
-        return true;
+        return true
     }
 
-    return false;
+    return false
 
 }
 
@@ -247,23 +247,23 @@ function isValidBishopMove(chessboard, startingRow, startingColumn, endingRow, e
 function isValidQueenMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
-        return false;
+        return false
     }
 
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
-        return false;
+        return false
     }
 
-    const rowDifference = Math.abs(startingRow - endingRow);
-    const colDifference = Math.abs(startingColumn - endingColumn);
+    const rowDifference = Math.abs(startingRow - endingRow)
+    const colDifference = Math.abs(startingColumn - endingColumn)
 
 
     if (rowDifference !== 0 && colDifference !== 0 && rowDifference !== colDifference) {
         return false;
     }
 
-    const rowIncrement = startingRow < endingRow ? 1 : startingRow > endingRow ? -1 : 0;
-    const colIncrement = startingColumn < endingColumn ? 1 : startingColumn > endingColumn ? -1 : 0;
+    const rowIncrement = startingRow < endingRow ? 1 : startingRow > endingRow ? -1 : 0
+    const colIncrement = startingColumn < endingColumn ? 1 : startingColumn > endingColumn ? -1 : 0
 
 
     for (let row = startingRow + rowIncrement, col = startingColumn + colIncrement;
@@ -274,12 +274,12 @@ function isValidQueenMove(chessboard, startingRow, startingColumn, endingRow, en
         }
     }
 
-    const targetPiece = chessboard[endingRow][endingColumn];
+    const targetPiece = chessboard[endingRow][endingColumn]
     if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
-        return true;
+        return true
     }
 
-    return false;
+    return false
 }
 
 // <-- QUEEN
@@ -297,15 +297,15 @@ function isValidKingMove(chessboard, startingRow, startingColumn, endingRow, end
         return false;
     }
 
-    const rowDifference = Math.abs(startingRow - endingRow);
-    const colDifference = Math.abs(startingColumn - endingColumn);
+    const rowDifference = Math.abs(startingRow - endingRow)
+    const colDifference = Math.abs(startingColumn - endingColumn)
 
 
     if (rowDifference <= 1 && colDifference <= 1) {
-        return true;
+        return true
     }
 
-    return false;
+    return false
 }
 
 // <-- KING
@@ -315,21 +315,21 @@ function isValidKingMove(chessboard, startingRow, startingColumn, endingRow, end
 function isValidKnightMove(chessboard, startingRow, startingColumn, endingRow, endingColumn, currentPlayerSide) {
 
     if (chessboard[startingRow][startingColumn].side !== currentPlayerSide) {
-        return false;
+        return false
     }
     if (endingRow < 0 || endingRow >= 8 || endingColumn < 0 || endingColumn >= 8) {
-        return false;
+        return false
     }
 
-    const rowDiff = Math.abs(endingRow - startingRow);
-    const colDiff = Math.abs(endingColumn - startingColumn);
+    const rowDiff = Math.abs(endingRow - startingRow)
+    const colDiff = Math.abs(endingColumn - startingColumn)
 
 
     if ((rowDiff === 2 && colDiff === 1) || (rowDiff === 1 && colDiff === 2)) {
 
-        const targetPiece = chessboard[endingRow][endingColumn];
+        const targetPiece = chessboard[endingRow][endingColumn]
         if (targetPiece === null || targetPiece.side !== currentPlayerSide) {
-            return true;
+            return true
         }
     }
 
@@ -341,19 +341,19 @@ function isValidKnightMove(chessboard, startingRow, startingColumn, endingRow, e
 // PAWN - one/two spaces, diagonal capture -->
 function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayerSide) {
 
-    const direction = (currentPlayerSide === 'light') ? 1 : -1;
+    const direction = (currentPlayerSide === 'light') ? 1 : -1
 
-    const rowDiff = clickedRow - startingRow;
-    const colDiff = Math.abs(clickedColumn - startingColumn);
+    const rowDiff = clickedRow - startingRow
+    const colDiff = Math.abs(clickedColumn - startingColumn)
 
     if (rowDiff === direction && colDiff === 0) {
 
-        return chessboard[clickedRow][clickedColumn] === null;
+        return chessboard[clickedRow][clickedColumn] === null
     }
 
     if (rowDiff === 2 * direction && colDiff === 0 && startingRow === (currentPlayerSide === 'light' ? 1 : 6)) {
 
-        const intermediateRow = startingRow + direction;
+        const intermediateRow = startingRow + direction
         return (
             chessboard[intermediateRow][startingColumn] === null &&
             chessboard[clickedRow][clickedColumn] === null
@@ -362,11 +362,11 @@ function isValidPawnMove(chessboard, startingRow, startingColumn, clickedRow, cl
 
     if (rowDiff === direction && colDiff === 1) {
 
-        const targetPiece = chessboard[clickedRow][clickedColumn];
-        return targetPiece !== null && targetPiece.side !== currentPlayerSide;
+        const targetPiece = chessboard[clickedRow][clickedColumn]
+        return targetPiece !== null && targetPiece.side !== currentPlayerSide
     }
 
-    return false;
+    return false
 }
 
 // PAWN <--
@@ -434,6 +434,7 @@ let darkScore = 0
 
 const moveSound = new Audio('Move.wav')
 const captureSound = new Audio('Capture.wav')
+const invalidMoveSound = new Audio('InvalidMove.wav')
 
 function selectOrMovePiece(clickedRow, clickedColumn) {
    
@@ -448,7 +449,6 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                 piece,
             };
             selectedPieceCoordinates = [activePiece.row, activePiece.column];
-            console.log(selectedPieceCoordinates);
             drawChessBoard()
         }
     } else {
@@ -466,6 +466,7 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                     console.log("Rook move is valid");
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("Rook move is invalid");
                 }
                 break;
@@ -476,6 +477,7 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                     console.log("Bishop move is valid");
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("Bishop move is invalid");
                 }
                 break;
@@ -486,6 +488,7 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                     console.log("Queen move is valid");
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("Queen move is invalid");
                 }
                 break;
@@ -496,18 +499,17 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                     console.log("Knight move is valid");
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("Knight move is invalid");
                 }
                 break;
             case "king":
                 if (isValidKingMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-                    // lightKingPosition(piece.side, clickedRow, clickedColumn)
-                    // // console.log("King move is valid");
-                    // console.log(`${currentPlayer.side} king position: `, clickedRow, clickedColumn)
-                    // darkKingPosition(piece.side, clickedRow, clickedColumn)
+                   
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("King move is invalid");
                 }
                 break;
@@ -518,11 +520,13 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
                     console.log("Pawn move is valid");
                 } else {
                     validMove = false;
+                    invalidMoveSound.play()
                     console.log("Pawn move is invalid");
                 }
                 break;
             default:
                 validMove = false;
+                invalidMoveSound.play()
                 console.log("Move is invalid");
                 break;
         }
@@ -555,8 +559,6 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
 
             
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
-                
-                
                 
                 if (currentPlayer.side === 'light') {
                     updateLightScore()
