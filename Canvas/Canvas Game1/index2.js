@@ -730,7 +730,7 @@ function drawChessBoard() {
                 ctx.lineWidth = 4;
                 ctx.strokeRect(x, y, squareSize, squareSize);
 
-            } //coloring is a bit off, fix! have to mimic this for both capturing and moving 
+            } //coloring is a bit off, fix! have to mimic this for both capturing 
 
         }
     }
