@@ -17,15 +17,15 @@
 
         canvas {
             border: 15px solid;
-            
+
         }
 
         #gameDisplay {
             width: 200px;
-            /* Set the width as needed */
             padding: 10px;
-            background-color: #ddd;
-            border-left: 1px solid #999;
+            background-color: black;
+            color: white;
+            border: 15px solid
         }
 
         .menu {
@@ -39,7 +39,6 @@
             z-index: 1;
         }
 
-
         .menuContent {
             background-color: #fff;
             padding: 20px;
@@ -52,7 +51,7 @@
 
 
         #startGameButton {
-            background-color: #4caf50;
+            background-color: black;
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -60,8 +59,8 @@
         }
 
         #showRulesButton {
-            background-color: #1f1fdc;
-            color: #fff;
+            background-color: white;
+            color: black;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -71,7 +70,6 @@
             display: flex;
 
         }
-
     </style>
 </head>
 
@@ -87,21 +85,14 @@
     <canvas width="700"></canvas>
     <div class="container">
         <div id="gameDisplay">
-            <p id="moveInfoDisplay"></p>
-            <p id="currentPlayerDisplay">Current Player: light</p>
-            <p id="captureDisplay"></p>
+            <p id="currentPlayerDisplay">Current Turn: Light Player</p>
             <p id="lightScore"> Light Score: 0</p>
             <p id="darkScore">Dark Score: 0</p>
-           
-
+            <p id="captureDisplay"></p>
         </div>
-
-
     </div>
-
 </body>
 
-
-<script src='index4.js' defer></script>
+<script src='index5.js' defer></script>
 
 </html>
