@@ -195,7 +195,7 @@ function isValidRookMove(chessboard, startingRow, startingColumn, endingRow, end
     if (targetPiece === null) {
         return true
     } else if (targetPiece.side !== currentPlayerSide) {
-       
+
         return true
     }
     return false
@@ -391,10 +391,10 @@ function handleCanvasClick(event) {
     const clickedColumn = Math.floor(x / squareSize);
 
     let clickedPiece = chessboard[clickedRow][clickedColumn]
-    
+
     if (clickedPiece == null) {
         selectOrMovePiece(clickedRow, clickedColumn)
-        
+
     } else {
         selectOrMovePiece(clickedRow, clickedColumn)
 
@@ -437,12 +437,12 @@ const captureSound = new Audio('Capture.wav')
 const invalidMoveSound = new Audio('InvalidMove.wav')
 
 function selectOrMovePiece(clickedRow, clickedColumn) {
-   
+
     if (!activePiece) {
         let piece = chessboard[clickedRow][clickedColumn]
-       
+
         if (piece && piece.side === currentPlayer.side) {
-            
+
             activePiece = {
                 row: clickedRow,
                 column: clickedColumn,
@@ -506,7 +506,7 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
             case "king":
                 if (isValidKingMove(chessboard, startingRow, startingColumn, clickedRow, clickedColumn, currentPlayer.side)) {
                     validMove = true;
-                   
+
                 } else {
                     validMove = false;
                     invalidMoveSound.play()
@@ -532,57 +532,57 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
         }
 
         if (validMove) {
-           
+
             const targetPiece = chessboard[clickedRow][clickedColumn];
 
             function updateLightScore() {
-                
-                const lightScoreDisplay = document.getElementById('lightScore');
-                
+
+                const lightScoreDisplay = document.getElementById('lightScore')
+
                 if (targetPiece instanceof Chesspiece) {
-                    lightScore += targetPiece.value;
+                    lightScore += targetPiece.value
                 }
-                        
-                lightScoreDisplay.textContent = `Light Score: ${lightScore}`;
+
+                lightScoreDisplay.textContent = `Light Score: ${lightScore}`
             }
 
             function updateDarkScore() {
-                
-                const darkScoreDisplay = document.getElementById('darkScore');
-                
+
+                const darkScoreDisplay = document.getElementById('darkScore')
+
                 if (targetPiece instanceof Chesspiece) {
-                    darkScore += targetPiece.value;
+                    darkScore += targetPiece.value
                 }
-                            
+
                 darkScoreDisplay.textContent = `Dark Score: ${darkScore}`
             }
 
-            
+
             if (targetPiece && targetPiece.side !== currentPlayer.side) {
-                
+
                 if (currentPlayer.side === 'light') {
                     updateLightScore()
                 } else {
                     updateDarkScore()
                 }
             }
-                function updateCaptureDisplay() {
-                    const captureDisplay = document.getElementById('captureDisplay')
-                    
-                    if (currentPlayer.side === 'light') {
-                        captureDisplay.textContent = `Dark captured a ${targetPiece.type}!`
-                    } else {
-                        captureDisplay.textContent = `Light captured a ${targetPiece.type}!` 
-                    }
-    
-                    captureSound.play()
-                    
-                    setTimeout(() => {
-                        captureDisplay.textContent = ''
-                    }, 3000); 
-               
+            function updateCaptureDisplay() {
+                const captureDisplay = document.getElementById('captureDisplay')
+
+                if (currentPlayer.side === 'light') {
+                    captureDisplay.textContent = `Dark captured a ${targetPiece.type}!`
+                } else {
+                    captureDisplay.textContent = `Light captured a ${targetPiece.type}!`
                 }
-  
+
+                captureSound.play()
+
+                setTimeout(() => {
+                    captureDisplay.textContent = ''
+                }, 3000);
+
+            }
+
             chessboard[clickedRow][clickedColumn] = piece;
             chessboard[startingRow][startingColumn] = null;
             activePiece.row = clickedRow;
@@ -591,15 +591,14 @@ function selectOrMovePiece(clickedRow, clickedColumn) {
 
             activePiece = null;
             selectedPieceCoordinates = null
-           
+
             drawChessBoard();
             switchPlayer();
             updateCaptureDisplay()
-           
             updateCurrentPlayer()
-         
-        } 
-       
+
+        }
+
     }
 
 }

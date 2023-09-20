@@ -1979,39 +1979,139 @@ return using min.max methods
 -for decode, swithc the values in the hashmap and the letters strings
 
 */
-  
-function encode(string) {
-    let newString = ""
-    let vowels = {a:1, e:2, i:3, o:4, u:5}
 
-    for(let i = 0; i < string.length; i++){
-        if (vowels[string[i]]){
-            newString += vowels[string[i]]
-        } else {
-            newString += string[i]
+// function encode(string) {
+//     let newString = ""
+//     let vowels = {a:1, e:2, i:3, o:4, u:5}
+
+//     for(let i = 0; i < string.length; i++){
+//         if (vowels[string[i]]){
+//             newString += vowels[string[i]]
+//         } else {
+//             newString += string[i]
+//         }
+//     }
+
+//     return newString
+//   }
+
+//   function decode(string) {
+
+//     let originalString = ""
+//     let vowels = {1:'a', 2:'e', 3:'i', 4:'o', 5:'u'}
+
+//     for(let i = 0; i < string.length; i++){
+//         if (vowels[string[i]]){
+//             originalString += vowels[string[i]]
+//         } else {
+//             originalString += string[i]
+//         }
+//     }
+
+
+//     return originalString
+//   }
+
+// console.log(encode("hello"))
+
+// console.log(decode("h2ll4"))
+
+/*
+The Hashtag Generator (5)
+- add edge cases
+- input string; output is string with hastag in front and first letters capitalized and words combined
+- turn to array
+- use map to capitalize
+- use use split to combine words
+-use 
+
+*/
+// let string = "    Hello     World   "   
+
+// function generateHashtag (str) {
+
+//     if (str === ""){
+//         return false
+//     }
+
+//     str = str.trim()
+
+//     let eachWord = str.split(" ")
+
+//     console.log(eachWord)
+
+//     let capitalize = eachWord.map(e => {
+//         if (e === ""){
+//             return ""
+//         }
+//          return e[0].toUpperCase() + e.slice(1)
+//     })
+//     console.log(capitalize)
+
+//     capitalize.unshift('#')
+
+//     let hashtag = capitalize.join("")
+
+//     if (hashtag.length > 140){
+//         return false
+//     }
+
+//     return hashtag
+
+// }
+
+// console.log(generateHashtag(string))
+
+
+/*longest_palindrome (6)
+-input is string, output is number of length of longest palindrome
+-need to see if any part of string is a palindrome (same forward and backward)
+-compare which is longest
+
+
+*/
+let string = "I like cats"
+
+function longestPalindrome(s) {
+    if (s === "") {
+        return 0
+    }
+
+    s = s.toLowerCase().split(' ')
+    console.log(s)
+
+
+    const reversedSubstrings = s.map(word => {
+        return word.split("").reverse().join("")
+    })
+
+    //console.log(reversedSubstrings)
+
+    let lengthOfLongestPalindrome = 0
+    
+ 
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === reversedSubstrings[i]) { //if palindrome
+            let wordLength = s[i].length
+
+            console.log(reversedSubstrings)
+            
+            
+            console.log(wordLength)
+            
+            if (wordLength > lengthOfLongestPalindrome) {
+                console.log("word length", wordLength)
+
+                lengthOfLongestPalindrome = wordLength
+               
+            }
         }
     }
-   
-    return newString
-  }
-  
-  function decode(string) {
-    
-    let originalString = ""
-    let vowels = {1:'a', 2:'e', 3:'i', 4:'o', 5:'u'}
-    
-    for(let i = 0; i < string.length; i++){
-        if (vowels[string[i]]){
-            originalString += vowels[string[i]]
-        } else {
-            originalString += string[i]
-        }
-    }
-    
-    
-    return originalString
-  }
+    return lengthOfLongestPalindrome
 
-console.log(encode("hello"))
+}
 
-console.log(decode("h2ll4"))
+console.log(longestPalindrome(string))
+
+//NOT DONE
