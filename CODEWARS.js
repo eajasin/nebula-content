@@ -2070,48 +2070,92 @@ The Hashtag Generator (5)
 
 
 */
-let string = "I like cats"
+// let string = "I like cats"
 
-function longestPalindrome(s) {
-    if (s === "") {
-        return 0
-    }
+// function longestPalindrome(s) {
+//     if (s === "") {
+//         return 0
+//     }
 
-    s = s.toLowerCase().split(' ')
-    console.log(s)
+//     s = s.toLowerCase().split(' ')
+//     console.log(s)
 
 
-    const reversedSubstrings = s.map(word => {
-        return word.split("").reverse().join("")
-    })
+//     const reversedSubstrings = s.map(word => {
+//         return word.split("").reverse().join("")
+//     })
 
-    //console.log(reversedSubstrings)
+//     //console.log(reversedSubstrings)
 
-    let lengthOfLongestPalindrome = 0
+//     let lengthOfLongestPalindrome = 0
     
  
 
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === reversedSubstrings[i]) { //if palindrome
-            let wordLength = s[i].length
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i] === reversedSubstrings[i]) { //if palindrome
+//             let wordLength = s[i].length
 
-            console.log(reversedSubstrings)
+//             console.log(reversedSubstrings)
             
             
-            console.log(wordLength)
+//             console.log(wordLength)
             
-            if (wordLength > lengthOfLongestPalindrome) {
-                console.log("word length", wordLength)
+//             if (wordLength > lengthOfLongestPalindrome) {
+//                 console.log("word length", wordLength)
 
-                lengthOfLongestPalindrome = wordLength
+//                 lengthOfLongestPalindrome = wordLength
                
-            }
-        }
-    }
-    return lengthOfLongestPalindrome
+//             }
+//         }
+//     }
+//     return lengthOfLongestPalindrome
 
+// }
+
+// console.log(longestPalindrome(string))
+
+// //NOT DONE
+
+
+/*Format words into a sentence (6)
+-input is array of strings; output is a formatted string
+-
+
+*/
+
+let string = ['ninja', 'samurai', 'ronin']
+
+function formatWords(words){
+
+    if (words.length === 0){
+        return ""
+    }
+
+    if (words.length === 1){
+        return String(words[0])
+    }
+
+    let firstWord = words.shift()
+    let lastWord = words.pop()
+    
+    for (let i = words.length - 1; i >= 0; i--) {
+        if (words[i] === "") {
+            words.splice(i, 1);
+        }
+    } 
+
+    if (words.length >= 2){
+    return String(firstWord) + ', ' + words.join(', ') + ' and ' + lastWord
+        
+    }
 }
 
-console.log(longestPalindrome(string))
 
-//NOT DONE
+
+
+    
+
+  
+
+
+console.log(formatWords(string))
