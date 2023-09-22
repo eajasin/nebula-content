@@ -2123,39 +2123,59 @@ The Hashtag Generator (5)
 
 */
 
-let string = ['ninja', 'samurai', 'ronin']
+// let string = ['ninja', 'samurai', 'ronin']
 
-function formatWords(words){
+// function formatWords(words){
 
-    if (words.length === 0){
-        return ""
-    }
+//     if (words.length === 0){
+//         return ""
+//     }
 
-    if (words.length === 1){
-        return String(words[0])
-    }
+//     if (words.length === 1){
+//         return String(words[0])
+//     }
 
-    let firstWord = words.shift()
-    let lastWord = words.pop()
+//     let firstWord = words.shift()
+//     let lastWord = words.pop()
     
-    for (let i = words.length - 1; i >= 0; i--) {
-        if (words[i] === "") {
-            words.splice(i, 1);
-        }
-    } 
+//     for (let i = words.length - 1; i >= 0; i--) {
+//         if (words[i] === "") {
+//             words.splice(i, 1);
+//         }
+//     } 
 
-    if (words.length >= 2){
-    return String(firstWord) + ', ' + words.join(', ') + ' and ' + lastWord
+//     if (words.length >= 2){
+//     return String(firstWord) + ', ' + words.join(', ') + ' and ' + lastWord
         
+//     }
+// }
+
+// console.log(formatWords(string))
+
+// NOT DONE
+
+
+/* First character that repeats (6)
+
+
+
+*/
+
+let string = "twete"
+
+function firstDup (s) {
+ 
+ for (let i = s.length - 1; i >= 0; i--){
+    for(let j = i - 1; j >= 0; j-- ){
+        if(s[i] === s[j]){
+            return s[i]
+        }
     }
+
+ }
+
+return undefined
+
 }
 
-
-
-
-    
-
-  
-
-
-console.log(formatWords(string))
+console.log(firstDup(string))
