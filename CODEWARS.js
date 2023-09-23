@@ -2161,21 +2161,93 @@ The Hashtag Generator (5)
 
 */
 
-let string = "twete"
+// let string = "twete"
 
-function firstDup (s) {
+// function firstDup (s) {
  
- for (let i = s.length - 1; i >= 0; i--){
-    for(let j = i - 1; j >= 0; j-- ){
-        if(s[i] === s[j]){
-            return s[i]
-        }
+//  for (let i = s.length - 1; i >= 0; i--){
+//     for(let j = i - 1; j >= 0; j-- ){
+//         if(s[i] === s[j]){
+//             return s[i]
+//         }
+//     }
+
+//  }
+
+// return undefinednode
+
+// }
+
+// console.log(firstDup(string))
+
+/* Convert string to camel case (6)
+-input: string; output: string as a camel case (if first word captailized, keep capitalized)
+-create signal that indicates when a new word begins
+-capitalize the letter after that signal
+
+*/
+// let string = "the_stealth_warrior"
+
+// function toCamelCase(str){
+//    let camel = ""
+//    let startOfNewWord = false
+
+//    for(let i = 0; i < str.length; i++){
+
+//     if(str[i]=== '_' || str[i] === '-'){
+//         startOfNewWord = true
+//     } else {
+//         camel += startOfNewWord ? str[i].toUpperCase() : str[i]
+//         startOfNewWord = false
+//     }
+
+//    }
+
+//    return camel
+// }
+
+// console.log(toCamelCase(string))
+
+/* Sort the odd (6)
+-input is array of numbers; output is array of numbers with even nums and odd ones in order
+
+*/
+
+let arr = [5, 8, 6, 3, 4] 
+
+function sortArray(array) {
+
+    let orderedArray = []
+    let oddNums = []
+
+    for(let i = 0; i < array.length; i++){
+       if(array[i] % 2 === 0){
+        orderedArray.push(array[i])
+       } else {
+        oddNums.push(array[i])
+        orderedArray.push("oddNumHere")
+       }
     }
 
- }
+oddNums.sort((a,b) => a - b)
 
-return undefined
+
+let currentOddNum = 0
+
+for(let i = 0; i < orderedArray.length; i++){
+    if(orderedArray[i] === "oddNumHere"){
+    orderedArray[i] = oddNums[currentOddNum]
+    currentOddNum++
+    }
+}
+
+
+
+return orderedArray
+
+    
+    
 
 }
 
-console.log(firstDup(string))
+console.log(sortArray(arr))
