@@ -1,17 +1,21 @@
+import { useState } from "react"
 
 
 
-export default function ChangeColor({color, setColor}){
+export default function ChangeColor({overlayColor, setOverlayColor}){
 
 const handleColorChange = (e) => {
- setColor(e.target.value)
+ setOverlayColor(e.target.value)
 }
+
+
    
 
 return (
     <>
     <div className="colorPalette">
-        <input type="color" value ={color} onChange = {handleColorChange}></input>
+        <input type="color" value ={overlayColor} onChange = {handleColorChange}></input>
+        
     </div>
     {/* <label htmlFor="color1">Red</label>
     <input type="radio" id="color2" name="color" checked={color === "blue"} onChange = {() => setColor('blue')}></input> 

@@ -1,21 +1,22 @@
 import { useState } from 'react'
 import ChangeColor from './components/changeColor'
-import Shape from './components/shape'
+import Picture from './components/shape'
 import './App.css'
-import image from './flowers-color.jpeg'
+import image from './flowers.jpeg'
+
 
 function App() {
-  const [color, setColor] = useState("#000000")
-  const [image, setImage] = useState("flowers-color.jpeg")
+  const [overlayColor, setOverlayColor] = useState('flowers.jpeg')
+  //const [image, setImage] = useState("flowers.jpeg")
 
   
 
   return (
     <>
     <div className='container'>
-      <h1>Color Picker App</h1>
-    <Shape image={image} setImage={setImage}/>
-    <ChangeColor color={color} setColor={setColor}/>
+      <h1>Color Overlay App</h1>
+    <Picture image={image} overlayColor={overlayColor}/>
+    <ChangeColor overlayColor={overlayColor} setOverlayColor={setOverlayColor}/>
     </div>
     </>
   )
