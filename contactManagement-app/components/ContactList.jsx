@@ -1,19 +1,29 @@
-import React from "react"
-import { useState } from "react"
+
+import React from "react";
+import ContactItem from "./ContactItem";
 
 
-export default ContactList(){
-    const[contact, setContact] = useState([])
+export default function ContactList({id}) {
 
-    function createContact(nameText, emailText, phoneNumber){
-        let id = Math.floor(Math.random() * 9000)//need key to differentiate between each addition, gnerte keys randomly
-        let contact = {id: id, name: nameText, email:emailText, number:phoneNumber}  
-        setContact([...contacts, contact]) //as update todos, also adding previous todos (everything that was already in it)
-    }
+  
+  
+    // const [editingId, setEditingId] = useState(null);
+    // const [editedName, setEditedName] = useState("");
+    // const [editedEmail, setEditedEmail] = useState("");
+    // const [editedPhone, setEditedPhone] = useState("");
+  
 
+   
+    // function editContact(id, name, email, phone) {}
+  
     return (
-        <>
-        <CreateContact />
-        </>
+    <>
+     <ul>
+    {contact.map((contact) => {
+    <ContactItem /> // key={contact.id} name = {contact.name} email={contact.email} phone={contact.phone}/>
+      
+    })}
+  </ul>
+    </>
     )
-}
+  }

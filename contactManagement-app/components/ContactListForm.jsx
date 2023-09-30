@@ -1,49 +1,63 @@
 import { useState } from "react"
-import Contact from "./ContactItem"
+import ContactList from "./ContactList";
 
 export default function ContactListForm(){
 
-    const [id, setId] = useState('')
-    // const [name, setName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [phone, setPhone] = useState('')
+    const [contact, setContact] = useState([]);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
 
+    let newContacts = [
+        ...contact,
+        {
+          id: Math.floor(Math.random() * 999999999),
+          name: name,
+          email: email,
+          phone: phone
+        }
+      ];
+    
+      setContact(newContacts);
 
-    function createContact(text){
-        let id = Math.floor(Math.random() * 9000)//need key to differentiate between each addition, gnerte keys randomly
-        let contact = {id: id, name:nameText, email:emailText, phone: phoneNumber}
-    }
-       
-    const handleSubmit = e => {
-        e.preventDefault()
-
-    }
-
-       // const handleNameChange = e => {
-    //     setName(e.target.value)
-    // }
-
-    // const handleEmailChange = e => {
-    //     setEmail(e.target.value)
-    // }
-
-    // const handlePhoneChange = e => {
-    //     setPhone(e.target.value)
-    // }
-
-    return (
-        <form className="contactListForm" onSubmit={handleSubmit}>
-        <input className="id" placeholder ="Id" type="text" value={id} onChange={(e)=> e.target.value}></input>
-        {/* <input className="name" placeholder ="Name" type="text" value={name} onChange={handleNameChange}></input>
-        <input className="email" placeholder ="Email" type="text" value={email} onChange={handleEmailChange}></input>
-        <input className="phone" placeholder ="Phone" type="number" value={phone}onChange={handlePhoneChange} ></input> */}
-        <button type="submit">Add New Contact </button>
-        </form>
-    )
+    return(
+        <div className="nameField">
+        <input
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+          type="text"
+          value={name}
+          placeholder="Name"
+        />
+        <input
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+          type="text"
+          value={email}
+          placeholder="Email"
+        />
+        <input
+          onChange={(e) => {
+            setPhone(e.target.value);
+          }}
+          type="text"
+          value={phone}
+          placeholder="Phone"
+        />
+        <button
+          onClick={() => {
+            setName("");
+            setEmail("");
+            setPhone("")
+          }}
+        >
+          Add Contact
+        </button>
+        
+      
+      </div>
+    );
+    
 }
-
-
-
-
-
-

@@ -25,9 +25,7 @@ export default function ToDo({todos, completeTodo, removeTodo, updateTodo}){
         })
     }
 
-    if(edit.id){
-        return <TodoForm onSubmit={submitUpdate} />
-      }
+   
 
     return todos.map((todo, idx) => (
         <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} key={idx}>
@@ -41,11 +39,12 @@ export default function ToDo({todos, completeTodo, removeTodo, updateTodo}){
                 <TiEdit 
                 onClick={() => setEdit({id: todo.id, value:todo.text})}
                 className='edit-icon'/>
+                {todo.id === edit.id && <TodoForm onSubmit={submitUpdate}/>}
             </div>
         </div>
     ))
 
-    if(edit.id){
-        return <TodoForm onSubmit={submitUpdate} />
-    }
+    // if(edit.id){
+    //     return <TodoForm onSubmit={submitUpdate} />
+    // }
 }

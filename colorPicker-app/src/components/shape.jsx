@@ -1,7 +1,3 @@
-
-
-import App from "../App"
-
 export default function Picture({overlayColor, image}){
 
     const overlayStyle ={
@@ -9,9 +5,6 @@ export default function Picture({overlayColor, image}){
     width: '200px',
     height: '200px',
     position: 'absolute',
-    
-    top: 0,
-    left: 0,
     opacity: 0.7, 
     }
 

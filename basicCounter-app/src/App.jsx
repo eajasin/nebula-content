@@ -14,3 +14,5 @@ function App() {
 }
 
 export default App
+
+//passing throuhg count and setCount, then export the functino, then add the coonst[count, setCount]

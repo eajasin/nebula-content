@@ -7,10 +7,7 @@ import image from './flowers.jpeg'
 
 function App() {
   const [overlayColor, setOverlayColor] = useState('flowers.jpeg')
-  //const [image, setImage] = useState("flowers.jpeg")
-
   
-
   return (
     <>
     <div className='container'>

@@ -2088,23 +2088,23 @@ The Hashtag Generator (5)
 //     //console.log(reversedSubstrings)
 
 //     let lengthOfLongestPalindrome = 0
-    
- 
+
+
 
 //     for (let i = 0; i < s.length; i++) {
 //         if (s[i] === reversedSubstrings[i]) { //if palindrome
 //             let wordLength = s[i].length
 
 //             console.log(reversedSubstrings)
-            
-            
+
+
 //             console.log(wordLength)
-            
+
 //             if (wordLength > lengthOfLongestPalindrome) {
 //                 console.log("word length", wordLength)
 
 //                 lengthOfLongestPalindrome = wordLength
-               
+
 //             }
 //         }
 //     }
@@ -2137,7 +2137,7 @@ The Hashtag Generator (5)
 
 //     let firstWord = words.shift()
 //     let lastWord = words.pop()
-    
+
 //     for (let i = words.length - 1; i >= 0; i--) {
 //         if (words[i] === "") {
 //             words.splice(i, 1);
@@ -2146,7 +2146,7 @@ The Hashtag Generator (5)
 
 //     if (words.length >= 2){
 //     return String(firstWord) + ', ' + words.join(', ') + ' and ' + lastWord
-        
+
 //     }
 // }
 
@@ -2164,7 +2164,7 @@ The Hashtag Generator (5)
 // let string = "twete"
 
 // function firstDup (s) {
- 
+
 //  for (let i = s.length - 1; i >= 0; i--){
 //     for(let j = i - 1; j >= 0; j-- ){
 //         if(s[i] === s[j]){
@@ -2213,41 +2213,163 @@ The Hashtag Generator (5)
 
 */
 
-let arr = [5, 8, 6, 3, 4] 
+// let arr = [5, 8, 6, 3, 4] 
 
-function sortArray(array) {
+// function sortArray(array) {
 
-    let orderedArray = []
-    let oddNums = []
+//     let orderedArray = []
+//     let oddNums = []
 
-    for(let i = 0; i < array.length; i++){
-       if(array[i] % 2 === 0){
-        orderedArray.push(array[i])
-       } else {
-        oddNums.push(array[i])
-        orderedArray.push("oddNumHere")
-       }
+//     for(let i = 0; i < array.length; i++){
+//        if(array[i] % 2 === 0){
+//         orderedArray.push(array[i])
+//        } else {
+//         oddNums.push(array[i])
+//         orderedArray.push("oddNumHere")
+//        }
+//     }
+
+// oddNums.sort((a,b) => a - b)
+
+
+// let currentOddNum = 0
+
+// for(let i = 0; i < orderedArray.length; i++){
+//     if(orderedArray[i] === "oddNumHere"){
+//     orderedArray[i] = oddNums[currentOddNum]
+//     currentOddNum++
+//     }
+// }
+
+// return orderedArray
+
+// }
+
+// console.log(sortArray(arr))
+//WeIrD StRiNg CaSe(6)
+//inout is string and output is string with every other letter capitalized
+
+// let str = "Weird string case"
+
+// function toWeirdCase(string){
+
+//     let result = ""
+//     let startOfNewWord = true
+
+//     for(let letter of string){
+//     if(letter === " "){
+//         result += " "
+//         startOfNewWord = true
+//     } else {
+//         result += startOfNewWord ? letter.toUpperCase() : letter.toLowerCase()
+//         startOfNewWord = !startOfNewWord
+//     }
+//    }
+
+
+// return result
+//   }
+
+//   console.log(toWeirdCase(str))
+
+
+
+//    let camel = ""
+//    let startOfNewWord = false
+
+//    for(let i = 0; i < str.length; i++){
+
+//     if(str[i]=== '_' || str[i] === '-'){
+//         startOfNewWord = true
+//     } else {
+//         camel += startOfNewWord ? str[i].toUpperCase() : str[i]
+//         startOfNewWord = false
+//     }
+
+// Millipede of words (6)
+//
+
+// function solution(words) {
+
+//     //see if words can be combined
+
+
+//     for (let i = 0; i < words.length - 1; i++) {
+
+//         let firstWord = words[i]
+//         let nextWord = words[i + 1]
+
+//         if (firstWord.charAt(firstWord.length - 1) !== nextWord.charAt(0)) {
+//             return false
+//         }
+//     }
+//      return true
+// }
+
+//NOT DONE - Hamiltonian Path
+
+//Minimize Sum of Array (Array Series #1)
+
+// function minSum(arr) {
+//       arr.sort((a, b) => a - b)
+
+//   let smallestSum = 0
+
+//   for (let i = 0, j = arr.length - 1; i < j; i++, j--) {
+//    smallestSum += arr[i] * arr[j]
+//   }
+
+//   return smallestSum
+// }
+
+
+// Which are in? (6)
+// a1 = ["arp", "live", "strong"]
+
+// a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+
+// function inArray(array1,array2){
+
+//    let substrings = {}
+
+//    for(let words2 of array2){
+
+//     for(let words1 of array1){
+//         if (words2.includes(words1)){
+//             substrings[words1] = true
+//         }
+//     }
+
+//    }
+//    console.log(substrings)
+//    let result = Object.keys(substrings)
+//    console.log(result)
+
+//    return result.sort()
+// }
+
+// console.log(inArray(a1, a2))
+
+// Backspaces in String (6)
+
+let string = "abc#d##c"
+
+function cleanString(s) {
+
+    let cleanedS = ""
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === "#") {
+            if (cleanedS.length > 0) {
+                cleanedS = cleanedS.slice(0, -1)
+            }
+        } else {
+            cleanedS += s[i]
+        }
     }
 
-oddNums.sort((a,b) => a - b)
-
-
-let currentOddNum = 0
-
-for(let i = 0; i < orderedArray.length; i++){
-    if(orderedArray[i] === "oddNumHere"){
-    orderedArray[i] = oddNums[currentOddNum]
-    currentOddNum++
-    }
+    return cleanedS
 }
 
+console.log(cleanString(string))
 
-
-return orderedArray
-
-    
-    
-
-}
-
-console.log(sortArray(arr))

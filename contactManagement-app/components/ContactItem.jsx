@@ -1,17 +1,30 @@
-import { useState } from "react";
+import React from "react";
+import ContactList from "./ContactList";
+import ContactListForm from "./ContactListForm";
 
 
-export default function Contact({id}){ //nameText, phoneNumber, emailText
-//    const [editing, isEditing] = useState(false)
-//    const [editName, setEditName] = useState(nameText)
-//    const [editPhone, setEditPhone] = useState(phoneNumber)
-//    const [editEmail, setEditEmail] = useState(emailText)
 
-    return (
-        <div>
-            ID: {id}
-            
-        </div>
-    )
+export default function ContactItem({ id, name, email, phone }) {
+
+
+
+  function deleteContact(id) {
+    let newContacts = [...contact].filter((contact) => contact.id !== id);
+    setContact(newContacts);
+  }
+
+  return (
+    <>
+    <li>
+          {contact.id} | {contact.name} | {contact.email} | {contact.phone}{" "}
+          <button
+            onClick={() => {
+              deleteContact(contact.id);
+            }}
+          >
+            Delete Contact
+          </button>
+        </li>
+    </>
+  )
 }
-

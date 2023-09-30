@@ -12,7 +12,7 @@ export default function IncreaseCount(){
         setCount(count - 1)
     }
    
-}
+  }
 
   const handleReset = () => {
     setCount((count) => count = 0)

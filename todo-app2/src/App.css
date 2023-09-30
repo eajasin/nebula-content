@@ -1,0 +1,15 @@
+.completed {
+
+    text-decoration: line-through;
+    color: gray
+}
+
+span {
+    color: red
+}
+
+input[type = "checkbox"]{
+    display: inline;
+    background-color: red;
+    border: red;
+}
