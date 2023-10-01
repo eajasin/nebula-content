@@ -12,9 +12,9 @@ function App() {
   
   return (
     <>
+    
     <ContactList />
-    <ContactListForm />
-    <ContactItem />
+    
     </>
   )
 }

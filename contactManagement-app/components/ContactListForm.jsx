@@ -1,24 +1,25 @@
 import { useState } from "react"
 import ContactList from "./ContactList";
+import ContactItem from "./ContactItem";
 
-export default function ContactListForm(){
+export default function ContactListForm({addContact}){
 
-    const [contact, setContact] = useState([]);
+   
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    let newContacts = [
-        ...contact,
-        {
-          id: Math.floor(Math.random() * 999999999),
-          name: name,
-          email: email,
-          phone: phone
+    function addContactFunc(){
+        let id = Math.floor(Math.random() * 999999999)
+        let newContact = {
+            id,
+            name,
+            email,
+            phone
         }
-      ];
-    
-      setContact(newContacts);
+        addContact(newContact)
+    }
+
 
     return(
         <div className="nameField">
@@ -42,15 +43,13 @@ export default function ContactListForm(){
           onChange={(e) => {
             setPhone(e.target.value);
           }}
-          type="text"
+          type="number"
           value={phone}
           placeholder="Phone"
         />
         <button
           onClick={() => {
-            setName("");
-            setEmail("");
-            setPhone("")
+           addContactFunc()
           }}
         >
           Add Contact
