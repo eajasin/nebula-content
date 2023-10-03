@@ -1,9 +1,8 @@
-import { useState } from 'react'
-// import './App.css'
 
-import ContactListForm from '../components/ContactListForm'
 import ContactList from '../components/ContactList'
-import ContactItem from '../components/ContactItem'
+import './App.css'
+
+
 
 
 function App() {
@@ -11,11 +10,11 @@ function App() {
   
   
   return (
-    <>
-    
+    <div className='container'>
+    <h1> Contact Management </h1>
     <ContactList />
     
-    </>
+    </div>
   )
 }
 

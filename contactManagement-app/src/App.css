@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container {
+    width: 209vh;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
+    background-image: linear-gradient(to right top, #7ddbe3, #43e6d4, #36edad, #6bef73, #a8eb12);
+  }
+
+  input{
+    margin: 10px;
+    height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+    
+    
+  }
+
+  button{
+    cursor: pointer;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: solid;
+    color: #000021;
+    background: linear-gradient(to right top, #7ddbe3, #43e6d4, #36edad, #6bef73, #a8eb12);
+    line-height: 1.15;
+    font-size: 16px;
+                      
+                  
+  }
+
+  span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+  }
+
+
+
+/* 
+
+  container{
+
+    width: 209vh;
+  
+    background-color: lightblue;
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    justify-content: center;
+  
+    align-items: center;
+  
+    box-shadow: 5px 5px 5px black;
+  
+    background-image: linear-gradient(to   right top, #7ddbe3, #43e6d4, #36edad, #6bef73, #a8eb12);
+  
+  }
+  
+   
+  
+  input{
+  
+    margin: 10px;
+  
+  }
+  
+  button{
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    cursor: pointer;
+  
+    display: inline-block;
+  
+    outline: none;
+  
+    cursor: pointer;
+  
+    font-weight: 600;
+  
+    border-radius: 3px;
+  
+    padding: 12px 24px;
+  
+    border: solid;
+  
+    color: #000021;
+  
+    background: #1de9b6;
+  
+    line-height: 1.15;
+  
+    font-size: 16px;
+  
+  }
+  
+  .editBtn{
+  
+    border: 5px #000021;
+  
+    color: #ff6701;
+  
+    background-color: rgba(26, 25, 25, 0.856);
+  
+  }
+  
+  .deleteBtn{
+  
+    margin-left: 5px;
+  
+    border: 5px #000021;
+  
+    color: #ff6701;
+  
+    background-color: rgba(26, 25, 25, 0.856);
+  
+  } */

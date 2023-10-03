@@ -43,7 +43,7 @@ export default function ContactListForm({addContact}){
           onChange={(e) => {
             setPhone(e.target.value);
           }}
-          type="number"
+          type="text"
           value={phone}
           placeholder="Phone"
         />

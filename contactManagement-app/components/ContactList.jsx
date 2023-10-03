@@ -3,13 +3,9 @@ import { useState } from "react";
 import ContactItem from "./ContactItem";
 import ContactListForm from "./ContactListForm";
 
-let exampleContact = {
-    id: 26, name: "John", email: "john@gmail.com", phone: 5673656735
-}
-
 export default function ContactList() {
 
-    const [contacts, setContacts] = useState([exampleContact]);
+    const [contacts, setContacts] = useState([]);
     
     
 
@@ -17,7 +13,6 @@ export default function ContactList() {
     function addContact(newContact) {
 
         setContacts([...contacts, newContact])
-
 
         console.log("add contact")
 
@@ -32,9 +27,8 @@ export default function ContactList() {
     function editContact(revisingContact, revisingContactId) {
 
         const updatedContact = contacts.map((contact) => {
-            if (contact.id = revisingContactId) {
-                contact = revisingContact
-                return contact
+            if (contact.id === revisingContactId) {
+                return revisingContact
             }
             return contact
         })
