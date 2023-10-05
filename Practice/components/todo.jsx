@@ -1,9 +1,17 @@
+import { useState } from "react"
 
-export default function Todo(){
+export default function Todo() {
+    const [editing, setEditing] = useState(false)
 
-
-    function addTodo(){
+    function handleUpdate(){
         
+
+        setEditing(!editing)
     }
 
+    return (
+        <>
+
+        </>
+    )
 }
