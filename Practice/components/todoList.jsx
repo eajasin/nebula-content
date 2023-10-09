@@ -1,9 +1,11 @@
 import { useState } from "react"
+import TodoForm from "./todoForm"
 
 export default function TodoList() {
 
     const [todos, setTodos] = useState([])
-    const [editedTodoText, setEditedTodoText] = useState(todos)
+    
+   
 
     function createTodo() {
 
@@ -14,14 +16,14 @@ export default function TodoList() {
 
     }
 
-    function completeTodo(){
-        setTodos(todos.map((todo) => {
-            if(todo.id === id){
-              todo.completed = !todo.completed
-            }
-            return todo
-        }))
-    }
+    // function completeTodo(){
+    //     setTodos(todos.map((todo) => {
+    //         if(todo.id === id){
+    //           todo.completed = !todo.completed
+    //         }
+    //         return todo
+    //     }))
+    // }
 
     function deleteTodo(){
         let filteredTodo = [...todos].filter((todo) => {
@@ -34,33 +36,26 @@ export default function TodoList() {
         setTodos(filteredTodo)
     }
 
-    function editTodo(revisingTodo, revisingTodoId){
-        let updatedTodo = todos.map((todo) => {
-            if(todo.id === revisingTodoId){
-                return revisingTodo
-            }
-            return todo
-        })
-        setTodos(updatedTodo)
-    }
-
-    function updateEdit(){
-        let revisedTodo = {id: id, text: editedTodoText, completed: false }
-        
-        editTodo(revisedTodo, todos.id)
-        setEditedTodoText(!editing)
-    }
+  
 
     return (
         <>
-
+<TodoForm createTodo={createTodo} />
+<ul>
+{todos.map((todo) => (
+          <li key={todo.id}>
+            <span
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+              }}
+            >
+              {todo.text}
+            </span>
+            {/* <button onClick={() => completeTodo(todo.id)}>Complete</button> */}
+            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          </li>
+        ))}
+</ul>
         </>
     )
-}
-function handleUpdate() {
-    let newContact = {
-      id: contact.id, name: nameText, email: emailText, phone: phoneText
-    }
-  editContact(newContact, contact.id)
-  setEditing(!editing)
 }

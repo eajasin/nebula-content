@@ -2352,24 +2352,226 @@ The Hashtag Generator (5)
 
 // Backspaces in String (6)
 
-let string = "abc#d##c"
+// let string = "abc#d##c"
 
-function cleanString(s) {
+// // function cleanString(s) {
 
-    let cleanedS = ""
+// //     let cleanedS = ""
 
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === "#") {
-            if (cleanedS.length > 0) {
-                cleanedS = cleanedS.slice(0, -1)
-            }
-        } else {
-            cleanedS += s[i]
-        }
-    }
+// //     for (let i = 0; i < s.length; i++) {
+// //         if (s[i] === "#") {
+// //             if (cleanedS.length > 0) {
+// //                 cleanedS = cleanedS.slice(0, -1)
+// //             }
+// //         } else {
+// //             cleanedS += s[i]
+// //         }
+// //     }
 
-    return cleanedS
-}
+// //     return cleanedS
+// // }
 
-console.log(cleanString(string))
+// // console.log(cleanString(string)) 
 
+// //Simple Encryption #1 - Alternating Split (6)
+
+// // let string = "This is a test!"
+// // let num = 3
+
+// // function encrypt(text, n) {
+
+// //     if (text === '' || n <= 0) {
+// //         return text
+// //     }
+
+// //     while (n > 0) {
+// //         let even = ''
+// //         let odd = ''
+
+
+// //     for (let i = 0; i < text.length; i++) {
+// //         if (i % 2 === 0) {
+// //             even += text[i]
+// //         } else {
+// //             odd += text[i]
+// //         }
+// //     }
+
+// //     text = odd + even
+// //     n--
+// //     }
+
+// //     return text
+// // }
+
+// // //console.log("encrypt", encrypt(string, num))
+
+// // function decrypt(encryptedText, n) {
+// //     if (encryptedText === '' || n <= 0 ) {
+// //         return encryptedText
+// //     }
+
+
+// //     while (n > 0) {
+// //         let even = ''
+// //         let odd = ''
+
+// //         for (let i = 0; i < encryptedText.length; i++) {
+// //             if (i % 2 === 0) {
+// //                 odd += encryptedText[i]
+// //             } else {
+// //                 even += encryptedText[i]
+// //             }
+// //         }
+
+// //         encryptedText = even + odd; // Reverse the order of even and odd
+// //         n--;
+// //     }
+// //     return encryptedText
+// // }
+
+// // console.log("decrypt", decrypt(string, num))
+
+// //NOT DONE - decrypt not working well    
+
+// // Make the Deadfish Swim (6)
+
+// let string = "iiisdoso"
+
+
+// function parse(data) {
+
+//     let returnArray = []
+//     let value = 0
+//     for (let i = 0; i < data.length; i++) {
+
+
+//         if (data[i] === 'i') {
+//             value++
+//         } else if (data[i] === 'd') {
+//             value--
+//         } else if (data[i] === 's') {
+//             value *= value
+//         } else if (data[i] === 'o') {
+//             returnArray.push(value)
+//         }
+//     }
+
+//     return returnArray
+// }
+
+// console.log(parse(string))
+
+
+//Array.diff (6)
+
+//input is array ; output is array
+//use filter iterate through the elements in a and filter out those that are not in b
+
+// function arrayDiff(a, b) {
+
+//     let newArray = a.filter(value => !b.includes(value))
+
+//     return newArray
+
+// }
+
+// String.prototype.toJadenCase = function () {
+   
+// let str = this
+// // str = str.split(" ")
+
+// // capitalizedWords = words.map((word) => {
+// //     if (word.length > 0) {
+// //       return word[0].toUpperCase() + word.slice(1)
+// //     } else {
+// //       return word
+// //     }
+
+// // })
+
+// // return capitalizedWords.join(" ")
+// // }
+
+// //** Human Readable Time (5) **
+// //input is positive integer; output is string: HH:MM:SS
+
+// // function humanReadable (seconds) {
+   
+// //     hours = Math.floor(seconds/3600)
+// //     minutes = Math.floor((seconds - (hours * 3600)) / 60)
+// //     seconds = seconds - (hours * 3600) - (minutes * 60)
+
+// //     timeString = hours.toString().padStart(2, '0') + ':' +
+// //         minutes.toString().padStart(2, '0') + ':' +
+// //         seconds.toString().padStart(2, '0')
+
+// //     return timeString
+   
+   
+// // }
+
+// // console.log(humanReadable(3685))
+
+// // String Incrementer (5)
+// //string --> string with appended number at the end increased by 1
+// //identify the numbers in the string and separate them from the letters only string
+// //convert string of numbers to integers
+
+
+// function incrementString(string){
+
+// let stringWithoutNums = ""
+// let stringOfNums = ""
+// let i = string.length - 1 //indicates position of last letter
+
+// while(i >= 0 && !isNaN(parseInt(string[i]))){
+//     //stringOfNums = string[i] + stringOfNums
+//     i--
+// }
+
+// if(i === string.length - 1){
+//     return string + "1"
+// }
+
+// stringOfNums = string.slice(i + 1)
+
+// let lengthOfNum = stringOfNums.length
+// //console.log(stringOfNums)
+
+// stringWithoutNums = string.substring(0, i+1)
+// //console.log(stringWithoutNums)
+
+// let incrementedNum = parseInt(stringOfNums) + 1
+// //console.log(incrementedNum)
+
+// //need to incorporate padStart
+
+
+
+// return stringWithoutNums + incrementedNum.toString().padStart(lengthOfNum, '0')
+
+
+
+// }
+
+// console.log(incrementString("foo000"))
+
+// function solution(str){
+
+//     let newArr = []
+
+//     for (let i = 0; i < str.length; i += 2){
+//         let subStr = str.slice(i, i + 2)
+//         if(subStr.length === 1){
+//             newArr.push(subStr + '_')
+//         } else {
+//             newArr.push(subStr)
+//         }
+//     }
+
+// return newArr
+
+// }
+
+// console.log(solution('abc'))

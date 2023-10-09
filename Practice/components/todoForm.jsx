@@ -1,10 +1,18 @@
-export default function TodoForm(){
+export default function TodoForm() {
 
-return (
-    <form>
-        <input type="text" placeholder="Todo"></input>
-        <button>Add Todo</button>
-    </form>
-)
+    const [input, setInput] = useState('')
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        setInput('')
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="Enter Todo" value={input} onChange={(e) => { setInput(e.target.value) }}></input>
+            <button>Add Todo</button>
+        </form>
+    )
+
 
 }

@@ -34,28 +34,38 @@
 // console.log(rot13(string))
     
 
-let arr1 = [7]
-let arr2 = [0,1,0,1,0]
-let arr3 = [1,2,2,3,3,3,4,3,3,3,2,2,1]
+// let arr1 = [7]
+// let arr2 = [0,1,0,1,0]
+// let arr3 = [1,2,2,3,3,3,4,3,3,3,2,2,1]
 
-function findOdd(A) {
+// function findOdd(A) {
  
-    let frequency = {}
+//     let frequency = {}
     
-    for(number of A){
-        frequency[number] = (frequency[number] || 0) + 1
-    }
+//     for(number of A){
+//         frequency[number] = (frequency[number] || 0) + 1
+//     }
 
     
-    for(key in frequency){
-        if(frequency[key] % 2 !== 0){
-        return parseInt(key)
-    }
+//     for(key in frequency){
+//         if(frequency[key] % 2 !== 0){
+//         return parseInt(key)
+//     }
+// }
+
+    
+//   }
+
+//   console.log(findOdd(arr1))
+//   console.log(findOdd(arr2))
+//   console.log(findOdd(arr3))
+
+
+function solution(str){
+    str = str.split("")
+
+    console.log(str)
 }
 
-    
-  }
-
-  console.log(findOdd(arr1))
-  console.log(findOdd(arr2))
-  console.log(findOdd(arr3))
+console.log(solution(abcdef))
+console.log('hello')
