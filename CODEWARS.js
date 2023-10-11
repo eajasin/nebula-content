@@ -2477,7 +2477,7 @@ The Hashtag Generator (5)
 // }
 
 // String.prototype.toJadenCase = function () {
-   
+
 // let str = this
 // // str = str.split(" ")
 
@@ -2497,7 +2497,7 @@ The Hashtag Generator (5)
 // //input is positive integer; output is string: HH:MM:SS
 
 // // function humanReadable (seconds) {
-   
+
 // //     hours = Math.floor(seconds/3600)
 // //     minutes = Math.floor((seconds - (hours * 3600)) / 60)
 // //     seconds = seconds - (hours * 3600) - (minutes * 60)
@@ -2507,8 +2507,8 @@ The Hashtag Generator (5)
 // //         seconds.toString().padStart(2, '0')
 
 // //     return timeString
-   
-   
+
+
 // // }
 
 // // console.log(humanReadable(3685))
@@ -2575,3 +2575,45 @@ The Hashtag Generator (5)
 // }
 
 // console.log(solution('abc'))
+
+
+// function deleteNth(arr,n){
+//     let newList = []
+
+//     for(let i = 0; i < arr.length; i++){
+
+//     }
+
+
+//     return newList
+//   }
+
+//   console.log(deleteNth([20,37,20,21] , 1))
+
+//Simple Fun #15: Addition without Carrying (6)
+
+//integers -> interger (sum of input but without the remainders)
+
+// function additionWithoutCarrying(a, b) {
+
+//     let result = ""
+
+//     let maxLength = Math.max(a.length, b.length)
+//     a = a.toString().padStart(maxLength, "0")
+//     b = b.toString().padStart(maxLength, "0")
+
+//     for(let i = a - 1; i >= 0; i--){
+//         for(let j = b - 1; j >= 0; j--){
+//         digitsSum = parseInt(a[i]) + parseInt(b[j])
+//         console.log(digitsSum)
+//         }
+//     }//modulo each by 10 and add to each string, this will result in just the digit in the ones space; 
+//     // can also divide by ten to move decimal over by one and then "chop" off the remainder (decimal)
+
+//     return result
+
+// }
+
+// console.log(additionWithoutCarrying(200, 2001))
+
+//NOT DONE
