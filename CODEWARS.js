@@ -2617,3 +2617,55 @@ The Hashtag Generator (5)
 // console.log(additionWithoutCarrying(200, 2001))
 
 //NOT DONE
+
+
+//Number , number ... wait LETTER ! (6)
+// string --> integer
+
+let str = "24z6 1x23 y369 89a 900b"
+
+function doMath(string) {
+
+    let group = string.split(" ")
+    let numArr = []
+
+    for (const element of group) {
+        const numbers = element.match(/\d+/g)
+        if (numbers) {
+            let concatenatedNum = numbers.join("")
+            numArr.push(parseInt(concatenatedNum))
+        }
+    }
+
+    let sortedNumArr = numArr.sort((a, b) => a - b)
+    //console.log(sortedNumArr)
+
+    let result = 0
+
+    for (let i = 0; i < sortedNumArr.length; i++) {
+        let num = sortedNumArr[i]
+        let operator = ""
+
+        if (operator === '+') {
+            result += num
+        } else if (operator === '-') {
+            result -= num
+        } else if (operator === "*") {
+            result *= num
+        } else if (operator === '/') {
+            result /= num
+        }
+
+    }
+
+    return result
+
+
+}
+
+
+
+console.log(doMath(str))
+
+
+
