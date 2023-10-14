@@ -2619,53 +2619,98 @@ The Hashtag Generator (5)
 //NOT DONE
 
 
-//Number , number ... wait LETTER ! (6)
-// string --> integer
+// //Number , number ... wait LETTER ! (6)
+// // string --> integer
 
-let str = "24z6 1x23 y369 89a 900b"
+// let str = "24z6 1x23 y369 89a 900b"
 
-function doMath(string) {
+// function doMath(string) {
 
-    let group = string.split(" ")
-    let numArr = []
+//     let group = string.split(" ")
+//     let numArr = []
 
-    for (const element of group) {
-        const numbers = element.match(/\d+/g)
-        if (numbers) {
-            let concatenatedNum = numbers.join("")
-            numArr.push(parseInt(concatenatedNum))
-        }
-    }
+//     for (const element of group) {
+//         const numbers = element.match(/\d+/g)
+//         if (numbers) {
+//             let concatenatedNum = numbers.join("")
+//             numArr.push(parseInt(concatenatedNum))
+//         }
+//     }
 
-    let sortedNumArr = numArr.sort((a, b) => a - b)
-    //console.log(sortedNumArr)
+//     let sortedNumArr = numArr.sort((a, b) => a - b)
+//     //console.log(sortedNumArr)
 
-    let result = 0
+//     let result = 0
 
-    for (let i = 0; i < sortedNumArr.length; i++) {
-        let num = sortedNumArr[i]
-        let operator = ""
+//     for (let i = 0; i < sortedNumArr.length; i++) {
+//         let num = sortedNumArr[i]
+//         let operator = ""
 
-        if (operator === '+') {
-            result += num
-        } else if (operator === '-') {
-            result -= num
-        } else if (operator === "*") {
-            result *= num
-        } else if (operator === '/') {
-            result /= num
-        }
+//         if (operator === '+') {
+//             result += num
+//         } else if (operator === '-') {
+//             result -= num
+//         } else if (operator === "*") {
+//             result *= num
+//         } else if (operator === '/') {
+//             result /= num
+//         }
 
-    }
+//     }
 
-    return result
-
-
-}
+//     return result
 
 
+// }
+// //NOT DONE
 
-console.log(doMath(str))
+// console.log(doMath(str))
+
+// function distinctDigitYear(year) {
+
+
+//     while (year >= 1000 && year <= 9000) {
+//         year++
+//         let yearAsString = year.toString()
+//         // console.log(yearAsString)
+//         let distinctYears = new Set(yearAsString)
+//         //console.log(distinctYears)
+
+//         if (distinctYears.size === year.length) {
+//             return year
+//         }
+//     }
+
+// }
+
+// console.log(distinctDigitYear(1987))
+//NOT DONE
+
+
+// Compare Strings by Sum of Chars (6)
+// string => boolean
+
+// function compare(s1, s2) {
+
+//     if (s1 === null || s2 === null || s1 === "" || s2 === "") {
+//         return true;
+//     }
+
+//     s1 = s1.toUpperCase().split("")
+//     s2 = s2.toUpperCase().split("")
+//     //console.log(s1, s2)
+
+//     let s1String = s1.reduce((sum, string) => sum + string.charCodeAt(0), 0)
+//     let s2String = s2.reduce((sum, string) => sum + string.charCodeAt(0), 0)
+    
+
+//     return s1String === s2String
+
+
+
+// }
+
+// console.log(compare("AD", "BC"))
 
 
 
