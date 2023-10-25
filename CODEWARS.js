@@ -2712,5 +2712,46 @@ The Hashtag Generator (5)
 
 // console.log(compare("AD", "BC"))
 
+//Find the missing term in an Arithmetic Progression (6)
 
+// var findMissing = function (list) { 
+    
+//     for(let i = 0; i < list.length - 1; i++){
+//       let currentIndex = list[i]
+//       let nextIndex = list[i + 1]
+//       let previousIndex = list[i - 1]
+//       let difference = Math.abs(currentIndex - nextIndex)
+//         if(i > 0 && difference !== currentIndex - previousIndex){
+//             return previousIndex + difference
+//         }
+//     }
+ 
+//     return null
+//   }
+
+//   console.log(findMissing([1,3,5,9,11]))
+
+  //NOT DONE
+
+//Triple trouble (6)
+
+function tripledouble(num1, num2){
+
+  num1 = num1.toString()
+  num2 = num2.toString()
+
+  const minNum = Math.min(num1.length, num2.length)
+  console.log(minNum)
+
+  for (let i = 1; i <= minNum; i++) {
+    if (num1.includes(`${i}${i}${i}`)) {
+      if (num2.includes(`${i}${i}`)) {
+        return 1;
+      }
+    }
+  }
+  return 0;
+  }
+
+  console.log(tripledouble(451999277,41177722899))
 
