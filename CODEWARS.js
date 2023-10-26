@@ -2735,23 +2735,75 @@ The Hashtag Generator (5)
 
 //Triple trouble (6)
 
-function tripledouble(num1, num2){
+// function tripledouble(num1, num2){
 
-  num1 = num1.toString()
-  num2 = num2.toString()
+//   num1 = num1.toString()
+//   num2 = num2.toString()
 
-  const minNum = Math.min(num1.length, num2.length)
-  console.log(minNum)
+//   const minNum = Math.min(num1.length, num2.length)
+//   console.log(minNum)
 
-  for (let i = 1; i <= minNum; i++) {
-    if (num1.includes(`${i}${i}${i}`)) {
-      if (num2.includes(`${i}${i}`)) {
-        return 1;
-      }
+//   for (let i = 1; i <= minNum; i++) {
+//     if (num1.includes(`${i}${i}${i}`)) {
+//       if (num2.includes(`${i}${i}`)) {
+//         return 1;
+//       }
+//     }
+//   }
+//   return 0;
+//   }
+
+//   console.log(tripledouble(451999277,41177722899))
+// NOT DONE
+
+
+//Scramblies (5)
+
+// function scramble(str1, str2) {
+
+// let characters = {}
+
+// for(let i = 0; i < str1.length; i++){
+//   characters[str1[i]] = (characters[str1[i]] || 0) + 1
+// }
+
+// for(let i = 0; i < str2.length; i++){
+//   if(!characters.hasOwnProperty(str2[i])){
+//     return false
+//   }
+// }
+
+
+// return true
+
+
+
+// }
+
+// console.log(scramble('rkqodlw', 'world'))
+// console.log(scramble('cedewaraaossoqqyt', 'codewars'))
+// console.log(scramble('katas', 'steak'))
+
+// NOT DONE
+
+//Pick Peaks (5)
+
+function pickPeaks(arr){
+
+  if(arr.length === 0){
+    return {pos:[], peaks: []}
+  }
+
+  let pos = []
+  let peaks = []
+
+
+  for(let i = 1; i < arr.length - 1; i++){
+    if(arr[i] > arr[i-1] && arr[i] > arr[i+1]){
+      pos.push(i)
+      peaks.push(arr[i])
     }
   }
-  return 0;
-  }
 
-  console.log(tripledouble(451999277,41177722899))
-
+  return [pos, peaks]
+}
