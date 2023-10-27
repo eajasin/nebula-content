@@ -1,0 +1,10 @@
+.heroContainer {
+  border: solid;
+  width: 100vw;
+}
+
+.moviesContainer {
+  border: solid;
+  width: 100vw;
+  height: 100vh
+}
