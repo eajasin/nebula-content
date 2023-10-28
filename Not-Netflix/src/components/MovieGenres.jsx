@@ -1,10 +1,11 @@
 
-import React from "react";
 import { useState, useEffect } from "react";
+import Movies from "./Movies.jsx";
+
 
 const fetchURL = 'https://api.themoviedb.org/3/genre/movie/list?language=en'
 
-export default function MovieGenres(){
+export default function MovieGenres({movies}){
 
 const [genre, setGenre] = useState([])
 
@@ -28,12 +29,16 @@ const [genre, setGenre] = useState([])
 
     return (
       <div>
-      
+        <div>
             {genre.map((movieGenre) => (
                 <div key={movieGenre.id}>
                     {movieGenre.name}
                 </div>
             ))}
+        </div>
+        <div>
+            <Movies movies = {movies}/>
+        </div>
 
       </div>
     )
