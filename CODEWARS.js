@@ -2788,22 +2788,46 @@ The Hashtag Generator (5)
 
 //Pick Peaks (5)
 
-function pickPeaks(arr){
+// function pickPeaks(arr){
 
-  if(arr.length === 0){
-    return {pos:[], peaks: []}
-  }
+//   if(arr.length === 0){
+//     return {pos:[], peaks: []}
+//   }
 
-  let pos = []
-  let peaks = []
+//   let pos = []
+//   let peaks = []
 
 
-  for(let i = 1; i < arr.length - 1; i++){
-    if(arr[i] > arr[i-1] && arr[i] > arr[i+1]){
-      pos.push(i)
-      peaks.push(arr[i])
+//   for(let i = 1; i < arr.length - 1; i++){
+//     if(arr[i] > arr[i-1] && arr[i] > arr[i+1]){
+//       pos.push(i)
+//       peaks.push(arr[i])
+//     }
+//   }
+
+//   return [pos, peaks]
+// }
+//NOT DONE
+
+
+//Matrix Addition (6)
+
+function matrixAddition(a, b){
+  
+  let result = []
+
+  for(let i = 0; i < a.length; i++){
+      result[i] = []
+    for(let j = 0; j < a.length; j++){
+      result[i][j] = a[i][j] + b[i][j]
     }
   }
 
-  return [pos, peaks]
+  return result
 }
+
+console.log(matrixAddition([ [1, 2, 3],
+  [3, 2, 1],
+  [1, 1, 1] ],  [ [2, 2, 1],
+  [3, 2, 3],
+  [1, 1, 3] ] ))
