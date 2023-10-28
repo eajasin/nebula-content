@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import MovieGenres from "./MovieGenres";
 
-const fetchURL = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc'
 
-export default function Movies() {
+
+export default function Movies({genreid}) {
+    
+    const fetchURL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreid}`
 
     const [movies, setMovies] = useState([])
 
@@ -27,20 +29,23 @@ export default function Movies() {
     }, [])
 
     return (
-        <div>
+        <div className="movies">
 
             {movies.map((movie) => (
                 <div key={movie.id}>
                     {/* {movie.title} */}
                     <img
+                    className="movie"
                         width="200px"
                         height="200px"
                         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                         alt="moviePoster"
                     />
+                    
                 </div>
             ))}
-
+<a className="leftSlider">left</a>
+                    <a className="rightSlider">right</a>
         </div>
     )
 }

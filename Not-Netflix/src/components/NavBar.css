@@ -1,0 +1,46 @@
+.netflixLogo{
+    width: 75px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.navbar {
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 10px
+    
+
+}
+
+.navLeft {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+  
+   
+}
+
+.navRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 200px;
+    
+
+  
+   
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+a {
+    color: #e5e5e5;
+    text-decoration: none;
+}
+

@@ -1,11 +1,12 @@
 
 import { useState, useEffect } from "react";
 import Movies from "./Movies.jsx";
+import './MovieRow.css'
 
 
 const fetchURL = 'https://api.themoviedb.org/3/genre/movie/list?language=en'
 
-export default function MovieGenres({movies}){
+export default function MovieGenres(){
 
 const [genre, setGenre] = useState([])
 
@@ -28,19 +29,19 @@ const [genre, setGenre] = useState([])
     }, [])
 
     return (
-      <div>
+    <div>
         <div>
             {genre.map((movieGenre) => (
-                <div key={movieGenre.id}>
-                    {movieGenre.name}
+                <div className="movieRow" key={movieGenre.id}>
+                    <div>{movieGenre.name}</div>
+                    
+                        <Movies genreid={movieGenre.id} />
+                  
                 </div>
             ))}
         </div>
-        <div>
-            <Movies movies = {movies}/>
-        </div>
-
-      </div>
+    </div>
+    
     )
 
   }

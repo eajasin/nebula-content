@@ -1,0 +1,45 @@
+/* .movieRow {
+    
+} */
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #141414;
+    scroll-behavior: smooth;
+}
+
+.movieRow {
+    width: 100vw;
+    margin: 10px;
+    font-size: 1.5em;
+    color: #e5e5e5;
+    scroll-behavior: smooth;
+    
+}
+
+.movies {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow: visible;
+   
+    
+}
+
+.movie {
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s
+    
+    
+}
+
+.movie:hover {
+    transform: scale(1.5);
+    
+}
+
