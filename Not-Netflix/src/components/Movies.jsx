@@ -1,11 +1,13 @@
-import React from "react";
+// import React from "react";
 
-function Movies(){
-    return(
-        <div>
-            <h1>Movies</h1>
-        </div>
-    )
-}
+// function Movies(){
+//     return(
+//         <div>
+//             <h1>Movies</h1>
+//         </div>
+//     )
+// }
 
-export default Movies
+// export default Movies
+
+// // each movie will have a title, overview, rating?, play button? 

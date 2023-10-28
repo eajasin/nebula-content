@@ -1,27 +1,29 @@
-import React from "react";
-import { Link, Outlet } from 'react-router-dom'
+// import React from "react";
+// import { Link, Outlet } from 'react-router-dom'
 
-function Navbar() {
-    return (
-        <div>
-            <nav>
-                <a>
-                <Link to="/">Home</Link>
-                </a>
-                <a>
-                <Link to="/">Movies</Link>
-                </a>
-                <a>
-                <Link to="/">Popular</Link>
-                </a>
-                <a>
-                <Link to="/">Search Bar</Link>
-                </a>
+// function Navbar() {
+//     return (
+//         <div>
+//             <nav>
+//                 Netflix logo here
+//                 {/* Maybe avatar img also? */}
+//                 <a>
+//                 <Link to="/">Home</Link>
+//                 </a>
+//                 <a>
+//                 <Link to="/">Movies</Link>
+//                 </a>
+//                 <a>
+//                 <Link to="/">Popular</Link>
+//                 </a>
+//                 <a>
+//                 <Link to="/">Search Bar</Link>
+//                 </a>
                
-            </nav>
-            <Outlet />
-        </div>
-    )
-}
+//             </nav>
+//             <Outlet />
+//         </div>
+//     )
+// }
 
-export default Navbar
+// export default Navbar

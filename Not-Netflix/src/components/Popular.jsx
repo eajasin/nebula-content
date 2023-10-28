@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 
-function Popular(){
-    return(
-        <div>
-            <h1>Popular Movies</h1>
-        </div>
-    )
-}
+// function Popular(){
+//     return(
+//         <div>
+//             <h1>Popular Movies</h1>
+//         </div>
+//     )
+// }
 
-export default Popular
+// export default Popular
