@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import './Popular.css'
+import Hero from "./Hero";
 
 
 export default function Popular(){
@@ -41,9 +42,10 @@ export default function Popular(){
                         src={`https://image.tmdb.org/t/p/original/${popularMovie.poster_path}`}
                         alt="moviePoster"
                     />
+                     
                 </div>
             ))}
-
+            
         </div>
     )
 }

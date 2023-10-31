@@ -1,12 +1,20 @@
 import React from "react";
 import MovieGenres from "./MovieGenres.jsx";
-import Hero from "./Hero.jsx";
+import Popular from './Popular.jsx'
+import Hero from './Hero.jsx'
 
-function Home({genre}) {
 
+
+function Home({genre, popMovies}) {
+
+    // const popularMovie = popMovies[0];
+    // const popularMovie = {
+    //     title: "sam",
+    //     overview: "Get sword"
+    // }
         return (
             <div>
-                <Hero />
+               <Hero />
                 <MovieGenres genre={genre} />
             </div>
         )

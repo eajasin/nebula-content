@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MovieGenres from "./MovieGenres";
+
 
 
 
@@ -44,8 +44,8 @@ export default function Movies({genreid}) {
                     
                 </div>
             ))}
-<a className="leftSlider">left</a>
-                    <a className="rightSlider">right</a>
+{/* <a className="leftSlider">left</a>
+                    <a className="rightSlider">right</a> */}
         </div>
     )
 }
