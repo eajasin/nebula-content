@@ -18,6 +18,19 @@ html {
     color: #e5e5e5;
     scroll-behavior: smooth;
     
+
+    
+    
+}
+
+.genreName {
+
+    line-height: 1.25vw;
+    font-size: 1.4vw;
+    vertical-align: bottom;
+    display: table-cell;
+    
+
 }
 
 .movies {

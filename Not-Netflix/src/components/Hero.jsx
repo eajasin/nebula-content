@@ -51,9 +51,9 @@ export default function Hero() {
                     <div className="heroButtons">
 
 
+                        <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
                         <button className="heroButton">Play</button>
                         <button className="heroButton">More Info</button>
-                        <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
 
                     </div>
                     {/* <button onClick={() => {

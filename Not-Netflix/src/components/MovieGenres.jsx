@@ -30,12 +30,12 @@ const [genre, setGenre] = useState([])
 
     return (
     <div>
-        <div>
+        <div className="movieRow">
             {genre.map((movieGenre) => (
-                <div className="movieRow" key={movieGenre.id}>
-                    <div>{movieGenre.name}</div>
+                <div  key={movieGenre.id}>
+                    <div className="genreName">{movieGenre.name}</div>
                     
-                        <Movies genreid={movieGenre.id} />
+                    <div className="movies">  <Movies genreid={movieGenre.id} /> </div>
                   
                 </div>
             ))}

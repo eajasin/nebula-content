@@ -19,13 +19,15 @@
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .45);
 }
 
  .heroImage {
-   height: 448px;
+   height: 568px;
    position: relative;
    color: white;
    object-fit: contain;
+
 
  }
 
@@ -51,11 +53,13 @@
   padding-top: 1rem;
   font-size: 0.8rem;
   max-width: 360px;
-  height: 80px
+  height: 80px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .45);
  }
 
  .heroFade {
-  height: 7.4rem;
+  height: 15rem;
   background-image: linear-gradient(
     180deg,
     transparent,
@@ -75,7 +79,7 @@
   padding-right: 2rem;
   margin-right: 1rem;
   padding-top: 0.5rem;
-  background-color: rgba(51, 51, 51, 0.5);
+  background-color: rgba(51, 51, 51, 0.75);
   padding-bottom: 0.5rem;
 
  }
