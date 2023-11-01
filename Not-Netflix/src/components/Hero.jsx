@@ -3,8 +3,8 @@ import './Popular.css'
 
 
 
-export default function Hero(){
-    
+export default function Hero() {
+
     const fetchURL = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 
 
@@ -15,45 +15,64 @@ export default function Hero(){
         const options = {
             method: 'GET',
             headers: {
-              accept: 'application/json',
-              Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTllNDliNDI5YWExMzQwODYwMWMzMWI4NmRlMjQ5MyIsInN1YiI6IjY1MzliMzdhNjc4MjU5MDEzY2QwYjVkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ttg9njOCjKBo2Mig3i4pWmmH_ykYUrt_uESce4FQ1kA'
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMTllNDliNDI5YWExMzQwODYwMWMzMWI4NmRlMjQ5MyIsInN1YiI6IjY1MzliMzdhNjc4MjU5MDEzY2QwYjVkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ttg9njOCjKBo2Mig3i4pWmmH_ykYUrt_uESce4FQ1kA'
             }
-          };
+        };
 
         fetch(fetchURL, options)
             .then((response) => response.json())
             .then((response) => {
-                console.log(response.results[15])
-                setPopularMovie(response.results[15])
+                console.log(response.results[14])
+                setPopularMovie(response.results[14])
             })
             .catch((err) => console.log(err))
 
     }, [])
 
-//maybe randomize the display popular movie
-    
+    //maybe randomize the display popular movie
+
+
+    function truncateOverview(string, numOfChars) {
+        return string?.length > numOfChars ? string.substring(0, numOfChars - 1) + "..." : string
+    }
 
     return (
         <div className="heroContainer">
-     
-                <div key={popularMovie.id}>
-                    <img
-                        className="hero"
-                        src={`https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path}`}
-                        alt="moviePoster"
-                    />
-            <div className="heroStuff">
-                <div>{popularMovie.title}</div>  
-                <div>{popularMovie.overview}</div>
-                <button>Play</button>
-                <button>More Info</button>
-                   {/* <button onClick={() => {
+
+            <div className="heroImage" key={popularMovie.id} style={{
+                backgroundSize: "cover",
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path}")`,
+                backgroundPosition: "center center"
+            }}>
+
+                <div className="heroContents">
+                    <h1 className="heroTitle">{popularMovie.title}</h1>
+                    <div className="heroButtons">
+
+
+                        <button className="heroButton">Play</button>
+                        <button className="heroButton">More Info</button>
+                        <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
+
+                    </div>
+                    {/* <button onClick={() => {
                     console.log(popularMovie, "1")
                    }}>Test</button>   */}
                 </div>
+                <div className="heroFade" />
+
+
+                {/* <div> */}
+                {/* className="hero" */}
+                {/* src={`https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path}`} */}
+                {/* alt="moviePoster" */}
+                {/* </div> */}
             </div>
-            
-            
+
+
+
+
         </div>
     )
 }
