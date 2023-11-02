@@ -22,7 +22,15 @@ export default function MovieCard({ genreid, movie }) {
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
           />
           <div className="hoverOverview">
-          <p>{movie.overview}</p>
+          
+          {/* <p>{movie.overview}</p> */}
+          <button className="heroButton">Play</button>
+          <button className="heroButton">More Info</button>
+          <button className="heroButton">Add to List</button>
+          <button className="heroButton">Thumbs Up/Down</button>
+          <button className="heroButton">Movie Rating</button>
+          <button className="heroButton">Categories</button>
+          <button className="heroButton">Number of Seasons</button>
           </div>
         </div>
       ) : (
