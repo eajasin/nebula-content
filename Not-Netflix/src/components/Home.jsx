@@ -16,6 +16,7 @@ function Home({genre, popMovies}) {
             <div>
                <Hero />
                 <MovieGenres genre={genre} />
+                
             </div>
         )
     }

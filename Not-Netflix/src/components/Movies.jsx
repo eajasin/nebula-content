@@ -59,6 +59,7 @@
 
 
 import React, { useState, useEffect } from "react";
+import MovieCard from "./MovieCard";
 
 
 
@@ -68,6 +69,8 @@ export default function Movies({genreid}) {
     const fetchURL = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreid}`
 
     const [movies, setMovies] = useState([])
+
+    
 
     useEffect(() => {
         const options = {
@@ -81,7 +84,7 @@ export default function Movies({genreid}) {
         fetch(fetchURL, options)
             .then((response) => response.json())
             .then((response) => {
-                console.log(response.results)
+                console.log(response.results, "X")
                 setMovies(response.results)
             })
             .catch((err) => console.log(err))
@@ -92,20 +95,13 @@ export default function Movies({genreid}) {
         <div className="movies">
 
             {movies.map((movie) => (
-                <div key={movie.id}>
-                    {/* {movie.title} */}
-                    <img
-                    className="movie"
-                        width="200px"
-                        height="200px"
-                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                        alt="moviePoster"
-                    />
-                    
-                </div>
+                
+                                        
+      <MovieCard genreid={genreid} movie={movie} />
+    
+                
             ))}
-{/* <a className="leftSlider">left</a>
-                    <a className="rightSlider">right</a> */}
+
         </div>
     )
 }

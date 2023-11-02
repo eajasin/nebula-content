@@ -47,13 +47,39 @@ html {
     margin-right: 10px;
     border-radius: 5px;
     cursor: pointer;
-    transition: transform 0.2s
+    transition: transform 0.2s;
+    width: 200px;
+    height: 200px
     
     
 }
 
 .movie:hover {
     transform: scale(1.5);
+    
+}
+
+.hoveredMovie{
+    width: 400px;
+    height: 200px;
+    transition: transform 0.2s;
+   
+    
+    
+}
+
+.hoverOverview {
+    position: absolute;
+    background: black;
+}
+
+.hoveredMovie:hover {
+    
+    transform: scale(1);
+}
+
+.hoveredMovieContents {
+    position: relative;
     
 }
 
