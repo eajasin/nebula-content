@@ -1,9 +1,17 @@
 import React, { useState } from "react";
+import Modal from "./Modal";
+import { Link } from "react-router-dom";
 
 export default function MovieCard({ genreid, movie }) {
   const [hoveredMovie, setHoveredMovie] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
- 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
 
@@ -16,24 +24,31 @@ export default function MovieCard({ genreid, movie }) {
 
       {hoveredMovie === movie ? (
         <div className="hoveredMovieContents">
-          <img
+         <Link to={`/movie/${movie.id}`}> 
+            <img
             className="hoveredMovie"
             alt="moviePoster"
             src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
           />
-          <div className="hoverOverview">
+       </Link>
           
-          {/* <p>{movie.overview}</p> */}
+          <div>
+         
           <button className="heroButton">Play</button>
-          <button className="heroButton">More Info</button>
+          <button className="heroButton" onClick={openModal}>More Info</button> 
+        
           <button className="heroButton">Add to List</button>
           <button className="heroButton">Thumbs Up/Down</button>
           <button className="heroButton">Movie Rating</button>
           <button className="heroButton">Categories</button>
           <button className="heroButton">Number of Seasons</button>
-          </div>
+       </div>
+          {/* </div> */}
         </div>
       ) : (
+        <div
+      key={movie.id}
+      className="movieContainer">
         <div className="movieContents">
 
           <img
@@ -42,11 +57,12 @@ export default function MovieCard({ genreid, movie }) {
             alt="moviePoster"
           />
         </div>
-      )
+        </div>
+      )}
 
-
-      }
-
+        {isModalOpen && (
+          <Modal movie={movie} closeModal={closeModal} />
+        )}
     </div>
 
 

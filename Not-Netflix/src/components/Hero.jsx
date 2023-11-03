@@ -30,9 +30,6 @@ export default function Hero() {
 
     }, [])
 
-    //maybe randomize the display popular movie
-
-
     function truncateOverview(string, numOfChars) {
         return string?.length > numOfChars ? string.substring(0, numOfChars - 1) + "..." : string
     }
@@ -56,18 +53,10 @@ export default function Hero() {
                         <button className="heroButton">More Info</button>
 
                     </div>
-                    {/* <button onClick={() => {
-                    console.log(popularMovie, "1")
-                   }}>Test</button>   */}
+                   
                 </div>
                 <div className="heroFade" />
 
-
-                {/* <div> */}
-                {/* className="hero" */}
-                {/* src={`https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path}`} */}
-                {/* alt="moviePoster" */}
-                {/* </div> */}
             </div>
 
 

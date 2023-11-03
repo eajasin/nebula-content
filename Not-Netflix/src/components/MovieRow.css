@@ -76,11 +76,17 @@ html {
 .hoverOverview {
     position: absolute;
     background: black;
+    transform: scale(120%);
+    border-radius: 10px;
+    top: linear-gradient( 180deg, transparent, rgba(37, 37, 37, 0.61), #111 );
 }
 
 .hoveredMovie:hover {
     
-    transform: scale(1);
+    transform: scale(115%);
+    transform: translate3d();
+    border-radius: 10px;
+   
 }
 
 .movieContainter {
@@ -88,9 +94,8 @@ html {
 }
 
 .hoveredMovieContents {
-    position: absolute;
-    z-index: 1;
-    top: 0;
+    position: relative;
+    
    
    
     

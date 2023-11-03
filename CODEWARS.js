@@ -2831,3 +2831,27 @@ The Hashtag Generator (5)
 //   [1, 1, 1] ],  [ [2, 2, 1],
 //   [3, 2, 3],
 //   [1, 1, 3] ] ))
+
+//Good vs. Evil (6)
+
+// function goodVsEvil(good, evil){
+
+// }
+
+// Meeting (6)
+
+// function meeting(s) {
+    
+//   let names = s.toUpperCase().split(";").map(name => {
+//     let [first, last] = name.split(":")
+//     return `(${last}, ${first})`
+//   })
+  
+// return names.sort().join("")
+  
+
+// }
+
+
+
+

@@ -84,7 +84,7 @@ export default function Movies({genreid}) {
         fetch(fetchURL, options)
             .then((response) => response.json())
             .then((response) => {
-                console.log(response.results, "X")
+                console.log(response.results)
                 setMovies(response.results)
             })
             .catch((err) => console.log(err))
@@ -95,11 +95,9 @@ export default function Movies({genreid}) {
         <div className="movies">
 
             {movies.map((movie) => (
-                
-                                        
-      <MovieCard genreid={genreid} movie={movie} />
+                              
+            <MovieCard genreid={genreid} movie={movie} />
     
-                
             ))}
 
         </div>
