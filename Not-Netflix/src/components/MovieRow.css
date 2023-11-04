@@ -17,7 +17,7 @@ html {
     font-size: 1.5em;
     color: #e5e5e5;
     scroll-behavior: smooth;
-    border: solid green
+  
     
 
     
@@ -49,6 +49,7 @@ html {
     /* border: 2px solid red; */
     position: relative;
     margin-left: 15px;
+    
    
    
     
@@ -61,7 +62,7 @@ html {
     transition: transform 0.2s;
     width: 200px;
     height: 200px;
-    border: solid yellow;
+    
 
     
 }
@@ -69,23 +70,21 @@ html {
 
 
 .hoveredMovie{
-    width: 400px;
-    height: 200px;
-    transition: transform 0.2s;
-    position: absolute;
-    transform: scale(110%);
-    transform: translate3d();
+    
+    /* transition: transform 0.2s; */
+    /* position: absolute; */
+    /* transform: scale(85%);
+    transform: translate3d(); */
     border-radius: 10px;
     /* position: absolute; */
     height: 300px;
-    width: 400px;
-    
-    /* position: absolute; */
-    
-    height: 400px;
+    width: 425px;
     z-index: 1;
+   
   
 }
+
+
 
 .hoveredMovieButtons {
     
@@ -96,20 +95,70 @@ html {
     padding: 10px;
     box-shadow: 2px 2px 2px black;
     border-radius: 10px;
-    border: solid orange;
+    /* border: solid orange; */
     display: flex;
     flex-direction: row;
     z-index: 2;
-    position: relative;
+    /* position: relative; */
+    width: 405px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+   
+
+
+    
+    
+    
+   
+}
+
+.hoveredMovieButtons > button {
+    border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    cursor: pointer;
+    
+    line-height: 0;
+    letter-spacing: 0!important;
+    box-sizing: inherit;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+
+}
+
+.hoveredPlay {
+    
+  color: black;
+  outline: none;
+
+/*   
+  font-weight: 700; */
+  /* border-radius: 4px; */
+  /* padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem; */
+  background-color: #e6e6e6;
+  /* padding-bottom: 0.5rem; */
+}
+
+.hoveredMovieContainer {
+    
+border: solid purple;
+
    
 }
 
 
-.hoveredMovieContainer {
+.hoveredMovieContents{
+    border: solid 5px red;
+    /* position: absolute; */
     
-
-
-   
+    z-index: 2
+    
 }
 
 .modal {

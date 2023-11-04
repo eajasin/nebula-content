@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import { Link } from "react-router-dom";
+import playButton from "./playButton.svg"
+import moreInfoSvg from "./moreInfoSVG.svg"
+import addToList from "./addToList.svg"
+import likeSvg from "./likeSVG.svg"
 
 export default function MovieCard({ genreid, movie }) {
   const [hoveredMovie, setHoveredMovie] = useState(null);
@@ -14,9 +18,9 @@ export default function MovieCard({ genreid, movie }) {
   };
 
   return (
-   
+
     <div
-      className="hoveredMovieContainer"
+      className="parentMovieContainer"
       key={movie.id}
       onMouseEnter={() => setHoveredMovie(movie)}
       onMouseLeave={() => setHoveredMovie(null)}
@@ -29,35 +33,60 @@ export default function MovieCard({ genreid, movie }) {
               alt="moviePoster"
               src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
             />
-            <div className="movieCardFade"></div>
+           
           </Link>
           <div className="hoveredMovieButtons">
-            <button className="heroButton">Play</button>
-            <button className="heroButton" onClick={openModal}>More Info</button>
-            <button className="heroButton">Add to List</button>
-            <button className="heroButton">Thumbs Up/Down</button>
-            <button className="heroButton">Genre</button>
+
+          <Link to={`/movie/${movie.id}`}>  
+            <button className="hoveredPlay">
+              <img src={playButton}
+                className="playButton"
+                width={25}
+                height={25}
+              />
+            </button>
+          </Link> 
+          
+            <button className="">
+              <img src={addToList}
+              width={25}
+              height={25}
+              />
+              </button>
+            <button className="">
+            <img src={likeSvg}
+              width={25}
+              height={25}
+              />
+             </button>
+             <button className="" onClick={openModal}>
+              <img src={moreInfoSvg}
+              width={25}
+              height={25}
+              />
+              </button>
+            {/* <div>{movie.genre}</div> */}
           </div>
         </div>
       ) : (
         <div key={movie.id} className="movieContainer">
-          <div className="movieContents">
-            <Link to={`/movie/${movie.id}`}>
-              <img
-                className="movie"
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt="moviePoster"
-              />
-            </Link>
-          </div>
+
+          <Link to={`/movie/${movie.id}`}>
+            <img
+              className="movie"
+              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+              alt="moviePoster"
+            />
+          </Link>
+
         </div>
       )}
-     {isModalOpen && (
+      {isModalOpen && (
         <div className="modalUnderlay">
           <Modal movie={movie} closeModal={closeModal} />
         </div>
       )}
     </div>
   );
-  
+
 }
