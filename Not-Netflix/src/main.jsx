@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Movies from './components/Movies';
+// import Movies from './components/Movies';
+import FullMovieList from './components/FullMovieList';
 import Popular from './components/Popular';
 import MoviePage, {loader as movieLoader} from './components/MoviePage';
 import NotFound from './components/NotFound';
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [    
       { index: true, element: <Home /> },
-      { path: "movies", element: <Movies /> },
+      { path: "movies", element: <FullMovieList/> },
       { path: "popular", element: <Popular /> },
       { path: "movie/:id", element: <MoviePage />, loader: movieLoader}
       

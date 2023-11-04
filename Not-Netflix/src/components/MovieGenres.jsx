@@ -35,7 +35,9 @@ const [genre, setGenre] = useState([])
                 <div  key={movieGenre.id}>
                     <div className="genreName">{movieGenre.name}</div>
                     
-                    <div className="movies">  <Movies genreid={movieGenre.id} /> </div>
+                    <div className="movies">  
+                    <Movies genreid={movieGenre.id} /> 
+                    </div>
                   
                 </div>
             ))}

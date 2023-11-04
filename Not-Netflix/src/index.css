@@ -32,11 +32,7 @@
 
  }
 
- /* .moviesContainer {
-    border: solid;
-    width: 100vw;
-    height: 100vh
-  } */
+ 
 
  .heroContents {
    margin-left: 30px;
@@ -69,32 +65,110 @@
     #111
   )
  }
+ .heroButtons {
+ border: solid blue
 
- .heroButton {
+ }
+
+
+
+ .heroButtonPlay{
   cursor: pointer;
-  color: #fff;
+  color: black;
   outline: none;
   border: none;
   font-weight: 700;
-  border-radius: 0.2vw;
+  border-radius: 4px;
   padding-left: 2rem;
   padding-right: 2rem;
   margin-right: 1rem;
   padding-top: 0.5rem;
-  background-color: rgba(51, 51, 51, 0.75);
+  background-color: #e6e6e6;
   padding-bottom: 0.5rem;
+  
+  
+  
+  
+  
 
  }
 
- .heroButton:hover {
+ .heroButtonPlay > * {
+  display: flex;
+  
+  
+ }
+
+ .playButton {
+ 
+ }
+
+
+ .playButtonText {
+
+
+ }
+
+ .heroButtonMoreInfo{
+  cursor: pointer;
+  color: black;
+  outline: none;
+  border: none;
+  font-weight: 700;
+  border-radius: 4px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  background-color: #e6e6e6;
+  padding-bottom: 0.5rem;
+ 
+ }
+
+
+ .heroButton:hover{
   color: #000;
   background-color: #e6e6e6;
   transition:  all 0.2s;
+  
 
  }
+
+ 
 
 
 
  .notFound {
   background: red
+ }
+
+ .moviePageContents {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  
+
+
+ }
+
+ .trailerTitle {
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .45);
+  border: 3px white solid;
+  padding: 10px;
+  margin-bottom: 20px;
+ }
+
+ .youtubeTrailer {
+  height: 800px;
+  width: 1500px;
+  border-radius: 10px;
+
+  
+  
  }

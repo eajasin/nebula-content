@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import './Popular.css'
+import playButton from "./playButton.svg"
+import moreInfoButton from "./moreInfoButton.svg"
 
 
 
@@ -44,16 +46,31 @@ export default function Hero() {
             }}>
 
                 <div className="heroContents">
+                    
                     <h1 className="heroTitle">{popularMovie.title}</h1>
+                    <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
+
                     <div className="heroButtons">
+                        <button className="heroButtonPlay" >
+                            <img src={playButton}
+                                className="playButton"
+                                width={25}
+                                height={25}
+                            />
+                            <div className="playButtonText">Play</div>
+                        </button>
 
+                        <button className="heroButtonMoreInfo">
 
-                        <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
-                        <button className="heroButton">Play</button>
-                        <button className="heroButton">More Info</button>
+                            <img src={moreInfoButton}
+                                width={25}
+                                height={25}
+                            />
+                            <div className="playButtonText">More Info</div>
+                        </button>
 
                     </div>
-                   
+
                 </div>
                 <div className="heroFade" />
 

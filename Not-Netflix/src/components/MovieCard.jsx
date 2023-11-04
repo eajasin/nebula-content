@@ -14,57 +14,50 @@ export default function MovieCard({ genreid, movie }) {
   };
 
   return (
-
+   
     <div
+      className="hoveredMovieContainer"
       key={movie.id}
-      className="movieContainer"
       onMouseEnter={() => setHoveredMovie(movie)}
       onMouseLeave={() => setHoveredMovie(null)}
     >
-
       {hoveredMovie === movie ? (
         <div className="hoveredMovieContents">
-         <Link to={`/movie/${movie.id}`}> 
+          <Link to={`/movie/${movie.id}`}>
             <img
-            className="hoveredMovie"
-            alt="moviePoster"
-            src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-          />
-       </Link>
-          
-          <div>
-         
-          <button className="heroButton">Play</button>
-          <button className="heroButton" onClick={openModal}>More Info</button> 
-        
-          <button className="heroButton">Add to List</button>
-          <button className="heroButton">Thumbs Up/Down</button>
-          <button className="heroButton">Movie Rating</button>
-          <button className="heroButton">Categories</button>
-          <button className="heroButton">Number of Seasons</button>
-       </div>
-          {/* </div> */}
+              className="hoveredMovie"
+              alt="moviePoster"
+              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+            />
+            <div className="movieCardFade"></div>
+          </Link>
+          <div className="hoveredMovieButtons">
+            <button className="heroButton">Play</button>
+            <button className="heroButton" onClick={openModal}>More Info</button>
+            <button className="heroButton">Add to List</button>
+            <button className="heroButton">Thumbs Up/Down</button>
+            <button className="heroButton">Genre</button>
+          </div>
         </div>
       ) : (
-        <div
-      key={movie.id}
-      className="movieContainer">
-        <div className="movieContents">
-
-          <img
-            className="movie"
-            src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-            alt="moviePoster"
-          />
-        </div>
+        <div key={movie.id} className="movieContainer">
+          <div className="movieContents">
+            <Link to={`/movie/${movie.id}`}>
+              <img
+                className="movie"
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt="moviePoster"
+              />
+            </Link>
+          </div>
         </div>
       )}
-
-        {isModalOpen && (
+     {isModalOpen && (
+        <div className="modalUnderlay">
           <Modal movie={movie} closeModal={closeModal} />
-        )}
+        </div>
+      )}
     </div>
-
-
   );
+  
 }
