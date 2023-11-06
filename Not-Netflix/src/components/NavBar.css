@@ -1,22 +1,23 @@
-.netflixLogo{
+.netflixLogo {
     width: 75px;
     height: 25px;
     cursor: pointer;
 }
 
 .navbar {
-    
+
     display: flex;
     justify-content: space-between;
     padding: 10px;
- 
-    
+    background-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+
 
 }
 
-.navbarStyle {
-    background-color: black;
-}
+
 
 
 .navLeft {
@@ -24,25 +25,27 @@
     align-items: center;
     justify-content: space-evenly;
     width: 300px;
-  
-   
+
+
 }
 
 .navRight {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 200px;
-    
+    justify-content: flex-end;
+    width: 300px;
 
-  
-   
+
+
+
 }
 
 .avatar {
     width: 30px;
     height: 30px;
     border-radius: 5px;
+    margin-left: 25px;
+    
 }
 
 a {
@@ -52,4 +55,94 @@ a {
 
 .search {
     color: white
+}
+
+
+.searchBoxContainer {
+    display: flex;
+    border: 1px solid hsla(0, 0%, 100%, .85);
+    align-items: center;
+    background: rgba(0, 0, 0, .75);
+    padding-left: 5px;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    
+    
+    
+
+}
+
+.searchTextBox {
+    opacity: 1;
+    transition-duration: 300ms;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 14px;
+    outline: none;
+    height: 25px;
+    line-height: 34px;
+color: #fff;
+    padding: 7px 14px 7px 7px;
+    width: 212px;
+    font-family: Arial, Helvetica, sans-serif;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+
+
+}
+
+.searchBoxClose {
+    color: #fff;
+    padding-right: 5px;
+}
+
+.searchedMovieContainer {
+
+    width: 400px;
+
+    margin-left: 93.6rem;
+  opacity: 1;
+  background-color: inherit;
+  box-sizing: border-box;
+  border: 1px solid hsla(0,0%,100%, .15);
+  color: #fff;
+  cursor: default;
+  
+
+
+
+
+
+
+
+}
+
+.searchedMovieRow {
+    display: flex;
+
+    align-items: center;
+    border: 1px solid hsla(0,0%,100%, .15);
+    
+    
+}
+
+.searchedMovieRow:hover {
+background: black;
+}
+
+.searchedMovie {
+    width: 100px;
+    height: 100px;
+    padding: 15px;
+    border-radius: 20px;
+    /* border: solid orange; */
+
+}
+
+.searchMovieText {
+    color: white;
+    line-height: 1.2;
+    cursor: pointer;
 }

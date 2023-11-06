@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import './Popular.css'
-import Hero from "./Hero";
+
 
 
 export default function Popular(){

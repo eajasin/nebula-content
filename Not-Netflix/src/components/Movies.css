@@ -1,0 +1,512 @@
+/* .movieRow {
+    
+} */
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #141414;
+    scroll-behavior: smooth;
+}
+
+.movieRow {
+    
+    width: 100vw;
+    margin: 10px;
+    font-size: 1.5em;
+    color: #e5e5e5;
+    scroll-behavior: smooth;
+  
+    
+
+    
+    
+}
+
+.genreName {
+
+    line-height: 1.25vw;
+    font-size: 0.9vw;
+    vertical-align: bottom;
+    display: table-cell;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    color: #fff;
+    padding-left: 30px;
+    padding-bottom: 5px;
+   
+
+}
+
+.movies {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    /* overflow: visible; */
+    margin-bottom: 17px;
+    /* border: 2px solid red; */
+    position: relative;
+    margin-left: 15px;
+  
+}
+
+.scroll-container {
+    border: 1px solid #ccc; /* Remove or adjust this border */
+    
+  }
+  
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(183, 3, 3);
+    border-radius: 5px; 
+    
+  }
+  
+  
+  ::-webkit-scrollbar-thumb:hover {
+    border: black;
+    background-color: rgb(183, 3, 3);
+  }
+  
+
+.movie {
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px
+    
+
+    
+}
+
+
+
+.hoveredMovie{
+    
+    /* transition: transform 0.2s; */
+    /* position: absolute; */
+    /* transform: scale(85%);
+    transform: translate3d(); */
+    border-radius: 10px 10px 0 0;
+    /* position: absolute; */
+    height: 325px;
+    width: 425px;
+    
+    box-shadow: 2px 2px 2px black;
+    
+
+   
+  
+}
+
+
+
+.hoveredMovieButtonsContainer {
+
+   
+    min-height: 2em;
+    position: relative;
+    z-index: 0;
+   
+    
+    
+    
+    top: linear-gradient( 180deg, transparent, rgba(37, 37, 37, 0.61), #111 );
+    height: 90px;
+    background-color: #141414;
+    padding: 10px;
+    box-shadow: 2px 2px 2px black;
+    border-radius: 0 0 10px 10px;
+
+    justify-content: center;
+    margin-top: -75px;
+
+
+   
+  
+  
+    
+}
+
+.hoveredList{
+   
+    border-radius: 50%;
+    background-color:  rgba(255, 255, 255, 0.7);
+    border: none;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+
+
+    /* border-radius: 100px;
+    cursor: pointer;
+    border: none;
+    cursor: pointer;
+    
+    line-height: 0;
+    letter-spacing: 0!important;
+    box-sizing: inherit;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+    border: solid red 10px */
+
+
+}
+
+
+
+
+.hoveredList:hover {
+    background-color: white;
+}
+
+.hoveredPlay {
+    
+    border-radius: 4px;
+    background-color:  rgba(255, 255, 255, 0.7);
+    border: none;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px
+ 
+}
+
+.hoveredPlay:hover {
+    background-color: white;
+}
+
+.hoveredLike {
+    border-radius: 50%;
+    background-color:  rgba(255, 255, 255, 0.7);
+    border: none;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    margin-right: 150px;
+    position: relative;
+}
+.hoveredLike:hover {
+    background-color: white;
+}
+
+.hoveredMore {
+    border-radius: 50%;
+    background-color:  rgba(255, 255, 255, 0.7);
+    border: none;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    margin-left: 31px;
+    position: relative;
+}
+
+.hoveredMore:hover {
+    background-color: white;
+    
+
+}
+
+
+
+.hoveredLike:hover .tooltip {
+    display: block;
+   
+   
+    
+}
+
+.hoveredMore:hover .tooltip {
+    display: block;
+    
+    
+}
+
+.hoveredList:hover .tooltip {
+
+    display: block;
+    
+}
+
+
+
+.tooltip {
+
+    display: none;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.3rem 1rem;
+    font-weight: 500;
+    background-color: rgb(230, 230, 230);
+    border-radius: .3rem;
+    box-shadow: (0, 0, 0, 0.75) 0px 3px 1rem;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1.4rem;
+    color: rgb(24,24,24);
+    width: 75px
+  
+
+
+  }
+
+/* .parentMovieContainer {
+    
+border: solid purple;
+
+   
+} */
+
+
+.hoveredMovieContents{
+    
+    /* position: absolute; */
+    
+    z-index: -1;
+    background-color: #181818;
+   
+    display: flex;
+    flex-direction: column;
+    
+    
+   
+    
+}
+
+.hoveredMovieOtherContents {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    cursor:default;
+    
+   
+}
+
+.hoveredMovieOtherContents > *:nth-child(n) {
+    color: #bcbcbc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+.hoveredMovieOtherContents > *:nth-child(1) {
+    /* Your styles for all direct children of .hoveredMovieOtherContents */
+    color: green
+  }
+
+  .hoveredMovieOtherContents > *:nth-child(3) {
+    /* Your styles for all direct children of .hoveredMovieOtherContents */
+    border: .5px solid #bcbcbc;
+    padding: 2px;
+    font-size: 12px;
+  }
+
+.modalMovie {
+    width: 100%;
+    height: 600px;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal {
+    border: 10px solid purple;
+    position: fixed; 
+    /* do this with navbar */
+    top: 50%;
+    left: 50%;
+    
+    width: 50%;
+    height: 85%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.modalContents {
+  
+   display: flex;
+   margin-top: -80px;
+   z-index: 10;
+ 
+}
+
+
+.modalUnderlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1
+  }
+
+
+  .modalButtonsContainer {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+   
+    height: 80px;
+    top: -60px
+    
+  }
+
+.modalPlay {
+    background-color: white;
+    color: black;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border-radius: 4px;
+    display: flex;
+  justify-content: space-around;
+    align-items: center;
+    opacity: 1;
+    padding: 0.8rem;
+   
+    position: relative;
+    text-transform: none;
+    border: none;
+    
+    cursor: pointer;
+    
+   
+}
+.modalPlayText {
+    font-weight: 700;
+
+   }
+
+.modalPlay:hover {
+   
+        color: #000;
+        background-color: #e6e6e6;
+        transition: all 0.2s;
+     
+     
+      
+}
+
+.modalList {
+    border-radius: 50%;
+    background-color:  rgba(109, 109, 110, 0.7);
+    border: solid black;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    
+}
+
+.modalList:hover {
+    background-color: white;
+}
+
+.modalList:hover .tooltip {
+    display: block;
+   
+   
+    
+}
+
+.modalLike {
+    border-radius: 50%;
+    background-color: rgba(109, 109, 110, 0.7);
+    border: solid black;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    height: 45px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+}
+
+.modalLike:hover {
+    background-color: white;
+}
+
+.modalLike:hover .tooltip {
+    display: block;
+   
+   
+    
+}
+
+.closeButton {
+   
+        border-radius: 50%;
+        background-color: rgba(109, 109, 110, 0.7);
+        border: none;
+        bottom: -50px;
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        height: 45px;
+        color: white;
+        cursor: pointer;
+        margin-right: 10px;
+        position: relative;
+        text-align: left;
+    }
+    
+    .closeButton:hover {
+        background-color: white;
+        color: black
+    }
+
+
+  /* .modalFade {
+    height: 20rem;
+   
+   background-image: linear-gradient(180deg,
+       transparent,
+       rgba(37, 37, 37, 0.61),
+       #111);
+       margin-top: -10px;
+ } */
+
+ .modalOtherContents {
+    /* border: red solid; */
+    height: 280px;
+    background: #141414;
+    color:white;
+    margin-top: -5px;
+}
+  

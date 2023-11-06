@@ -6,11 +6,13 @@ import moreInfoSvg from "./moreInfoSVG.svg"
 import addToList from "./addToList.svg"
 import likeSvg from "./likeSVG.svg"
 
-export default function MovieCard({ genreid, movie }) {
+export default function MovieCard({ movie }) {
   const [hoveredMovie, setHoveredMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
   const openModal = () => {
     setIsModalOpen(true);
+  
   };
 
   const closeModal = () => {
@@ -31,41 +33,58 @@ export default function MovieCard({ genreid, movie }) {
             <img
               className="hoveredMovie"
               alt="moviePoster"
-              src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             />
-           
-          </Link>
-          <div className="hoveredMovieButtons">
 
-          <Link to={`/movie/${movie.id}`}>  
-            <button className="hoveredPlay">
-              <img src={playButton}
-                className="playButton"
+          </Link>
+          <div className="hoveredMovieButtonsContainer">
+
+            <Link to={`/movie/${movie.id}`}>
+              <button className="hoveredPlay">
+                <img src={playButton}
+                  className="playButton"
+                  width={25}
+                  height={25}
+                />
+              </button>
+             
+            </Link>
+
+            <button className="hoveredList">
+              <img src={addToList}
                 width={25}
                 height={25}
               />
+               <span className="tooltip">Add to My List</span>
             </button>
-          </Link> 
-          
-            <button className="">
-              <img src={addToList}
-              width={25}
-              height={25}
+
+            <button className="hoveredLike">
+              <img src={likeSvg}
+                width={25}
+                height={25}
               />
-              </button>
-            <button className="">
-            <img src={likeSvg}
-              width={25}
-              height={25}
-              />
-             </button>
-             <button className="" onClick={openModal}>
+              <span className="tooltip">I Like This</span>
+            </button>
+           
+            
+            <button className="hoveredMore" onClick={openModal} >
               <img src={moreInfoSvg}
-              width={25}
-              height={25}
+                width={25}
+                height={25}
               />
-              </button>
+              <span className="tooltip">More Info</span>
+            </button>
+            
             {/* <div>{movie.genre}</div> */}
+
+
+            <div className="hoveredMovieOtherContents">
+              <div>{movie.popularity} Popularity</div>
+              <div> Vote Average: {movie.vote_average} </div>
+              <div>HD</div>
+
+
+            </div>
           </div>
         </div>
       ) : (
@@ -83,7 +102,7 @@ export default function MovieCard({ genreid, movie }) {
       )}
       {isModalOpen && (
         <div className="modalUnderlay">
-          <Modal movie={movie} closeModal={closeModal} />
+          <Modal movie={movie} closeModal={closeModal}  />
         </div>
       )}
     </div>

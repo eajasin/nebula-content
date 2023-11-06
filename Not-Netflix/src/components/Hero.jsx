@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+// import { Link } from "react-router-dom";
 import './Popular.css'
 import playButton from "./playButton.svg"
 import moreInfoButton from "./moreInfoButton.svg"
+
 
 
 
@@ -46,26 +48,32 @@ export default function Hero() {
             }}>
 
                 <div className="heroContents">
-                    
-                    <h1 className="heroTitle">{popularMovie.title}</h1>
-                    <div className="heroOverview">{truncateOverview(popularMovie.overview, 175)}</div>
 
-                    <div className="heroButtons">
-                        <button className="heroButtonPlay" >
-                            <img src={playButton}
-                                className="playButton"
-                                width={25}
-                                height={25}
-                            />
-                            <div className="playButtonText">Play</div>
-                        </button>
+                    <div className="heroTitle">{popularMovie.title}</div>
+                    <div className="heroOverview">{truncateOverview(popularMovie.overview, 245)}</div>
+
+                    <div className="heroButtonsContainer">
+
+                        {/* <Link to={`/movie/${movie.id}`}> */}
+                            <button className="heroButtonPlay" >
+                                <img src={playButton}
+                                    className="playButton"
+                                    width={25}
+                                    height={25}
+                                />
+
+                                <div className="playButtonText">Play</div>
+                            </button>
+                        {/* </Link> */}
 
                         <button className="heroButtonMoreInfo">
 
                             <img src={moreInfoButton}
                                 width={25}
                                 height={25}
+
                             />
+
                             <div className="playButtonText">More Info</div>
                         </button>
 

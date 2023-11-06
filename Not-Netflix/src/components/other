@@ -1,0 +1,12 @@
+ // function fadeNavbar() {
+    //     if (window.scrollY > 100) {
+    //         handleShow(true)
+    //     } else {
+    //         handleShow(false)
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     window.addEventListener("scroll", fadeNavbar)
+    //     return () => window.removeEventListener("scroll", fadeNavbar)
+    // }, [])

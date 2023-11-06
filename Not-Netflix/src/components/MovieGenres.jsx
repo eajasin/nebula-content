@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import Movies from "./Movies.jsx";
-import './MovieRow.css'
+import './Movies.css'
 
 
 const fetchURL = 'https://api.themoviedb.org/3/genre/movie/list?language=en'
@@ -30,7 +30,7 @@ const [genre, setGenre] = useState([])
 
     return (
     <div>
-        <div className="movieRow">
+        <div className="movieBlock">
             {genre.map((movieGenre) => (
                 <div  key={movieGenre.id}>
                     <div className="genreName">{movieGenre.name}</div>
