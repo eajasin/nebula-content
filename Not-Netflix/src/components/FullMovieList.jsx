@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import MovieGenres from "./MovieGenres";
 
-export default function FullMovieList({genreid}){
-    
+import "./Popular.css"
+
+export default function FullMovieList(){
      
     const fetchURL = 'https://api.themoviedb.org/3/search/movie?query=co&include_adult=false&language=en-US&page=1'
 
@@ -29,10 +30,11 @@ export default function FullMovieList({genreid}){
     }, [])
 
     return (
-        <div>
+        <div className="fullMovies">
 
             {allMovies.map((allMovie) => (
                 <div key={allMovie.id}>
+                   
                                         <img
                     className="movie"
                         width="200px"
@@ -40,7 +42,7 @@ export default function FullMovieList({genreid}){
                         src={`https://image.tmdb.org/t/p/original/${allMovie.poster_path}`}
                         alt="moviePoster"
                     />
-                     
+              
                 </div>
             ))}
             

@@ -35,7 +35,8 @@ export default function Popular(){
 
             {popMovies.map((popularMovie) => (
                 <div key={popularMovie.id}>
-                                        <img
+                    
+                    <img
                     className="movie"
                         width="200px"
                         height="200px"

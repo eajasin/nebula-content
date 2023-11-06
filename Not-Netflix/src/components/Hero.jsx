@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './Popular.css'
 import playButton from "./playButton.svg"
 import moreInfoButton from "./moreInfoButton.svg"
@@ -7,7 +7,9 @@ import moreInfoButton from "./moreInfoButton.svg"
 
 
 
-export default function Hero() {
+export default function Hero({movie, openModal}) {
+
+    
 
     const fetchURL = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1'
 
@@ -44,7 +46,7 @@ export default function Hero() {
             <div className="heroImage" key={popularMovie.id} style={{
                 backgroundSize: "cover",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${popularMovie.backdrop_path}")`,
-                backgroundPosition: "center center"
+                
             }}>
 
                 <div className="heroContents">
@@ -66,7 +68,7 @@ export default function Hero() {
                             </button>
                         {/* </Link> */}
 
-                        <button className="heroButtonMoreInfo">
+                        <button className="heroButtonMoreInfo" onclick={openModal}>
 
                             <img src={moreInfoButton}
                                 width={25}

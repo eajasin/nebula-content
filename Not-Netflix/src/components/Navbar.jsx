@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className={show ? "navbar" : ""}>
             <nav className="navbar">
                 <div className="navLeft">
-                    <img className="netflixLogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png" />
+                <Link to="/"> <img className="netflixLogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png" /></Link>
 
                     <Link to="/">Home</Link>
 
