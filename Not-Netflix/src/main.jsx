@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-// import Movies from './components/Movies';
 import FullMovieList from './components/FullMovieList';
 import Popular from './components/Popular';
 import MoviePage, {loader as movieLoader} from './components/MoviePage';

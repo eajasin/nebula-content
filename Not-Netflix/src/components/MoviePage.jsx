@@ -1,6 +1,9 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 export async function loader({ params }) {
+ 
+ 
+ 
   console.log(params.id)
   const options = {
     method: 'GET',
@@ -36,6 +39,7 @@ export async function loader({ params }) {
 }
 
 export default function MoviePage() {
+  
   const { movie, movieTrailer } = useLoaderData()
 
   return (

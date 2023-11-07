@@ -5,7 +5,9 @@ import "./Popular.css"
 
 export default function FullMovieList(){
      
-    const fetchURL = 'https://api.themoviedb.org/3/search/movie?query=co&include_adult=false&language=en-US&page=1'
+    const fetchURL = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
+
+
 
 
     const [allMovies, setAllMovies] = useState([])

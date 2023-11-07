@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 import "./NavBar.css"
 
 export default function Navbar() {
-    // console.log(movie, "resul")
+    // console.log(movie, "resulT")
 
     const [showTextBox, setShowTextBox] = useState(false);
     const [showSearchedMovieContainer, setShowSearchedMovieContainer] = useState(false);
@@ -136,7 +136,7 @@ export default function Navbar() {
 
                                 src={`https://image.tmdb.org/t/p/original/${result.poster_path}`}
                             />
-                            <div className="searchMovieText">MovieName</div>
+                            <div className="searchMovieText">[MOVIE NAME]</div>
 
 
                         </div>

@@ -7,7 +7,7 @@ import moreInfoButton from "./moreInfoButton.svg"
 
 
 
-export default function Hero({movie, openModal}) {
+export default function Hero() {
 
     
 
@@ -30,7 +30,7 @@ export default function Hero({movie, openModal}) {
             .then((response) => response.json())
             .then((response) => {
                 console.log(response.results[14])
-                setPopularMovie(response.results[14])
+                setPopularMovie(response.results[13])
             })
             .catch((err) => console.log(err))
 
@@ -52,7 +52,7 @@ export default function Hero({movie, openModal}) {
                 <div className="heroContents">
 
                     <div className="heroTitle">{popularMovie.title}</div>
-                    <div className="heroOverview">{truncateOverview(popularMovie.overview, 245)}</div>
+                    <div className="heroOverview">{truncateOverview(popularMovie.overview, 122)}</div>
 
                     <div className="heroButtonsContainer">
 
@@ -68,7 +68,8 @@ export default function Hero({movie, openModal}) {
                             </button>
                         {/* </Link> */}
 
-                        <button className="heroButtonMoreInfo" onclick={openModal}>
+                        <button className="heroButtonMoreInfo" >
+                        {/* onclick={openModal} */}
 
                             <img src={moreInfoButton}
                                 width={25}

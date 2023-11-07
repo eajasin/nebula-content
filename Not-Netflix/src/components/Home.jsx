@@ -5,10 +5,9 @@ import Hero from './Hero.jsx'
 
 
 
-function Home({genre, popMovies}) {
 
-   
-        return (
+function Home({genre}) {
+return (
             <div>
                <Hero />
                 <MovieGenres genre={genre} />
