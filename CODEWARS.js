@@ -2702,7 +2702,7 @@ The Hashtag Generator (5)
 
 //     let s1String = s1.reduce((sum, string) => sum + string.charCodeAt(0), 0)
 //     let s2String = s2.reduce((sum, string) => sum + string.charCodeAt(0), 0)
-    
+
 
 //     return s1String === s2String
 
@@ -2715,7 +2715,7 @@ The Hashtag Generator (5)
 //Find the missing term in an Arithmetic Progression (6)
 
 // var findMissing = function (list) { 
-    
+
 //     for(let i = 0; i < list.length - 1; i++){
 //       let currentIndex = list[i]
 //       let nextIndex = list[i + 1]
@@ -2725,13 +2725,13 @@ The Hashtag Generator (5)
 //             return previousIndex + difference
 //         }
 //     }
- 
+
 //     return null
 //   }
 
 //   console.log(findMissing([1,3,5,9,11]))
 
-  //NOT DONE
+//NOT DONE
 
 //Triple trouble (6)
 
@@ -2813,7 +2813,7 @@ The Hashtag Generator (5)
 //Matrix Addition (6)
 
 // function matrixAddition(a, b){
-  
+
 //   let result = []
 
 //   for(let i = 0; i < a.length; i++){
@@ -2841,22 +2841,72 @@ The Hashtag Generator (5)
 // Meeting (6)
 
 // function meeting(s) {
-    
+
 //   let names = s.toUpperCase().split(";").map(name => {
 //     let [first, last] = name.split(":")
 //     return `(${last}, ${first})`
 //   })
-  
+
 // return names.sort().join("")
+
+
+// }
+
+//What century is it? (6)
+
+// let y = 300
+
+// function whatCentury(year) {
+
+//   let century = Math.floor(year / 100)
+
+//   console.log(century, "century")
+
+//   let suffixes = ['th', 'st', 'nd', 'rd']
+
+//   let suffix
+
+//   if (century >= 10 && century <= 20) {
+//     suffix = 'th'
+//   } else {
+//     let lastNum = century % 10
+//     suffix = suffixes[lastNum] || 'th'
+//   }
+
+//   return `${century}${suffix}`
+// }
+
+// console.log(whatCentury(y))
+
+
+//Simple #79: Delete a Digit (6)
+
+
+let num = 152
+
+function deleteDigit(n) {
   
+  nAsString = n.toString()
+  let maxNum = 0
+  
+   for(i = 0; i < nAsString.length; i++){
+      let remainingNums = (nAsString.slice(0, i)) + (nAsString.slice(i + 1))
 
-// }
+      console.log(remainingNums)
+      let newNum = parseInt(remainingNums)
+      
 
+      
+      if (newNum > maxNum){
+        maxNum = newNum
+      }
+   }
 
-// function neutralise(s1, s2) {
-//   // Here be dragons!
-//   return "";
-// }
+  return maxNum
+
+}
+
+console.log(deleteDigit(num))
 
 
 
