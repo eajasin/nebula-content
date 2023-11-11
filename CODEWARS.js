@@ -2853,5 +2853,11 @@ The Hashtag Generator (5)
 // }
 
 
+// function neutralise(s1, s2) {
+//   // Here be dragons!
+//   return "";
+// }
+
+
 
 
