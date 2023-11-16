@@ -2882,32 +2882,120 @@ The Hashtag Generator (5)
 //Simple #79: Delete a Digit (6)
 
 
-let num = 152
+// let num = 152
 
-function deleteDigit(n) {
+// function deleteDigit(n) {
   
-  nAsString = n.toString()
-  let maxNum = 0
+//   nAsString = n.toString()
+//   let maxNum = 0
   
-   for(i = 0; i < nAsString.length; i++){
-      let remainingNums = (nAsString.slice(0, i)) + (nAsString.slice(i + 1))
+//    for(i = 0; i < nAsString.length; i++){
+//       let remainingNums = (nAsString.slice(0, i)) + (nAsString.slice(i + 1))
 
-      console.log(remainingNums)
-      let newNum = parseInt(remainingNums)
+//       console.log(remainingNums)
+//       let newNum = parseInt(remainingNums)
       
 
       
-      if (newNum > maxNum){
-        maxNum = newNum
-      }
-   }
+//       if (newNum > maxNum){
+//         maxNum = newNum
+//       }
+//    }
 
-  return maxNum
+//   return maxNum
 
-}
+// }
 
-console.log(deleteDigit(num))
-
-
+// console.log(deleteDigit(num))
 
 
+// Bumps in the Road (7)
+
+// function bump(x){
+
+//   let count = 0
+
+// for(i = 0; i < x.length; i++){
+//  if(x[i] === 'n'){
+//   count++
+//  }
+// }
+
+// if(count <= 15){
+//   return 'Woohoo!'
+// } else {
+//   return 'Car Dead'
+// }
+// }
+
+// console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"))
+
+//let string = "Reverse this string, please!"
+
+// function reverse(str){
+  
+//   let arr = str.split(" ")
+
+//   for (let i = 1; i < arr.length; i += 2) {
+//     arr[i] = wordsArray[i].split("").arr().join('')
+//   }
+
+//   let reversed = wordsArray.join(" ")
+
+//   return reversed
+// }
+
+// // Example usage:
+// const inputString = "Hello world, how are you?";
+// const result = reverseEveryOtherWord(inputString);
+
+// console.log(result);
+
+// console.log(reverse(string))
+
+// Josephus Permutation (5)
+
+// function josephus(items, k){
+
+//   let i = 0
+//   let jPerm = []
+
+//   while(items.length > 0){
+    
+//     i = (i + k - 1) % items.length
+
+//     jPerm.push(items.splice(i, 1)[0])
+
+//     console.log(jPerm)
+//   }
+
+// return jPerm
+
+// }
+
+// console.log(josephus([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2))
+
+
+// String Transformer (6)
+
+// let string = 'Example Input'
+
+// function stringTransformer(str) {
+
+//   str = str.split("")
+  
+//   let newString = str.map(letter => {
+    
+//     if(letter === letter.toUpperCase()){
+//       return letter.toLowerCase()
+//     } else {
+//       return letter.toUpperCase()
+//     }
+//   }
+//   )
+
+//   return newString.join('').split(' ').reverse().join(' ')
+
+// }
+
+// console.log(stringTransformer(string))
