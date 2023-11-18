@@ -2999,3 +2999,103 @@ The Hashtag Generator (5)
 // }
 
 // console.log(stringTransformer(string))
+
+//Valid Braces (6)
+
+// function validBraces(braces){
+ 
+//   let openings = {'(': ')','[': ']','{': '}'}
+
+//   let closings = {')': '(', ']': '[', '}': '{'}
+
+//   let bracesArr = []
+
+//   for(let i = 0; i < braces.length; i++){
+//     let currentBrace = braces[i]
+
+//     if(currentBrace in openings){
+//       bracesArr.push(currentBrace)
+//     } else if (currentBrace in closings){
+//       if(bracesArr.length === 0 || openings[bracesArr.pop()] !== closings[currentBrace]){
+//         return false
+//       }
+//     }
+//   }
+
+// return bracesArr.length === 0
+// }
+
+// console.log(validBraces('(){}[]'))
+
+
+//Valid Phone Number (6)
+
+// function validPhoneNumber(phoneNumber){
+ 
+//   phoneNumber = phoneNumber.split('');
+
+//   for (let i = 0; i < phoneNumber.length; i++) {
+//     let num = phoneNumber[i];
+
+//     if (i === 0 && num === '(' || i === 4 && num === ')' || i === 5 && num === ' ' || i === 9 && num === '-') {
+      
+//       } else if (isNaN(parseInt(num))){
+     
+//       return false;
+//     }
+//   }
+//   return true
+// }
+  
+
+
+// console.log(validPhoneNumber('(123) 456-7890'))
+
+//Street Fighter 2 - Character Selection (6)
+
+// function streetFighterSelection(fighters, position, moves){
+
+  // fighters = [
+  //   ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+  //   ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+  // ]
+  //position[0][0]
+
+//   let selectedPlayers = []
+
+//   for(let move of moves){
+
+//       switch(move) {
+//         case 'right': position[1] = (position[1] + 1) % fighters[0].length
+//         break
+//         case 'left': position[1] = (position[1] - 1 + fighters[0].length) % fighters[0].length
+//         break
+//         case 'down': if(position[0]=== 0){
+//           position[0] = 1
+//         }
+//         break
+//         case 'up': if(position[0] === 1){
+//           position[0] = 0
+//         }
+//         break
+//       }
+      
+//     selectedPlayers.push(fighters[position[0]][position[1]])
+//   }
+  
+//   return selectedPlayers
+  
+// }
+//N-th Fibonacci
+
+function nthFibo(n) {
+
+  if (n === 1) {
+    return 0;
+  } else if (n === 2) {
+    return 1;
+  } else {
+    return nthFibo(n - 1) + nthFibo(n - 2);
+  }
+    
+}
