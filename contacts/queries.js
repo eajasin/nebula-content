@@ -22,10 +22,16 @@ const getContacts = (req, res) => {
       try {
        
         const { name, email_address, age } = req.body;
+
+        if(!name || !email_address || !age){
+          return res.json({
+            message: "Invalid Data"
+          })
+        }
         
         pool.query(
             `INSERT INTO people (name, email_address, age) VALUES ($1, $2, $3) RETURNING *;`,
-            [name, email_address, age],
+            [name, email_address, parseInt(age)],
           
             (error, results) => {
                 if (error) {
@@ -105,12 +111,25 @@ const getContacts = (req, res) => {
       })
     };
     
+    function completeUpdate(){
+      fetch(`http://localhost:3030/contacts`, {
+          method: 'PUT',
+          headers:{
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatingContact),
+      })
+      .then(res => res.json())
+      .then(() => getData())
+  }
+
     module.exports = {
       getContacts,
       addContact,
       deleteContact,
       getContact,
       updateContact,
+      completeUpdate,
     };
 
  

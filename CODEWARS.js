@@ -3088,14 +3088,54 @@ The Hashtag Generator (5)
 // }
 //N-th Fibonacci
 
-function nthFibo(n) {
+// function nthFibo(n) {
 
-  if (n === 1) {
-    return 0;
-  } else if (n === 2) {
-    return 1;
-  } else {
-    return nthFibo(n - 1) + nthFibo(n - 2);
-  }
+//   if (n === 1) {
+//     return 0;
+//   } else if (n === 2) {
+//     return 1;
+//   } else {
+//     return nthFibo(n - 1) + nthFibo(n - 2);
+//   }
     
+// }
+
+//Sums of Parts (6)
+
+// let list = [0, 1, 3, 6, 10]
+
+// function partsSums(ls) {
+
+//   let partSum = []
+
+//   let sum = ls.reduce((sum, num) => sum + num, 0)
+
+//   for(let nums of ls){
+//     partSum.push(sum)
+//     sum -= nums
+//   }
+
+//   partSum.push(0)
+
+// return partSum
+
+
+// }
+
+// console.log(partsSums(list))
+
+
+let num = 3
+
+function pyramid(n) {
+  
+   if (n === 0) {
+    return []
+  } else {
+    let subArr = Array(n).fill(1)
+    return pyramid(n - 1).concat([subArr])
+  }
+
 }
+
+console.log(pyramid(num))
