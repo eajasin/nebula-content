@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+
 import './App.css'
+import BookCard from './components/bookCard'
+import CreateBook from './components/createBook'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const[books, setBooks] = useState([])
+
+  useEffect(() => {
+    getBooks();
+  }, []);
+
+  function addBook(newBook) {
+    fetch("http://localhost:3030/books", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newBook),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        newBook.id = res[0].id;
+        setBooks([...books, newBook]);
+      });
+  }
+
+  function getBooks() {
+    fetch("http://localhost:3030/books")
+      .then((res) => res.json())
+      .then((res) => setBooks([...res]));
+  }
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <h1>Books Library</h1>
+      <CreateBook addBook = {addBook}/>
+      {books.map((book) => {
+        return (
+          <BookCard 
+          book = {book}
+          key = {book.id}
+          />
+
+        )
+      })}
+
+    </div>
   )
 }
 
 export default App
+
+
