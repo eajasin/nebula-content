@@ -3125,17 +3125,51 @@ The Hashtag Generator (5)
 // console.log(partsSums(list))
 
 
-let num = 3
+// let num = 3
 
-function pyramid(n) {
+// function pyramid(n) {
   
-   if (n === 0) {
-    return []
-  } else {
-    let subArr = Array(n).fill(1)
-    return pyramid(n - 1).concat([subArr])
-  }
+//    if (n === 0) {
+//     return []
+//   } else {
+//     let subArr = Array(n).fill(1)
+//     return pyramid(n - 1).concat([subArr])
+//   }
 
+// }
+
+// console.log(pyramid(num))
+
+//Write out numbers (5)
+
+function number2words(n){
+
+  let ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+  let tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+  let teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+
+ 
+  if (n >= 999999) {
+    return number2words(Math.floor(n / 100000)) + ' hundred ' + number2words(n % 100000)
+  } else if (n >= 10000) {
+    return number2words(Math.floor(n / 1000)) + ' thousand ' + number2words(n % 1000)
+  } else if (n >= 1000) {
+    const remainder = n % 1000
+    return number2words(Math.floor(n / 1000)) + ' thousand' + (remainder !== 0 ? ' ' + number2words(remainder) : '')
+  } else if (n >= 100) {
+    const remainder = n % 100
+    return number2words(Math.floor(n / 100)) + (remainder !== 0 ? ' hundred ' + number2words(remainder) : ' hundred')
+  } else if (n >= 20) {
+    const remainder = n % 10
+    return tens[Math.floor(n / 10) - 2] + (remainder !== 0 ? '-' + ones[remainder - 1] : '')
+  } else if (n >= 10) {
+    return teens[n % 10]
+  } else if (n > 0) {
+    return ones[n - 1]
+  } else {
+    return "zero"
+  }
+  
 }
 
-console.log(pyramid(num))
+console.log(number2words(888888))

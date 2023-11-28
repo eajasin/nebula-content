@@ -1,1 +1,2 @@
-tems.length
+else {
+    return "zero";

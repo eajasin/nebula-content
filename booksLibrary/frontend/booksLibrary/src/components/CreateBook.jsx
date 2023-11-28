@@ -5,7 +5,7 @@ export default function CreateBook(addBook){
     const [newBook, setNewBook] = useState({
         name: "",
         total_pages: "",
-        have_read: null
+        have_read: ""
     })
 
     function handleOptionChange(e){
@@ -56,8 +56,8 @@ export default function CreateBook(addBook){
             
             <button
             onClick={() => {
-                addBook(newBook)
-                // console.log('clicked')
+                // addBook(newBook)
+                console.log('clicked')
             }}
             >
                 Create Book</button>
