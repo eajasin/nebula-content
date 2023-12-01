@@ -3055,121 +3055,144 @@ The Hashtag Generator (5)
 
 // function streetFighterSelection(fighters, position, moves){
 
-  // fighters = [
-  //   ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
-  //   ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
-  // ]
-  //position[0][0]
+//   // fighters = [
+//   //   ["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+//   //   ["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+//   // ]
+//   //position[0][0]
 
-//   let selectedPlayers = []
+// //   let selectedPlayers = []
 
-//   for(let move of moves){
+// //   for(let move of moves){
 
-//       switch(move) {
-//         case 'right': position[1] = (position[1] + 1) % fighters[0].length
-//         break
-//         case 'left': position[1] = (position[1] - 1 + fighters[0].length) % fighters[0].length
-//         break
-//         case 'down': if(position[0]=== 0){
-//           position[0] = 1
-//         }
-//         break
-//         case 'up': if(position[0] === 1){
-//           position[0] = 0
-//         }
-//         break
-//       }
+// //       switch(move) {
+// //         case 'right': position[1] = (position[1] + 1) % fighters[0].length
+// //         break
+// //         case 'left': position[1] = (position[1] - 1 + fighters[0].length) % fighters[0].length
+// //         break
+// //         case 'down': if(position[0]=== 0){
+// //           position[0] = 1
+// //         }
+// //         break
+// //         case 'up': if(position[0] === 1){
+// //           position[0] = 0
+// //         }
+// //         break
+// //       }
       
-//     selectedPlayers.push(fighters[position[0]][position[1]])
-//   }
+// //     selectedPlayers.push(fighters[position[0]][position[1]])
+// //   }
   
-//   return selectedPlayers
+// //   return selectedPlayers
   
-// }
-//N-th Fibonacci
+// // }
+// //N-th Fibonacci
 
-// function nthFibo(n) {
+// // function nthFibo(n) {
 
-//   if (n === 1) {
-//     return 0;
-//   } else if (n === 2) {
-//     return 1;
-//   } else {
-//     return nthFibo(n - 1) + nthFibo(n - 2);
-//   }
+// //   if (n === 1) {
+// //     return 0;
+// //   } else if (n === 2) {
+// //     return 1;
+// //   } else {
+// //     return nthFibo(n - 1) + nthFibo(n - 2);
+// //   }
     
-// }
+// // }
 
-//Sums of Parts (6)
+// //Sums of Parts (6)
 
-// let list = [0, 1, 3, 6, 10]
+// // let list = [0, 1, 3, 6, 10]
 
-// function partsSums(ls) {
+// // function partsSums(ls) {
 
-//   let partSum = []
+// //   let partSum = []
 
-//   let sum = ls.reduce((sum, num) => sum + num, 0)
+// //   let sum = ls.reduce((sum, num) => sum + num, 0)
 
-//   for(let nums of ls){
-//     partSum.push(sum)
-//     sum -= nums
-//   }
+// //   for(let nums of ls){
+// //     partSum.push(sum)
+// //     sum -= nums
+// //   }
 
-//   partSum.push(0)
+// //   partSum.push(0)
 
-// return partSum
-
-
-// }
-
-// console.log(partsSums(list))
+// // return partSum
 
 
-// let num = 3
+// // }
 
-// function pyramid(n) {
+// // console.log(partsSums(list))
+
+
+// // let num = 3
+
+// // function pyramid(n) {
   
-//    if (n === 0) {
-//     return []
-//   } else {
-//     let subArr = Array(n).fill(1)
-//     return pyramid(n - 1).concat([subArr])
-//   }
+// //    if (n === 0) {
+// //     return []
+// //   } else {
+// //     let subArr = Array(n).fill(1)
+// //     return pyramid(n - 1).concat([subArr])
+// //   }
 
-// }
+// // }
 
-// console.log(pyramid(num))
+// // console.log(pyramid(num))
 
-//Write out numbers (5)
+// //Write out numbers (5)
 
-function number2words(n){
+// function number2words(n){
 
-  let ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
-  let tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
-  let teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+//   let ones = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+//   let tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+//   let teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
  
-  if (n >= 999999) {
-    return number2words(Math.floor(n / 100000)) + ' hundred ' + number2words(n % 100000)
-  } else if (n >= 10000) {
-    return number2words(Math.floor(n / 1000)) + ' thousand ' + number2words(n % 1000)
-  } else if (n >= 1000) {
-    const remainder = n % 1000
-    return number2words(Math.floor(n / 1000)) + ' thousand' + (remainder !== 0 ? ' ' + number2words(remainder) : '')
-  } else if (n >= 100) {
-    const remainder = n % 100
-    return number2words(Math.floor(n / 100)) + (remainder !== 0 ? ' hundred ' + number2words(remainder) : ' hundred')
-  } else if (n >= 20) {
-    const remainder = n % 10
-    return tens[Math.floor(n / 10) - 2] + (remainder !== 0 ? '-' + ones[remainder - 1] : '')
-  } else if (n >= 10) {
-    return teens[n % 10]
-  } else if (n > 0) {
-    return ones[n - 1]
-  } else {
-    return "zero"
-  }
+//   if (n >= 999999) {
+//     return number2words(Math.floor(n / 100000)) + ' hundred ' + number2words(n % 100000)
+//   } else if (n >= 10000) {
+//     return number2words(Math.floor(n / 1000)) + ' thousand ' + number2words(n % 1000)
+//   } else if (n >= 1000) {
+//     const remainder = n % 1000
+//     return number2words(Math.floor(n / 1000)) + ' thousand' + (remainder !== 0 ? ' ' + number2words(remainder) : '')
+//   } else if (n >= 100) {
+//     const remainder = n % 100
+//     return number2words(Math.floor(n / 100)) + (remainder !== 0 ? ' hundred ' + number2words(remainder) : ' hundred')
+//   } else if (n >= 20) {
+//     const remainder = n % 10
+//     return tens[Math.floor(n / 10) - 2] + (remainder !== 0 ? '-' + ones[remainder - 1] : '')
+//   } else if (n >= 10) {
+//     return teens[n % 10]
+//   } else if (n > 0) {
+//     return ones[n - 1]
+//   } else {
+//     return "zero"
+//   }
   
+// }
+
+// console.log(number2words(888888))
+
+//Adding Big Numbers (4)
+
+function add(a, b){
+  
+  let result = ''
+  
+
+  a.length < b.length ? a = '0' + a : b = '0' + b
+
+  for(let i = a.length - 1; i >= 0; i--){
+    let sum = parseInt(a[i]) + parseInt(b[i])
+    sum %= 10
+    result = sum + result
+    console.log(result, "result")
+  }
+
+
+  
+  return result
 }
 
-console.log(number2words(888888))
+console.log(add('63829983432984289347293874', '90938498237058927340892374089'))
