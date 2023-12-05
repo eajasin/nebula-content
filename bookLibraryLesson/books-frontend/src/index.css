@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App{
+  border: solid red;
+  height: 100%;
+  width: 100%;
+}
+
+.bookFormContainer {
+  border: solid green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.mainHeading {
+  border: solid;
+}
+
+.owlImage {
+  border: solid;
+  height: 200px;
+  width: 200px
+}
+
+.book{
+  border: solid;
+  
+  width: 500px;
+}
+
+.bookForm{
+  border: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+

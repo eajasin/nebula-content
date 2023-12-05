@@ -3,6 +3,7 @@ import BooksList from "./components/BooksList";
 import AddBookForm from "./components/AddBookForm";
 import AuthorsList from "./components/AuthorsList";
 import AddAuthorForm from "./components/AddAuthorForm";
+import owlImage from "./components/image.png"
 
 
 function App() {
@@ -31,10 +32,12 @@ function App() {
   };
 
   //need to fetch authors; remember to import
+  //filter, press into box where type in id and join all their books with the author, display all books of a particular author; see how to use join
+  //need to make a new API route
 
   return (
     <div class="App">
-      <h1>Book Library</h1>
+      <h1 className="mainHeading">Book Library</h1>
       <button
         onClick={() => {
           setToggleBooks(true);
@@ -50,14 +53,20 @@ function App() {
         Authors
       </button>
       {toggleBooks ? (
-        <div>
+        <div className="bookFormContainer">
+          <img src={owlImage} className="owlImage" />
           <AddBookForm fetchBooks={fetchBooks} />
+          <div className="bookList">
           <BooksList books={books} fetchBooks={fetchBooks} />
+          </div>
         </div>
       ) : (
-        <div>
-        <AddAuthorForm fetchAuthors={fetchAuthors} />
-        <AuthorsList authors={authors} fetchAuthors={fetchAuthors} />
+        <div className="bookFormContainer">
+          <img src={owlImage} className="owlImage" />
+          <AddAuthorForm fetchAuthors={fetchAuthors} />
+          <div className="bookList">
+          <AuthorsList authors={authors} fetchAuthors={fetchAuthors} />
+          </div>
         </div>
       )}
     </div>

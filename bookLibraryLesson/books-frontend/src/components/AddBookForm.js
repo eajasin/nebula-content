@@ -18,7 +18,7 @@ const AddBookForm = ({ fetchBooks }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="bookForm"  onSubmit={handleSubmit}>
    <label for="title">Book Title:</label>
       <input
         type="text"

@@ -18,7 +18,7 @@ const AddAuthorForm = ({ fetchAuthors }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="bookForm" onSubmit={handleSubmit}>
    <label for="title">Author Name:</label>
       <input
         type="text"
