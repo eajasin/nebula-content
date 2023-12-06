@@ -23,5 +23,5 @@ app.get('/contact', db.getContact);
 app.put('/contacts', db.updateContact);
 
 app.listen(port, () => { 
-    console.log(`App running on port ${port}.`) 
+    console.log(`App  port ${port}.`) 
 })

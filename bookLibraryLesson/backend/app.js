@@ -12,9 +12,9 @@ const { Pool } = require("pg")
 
 const pool = new Pool({
   user: "postgres",
-  host: "localhost",
+  host: "library.cfg5tfjeacbl.us-east-2.rds.amazonaws.com",
   database: "books_db",
-  password: "pass",
+  password: "testpass1",
   port: 5432,
 });
 // pool.query("SELECT NOW()", (err, res) => {
