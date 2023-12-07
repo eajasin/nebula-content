@@ -90,21 +90,43 @@
 //Best Time to Buy and Sell Stock
 //input: array of prices, output: integer representing maximum profit you can achieve
 
-let array = [7, 1, 5, 3, 6, 4]
+// let array = [7, 1, 5, 3, 6, 4]
 
-const maxProfit = (prices) => {
-        let minimumPrice = Infinity
-        let maximumProfit = 0
+// const maxProfit = (prices) => {
+//         let minimumPrice = Infinity
+//         let maximumProfit = 0
 
-        for(let i = 0; i < prices.length; i ++){
-                if (prices[i] < minimumPrice){
-                        minimumPrice = prices[i]
-                } else if (prices[i] - minimumPrice > maximumProfit){
-                        maximumProfit = prices[i] - minimumPrice
-                }
+//         for(let i = 0; i < prices.length; i ++){
+//                 if (prices[i] < minimumPrice){
+//                         minimumPrice = prices[i]
+//                 } else if (prices[i] - minimumPrice > maximumProfit){
+//                         maximumProfit = prices[i] - minimumPrice
+//                 }
 
-        }
-        return maximumProfit
-}
+//         }
+//         return maximumProfit
+// }
 
-console.log(maxProfit(array))
+// console.log(maxProfit(array))
+
+//Binary Search
+
+// var search = function(nums, target, firstIndex, lastIndex) {
+  
+//         if (firstIndex > lastIndex) {
+//           return -1;
+//         }
+      
+//         let midIndex = Math.floor((firstIndex + lastIndex) / 2)
+      
+//         if (nums[midIndex] === target) {
+//           return midIndex
+//         } else if (nums[midIndex] < target) {
+//           return search(nums, target, firstIndex + 1, lastIndex)
+         
+//         }
+//       }
+      
+//       console.log(search([-1,0,3,5,9,12], 9,))
+      
+//       //NOT DONE

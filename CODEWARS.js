@@ -3176,23 +3176,25 @@ The Hashtag Generator (5)
 
 //Adding Big Numbers (4)
 
-function add(a, b){
+// function add(a, b){
   
-  let result = ''
+//   let result = ''
   
 
-  a.length < b.length ? a = '0' + a : b = '0' + b
+//   a.length < b.length ? a = '0' + a : b = '0' + b
 
-  for(let i = a.length - 1; i >= 0; i--){
-    let sum = parseInt(a[i]) + parseInt(b[i])
-    sum %= 10
-    result = sum + result
-    console.log(result, "result")
-  }
+//   for(let i = a.length - 1; i >= 0; i--){
+//     let sum = parseInt(a[i]) + parseInt(b[i])
+//     sum %= 10
+//     result = sum + result
+//     console.log(result, "result")
+//   }
 
 
   
-  return result
-}
+//   return result
+// }
 
-console.log(add('63829983432984289347293874', '90938498237058927340892374089'))
+// console.log(add('63829983432984289347293874', '90938498237058927340892374089'))
+
+
