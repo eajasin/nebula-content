@@ -7,7 +7,7 @@ const AddAuthorForm = ({ fetchAuthors }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await fetch("http://localhost:3000/authors", {
+    await fetch("https://d11vxar4wz38b6.cloudfront.net/authors", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

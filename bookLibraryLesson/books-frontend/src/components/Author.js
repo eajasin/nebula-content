@@ -9,7 +9,7 @@ const Author = ({ author, fetchAuthors }) => {
     const [nationality, setNationality] = useState(author.nationality)
 
     const handleDelete = async () => {
-        await fetch(`http://localhost:3000/authors/${author.id}`, { method: "DELETE" })
+        await fetch(`https://d11vxar4wz38b6.cloudfront.net/authors/${author.id}`, { method: "DELETE" })
             .then((res, err) => {
                 console.log(res, err)
             })
@@ -30,7 +30,7 @@ const Author = ({ author, fetchAuthors }) => {
             dob: dob,
             nationality: nationality
         }
-        await fetch(`http://localhost:3000/authors/${author.id}`, {
+        await fetch(`https://d11vxar4wz38b6.cloudfront.net/authors${author.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

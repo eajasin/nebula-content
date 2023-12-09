@@ -1,2 +1,2 @@
-else {
-    return "zero";
+ // let average = 
+    // let median = 

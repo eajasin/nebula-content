@@ -7,7 +7,7 @@ const AddBookForm = ({ fetchBooks }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await fetch("http://localhost:3000/books", {
+    await fetch("https://d11vxar4wz38b6.cloudfront.net/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

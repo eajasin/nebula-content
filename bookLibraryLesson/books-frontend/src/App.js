@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   const fetchBooks = async () => {
-    const response = await fetch("http://localhost:3000/books")
+    const response = await fetch("https://d11vxar4wz38b6.cloudfront.net/books")
     const data = await response.json();
     setBooks(data);
   };
@@ -26,7 +26,7 @@ function App() {
   }, []);
 
   const fetchAuthors = async () => {
-    const response = await fetch("http://localhost:3000/authors")
+    const response = await fetch("https://d11vxar4wz38b6.cloudfront.net/authors")
     const data = await response.json();
     setAuthors(data);
   };

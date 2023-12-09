@@ -2885,18 +2885,18 @@ The Hashtag Generator (5)
 // let num = 152
 
 // function deleteDigit(n) {
-  
+
 //   nAsString = n.toString()
 //   let maxNum = 0
-  
+
 //    for(i = 0; i < nAsString.length; i++){
 //       let remainingNums = (nAsString.slice(0, i)) + (nAsString.slice(i + 1))
 
 //       console.log(remainingNums)
 //       let newNum = parseInt(remainingNums)
-      
 
-      
+
+
 //       if (newNum > maxNum){
 //         maxNum = newNum
 //       }
@@ -2933,7 +2933,7 @@ The Hashtag Generator (5)
 //let string = "Reverse this string, please!"
 
 // function reverse(str){
-  
+
 //   let arr = str.split(" ")
 
 //   for (let i = 1; i < arr.length; i += 2) {
@@ -2961,7 +2961,7 @@ The Hashtag Generator (5)
 //   let jPerm = []
 
 //   while(items.length > 0){
-    
+
 //     i = (i + k - 1) % items.length
 
 //     jPerm.push(items.splice(i, 1)[0])
@@ -2983,9 +2983,9 @@ The Hashtag Generator (5)
 // function stringTransformer(str) {
 
 //   str = str.split("")
-  
+
 //   let newString = str.map(letter => {
-    
+
 //     if(letter === letter.toUpperCase()){
 //       return letter.toLowerCase()
 //     } else {
@@ -3003,7 +3003,7 @@ The Hashtag Generator (5)
 //Valid Braces (6)
 
 // function validBraces(braces){
- 
+
 //   let openings = {'(': ')','[': ']','{': '}'}
 
 //   let closings = {')': '(', ']': '[', '}': '{'}
@@ -3031,22 +3031,22 @@ The Hashtag Generator (5)
 //Valid Phone Number (6)
 
 // function validPhoneNumber(phoneNumber){
- 
+
 //   phoneNumber = phoneNumber.split('');
 
 //   for (let i = 0; i < phoneNumber.length; i++) {
 //     let num = phoneNumber[i];
 
 //     if (i === 0 && num === '(' || i === 4 && num === ')' || i === 5 && num === ' ' || i === 9 && num === '-') {
-      
+
 //       } else if (isNaN(parseInt(num))){
-     
+
 //       return false;
 //     }
 //   }
 //   return true
 // }
-  
+
 
 
 // console.log(validPhoneNumber('(123) 456-7890'))
@@ -3079,12 +3079,12 @@ The Hashtag Generator (5)
 // //         }
 // //         break
 // //       }
-      
+
 // //     selectedPlayers.push(fighters[position[0]][position[1]])
 // //   }
-  
+
 // //   return selectedPlayers
-  
+
 // // }
 // //N-th Fibonacci
 
@@ -3097,7 +3097,7 @@ The Hashtag Generator (5)
 // //   } else {
 // //     return nthFibo(n - 1) + nthFibo(n - 2);
 // //   }
-    
+
 // // }
 
 // //Sums of Parts (6)
@@ -3128,7 +3128,7 @@ The Hashtag Generator (5)
 // // let num = 3
 
 // // function pyramid(n) {
-  
+
 // //    if (n === 0) {
 // //     return []
 // //   } else {
@@ -3148,7 +3148,7 @@ The Hashtag Generator (5)
 //   let tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 //   let teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
- 
+
 //   if (n >= 999999) {
 //     return number2words(Math.floor(n / 100000)) + ' hundred ' + number2words(n % 100000)
 //   } else if (n >= 10000) {
@@ -3169,7 +3169,7 @@ The Hashtag Generator (5)
 //   } else {
 //     return "zero"
 //   }
-  
+
 // }
 
 // console.log(number2words(888888))
@@ -3177,9 +3177,9 @@ The Hashtag Generator (5)
 //Adding Big Numbers (4)
 
 // function add(a, b){
-  
+
 //   let result = ''
-  
+
 
 //   a.length < b.length ? a = '0' + a : b = '0' + b
 
@@ -3191,10 +3191,136 @@ The Hashtag Generator (5)
 //   }
 
 
-  
+
 //   return result
 // }
 
 // console.log(add('63829983432984289347293874', '90938498237058927340892374089'))
 
+//Did You Mean? (5)
 
+// function Dictionary(words) {
+//     this.words = words
+
+//   }
+
+//   function levenshteinDistance (source, target){
+//     if (!source.length) return t.length;
+//   if (!target.length) return source.length;
+//   const arr = [];
+//   for (let i = 0; i <= target.length; i++) {
+//     arr[i] = [i];
+//     for (let j = 1; j <= source.length; j++) {
+//       arr[i][j] =
+//         i === 0
+//           ? j
+//           : Math.min(
+//               arr[i - 1][j] + 1,
+//               arr[i][j - 1] + 1,
+//               arr[i - 1][j - 1] + (source[j - 1] === target[i - 1] ? 0 : 1)
+//             );
+//     }
+//   }
+//   return arr[target.length][source.length];
+//   }
+
+// Dictionary.prototype.findMostSimilar = function(term) {
+
+
+//     let wordsInDictionary = this.words;
+//   let mostSimilarWord = "";
+//   let minDistance = Infinity;
+
+
+
+//   return 
+//   }
+
+//Statistics for an Athletic Association (6)
+
+// function stat(strg) {
+
+//     //edge case
+//     if (strg === "") {
+//         return ""
+//     }
+
+//     //need function to convert string of times (hr|min|sec) to seconds (as #)
+//     function timeStringToSeconds(strg) {
+//         let [hr, min, sec] = strg.split('|').map(Number)
+//         return hr * 3600 + min * 60 + sec
+//     }
+
+//     console.log(timeStringToSeconds("01|15|59"), "string as seconds")
+
+//     //need seconds as a sorted array
+//     let secondsArray = strg.split(", ").map(timeStringToSeconds).sort((a, b) => a - b)
+
+//     console.log(secondsArray, "time as array of seconds")
+
+//     //calculate range, median, median
+
+//     let min = Math.min(...secondsArray)
+//     let max = Math.max(...secondsArray)
+//     let range = max - min
+//     console.log(range, "range")
+
+//     let sumOfSec = secondsArray.reduce((sum, num) => sum + num, 0)
+//     let average = Math.floor(sumOfSec / secondsArray.length)
+//     console.log(average, "average")
+
+
+//     function getMedian(secondsArray) {
+//         let midIndex = Math.floor(secondsArray.length / 2)
+//         if (secondsArray.length % 2 === 0) {
+//             return Math.floor((secondsArray[midIndex] + secondsArray[midIndex - 1]) / 2)
+//         } else {
+//             return (secondsArray[midIndex])
+//         }
+//     }
+//     console.log(getMedian(secondsArray), "median")
+
+
+//     //need function to convert seconds to a string
+//     function secondsToTimeString(seconds) {
+
+//         let hr = Math.floor(seconds / 3600)
+//         let min = Math.floor((seconds % 3600) / 60)
+//         let sec = seconds % 60
+
+//         return `${String(hr).padStart(2, '0')}|${String(min).padStart(2, '0')}|${String(sec).padStart(2, '0')}`
+//     }
+
+//     console.log(secondsToTimeString(timeStringToSeconds("01|15|59")))
+
+//     return `Range: ${secondsToTimeString(range)} Average: ${secondsToTimeString(average)} Median: ${secondsToTimeString(getMedian(secondsArray))}`
+
+// }
+
+
+// console.log(stat("01|15|59, 1|47|16, 01|17|20, 1|32|34, 2|17|17"))
+
+//Beeramid (5)
+
+var beeramid = function (bonus, price) {
+
+    // # of cans is the square of each level number
+
+    let completeLevels = 0
+    let totalCost = 0
+    
+
+
+    while (bonus >= totalCost) {
+
+        let numOfCans = Math.pow(++completeLevels, 2)
+
+        
+        totalCost = numOfCans * price
+
+    }
+
+    return completeLevels
+}
+
+console.log(beeramid(455, 5))

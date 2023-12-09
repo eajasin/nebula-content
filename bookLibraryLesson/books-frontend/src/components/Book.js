@@ -8,7 +8,7 @@ const Book = ({ book, fetchBooks }) => {
   const [publicationYear, setPublicationYear] = useState(book.publication_year)
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/books/${book.id}`, { method: "DELETE" })
+    await fetch(`https://d11vxar4wz38b6.cloudfront.net/books/${book.id}`, { method: "DELETE" })
       .then((res, err) => {
         console.log(res, err)
       })
@@ -30,7 +30,7 @@ const Book = ({ book, fetchBooks }) => {
       publication_year: publicationYear
     }
 
-    await fetch(`http://localhost:3000/books/${book.id}`, {
+    await fetch(`https://d11vxar4wz38b6.cloudfront.net/books/${book.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
