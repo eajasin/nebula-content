@@ -130,3 +130,32 @@
 //       console.log(search([-1,0,3,5,9,12], 9,))
       
 //       //NOT DONE
+
+//Join Two Arrays by ID
+
+var join = function(arr1, arr2) {
+    let joinedArr = []
+  
+    const uniqueIds = new Set()
+   
+    for (const arr of [arr1, arr2]) {
+      for (const obj of arr) {
+        const id = obj.id
+  
+        if (!uniqueIds.has(id)) {
+          joinedArr.push(obj)
+          uniqueIds.add(id)
+        } else {
+        
+          const existingIndex = joinedArr.findIndex((o) => o.id === id)
+          const existingObj = joinedArr[existingIndex]
+  
+          joinedArr[existingIndex] = Object.assign({}, existingObj, obj)
+        }
+      }
+    }
+  
+    return joinedArr
+}
+  
+      
